@@ -4,18 +4,30 @@ import CategoryBtn from "../../styledComponents/categoryBtn";
 import Carrousel from "../../components/carrousel/Carrousel";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getTracks } from "../../services/dataService";
-import { Playlist, Track } from "../../types/data";
+import { getAlbums, getPlaylists, getTracks } from "../../services/dataService";
+import { Album, Playlist, Track } from "../../types/data";
 
 
 const Home = () => {
   const [isActive, setIsActive] = useState(true);
 
-  const query = useQuery({
+  const queryTracks = useQuery({
     queryKey: ["tracks"],
     queryFn: async () => await getTracks(),
   });
-  const trackArray: Track[] = query.data;
+  const trackArray: Track[] = queryTracks.data;
+
+  const queryPlaylist = useQuery({
+    queryKey: ["playlist"],
+    queryFn: async () => await getPlaylists(),
+  });
+  const playlistArray: Playlist[] = queryPlaylist.data;
+
+  const queryAlbum = useQuery({
+    queryKey: ["album"],
+    queryFn: async () => await getAlbums(),
+  });
+  const albumArray: Album[] = queryAlbum.data;
 
   return (
     <>
@@ -33,16 +45,20 @@ const Home = () => {
         <CategoryBtn>Podcasts</CategoryBtn>
         <CategoryBtn>AudioBooks</CategoryBtn>
       </section>
-      <section className="home-recently-played">
-        <h2>Fav Songs</h2>
+      <section className="home-fav-songs">
+        <h2>More like Taylor Swift</h2>
         <Carrousel
-        data={trackArray}
+        dataTrack={trackArray}
         isActive={isActive}
         />
       </section>
       <section className="home-recently-played">
         <h2>Recently played</h2>
-        <Carrousel />
+        <Carrousel dataPlaylist={playlistArray} />
+      </section>
+      <section className="home-jump-back-in">
+        <h2>Jump back in</h2>
+        <Carrousel dataAlbum={albumArray} />
       </section>
     </>
   );

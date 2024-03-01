@@ -5,6 +5,7 @@ html{
     background-color: var(--color-primary);
     color: var(--color-text);
     font-family: 'Be Vietnam Pro', sans-serif;
+    margin: 2rem;
 }
 
 .home-settings-btn{
@@ -15,13 +16,14 @@ html{
 .home-welcome-section{
     display: flex;
     justify-content: space-between;
-    margin: 2rem;
+    margin: 0.5rem;
 }
 
 .home-username{
     font-size: 2rem
 }
 
-.home-fav-songs{
+.home-fav-songs, .home-jump-back-in, .home-recently-played{
     overflow-x: auto;
+    margin-top: 2rem;
 }
