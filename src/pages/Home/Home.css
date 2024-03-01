@@ -1,0 +1,26 @@
+@import url('../../styles/colors.css');
+
+html{
+    font-size: 62.5%; /* 1rem = 10px (10px / 16 * 100%) */
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.home-settings-btn{
+    border: none;
+    background-color: var(--color-primary);
+}
+
+.home-welcome-section{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.home-username{
+    font-size: 2rem
+}
+
+.home-fav-songs{
+    overflow-x: auto;
+}

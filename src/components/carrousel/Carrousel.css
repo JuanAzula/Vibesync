@@ -1,0 +1,10 @@
+.products_scroll {
+    display: flex;
+    width: fit-content;
+    /* transition: transform 0.3s ease;   */
+}
+
+/* .products_scroll > * {   
+    flex: 0 0 100%;  
+} */
+
