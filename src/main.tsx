@@ -8,7 +8,7 @@ import Home from "./pages/Home/index.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={new QueryClient()}>
-    <App />
+    <Home />
     </QueryClientProvider>
   </React.StrictMode>
 );

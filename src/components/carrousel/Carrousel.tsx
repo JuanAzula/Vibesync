@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react'
-import { getTracks } from '../../services/tracksService';
+import { getTracks } from '../../services/dataService';
 import { Track } from '../../types/data';
 import SongCard from '../songCard';
 import './Carrousel.css'

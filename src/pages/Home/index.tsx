@@ -4,7 +4,7 @@ import CategoryBtn from "../../styledComponents/categoryBtn";
 import Carrousel from "../../components/carrousel/Carrousel";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getTracks } from "../../services/tracksService";
+import { getTracks } from "../../services/dataService";
 import { Track } from "../../types/data";
 
 
