@@ -58,4 +58,5 @@ export interface User {
   email: string
   profilePicture: string
   isLoggedin: boolean
+  password: string
 }

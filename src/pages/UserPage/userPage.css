@@ -22,3 +22,7 @@ body {
   margin-left: 1rem;
 }
 
+.user-fav-songs, .user-albums{
+  overflow-x: auto;
+}
+

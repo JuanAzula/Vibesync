@@ -8,7 +8,15 @@ import { UserPage } from './pages/UserPage/index.tsx'
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={new QueryClient()}>
-    <App />
+    <UserPage user={{
+      id: 1,
+      first_name: "Assembler",
+      last_name: "Institute",
+      email: "music@assemblerschool.com",
+      profilePicture: "https://robohash.org/suntvoluptasnisi.png?size=50x50&set=set1",
+      isLoggedin: false,
+      password: "123456K*"
+    }} />
     </QueryClientProvider>
   </React.StrictMode>
 );
