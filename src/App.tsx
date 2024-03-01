@@ -16,7 +16,7 @@ export const App = () => {
       <h1>Tracks</h1>
       <ul>
         {query.data?.map((track) => (
-          <li key={track.id}>{track.name}</li>
+            <li key={track.id}>{track.name}</li>
         ))}
       </ul>
     </div>
