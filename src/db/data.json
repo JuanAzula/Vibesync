@@ -280,7 +280,8 @@
             "last_name": "Institute",
             "email": "music@assemblerschool.com",
             "profilePicture": "https://robohash.org/suntvoluptasnisi.png?size=50x50&set=set1",
-            "isLoggedin": false
+            "isLoggedin": false,
+            "password": "123456K*"
         }
     ],
     "albums": [

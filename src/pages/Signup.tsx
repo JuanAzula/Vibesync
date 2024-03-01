@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom'
 interface LoginProps {
   triggerRefetch: () => void
 }
-export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
+export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
   const userQuery = useQuery({
     queryKey: ['user'],
     queryFn: async () => await fetchUsers()
   })
 
-  const handleLogin = async (event: React.FormEvent) => {
+  const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault()
 
     if (username && password) {
@@ -77,9 +77,9 @@ export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
 
   return (
           <div className='login--container'>
-              <h1 className='login--header'>Login</h1>
+              <h1 className='login--header'>Signup to start listening to content</h1>
 
-              <form onSubmit={handleLogin} className="login-form">
+              <form onSubmit={handleSignup} className="login-form">
                   <input
                       className='input'
                       type="text"
@@ -100,8 +100,7 @@ export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
                   {passwordError && <div className="error-password">{passwordError}</div>}
                   {emailError && <div className="error-email">{emailError}</div>}
                   <button className='button' style={{ height: '30px' }} type="submit">Login</button>
-                  <Link to="/signup">Don`t have an account?Signup</Link>
-
+                  <Link to="/login">Already have an account?Login</Link>
               </form>
           </div>
   )
