@@ -279,7 +279,7 @@
             "first_name": "Assembler",
             "last_name": "Institute",
             "email": "music@assemblerschool.com",
-            "profilePicture": "https://robohash.org/suntvoluptasnisi.png?size=50x50&set=set1",
+            "profilePicture": "/src/assets/profile_pic.png",
             "isLoggedin": false
         }
     ],

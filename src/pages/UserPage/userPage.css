@@ -1,0 +1,10 @@
+.user_container {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_container img {
+  width: 30%;
+}
