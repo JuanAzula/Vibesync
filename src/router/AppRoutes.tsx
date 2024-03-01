@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from '../pages/Login'
 import { Home } from '../pages/Home'
 import { useQuery } from '@tanstack/react-query'
-import { Signup } from '../pages/Signup'
+// import { Signup } from '../pages/Signup'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -20,7 +20,7 @@ export const AppRoutes = () => {
   })
 
   const handleLoginSuccess = () => {
-    queryUserLogged.refetch()
+    void queryUserLogged.refetch()
     console.log(queryUserLogged.data)
   }
   console.log(queryUserLogged.data)
@@ -28,7 +28,7 @@ export const AppRoutes = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/"
-                //  element={<Home />}
+                 element={ queryUserLogged.data ? <Home /> : <Login triggerRefetch={handleLoginSuccess} />}
                  />
                 <Route path="/login"
                 //  element={<Login />}
