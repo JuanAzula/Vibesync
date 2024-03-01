@@ -12,7 +12,12 @@ export const getUsers = async () => {
   return response.data
 }
 
-export const getPlaylists = async () => {
-  const response = await axios.get(BASE_URL + 'playlists')
+export const getArtists = async () => {
+  const response = await axios.get(BASE_URL + 'artists')
+  return response.data
+}
+
+export const getAlbums = async () => {
+  const response = await axios.get(BASE_URL + 'albums')
   return response.data
 }
