@@ -7,7 +7,7 @@ export const getTracks = async () => {
   return response.data
 }
 
-// export const getUsers = async () => {
-//   const response = await axios.get(BASE_URL + 'user')
-//   return response.data
-// }
+export const getUsers = async () => {
+  const response = await axios.get(BASE_URL + 'user')
+  return response.data
+}
