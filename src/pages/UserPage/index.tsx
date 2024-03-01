@@ -1,35 +1,25 @@
-// import { QueryClient, QueryClientProvider, useQuery, UseQueryResult } from 'react-query';
 import './userPage.css'
-// import { getUsers } from '../../services/tracksService'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { User } from '../../types/data';
+
 
 type Props = {
-  user: {
-    id: number,
-    first_name: string,
-    last_name: string,
-    email: string,
-    profilePicture: string,
-    isLoggedin: boolean
-  }
+  user: User
 }
 
 //aqui le llega por props, por context o lo que sea el usuario.
 export const UserPage = ({user}: Props) => {
-  // const query = useQuery({
-  //   queryKey: ['tracks'],
-  //   queryFn: async () => await getUsers()
-  // })
-
-  // console.log(query.data)
 
   return (
     <>
       {/* {query.data && query.data[0] && ( */}
-        <div className="user_container">
-          <img src={user.profilePicture} alt="" />
-          <h2>{user.first_name} {user.last_name}</h2>
-        </div>
+      <div className="user_container">
+        <img src={user.profilePicture} alt="" />
+        <h2 className='user_name'>{user.first_name} {user.last_name}</h2>
+      </div>
       {/* )} */}
+      <FontAwesomeIcon className='back_button' icon={faArrowLeft} />
     </>
   )
 }

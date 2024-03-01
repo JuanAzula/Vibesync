@@ -1,5 +1,12 @@
+@import url(/src/styles/colors.css);
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+}
+
 .user_container {
-  margin: 1rem auto;
+  margin: 1rem auto 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,4 +14,11 @@
 
 .user_container img {
   width: 30%;
+  object-fit: cover;
 }
+
+.back_button {
+  font-size: 1.6rem;
+  margin-left: 1rem;
+}
+
