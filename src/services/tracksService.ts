@@ -6,3 +6,4 @@ export const getTracks = async () => {
   const response = await axios.get(BASE_URL + 'tracks')
   return response.data
 }
+
