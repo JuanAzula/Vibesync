@@ -4,6 +4,7 @@ html{
     font-size: 62.5%; /* 1rem = 10px (10px / 16 * 100%) */
     background-color: var(--color-primary);
     color: var(--color-text);
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 .home-settings-btn{

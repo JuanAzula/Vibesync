@@ -5,7 +5,7 @@ import Carrousel from "../../components/carrousel/Carrousel";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getTracks } from "../../services/dataService";
-import { Track } from "../../types/data";
+import { Playlist, Track } from "../../types/data";
 
 
 const Home = () => {
@@ -30,15 +30,20 @@ const Home = () => {
       </section>
       <section>
         <CategoryBtn>Music</CategoryBtn>
+        <CategoryBtn>Podcasts</CategoryBtn>
+        <CategoryBtn>AudioBooks</CategoryBtn>
       </section>
-      <section className="home-fav-songs">
-        <h3>Fav Songs</h3>
-        <Carrousel 
+      <section className="home-recently-played">
+        <h2>Fav Songs</h2>
+        <Carrousel
         data={trackArray}
-        isActive={isActive}  
+        isActive={isActive}
         />
       </section>
-      
+      <section className="home-recently-played">
+        <h2>Recently played</h2>
+        <Carrousel />
+      </section>
     </>
   );
 };
