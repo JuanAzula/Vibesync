@@ -11,5 +11,6 @@ const CategoryBtn = styled.button`
     padding-left: 1.6rem;
     padding-right: 1.6rem;
     margin: 0.4rem;
+    cursor: pointer;
 `
 export default CategoryBtn

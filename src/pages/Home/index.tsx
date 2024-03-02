@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAlbums, getPlaylists, getTracks } from "../../services/dataService";
 import { Album, Playlist, Track } from "../../types/data";
+import { PlaylistMiniCard } from "../../components/playlistMiniCard/PlaylistMiniCard";
 
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
 
   return (
     <>
+    <main className="home-main-container">
       <section className="home-welcome-section">
         <h3>
           Good afternoon,
@@ -44,6 +46,13 @@ const Home = () => {
         <CategoryBtn>Music</CategoryBtn>
         <CategoryBtn>Podcasts</CategoryBtn>
         <CategoryBtn>AudioBooks</CategoryBtn>
+      </section>
+      <section className="home-miniplaylist-display">
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
       </section>
       <section className="home-fav-songs">
         <h2>More like Taylor Swift</h2>
@@ -60,6 +69,7 @@ const Home = () => {
         <h2>Jump back in</h2>
         <Carrousel dataAlbum={albumArray} />
       </section>
+    </main>
     </>
   );
 };

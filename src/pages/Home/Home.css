@@ -5,12 +5,17 @@ html{
     background-color: var(--color-primary);
     color: var(--color-text);
     font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.home-main-container{
     margin: 2rem;
+
 }
 
 .home-settings-btn{
     border: none;
     background-color: var(--color-primary);
+    cursor: pointer;
 }
 
 .home-welcome-section{
@@ -26,4 +31,11 @@ html{
 .home-fav-songs, .home-jump-back-in, .home-recently-played{
     overflow-x: auto;
     margin-top: 2rem;
+}
+
+.home-miniplaylist-display{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+    margin-top: 2rem
 }
