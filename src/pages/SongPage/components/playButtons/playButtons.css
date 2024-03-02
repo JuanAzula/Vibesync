@@ -1,0 +1,10 @@
+.button-container {
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.button-container svg {
+  font-size: 2.3rem;
+}
