@@ -1,26 +1,29 @@
-import './navbar.css'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import HomeIcon from '../../assets/icons/home-outline.svg'
 import SearchIcon from '../../assets/icons/search-circle.svg'
 import LibraryIcon from '../../assets/icons/book-outline.svg'
+import './navbar.css'
 
-type NavbarProps = NonNullable<unknown>
-
-// eslint-disable-next-line no-empty-pattern
-export function Navbar ({}: NavbarProps) {
+const Navbar: React.FC = () => {
   return (
     <>
-    <nav className="navbar">
-        <Link to="/">
-            <img src={HomeIcon} alt="Home button" style={{ width: '26px' }}/>
-        </Link>
-        <Link to="/search">
-            <img src={SearchIcon} alt="Search button" style={{ width: '26px' }} />
-        </Link>
-        <Link to="/library">
-            <img src={LibraryIcon} alt="Library icon" style={{ width: '29px' }}/>
-        </Link>
-    </nav>
+<div>
+      <nav className="navbar">
+        <div className="navbar-item">
+          <img src={HomeIcon} alt="Home button" className="icon" />
+          {/* <Link to="/">Inicio</Link> */}
+        </div>
+        <div className="navbar-item">
+          <img src={SearchIcon} alt="Search button" className="icon" />
+          {/* <Link to="/search">Buscar</Link> */}
+        </div>
+        <div className="navbar-item">
+          <img src={LibraryIcon} alt="Library icon" className="icon" />
+          {/* <Link to="/library">Mi música</Link> */}
+        </div>
+      </nav>
+    </div>
     </>
   )
 }
+export default Navbar
