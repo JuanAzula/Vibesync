@@ -25,9 +25,7 @@ const Carrousel = ({dataTrack, dataArtist, dataAlbum, isActive, dataPlaylist}: P
       {dataTrack && (
         <div className="products_scroll">
           {dataTrack.map(track => (
-            <Link to="/song/:{track.id}">
               <SongCard key={track.id} track={track} isActive={isActive} />
-            </Link>
           ))}
         </div>
       )}
