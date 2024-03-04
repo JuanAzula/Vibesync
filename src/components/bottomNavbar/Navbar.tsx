@@ -1,8 +1,8 @@
-// import { Link } from 'react-router-dom'
 import HomeIcon from '../../assets/icons/home-outline.svg'
 import SearchIcon from '../../assets/icons/search-circle.svg'
 import LibraryIcon from '../../assets/icons/book-outline.svg'
 import './navbar.css'
+import { Link } from 'react-router-dom'
 
 const Navbar: React.FC = () => {
   return (

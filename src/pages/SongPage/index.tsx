@@ -3,18 +3,21 @@ import { type Track } from '../../types/data'
 import { PlayButtons } from './components/playButtons'
 import { SongDetails } from './components/songDetails'
 import './songPage.css'
+import { useParams } from 'react-router-dom'
 
 interface Props {
   song: Track
 }
 
-export const SongPage = ({ song }: Props) => {
+export const SongPage = () => {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [songDuration, setSongDuration] = useState('00:00')
   const [isMuted, setIsMuted] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [progressWidth, setProgressWidth] = useState('0%')
+
+  const songId = useParams()
 
   /// /Cuando tengáis las canciones y les redireccione aquí, este código servirá para reproducir la canción de manera automática (CREO) porque el usuario ya habrá interactuado. Poneis el initialValue del isPlaying en TRUE, y este useEffect
   // useEffect(() => {

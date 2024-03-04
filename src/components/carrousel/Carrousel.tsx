@@ -7,6 +7,7 @@ import './Carrousel.css'
 import { ArtistCard } from '../artistCard';
 import { AlbumCard } from '../albumCard';
 import { PlaylistCard } from '../playlistCard/PlaylistCard';
+import { Link } from 'react-router-dom';
 
 type Props = {
     dataTrack?: Track[],
@@ -24,7 +25,7 @@ const Carrousel = ({dataTrack, dataArtist, dataAlbum, isActive, dataPlaylist}: P
       {dataTrack && (
         <div className="products_scroll">
           {dataTrack.map(track => (
-            <SongCard key={track.id} track={track} isActive={isActive} />
+              <SongCard key={track.id} track={track} isActive={isActive} />
           ))}
         </div>
       )}
