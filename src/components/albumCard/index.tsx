@@ -5,7 +5,7 @@ type Props = {
   album: Album;
 };
 
-export const AlbumCard = ({ album}: Props) => {
+export const AlbumCard = ({album}: Props) => {
   return (
     <div className="album-container">
       <img src={album.imageUrl} />
