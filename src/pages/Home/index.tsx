@@ -8,7 +8,7 @@ import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
 import { type Album, type Playlist, type Track } from '../../types/data'
 import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
 
-const Home = () => {
+export const Home = () => {
   const [isActive, setIsActive] = useState(true)
 
   const queryTracks = useQuery({
@@ -72,5 +72,3 @@ const Home = () => {
     </>
   )
 }
-
-export default Home
