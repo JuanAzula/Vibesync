@@ -39,7 +39,7 @@ export const AppRoutes = () => {
             )
           }
         />
-        <Route path="/tracks/:trackId" element={SongPage}  />
+        <Route path="/tracks/:trackId" element={<SongPage/>}  />
         {/* <Route path="/login"
                  element={<Login />}
                  /> */}
