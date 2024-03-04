@@ -4,12 +4,30 @@ import { PlayButtons } from './components/playButtons'
 import { SongDetails } from './components/songDetails'
 import './songPage.css'
 import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getTrack as fetchTrack } from '../../services/dataService'
 
 interface Props {
   song: Track
 }
 
+const getTrack = async (trackId: any) => {
+  console.log(trackId)
+  if (trackId) {
+    const track = await fetchTrack(trackId)
+    console.log('track', track)
+    return track
+  }
+}
+
 export const SongPage = () => {
+  const { trackId } = useParams()
+
+  const queryTrack = useQuery({
+    queryKey: ['track'],
+    queryFn: async () => await getTrack(trackId)
+  })
+  console.log('queryTrack', queryTrack.data?.url)
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [songDuration, setSongDuration] = useState('00:00')
@@ -17,12 +35,10 @@ export const SongPage = () => {
   const [currentTime, setCurrentTime] = useState(0)
   const [progressWidth, setProgressWidth] = useState('0%')
 
-  const songId = useParams()
-
   /// /Cuando tengáis las canciones y les redireccione aquí, este código servirá para reproducir la canción de manera automática (CREO) porque el usuario ya habrá interactuado. Poneis el initialValue del isPlaying en TRUE, y este useEffect
-  // useEffect(() => {
-  //   if (isPlaying && audioRef.current) audioRef.current.play();
-  // },[isPlaying])
+  useEffect(() => {
+    if (isPlaying && audioRef.current) audioRef.current.play()
+  }, [isPlaying])
 
   /// esto junto con el audioRef pódeis meterlo en un custom Hook si queréis (usePlay), porque lo utilizaréis más veces. No lo hago por no liar
   const togglePlay = () => {
@@ -44,7 +60,7 @@ export const SongPage = () => {
     }
   }
 
-  /// lo mismo con esta función, metedla en una carpeta de utils/globals para limpiar el código. Lo dejo aquí para que os sea más fácil entederlo. Explicación-> Simplemente coges la duraciónm, que te la dan en segundos, y la separas en minutos y segundos.
+  // /// lo mismo con esta función, metedla en una carpeta de utils/globals para limpiar el código. Lo dejo aquí para que os sea más fácil entederlo. Explicación-> Simplemente coges la duraciónm, que te la dan en segundos, y la separas en minutos y segundos.
   const getSongDuration = (audioRef: React.RefObject<HTMLAudioElement>, setSongDuration: React.Dispatch<React.SetStateAction<string>>) => {
     if (audioRef.current && audioRef.current.duration) {
       const duration = audioRef.current?.duration
@@ -100,8 +116,8 @@ export const SongPage = () => {
 
   return (
       <>
-        <SongDetails song={song} />
-        <audio ref={audioRef} src={song.url} />
+        <SongDetails song={queryTrack.data ? queryTrack.data : {}} />
+        <audio ref={audioRef} src={queryTrack.data ? queryTrack.data.url : {}} />
         <div className="progress-bar" onClick={handleProgressClick}>
           <div className="progress" style={{ width: progressWidth }}></div>
           <div className="progress-indicator" style={{ left: progressWidth }}></div>

@@ -11,7 +11,7 @@ type Props = {
 const SongCard = ({ track, isActive }: Props) => {
   return (
     <div className="songcard-container">
-      <StyledLink to={`/tracks/:${track.id}`}>
+      <StyledLink to={`/tracks/${track.id}`}>
       <img src={track.thumbnail} />
       <div>
         <h3>{track.name}</h3>
