@@ -1,5 +1,5 @@
 .button-container {
-  margin: 3rem auto;
+  margin: 1rem auto 3rem;
   display: flex;
   justify-content: center;
   gap: 3rem;
@@ -7,4 +7,16 @@
 
 .button-container svg {
   font-size: 2.3rem;
+}
+
+.duration-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.mute-btn {
+  display: flex;
+  margin: auto;
+  font-size: 1.5rem;
 }
