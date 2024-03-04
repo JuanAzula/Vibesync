@@ -9,7 +9,7 @@ import { Album, Playlist, Track } from "../../types/data";
 import { PlaylistMiniCard } from "../../components/playlistMiniCard/PlaylistMiniCard";
 
 
-const Home = () => {
+export const Home = ({user}) => {
   const [isActive, setIsActive] = useState(true);
 
   const queryTracks = useQuery({
@@ -36,7 +36,7 @@ const Home = () => {
       <section className="home-welcome-section">
         <h3>
           Good afternoon,
-          <span className="home-username">"Nombre de usuario"</span>
+          <span className="home-username"> {user.first_name} {user.last_name}</span>
         </h3>
         <button className="home-settings-btn">
           <img src={settings} />
@@ -74,4 +74,3 @@ const Home = () => {
   );
 };
 
-export default Home;
