@@ -21,3 +21,7 @@ export const getAlbums = async () => {
   const response = await axios.get(BASE_URL + 'albums')
   return response.data
 }
+export const getPlaylists = async () => {
+  const response = await axios.get(BASE_URL + 'playlists')
+  return response.data
+}
