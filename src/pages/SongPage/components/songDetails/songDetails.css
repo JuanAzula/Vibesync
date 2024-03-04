@@ -1,0 +1,18 @@
+@import url(/src/styles/colors.css);
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+}
+
+.song-container {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto 1rem;
+  align-items: center;
+}
+
+.song-img {
+  width: 75%;
+  margin: 2rem;
+}
