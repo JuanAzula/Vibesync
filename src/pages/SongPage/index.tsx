@@ -118,7 +118,6 @@ export const SongPage = () => {
       <>
         <SongDetails song={queryTrack.data ? queryTrack.data : {}} />
         <audio ref={audioRef} src={queryTrack.data ? queryTrack.data.url : {}} />
-        <h1>Song</h1>
         <div className="progress-bar" onClick={handleProgressClick}>
           <div className="progress" style={{ width: progressWidth }}></div>
           <div className="progress-indicator" style={{ left: progressWidth }}></div>
