@@ -96,7 +96,7 @@
             "id": 1,
             "name": "313",
             "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
-            "url": "/src/assets/default-songs/residente.mp3",
+            "url": "/src/assets/default-song/ye-yikes.mp3",
             "thumbnail": "/src/assets/track-img/313.jpg",
             "genre": "latin",
             "liked": false
@@ -105,7 +105,7 @@
             "id": 2,
             "name": "Do I Wanna Know",
             "artist": "Arctic Monkeys",
-            "url": "/src/assets/default-songs/Arctic Monkeys - Do I Wanna Know.mp3",
+            "url": "/src/assets/default-songs/arctic-monkeys.mp3",
             "thumbnail": "/src/assets/track-img/arctic-monkeys.jpg",
             "genre": "indie",
             "liked": false
@@ -114,7 +114,7 @@
             "id": 3,
             "name": "Don't Let Me Be Misunderstood",
             "artist": "Nina Simone",
-            "url": "/src/assets/default-song/Nina Simone - Don't Let Me Be Misunderstood.mp3",
+            "url": "/src/assets/default-song/nina-simone.mp3",
             "thumbnail": "/src/assets/track-img/nina-simone.jpg",
             "genre": "blues",
             "liked": false
@@ -123,7 +123,7 @@
             "id": 4,
             "name": "Yikes",
             "artist": "Kanye West",
-            "url": "/src/assets/default-song/Kanye West -Yikes .mp3",
+            "url": "/src/assets/default-songs/residente.mp3",
             "thumbnail": "/src/assets/track-img/yikes.jpg",
             "genre": "Rap",
             "liked": false
@@ -132,7 +132,7 @@
             "id": 5,
             "name": "Los Tontos",
             "artist": "C. Tangana - Kiko Veneno",
-            "url": "/src/assets/default-song/C. Tangana, Kiko Veneno - Los Tontos.mp3",
+            "url": "/src/assets/default-song/los-tontos.mp3",
             "thumbnail": "/src/assets/track-img/c-tangana.jpg",
             "genre": "flamenco-pop",
             "liked": false

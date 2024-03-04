@@ -27,7 +27,7 @@ export const SongPage = () => {
     queryKey: ['track'],
     queryFn: async () => await getTrack(trackId)
   })
-  console.log('queryTrack', queryTrack.data)
+  console.log('queryTrack', queryTrack.data?.url)
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [songDuration, setSongDuration] = useState('00:00')
