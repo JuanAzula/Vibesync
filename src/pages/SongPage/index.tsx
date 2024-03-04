@@ -4,12 +4,32 @@ import { PlayButtons } from './components/playButtons'
 import { SongDetails } from './components/songDetails'
 import './songPage.css'
 import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getTrack as fetchTrack } from '../../services/dataService'
 
 type Props = {
   song: Track
 }
 
+
+const getTrack = async (trackId:any) => {
+  console.log(trackId)
+  if (trackId) {
+    const track = await fetchTrack(trackId);
+    console.log("track", track)
+    return track;
+  }
+};
+
 export const SongPage = () => {
+  const {trackId} = useParams();
+
+  const queryTrack = useQuery({
+    queryKey: ["track"],
+    queryFn: async () => await getTrack(trackId),
+  });
+  console.log("queryTrack", queryTrack.data)
+
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [songDuration, setSongDuration] = useState('00:00');
@@ -17,8 +37,6 @@ export const SongPage = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [progressWidth, setProgressWidth] = useState('0%');
 
-  const songId = useParams();
-  
 
   ////Cuando tengáis las canciones y les redireccione aquí, este código servirá para reproducir la canción de manera automática (CREO) porque el usuario ya habrá interactuado. Poneis el initialValue del isPlaying en TRUE, y este useEffect
   // useEffect(() => {
@@ -67,11 +85,11 @@ export const SongPage = () => {
     };
 
     ///Esta función sirve para formatear el currentTime, recibe el currentTime por parametro y lo formatea en min y sec para enseñarlo en la pantalla. LO MISMO, esto, idealmente, en UTILS/GLOBALS, no aquí 
-    const formatTime = (timeInSeconds: number): string => {
-      const minutes = Math.floor(timeInSeconds / 60);
-      const seconds = Math.floor(timeInSeconds % 60).toString().padStart(2, '0');
-      return `${minutes}:${seconds}`;
-    };
+    // const formatTime = (timeInSeconds: number): string => {
+    //   const minutes = Math.floor(timeInSeconds / 60);
+    //   const seconds = Math.floor(timeInSeconds % 60).toString().padStart(2, '0');
+    //   return `${minutes}:${seconds}`;
+    // };
   
     ///esto es para poder ir a la parte de la canción que queráis clickando. Si no entendeis la linea 76 es normal. YO TAMPOCO JEJEJE YUHUUUUU
     const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -87,32 +105,33 @@ export const SongPage = () => {
 
     
     //sin este useEffect intenta coger la duración de la canción antes de que se carguen los metadatos de la canción, por lo que no coge la duración. Aquí simplemente pues escucha a que se carguen los metadatos pa ejecutar la funcion getSongDuration, capici? Ale pues
-    useEffect(() => {
-      const handleLoadedMetadata = () => {
-        getSongDuration(audioRef, setSongDuration)
-      };
+    // useEffect(() => {
+    //   const handleLoadedMetadata = () => {
+    //     getSongDuration(audioRef, setSongDuration)
+    //   };
   
-      if (audioRef.current) {
-        audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
-        audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
-        return () => {
-          audioRef.current?.removeEventListener('loadedmetadata', handleLoadedMetadata);
-          audioRef.current?.removeEventListener('timeupdate', handleTimeUpdate);
-        };
-      }
-    }, []);
+    //   if (audioRef.current) {
+    //     audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
+    //     audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
+    //     return () => {
+    //       audioRef.current?.removeEventListener('loadedmetadata', handleLoadedMetadata);
+    //       audioRef.current?.removeEventListener('timeupdate', handleTimeUpdate);
+    //     };
+    //   }
+    // }, []);
     
   
     return (
       <>
-        <SongDetails song={song} />
-        <audio ref={audioRef} src={song.url} />
+        <SongDetails song={queryTrack.data} />
+        {/* <audio ref={audioRef} src={song.url} /> */}
+        <h1>Song</h1>
         <div className="progress-bar" onClick={handleProgressClick}>
           <div className="progress" style={{ width: progressWidth }}></div>
           <div className="progress-indicator" style={{ left: progressWidth }}></div>
         </div>
         <div className="duration-container">
-          <span>{formatTime(currentTime)}</span>
+          {/* <span>{formatTime(currentTime)}</span> */}
           <span>{songDuration}</span>
         </div>
         <PlayButtons toggleMute={toggleMute} togglePlay={togglePlay} isPlaying={isPlaying} isMuted={isMuted} />
