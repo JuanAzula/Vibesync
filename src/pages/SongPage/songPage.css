@@ -44,3 +44,8 @@ body {
   background-color:  #fff;
   transform: translateX(0);
 }
+
+.duration-container {
+  margin-bottom: 0;
+  position: relative;
+}
