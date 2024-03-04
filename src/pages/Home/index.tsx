@@ -1,34 +1,33 @@
-import "./Home.css";
-import settings from "../../assets/icons/settings-icon.svg";
-import CategoryBtn from "../../styledComponents/categoryBtn";
-import Carrousel from "../../components/carrousel/Carrousel";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getAlbums, getPlaylists, getTracks } from "../../services/dataService";
-import { Album, Playlist, Track } from "../../types/data";
-import { PlaylistMiniCard } from "../../components/playlistMiniCard/PlaylistMiniCard";
+import './Home.css'
+import settings from '../../assets/icons/settings-icon.svg'
+import CategoryBtn from '../../styledComponents/categoryBtn'
+import Carrousel from '../../components/carrousel/Carrousel'
+import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
+import { type Album, type Playlist, type Track } from '../../types/data'
+import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
 
-
-export const Home = ({user}) => {
-  const [isActive, setIsActive] = useState(true);
+export const Home = ({ user }) => {
+  const [isActive, setIsActive] = useState(true)
 
   const queryTracks = useQuery({
-    queryKey: ["tracks"],
-    queryFn: async () => await getTracks(),
-  });
-  const trackArray: Track[] = queryTracks.data;
+    queryKey: ['tracks'],
+    queryFn: async () => await getTracks()
+  })
+  const trackArray: Track[] = queryTracks.data
 
   const queryPlaylist = useQuery({
-    queryKey: ["playlist"],
-    queryFn: async () => await getPlaylists(),
-  });
-  const playlistArray: Playlist[] = queryPlaylist.data;
+    queryKey: ['playlist'],
+    queryFn: async () => await getPlaylists()
+  })
+  const playlistArray: Playlist[] = queryPlaylist.data
 
   const queryAlbum = useQuery({
-    queryKey: ["album"],
-    queryFn: async () => await getAlbums(),
-  });
-  const albumArray: Album[] = queryAlbum.data;
+    queryKey: ['album'],
+    queryFn: async () => await getAlbums()
+  })
+  const albumArray: Album[] = queryAlbum.data
 
   return (
     <>
@@ -71,6 +70,5 @@ export const Home = ({user}) => {
       </section>
     </main>
     </>
-  );
-};
-
+  )
+}

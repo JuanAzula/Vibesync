@@ -1,0 +1,15 @@
+.playlist-minicard-container{
+    display: flex;
+    background-color: var(--color-bg-secondary);
+    gap: 2rem;
+    width: 15rem;
+    height: 5rem;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.playlist-minicard-img{
+    width: 4rem;
+    height: 4rem;
+}

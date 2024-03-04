@@ -1,8 +1,7 @@
-import React from 'react'
 import playlist from '../../assets/playlist-default-img.png'
 import './PlaylistMiniCard.css'
 
-type Props = {}
+interface Props {}
 
 export const PlaylistMiniCard = (props: Props) => {
   return (
