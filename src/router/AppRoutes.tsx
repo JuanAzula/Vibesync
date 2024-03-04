@@ -2,7 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from '../pages/Login'
 import { Home } from '../pages/Home/index'
 import { useQuery } from '@tanstack/react-query'
-// import { Signup } from '../pages/Signup'
+import { Signup } from '../pages/Signup'
+import Navbar from '../components/bottomNavbar/Navbar'
+import { SongPage } from '../pages/SongPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -20,23 +22,35 @@ export const AppRoutes = () => {
   })
 
   const handleLoginSuccess = () => {
-    void queryUserLogged.refetch()
+    queryUserLogged.refetch()
     console.log(queryUserLogged.data)
   }
   console.log(queryUserLogged.data)
   return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/"
-                 element={ queryUserLogged.data ? <Home /> : <Login triggerRefetch={handleLoginSuccess} />}
-                 />
-                {/* <Route path="/login"
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            queryUserLogged.data
+              ? (
+              <Home user={queryUserLogged.data} />
+                )
+              : (
+              <Login triggerRefetch={handleLoginSuccess} />
+                )
+          }
+        />
+        <Route path="/tracks/:trackId" element={SongPage} />
+        {/* <Route path="/login"
                  element={<Login />}
                  /> */}
-                <Route path="/register"
-                //  element={<Register />}
-                 />
-            </Routes>
-        </BrowserRouter>
+        <Route
+          path="/register"
+          //  element={<Register />}
+        />
+      </Routes>
+      <Navbar />
+    </BrowserRouter>
   )
 }
