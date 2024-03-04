@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import HomeIcon from '../../assets/icons/home-outline.svg'
-import SearchIcon from '../../assets/icons/search-circle.svg'
+import SearchIcon from '../../assets/icons/search-sharp.svg'
 import LibraryIcon from '../../assets/icons/book-outline.svg'
+import ProfileIcon from '../../assets/icons/people-outline.svg'
 import './navbar.css'
 
 const Navbar: React.FC = () => {
@@ -17,9 +18,15 @@ const Navbar: React.FC = () => {
           <img src={SearchIcon} alt="Search button" className="icon" />
           <Link to="/search">Search</Link>
         </div>
+        <Link to="/library">
         <div className="navbar-item">
           <img src={LibraryIcon} alt="Library icon" className="icon" />
-          <Link to="/library">My library</Link>
+          My library
+        </div>
+        </Link>
+        <div className="navbar-item">
+          <img src={ProfileIcon} alt="User icon" className="icon" />
+          <Link to="/">My profile</Link>
         </div>
       </nav>
     </div>
