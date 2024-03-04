@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { type Track } from '../../types/data'
-import { PlayButtons } from './components/playButtons'
-import { SongDetails } from './components/songDetails'
+// import { PlayButtons } from './components/playButtons'
+// import { SongDetails } from './components/songDetails'
 import './songPage.css'
 
 interface Props {
