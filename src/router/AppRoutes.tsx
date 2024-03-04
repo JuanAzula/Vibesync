@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Login } from '../pages/Login'
-import { Home } from '../pages/Home'
+import { Home } from '../pages/Home/index'
 import { useQuery } from '@tanstack/react-query'
 // import { Signup } from '../pages/Signup'
 
@@ -30,9 +30,9 @@ export const AppRoutes = () => {
                 <Route path="/"
                  element={ queryUserLogged.data ? <Home /> : <Login triggerRefetch={handleLoginSuccess} />}
                  />
-                <Route path="/login"
-                //  element={<Login />}
-                 />
+                {/* <Route path="/login"
+                 element={<Login />}
+                 /> */}
                 <Route path="/register"
                 //  element={<Register />}
                  />

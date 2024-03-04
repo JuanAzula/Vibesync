@@ -1,21 +1,20 @@
-import "./Home.css";
-import settings from "../../assets/icons/settings-icon.svg";
-import CategoryBtn from "../../styledComponents/categoryBtn";
-import Carrousel from "../../components/carrousel/Carrousel";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getTracks } from "../../services/dataService";
-import { Track } from "../../types/data";
+import './Home.css'
+import settings from '../../assets/icons/settings-icon.svg'
+import CategoryBtn from '../../styledComponents/categoryBtn'
+import Carrousel from '../../components/carrousel/Carrousel'
+import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { getTracks } from '../../services/dataService'
+import { type Track } from '../../types/data'
 
-
-const Home = () => {
-  const [isActive, setIsActive] = useState(true);
+export const Home = () => {
+  const [isActive, setIsActive] = useState(true)
 
   const query = useQuery({
-    queryKey: ["tracks"],
-    queryFn: async () => await getTracks(),
-  });
-  const trackArray: Track[] = query.data;
+    queryKey: ['tracks'],
+    queryFn: async () => await getTracks()
+  })
+  const trackArray: Track[] = query.data
 
   return (
     <>
@@ -33,14 +32,14 @@ const Home = () => {
       </section>
       <section className="home-fav-songs">
         <h3>Fav Songs</h3>
-        <Carrousel 
+        <Carrousel
         data={trackArray}
-        isActive={isActive}  
+        isActive={isActive}
         />
       </section>
-      
-    </>
-  );
-};
 
-export default Home;
+    </>
+  )
+}
+
+export default Home
