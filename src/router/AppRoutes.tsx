@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Signup } from "../pages/Signup";
 import Navbar from "../components/bottomNavbar/Navbar";
 import { SongPage } from "../pages/SongPage";
+import SearchPage from '../pages/SearchPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem("userLogged");
@@ -47,6 +48,7 @@ export const AppRoutes = () => {
           path="/register"
           //  element={<Register />}
         />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
       <Navbar />
     </BrowserRouter>
