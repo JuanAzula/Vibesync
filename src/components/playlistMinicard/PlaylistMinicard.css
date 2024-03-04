@@ -1,4 +1,4 @@
-.playlist-minicard-container {
+.playlist-minicard-container{
     display: flex;
     background-color: var(--color-bg-secondary);
     gap: 2rem;
@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.playlist-minicard-img {
+.playlist-minicard-img{
     width: 4rem;
     height: 4rem;
 }
