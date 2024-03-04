@@ -27,7 +27,7 @@ export const SongPage = () => {
     queryKey: ['track'],
     queryFn: async () => await getTrack(trackId)
   })
-  console.log('queryTrack', queryTrack.data)
+  console.log('queryTrack', queryTrack.data?.url)
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [songDuration, setSongDuration] = useState('00:00')
@@ -118,7 +118,6 @@ export const SongPage = () => {
       <>
         <SongDetails song={queryTrack.data ? queryTrack.data : {}} />
         <audio ref={audioRef} src={queryTrack.data ? queryTrack.data.url : {}} />
-        <h1>Song</h1>
         <div className="progress-bar" onClick={handleProgressClick}>
           <div className="progress" style={{ width: progressWidth }}></div>
           <div className="progress-indicator" style={{ left: progressWidth }}></div>
