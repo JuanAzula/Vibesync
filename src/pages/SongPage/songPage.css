@@ -1,0 +1,51 @@
+@import url(/src/styles/colors.css);
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+}
+
+.song-container {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto 2rem;
+  align-items: center;
+}
+
+.song-img {
+  width: 75%;
+  margin: 2rem;
+}
+
+.progress-bar {
+  position: relative;
+  width: 90%;
+  height: 0.3rem;
+  background-color: #ccc;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: white;
+}
+
+.progress-indicator {
+  position: absolute;
+  top: -6px; 
+  left: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color:  #fff;
+  transform: translateX(0);
+}
+
+.duration-container {
+  margin-bottom: 0;
+  position: relative;
+}

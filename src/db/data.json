@@ -279,7 +279,7 @@
             "first_name": "Assembler",
             "last_name": "Institute",
             "email": "music@assemblerschool.com",
-            "profilePicture": "https://robohash.org/suntvoluptasnisi.png?size=50x50&set=set1",
+            "profilePicture": "/src/assets/profile_pic.png",
             "isLoggedin": false,
             "password": "123456K*"
         }
@@ -288,121 +288,121 @@
         {
             "id": 1,
             "name": "Flyga",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cfb34a37cfed6297d8c18231",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Kim Cesarion"
         },
         {
             "id": 2,
             "name": "XXX (Bow Wow Wow)",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273256e16efc88a39e4795d5f32",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "C.Gambino"
         },
         {
             "id": 3,
             "name": "Stay A Little Longer",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732cf9821eb5087702a63330b5",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Nicky Romero"
         },
         {
             "id": 4,
             "name": "WTF",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730b7020f4bce3fc16f5370df3",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Denz"
         },
         {
             "id": 5,
             "name": "Vivaldi",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a7fc8699c8a8c6dc4b90c948",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Jesper Swärd"
         },
         {
             "id": 6,
             "name": "Velvet Pony Trax 11 part 2",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b27347d2bc41f459a0422c3dfff5",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Axel Boman"
         },
         {
             "id": 7,
             "name": "PARTYPINGLA",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e467c6a0b070f390daa47693",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Rasmus Hultgren"
         },
         {
             "id": 8,
             "name": "Someone To Love",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e9e5fbbde2d4147260db99bf",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Dimitri Vangelis & Wyman"
         },
         {
             "id": 9,
             "name": "I samma bil",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b27349108981b176704992078242",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Hemliga Klubben"
         },
         {
             "id": 10,
             "name": "Ofiltrerad",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d43759a300274388d5b3ac7d",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Steph K"
         },
         {
             "id": 11,
             "name": "Closer",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e04542a5b2f5c4e80b8043f9",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Romeo"
         },
         {
             "id": 12,
             "name": "YOUNG",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b27350414c15d3e534effd5840ab",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "SINAN"
         },
         {
             "id": 13,
             "name": "THE REAL",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273189b84e563687baf99c8d800",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Chapee"
         },
         {
             "id": 14,
             "name": "Eternal Light Brigade",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732f4d9bfec9c13fc7979ed942",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Les Big Byrd"
         },
         {
             "id": 15,
             "name": "Tombolo (Réédition)",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273966b2b28801e75d7d293c3a9",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Kalash"
         },
         {
             "id": 16,
             "name": "KARIMO II",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aa311f30a24a7002e089c379",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Karim Alger"
         },
         {
             "id": 17,
             "name": "Midnight FM",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d62e4c88ec0df746317863af",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Prof. Stranger"
         },
         {
             "id": 18,
             "name": "Jag såg en kvinna",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273897c8155c64e1436daf8a466",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Ken Ring"
         },
         {
             "id": 19,
             "name": "Alltid varit här",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273940bcb3763667fa773d46a29",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Rozh"
         },
         {
             "id": 20,
             "name": "38",
-            "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a009515d20b39aa065540314",
+            "imageUrl": "src/assets/album-img.png",
             "artist": "Arre"
         }
     ],
@@ -415,7 +415,7 @@
                 "swedish soul"
             ],
             "popularity": 38,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb842fae710a21f648e26dd910"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 2,
@@ -426,7 +426,7 @@
                 "swedish trap pop"
             ],
             "popularity": 56,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb9fb2b5ff325f43536a2a4ae2"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 3,
@@ -444,7 +444,7 @@
                 "tropical house"
             ],
             "popularity": 63,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb8d683372296589f7c718dea6"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 4,
@@ -456,14 +456,14 @@
                 "swedish trap pop"
             ],
             "popularity": 51,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebda71714b11b7c451281e54ca"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 5,
             "name": "Jesper Swärd",
             "genres": [],
             "popularity": 19,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb9acc7db8348539634e585144"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 6,
@@ -478,7 +478,7 @@
                 "swedish house"
             ],
             "popularity": 39,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb19cd7b26fa38886bd6355b3c"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 7,
@@ -487,7 +487,7 @@
                 "swedish pop rap"
             ],
             "popularity": 31,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb470a02669d59859a21676ed0"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 8,
@@ -501,7 +501,7 @@
                 "progressive house"
             ],
             "popularity": 55,
-            "photoUrl": "https://i.scdn.co/image/d3e1ce67d48fa05431bdd2b0f14ffc294960f0bf"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 9,
@@ -510,7 +510,7 @@
                 "swedish pop"
             ],
             "popularity": 34,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb014c22b80be73cee9c7835b1"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 10,
@@ -519,7 +519,7 @@
                 "swedish trap pop"
             ],
             "popularity": 37,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebf913a1de42e743a6f462dfe1"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 11,
@@ -529,7 +529,7 @@
                 "swedish trap pop"
             ],
             "popularity": 44,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb6dca4eb1f2347310b27c3000"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 12,
@@ -540,14 +540,14 @@
                 "swedish trap pop"
             ],
             "popularity": 44,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb5c1a2d5e3c93fe46ff18878d"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 13,
             "name": "Chapee",
             "genres": [],
             "popularity": 22,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb8d4c9938258d04640bf9f091"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 14,
@@ -559,7 +559,7 @@
                 "swedish psychedelic rock"
             ],
             "popularity": 33,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebb7ed50718dfd36111ab26f40"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 15,
@@ -571,7 +571,7 @@
                 "trap antillais"
             ],
             "popularity": 62,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebbeffebd066171f03029a3c2a"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 16,
@@ -580,14 +580,14 @@
                 "swedish trap pop"
             ],
             "popularity": 24,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb5c33b372d2ef6275ed536450"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 17,
             "name": "Prof. Stranger",
             "genres": [],
             "popularity": 19,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb559babce20a71e8210990c29"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 18,
@@ -598,14 +598,14 @@
                 "swedish trap pop"
             ],
             "popularity": 41,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebd093354b1da8c7c55c4cee9f"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 19,
             "name": "Arre",
             "genres": [],
             "popularity": 25,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebf6b060d446495921bd200593"
+            "photoUrl": "src/assets/artist-img.png"
         },
         {
             "id": 20,
@@ -618,7 +618,7 @@
                 "swedish trap pop"
             ],
             "popularity": 42,
-            "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb31b2c3d4c8866b38310591be"
+            "photoUrl": "src/assets/artist-img.png"
         }
     ],
     "genres": [
