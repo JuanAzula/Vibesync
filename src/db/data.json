@@ -94,27 +94,27 @@
     "tracks": [
         {
             "id": 1,
-            "name": "Better of alone",
-            "artist": "RXBYN",
-            "url": "/src/assets/default-song/song.mp3",
+            "name": "313",
+            "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
+            "url": "/src/assets/default-songs/residente.mp3",
             "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "piano",
+            "genre": "latin",
             "liked": false
         },
         {
             "id": 2,
-            "name": "Alone",
-            "artist": "Color Out",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "poprock",
+            "name": "Do I Wanna Know",
+            "artist": "Arctic Monkeys",
+            "url": "/src/assets/default-songs/Arctic Monkeys - Do I Wanna Know.mp3",
+            "thumbnail": "/src/assets/track-img/arctic-monkeys.jpg",
+            "genre": "indie",
             "liked": false
         },
         {
             "id": 3,
-            "name": "Mahidevran - Maze of sorrow",
-            "artist": "MAHIDEVRAN ROCK BAND",
-            "url": "/src/assets/default-song/song.mp3",
+            "name": "Don't Let Me Be Misunderstood",
+            "artist": "Nina Simone",
+            "url": "/src/assets/default-song/Nina Simone - Don't Let Me Be Misunderstood.mp3",
             "thumbnail": "/src/assets/track-img/default-track-img.png",
             "genre": "chillout",
             "liked": false
