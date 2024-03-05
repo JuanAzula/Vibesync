@@ -6,6 +6,7 @@ import Navbar from '../components/bottomNavbar/Navbar'
 import { SongPage } from '../pages/SongPage'
 import SearchPage from '../pages/SearchPage'
 import { useAudioContext } from '../hooks/useAudio'
+import { UserPage } from '../pages/UserPage'
 import LibraryPage from "../pages/LibraryPage";
 
 const getUsers = () => {
@@ -52,7 +53,7 @@ export const AppRoutes = () => {
           //  element={<Register />}
         />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/library" element={<LibraryPage />} />
+        <Route path="/user" element={<UserPage user={queryUserLogged.data} />} />
       </Routes>
       <Navbar />
     </BrowserRouter>
