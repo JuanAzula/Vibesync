@@ -9,6 +9,7 @@ import { useAudioContext } from '../hooks/useAudio'
 import { UserPage } from '../pages/UserPage'
 import LibraryPage from '../pages/LibraryPage'
 import { MiniPlayer } from '../components/MiniPlayer'
+import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
