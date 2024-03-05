@@ -1,28 +1,41 @@
-import "./Home.css";
-import settings from "../../assets/icons/settings-icon.svg";
-import CategoryBtn from "../../styledComponents/categoryBtn";
-import Carrousel from "../../components/carrousel/Carrousel";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getTracks } from "../../services/dataService";
-import { Track } from "../../types/data";
+import './Home.css'
+import settings from '../../assets/icons/settings-icon.svg'
+import CategoryBtn from '../../styledComponents/categoryBtn'
+import Carrousel from '../../components/carrousel/Carrousel'
+import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
+import { type Album, type Playlist, type Track } from '../../types/data'
+import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
 
+export const Home = ({ user }) => {
+  const [isActive, setIsActive] = useState(true)
 
-const Home = () => {
-  const [isActive, setIsActive] = useState(true);
+  const queryTracks = useQuery({
+    queryKey: ['tracks'],
+    queryFn: async () => await getTracks()
+  })
+  const trackArray: Track[] = queryTracks.data
 
-  const query = useQuery({
-    queryKey: ["tracks"],
-    queryFn: async () => await getTracks(),
-  });
-  const trackArray: Track[] = query.data;
+  const queryPlaylist = useQuery({
+    queryKey: ['playlist'],
+    queryFn: async () => await getPlaylists()
+  })
+  const playlistArray: Playlist[] = queryPlaylist.data
+
+  const queryAlbum = useQuery({
+    queryKey: ['album'],
+    queryFn: async () => await getAlbums()
+  })
+  const albumArray: Album[] = queryAlbum.data
 
   return (
     <>
+    <main className="home-main-container">
       <section className="home-welcome-section">
         <h3>
           Good afternoon,
-          <span className="home-username">"Nombre de usuario"</span>
+          <span className="home-username"> {user.first_name} {user.last_name}</span>
         </h3>
         <button className="home-settings-btn">
           <img src={settings} />
@@ -30,17 +43,32 @@ const Home = () => {
       </section>
       <section>
         <CategoryBtn>Music</CategoryBtn>
+        <CategoryBtn>Podcasts</CategoryBtn>
+        <CategoryBtn>AudioBooks</CategoryBtn>
+      </section>
+      <section className="home-miniplaylist-display">
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
       </section>
       <section className="home-fav-songs">
-        <h3>Fav Songs</h3>
-        <Carrousel 
-        data={trackArray}
-        isActive={isActive}  
+        <h2>More like Taylor Swift</h2>
+        <Carrousel
+        dataTrack={trackArray}
+        isActive={isActive}
         />
       </section>
-      
+      <section className="home-recently-played">
+        <h2>Recently played</h2>
+        <Carrousel dataPlaylist={playlistArray} />
+      </section>
+      <section className="home-jump-back-in">
+        <h2>Jump back in</h2>
+        <Carrousel dataAlbum={albumArray} />
+      </section>
+    </main>
     </>
-  );
-};
-
-export default Home;
+  )
+}

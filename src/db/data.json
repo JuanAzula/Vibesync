@@ -4,7 +4,7 @@
             "id": 1,
             "name": "Road trip! All the masters I need!",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625060/tracks-thumbnails-dev/car_yx6ld1.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Get your mic on with this beats. You are going to sing all the way down",
             "publicAccessible": true,
             "primaryColor": "#fbdc00"
@@ -13,7 +13,7 @@
             "id": 2,
             "name": "Motorcycle Mama!",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625058/tracks-thumbnails-dev/driving_g56eyw.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Take it easy on the wheels with this hits",
             "publicAccessible": true,
             "primaryColor": "#fbdc00"
@@ -22,7 +22,7 @@
             "id": 3,
             "name": "Chillout with the beats",
             "isFollowed": false,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625056/tracks-thumbnails-dev/relax_coqdlx.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Stressed? Don´t worry the final project will soon be over. Relax in the meantime with this hits.",
             "publicAccessible": true,
             "primaryColor": "#fbdc00"
@@ -31,7 +31,7 @@
             "id": 4,
             "name": "Boogie with the beats",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625049/tracks-thumbnails-dev/boogie_rcl1zd.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Take the dance floor and try to get your groove on with this beats",
             "publicAccessible": false,
             "primaryColor": "#fbdc00"
@@ -40,7 +40,7 @@
             "id": 5,
             "name": "Smile. You are beautiful",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644624690/tracks-thumbnails-dev/smile_kpfzj8.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "For those times when you are feeling down.",
             "publicAccessible": false,
             "primaryColor": "#fbdc00"
@@ -49,7 +49,7 @@
             "id": 6,
             "name": "Staying home",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626587/tracks-thumbnails-dev/brennan-ehrhardt-HALe2SmkWAI-unsplash_c1yhnz.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Feeling homey. Let´s keep it warm.",
             "publicAccessible": false,
             "primaryColor": "#fbdc00"
@@ -58,7 +58,7 @@
             "id": 7,
             "name": "Space hits!",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626067/tracks-thumbnails-dev/fly_hx4xyp.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Have no money for a space trip but you can have a space hit!",
             "publicAccessible": false,
             "primaryColor": "#fbdc00"
@@ -67,7 +67,7 @@
             "id": 8,
             "name": "Hits for the weekend",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626096/tracks-thumbnails-dev/hits_nuk3qf.webp",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Have no plans but will be happy to hear you are happy.",
             "publicAccessible": false,
             "primaryColor": "#fbdc00"
@@ -76,7 +76,7 @@
             "id": 9,
             "name": "Party time",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626587/tracks-thumbnails-dev/amy-shamblen-lJt-3NUFng4-unsplash_z4icus.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Have you finished your master project? Let´s party!",
             "publicAccessible": false,
             "primaryColor": "#fbdc00"
@@ -85,7 +85,7 @@
             "id": 10,
             "name": "Glitter",
             "isFollowed": true,
-            "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644627361/tracks-thumbnails-dev/glitter_ru5qsp.jpg",
+            "thumbnail": "/src/assets/playlist-default-img.png",
             "description": "Let´s get glittering.",
             "publicAccessible": false,
             "primaryColor": "#fbdc00"
@@ -94,47 +94,47 @@
     "tracks": [
         {
             "id": 1,
-            "name": "Better of alone",
-            "artist": "RXBYN",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "piano",
+            "name": "313",
+            "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
+            "url": "/src/assets/default-song/ye-yikes.mp3",
+            "thumbnail": "/src/assets/track-img/313.jpg",
+            "genre": "latin",
             "liked": false
         },
         {
             "id": 2,
-            "name": "Alone",
-            "artist": "Color Out",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "poprock",
-            "liked": false
-        },
-        {
-            "id": 3,
-            "name": "Mahidevran - Maze of sorrow",
-            "artist": "MAHIDEVRAN ROCK BAND",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "chillout",
-            "liked": false
-        },
-        {
-            "id": 4,
-            "name": "Aurora",
-            "artist": "Smoking with poets",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
+            "name": "Do I Wanna Know",
+            "artist": "Arctic Monkeys",
+            "url": "/src/assets/default-songs/arctic-monkeys.mp3",
+            "thumbnail": "/src/assets/track-img/arctic-monkeys.jpg",
             "genre": "indie",
             "liked": false
         },
         {
+            "id": 3,
+            "name": "Don't Let Me Be Misunderstood",
+            "artist": "Nina Simone",
+            "url": "/src/assets/default-song/nina-simone.mp3",
+            "thumbnail": "/src/assets/track-img/nina-simone.jpg",
+            "genre": "blues",
+            "liked": false
+        },
+        {
+            "id": 4,
+            "name": "Yikes",
+            "artist": "Kanye West",
+            "url": "/src/assets/default-songs/residente.mp3",
+            "thumbnail": "/src/assets/track-img/yikes.jpg",
+            "genre": "Rap",
+            "liked": false
+        },
+        {
             "id": 5,
-            "name": "Sensitive",
-            "artist": "Infraction",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "pop",
+            "name": "Los Tontos",
+            "artist": "C. Tangana - Kiko Veneno",
+            "url": "/src/assets/default-song/los-tontos.mp3",
+            "thumbnail": "/src/assets/track-img/c-tangana.jpg",
+            "genre": "flamenco-pop",
             "liked": false
         },
         {
