@@ -6,6 +6,7 @@ import { Signup } from "../pages/Signup";
 import Navbar from "../components/bottomNavbar/Navbar";
 import { SongPage } from "../pages/SongPage";
 import SearchPage from '../pages/SearchPage'
+import LibraryPage from "../pages/LibraryPage";
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem("userLogged");
@@ -49,6 +50,7 @@ export const AppRoutes = () => {
           //  element={<Register />}
         />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/library" element={<LibraryPage />} />
       </Routes>
       <Navbar />
     </BrowserRouter>
