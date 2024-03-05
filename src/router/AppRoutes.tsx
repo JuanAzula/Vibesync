@@ -33,6 +33,7 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter>
         <audio ref={audioRef} src={audioUrl || {}} />
+    <Navbar />
       <Routes>
         <Route
           path="/"
@@ -56,7 +57,6 @@ export const AppRoutes = () => {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/user" element={<UserPage user={queryUserLogged.data} />} />
       </Routes>
-      <Navbar />
     </BrowserRouter>
   )
 }
