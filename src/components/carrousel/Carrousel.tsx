@@ -1,25 +1,23 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query'
 import React, { useState } from 'react'
-import { getTracks } from '../../services/dataService';
-import { Album, Artist, Playlist, Track } from '../../types/data';
-import SongCard from '../songCard';
+import { getTracks } from '../../services/dataService'
+import { type Album, type Artist, type Playlist, type Track } from '../../types/data'
+import SongCard from '../songCard'
 import './Carrousel.css'
-import { ArtistCard } from '../artistCard';
-import { AlbumCard } from '../albumCard';
-import { PlaylistCard } from '../playlistCard/PlaylistCard';
-import { Link } from 'react-router-dom';
+import { ArtistCard } from '../artistCard'
+import { AlbumCard } from '../albumCard'
+import { PlaylistCard } from '../playlistCard/PlaylistCard'
+import { Link } from 'react-router-dom'
 
-type Props = {
-    dataTrack?: Track[],
-    dataArtist?: Artist[],
-    dataAlbum?: Album[],
-    isActive?: boolean,
-    dataPlaylist?: Playlist[]
+interface Props {
+  dataTrack?: Track[]
+  dataArtist?: Artist[]
+  dataAlbum?: Album[]
+  isActive?: boolean
+  dataPlaylist?: Playlist[]
 }
 
-const Carrousel = ({dataTrack, dataArtist, dataAlbum, isActive, dataPlaylist}: Props) => {
-
-
+const Carrousel = ({ dataTrack, dataArtist, dataAlbum, isActive, dataPlaylist }: Props) => {
   return (
     <>
       {dataTrack && (
@@ -51,6 +49,6 @@ const Carrousel = ({dataTrack, dataArtist, dataAlbum, isActive, dataPlaylist}: P
         </div>
       )}
     </>)
-    }
+}
 
 export default Carrousel

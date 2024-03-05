@@ -1,12 +1,12 @@
-import React from "react";
-import { Track } from "../../types/data";
+import React from 'react'
+import { type Track } from '../../types/data'
 import './SongCard.css'
-import { StyledLink } from "../../styledComponents/styledLink";
+import { StyledLink } from '../../styledComponents/styledLink'
 
-type Props = {
-  track: Track;
-  isActive?: boolean;
-};
+interface Props {
+  track: Track
+  isActive?: boolean
+}
 
 const SongCard = ({ track, isActive }: Props) => {
   return (
@@ -20,7 +20,7 @@ const SongCard = ({ track, isActive }: Props) => {
       </div>
       </StyledLink>
     </div>
-  );
-};
+  )
+}
 
-export default SongCard;
+export default SongCard
