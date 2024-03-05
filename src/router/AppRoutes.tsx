@@ -7,7 +7,7 @@ import { SongPage } from '../pages/SongPage'
 import SearchPage from '../pages/SearchPage'
 import { useAudioContext } from '../hooks/useAudio'
 import { UserPage } from '../pages/UserPage'
-import LibraryPage from "../pages/LibraryPage";
+import LibraryPage from '../pages/LibraryPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
