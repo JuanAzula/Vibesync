@@ -125,7 +125,7 @@
             "artist": "Kanye West",
             "url": "/src/assets/default-songs/residente.mp3",
             "thumbnail": "/src/assets/track-img/yikes.jpg",
-            "genre": "indie",
+            "genre": "Rap",
             "liked": false
         },
         {
@@ -134,7 +134,7 @@
             "artist": "C. Tangana - Kiko Veneno",
             "url": "/src/assets/default-song/los-tontos.mp3",
             "thumbnail": "/src/assets/track-img/c-tangana.jpg",
-            "genre": "pop",
+            "genre": "flamenco-pop",
             "liked": false
         },
         {

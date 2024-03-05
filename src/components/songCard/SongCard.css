@@ -1,3 +1,9 @@
 .songcard-container{
     margin-right: 1rem;
 }
+
+.songcard-img{
+    max-width: 17rem;
+    max-height: 17rem;
+    border-radius: 2rem;
+}
