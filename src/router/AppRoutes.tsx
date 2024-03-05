@@ -8,6 +8,7 @@ import SearchPage from '../pages/SearchPage'
 import { useAudioContext } from '../hooks/useAudio'
 import { UserPage } from '../pages/UserPage'
 import LibraryPage from '../pages/LibraryPage'
+import { MiniPlayer } from '../components/MiniPlayer'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -56,6 +57,7 @@ export const AppRoutes = () => {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/user" element={<UserPage user={queryUserLogged.data} />} />
       </Routes>
+      <MiniPlayer />
       <Navbar />
     </BrowserRouter>
   )

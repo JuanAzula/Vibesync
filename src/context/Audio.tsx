@@ -12,6 +12,30 @@ function useAudioReducer () {
   const [audioUrl, setAudioUrl] = useState('')
 
   useEffect(() => {
+    localStorage.setItem('audioPlayerState', JSON.stringify({
+      isPlaying,
+      isMuted,
+      currentTime,
+      songDuration,
+      progressWidth,
+      audioUrl
+    }))
+  }, [isPlaying, isMuted, currentTime, songDuration, progressWidth, audioUrl])
+
+  useEffect(() => {
+    const savedState = localStorage.getItem('audioPlayerState')
+    if (savedState) {
+      const initialState = JSON.parse(savedState)
+      setIsPlaying(initialState.isPlaying)
+      setIsMuted(initialState.isMuted)
+      setCurrentTime(initialState.currentTime)
+      setSongDuration(initialState.songDuration)
+      setProgressWidth(initialState.progressWidth)
+      setAudioUrl(initialState.audioUrl)
+    }
+  }, [])
+
+  useEffect(() => {
     if (isPlaying && audioRef.current) void audioRef.current.play()
   }, [isPlaying])
 
