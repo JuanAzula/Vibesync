@@ -1,11 +1,11 @@
-import { Track } from '../../../../types/data'
+import { type Track } from '../../../../types/data'
 import './songDetails.css'
 
-type Props = {
+interface Props {
   song: Track
 }
 
-export const SongDetails = ({song}: Props) => {
+export const SongDetails = ({ song }: Props) => {
   return (
     <div className="song-container">
       <img className='song-img' src={song.thumbnail} alt="" />
@@ -14,4 +14,3 @@ export const SongDetails = ({song}: Props) => {
     </div>
   )
 }
-

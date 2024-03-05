@@ -4,6 +4,10 @@
     /* transition: transform 0.3s ease;   */
 }
 
+.products_scroll img {
+  height: auto; /* Mantiene la relación de aspecto original */
+}
+
 /* .products_scroll > * {   
     flex: 0 0 100%;  
 } */

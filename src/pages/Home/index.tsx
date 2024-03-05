@@ -5,10 +5,10 @@ import Carrousel from '../../components/carrousel/Carrousel'
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
-import { type Album, type Playlist, type Track } from '../../types/data'
-import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
+import { type User, type Album, type Playlist, type Track } from '../../types/data'
+import { Link } from 'react-router-dom'
 
-export const Home = ({ user }) => {
+export const Home = ({ user }: { user: User }) => {
   const [isActive, setIsActive] = useState(true)
 
   const queryTracks = useQuery({
@@ -38,7 +38,7 @@ export const Home = ({ user }) => {
           <span className="home-username"> {user.first_name} {user.last_name}</span>
         </h3>
         <button className="home-settings-btn">
-          <img src={settings} />
+          <Link to="/config"><img src={settings} /></Link>
         </button>
       </section>
       <section>
@@ -47,14 +47,14 @@ export const Home = ({ user }) => {
         <CategoryBtn>AudioBooks</CategoryBtn>
       </section>
       <section className="home-miniplaylist-display">
+        {/* <PlaylistMiniCard/>
         <PlaylistMiniCard/>
         <PlaylistMiniCard/>
         <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
+        <PlaylistMiniCard/> */}
       </section>
       <section className="home-fav-songs">
-        <h2>More like Taylor Swift</h2>
+        <h2>Your favorite songs</h2>
         <Carrousel
         dataTrack={trackArray}
         isActive={isActive}
