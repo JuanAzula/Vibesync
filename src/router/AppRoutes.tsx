@@ -13,10 +13,8 @@ import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
-  console.log('user', loggedUserJSON)
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON)
-    console.log('loggedUser', user)
     return user
   }
 }
@@ -29,9 +27,7 @@ export const AppRoutes = () => {
 
   const handleLoginSuccess = () => {
     void queryUserLogged.refetch()
-    console.log(queryUserLogged.data)
   }
-  console.log(queryUserLogged.data)
   return (
     <BrowserRouter>
         <audio ref={audioRef} src={audioUrl || {}} />

@@ -14,6 +14,7 @@ interface Props {
 }
 
 const Carrousel = ({ dataTrack, dataArtist, dataAlbum, isActive, dataPlaylist }: Props) => {
+  
   return (
     <>
       {dataTrack && (
