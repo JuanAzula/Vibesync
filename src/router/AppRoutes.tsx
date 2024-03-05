@@ -53,6 +53,7 @@ export const AppRoutes = () => {
           //  element={<Register />}
         />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/library" element={<LibraryPage />} />
         <Route path="/user" element={<UserPage user={queryUserLogged.data} />} />
       </Routes>
       <Navbar />
