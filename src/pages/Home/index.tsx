@@ -46,11 +46,11 @@ export const Home = ({ user }: { user: User }) => {
         <CategoryBtn>AudioBooks</CategoryBtn>
       </section>
       <section className="home-miniplaylist-display">
+        {/* <PlaylistMiniCard/>
         <PlaylistMiniCard/>
         <PlaylistMiniCard/>
         <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
+        <PlaylistMiniCard/> */}
       </section>
       <section className="home-fav-songs">
         <h2>Your favorite songs</h2>
