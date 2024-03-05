@@ -1,10 +1,34 @@
-@import url('../../styles/colors.css');
-
 .library-main-page__header {
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg-primary);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
     width: 420px;
     padding: 2rem;
     position: fixed;
     top: 0px;
 }
+
+.library-main-page__header h2 {
+    font-size: 2rem;
+    padding-left: 1rem;
+}
+
+.library-main-page {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+}
+
+.library-main-page__list {
+    list-style-type: none;
+}
+
+.library-main-page__list li {
+    display: flex;
+    align-items: center;
+    margin-bottom:12px;
+}
+
+.library-main-page__list li img {
+    margin-right: 15px;
+}
+
