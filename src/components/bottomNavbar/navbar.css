@@ -5,7 +5,7 @@ body {
   .navbar {
     display: flex;
     position: fixed;
-    top: 93%;
+    top: 93.5%;
     width: 96%;
     justify-content: center;
     padding: 10px;
