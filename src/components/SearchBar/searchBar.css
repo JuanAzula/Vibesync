@@ -1,0 +1,18 @@
+
+.searchbar-input {
+    width: 356px;
+    height: 48px;
+    border-radius: 12px;
+    margin: 10px 16px;
+    background-color: var(--color-bg-tertiary);
+    border: none;
+    font-size: 16px;
+    padding-left: 40px;
+    color: var(--color-text);
+    background-image:url(../../assets/icons/search-sharp.svg);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: left center;
+    background-position-x: 3%;
+
+}
