@@ -1,0 +1,9 @@
+@import url('../../styles/colors.css');
+
+.library-main-page__header {
+    background-color: var(--color-bg-secondary);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
+    width: 420px;
+    padding: 2rem;
+    position: fixed;
+}
