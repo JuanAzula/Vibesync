@@ -5,6 +5,7 @@ import { Album, Artist, Track, User } from '../../types/data';
 import { getAlbums, getArtists, getTracks } from '../../services/dataService';
 import { useQuery } from '@tanstack/react-query';
 import Carrousel from '../../components/carrousel/Carrousel';
+import { Link } from 'react-router-dom';
 
 
 type Props = {
@@ -38,7 +39,7 @@ export const UserPage = ({user}: Props) => {
         <img src={user.profilePicture} alt="" />
         <h2 className='user_name'>{user.first_name} {user.last_name}</h2>
       </div>
-      <FontAwesomeIcon className='back_button' icon={faArrowLeft} />
+      <Link to="/config"><FontAwesomeIcon className='back_button' icon={faArrowLeft} /></Link>
       <h2>Favorite Songs</h2>
       <section className="user-fav-songs">
         <Carrousel 

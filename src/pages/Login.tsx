@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { getUsers as fetchUsers } from '../services/dataService'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
+import { validatePassword } from '../utils/utils'
 
 interface LoginProps {
   triggerRefetch: () => void
 }
 export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
+  
   const userQuery = useQuery({
     queryKey: ['user'],
     queryFn: async () => await fetchUsers()
@@ -23,17 +25,18 @@ export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
       console.log(userQuery.data)
       if (user !== undefined) {
         console.log(user)
-        window.localStorage.setItem('userLogged', JSON.stringify(user))
+        window.localStorage.setItem('userLogged', JSON.stringify(user));
+        // window.location.reload()
         console.log('userLogged', window.localStorage.getItem('userLogged'))
-        triggerRefetch()
+        triggerRefetch();
       } else {
         alert('Invalid username or password')
       }
     }
   }
 
-  const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
+  const [emailError, setEmailError] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -45,17 +48,7 @@ export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
     }
   }
 
-  const validatePassword = (input: string) => {
-    if (input.length < 6) {
-      setPasswordError('Password must be at least 6 characters')
-    } else if (!/[A-Z]/.test(input)) {
-      setPasswordError('Password must contain at least one uppercase letter')
-    } else if (!/[\W_]/.test(input)) {
-      setPasswordError('Password must contain at least one special character')
-    } else {
-      setPasswordError('')
-    }
-  }
+  
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value)

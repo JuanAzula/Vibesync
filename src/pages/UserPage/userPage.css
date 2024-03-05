@@ -20,6 +20,7 @@ body {
 .back_button {
   font-size: 1.6rem;
   margin-left: 1rem;
+  color: var(--color-text);
 }
 
 .user-fav-songs, .user-albums{

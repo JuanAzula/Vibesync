@@ -2,10 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "../pages/Login";
 import { Home } from "../pages/Home/index";
 import { useQuery } from "@tanstack/react-query";
-import { Signup } from "../pages/Signup";
 import Navbar from "../components/bottomNavbar/Navbar";
 import { SongPage } from "../pages/SongPage";
-import SearchPage from '../pages/SearchPage'
+import SearchPage from "../pages/SearchPage";
+import { ConfigPage } from "../pages/ConfigPage/ConfigPage";
+import { UserPage } from "../pages/UserPage";
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem("userLogged");
@@ -40,7 +41,27 @@ export const AppRoutes = () => {
             )
           }
         />
-        <Route path="/tracks/:trackId" element={<SongPage/>}  />
+        <Route path="/login" element={
+            queryUserLogged.data ? (
+              <Home user={queryUserLogged.data} />
+            ) : (
+              <Login triggerRefetch={handleLoginSuccess} />
+            )
+          }/>
+        <Route path="/tracks/:trackId" element={<SongPage />} />
+        <Route
+          path="/config"
+          element={
+            queryUserLogged.data ? (
+              <ConfigPage
+                triggerRefetch={handleLoginSuccess}
+                user={queryUserLogged.data}
+              />
+            ) : (
+              <Login triggerRefetch={handleLoginSuccess} />
+            )
+          }
+        />
         {/* <Route path="/login"
                  element={<Login />}
                  /> */}
@@ -49,6 +70,10 @@ export const AppRoutes = () => {
           //  element={<Register />}
         />
         <Route path="/search" element={<SearchPage />} />
+        <Route
+          path="/profile"
+          element={<UserPage user={queryUserLogged.data} />}
+        />
       </Routes>
       <Navbar />
     </BrowserRouter>
