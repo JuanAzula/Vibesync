@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
 import { type User, type Album, type Playlist, type Track } from '../../types/data'
+import { Link } from 'react-router-dom'
 
 export const Home = ({ user }: { user: User }) => {
   const [isActive, setIsActive] = useState(true)
@@ -37,7 +38,7 @@ export const Home = ({ user }: { user: User }) => {
           <span className="home-username"> {user.first_name} {user.last_name}</span>
         </h3>
         <button className="home-settings-btn">
-          <img src={settings} />
+          <Link to="/config"><img src={settings} /></Link>
         </button>
       </section>
       <section>

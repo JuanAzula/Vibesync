@@ -1,4 +1,3 @@
-import { PlayButtons } from './components/playButtons'
 import { SongDetails } from './components/songDetails'
 import './songPage.css'
 import { useParams } from 'react-router-dom'
@@ -17,20 +16,7 @@ const getTrack = async (trackId: string, setAudioUrl: any) => {
 }
 
 export const SongPage = () => {
-  const {
-    audioRef,
-    isPlaying,
-    isMuted,
-    currentTime,
-    songDuration,
-    progressWidth,
-    togglePlay,
-    toggleMute,
-    formatTime,
-    handleProgressClick,
-    audioUrl,
-    setAudioUrl
-  } = useAudioContext()
+  const { setAudioUrl } = useAudioContext()
 
   const { trackId } = useParams()
 
@@ -45,21 +31,6 @@ export const SongPage = () => {
   return (
       <>
         <SongDetails song={queryTrack.data ? queryTrack.data : {}} />
-        <audio ref={audioRef} src={audioUrl || {}} />
-        <div className="progress-bar" onClick={handleProgressClick}>
-          <div className="progress" style={{ width: progressWidth }}></div>
-          <div className="progress-indicator" style={{ left: progressWidth }}></div>
-        </div>
-        <div className="duration-container">
-          <span>{formatTime(currentTime)}</span>
-          <span>{songDuration}</span>
-        </div>
-        <PlayButtons
-          toggleMute={toggleMute}
-          togglePlay={togglePlay}
-          isPlaying={isPlaying}
-          isMuted={isMuted}
-          />
       </>
   )
 }

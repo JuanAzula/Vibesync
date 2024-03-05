@@ -1,13 +1,9 @@
-import { useQuery } from '@tanstack/react-query'
-import React, { useState } from 'react'
-import { getTracks } from '../../services/dataService'
 import { type Album, type Artist, type Playlist, type Track } from '../../types/data'
 import SongCard from '../songCard'
 import './Carrousel.css'
 import { ArtistCard } from '../artistCard'
 import { AlbumCard } from '../albumCard'
 import { PlaylistCard } from '../playlistCard/PlaylistCard'
-import { Link } from 'react-router-dom'
 
 interface Props {
   dataTrack?: Track[]

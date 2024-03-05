@@ -7,7 +7,9 @@ import { SongPage } from '../pages/SongPage'
 import SearchPage from '../pages/SearchPage'
 import { useAudioContext } from '../hooks/useAudio'
 import { UserPage } from '../pages/UserPage'
-import LibraryPage from "../pages/LibraryPage";
+import LibraryPage from '../pages/LibraryPage'
+import { MiniPlayer } from '../components/MiniPlayer'
+import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -47,8 +49,30 @@ export const AppRoutes = () => {
                 )
           }
         />
-        <Route path="/tracks/:trackId" element={<SongPage/>} />
-
+        <Route path="/login" element={
+            queryUserLogged.data ? (
+              <Home user={queryUserLogged.data} />
+            ) : (
+              <Login triggerRefetch={handleLoginSuccess} />
+            )
+          }/>
+        <Route path="/tracks/:trackId" element={<SongPage />} />
+        <Route
+          path="/config"
+          element={
+            queryUserLogged.data ? (
+              <ConfigPage
+                triggerRefetch={handleLoginSuccess}
+                user={queryUserLogged.data}
+              />
+            ) : (
+              <Login triggerRefetch={handleLoginSuccess} />
+            )
+          }
+        />
+        {/* <Route path="/login"
+                 element={<Login />}
+                 /> */}
         <Route
           path="/register"
           //  element={<Register />}
@@ -56,7 +80,12 @@ export const AppRoutes = () => {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/user" element={<UserPage user={queryUserLogged.data} />} />
+        <Route
+          path="/profile"
+          element={<UserPage user={queryUserLogged.data} />}
+        />
       </Routes>
+      <MiniPlayer />
     </BrowserRouter>
   )
 }
