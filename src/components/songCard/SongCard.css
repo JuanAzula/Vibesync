@@ -7,3 +7,7 @@
     max-height: 17rem;
     border-radius: 2rem;
 }
+
+.songcard-track-info{
+    color: var(--color-text);
+}

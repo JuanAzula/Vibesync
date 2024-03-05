@@ -1,5 +1,5 @@
 import playlist from '../../assets/playlist-default-img.png'
-import './PlaylistMiniCard.css'
+import './PlaylistMinicard.css'
 
 interface Props {}
 
