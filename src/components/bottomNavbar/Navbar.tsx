@@ -11,11 +11,9 @@ const Navbar: React.FC = () => {
 <div>
       <nav className="navbar">
         <div className="navbar-item">
-          <div className="icon-container">
           <Link to="/">
           <img src={HomeIcon} alt="Home button" className="icon" />
           Home</Link>
-          </div>
         </div>
         <div className="navbar-item">
           <Link to="/search">
