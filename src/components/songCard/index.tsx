@@ -13,9 +13,8 @@ const SongCard = ({ track, isActive }: Props) => {
     <div className="songcard-container">
       <StyledLink to={`/tracks/${track.id}`}>
       <img className="songcard-img" src={track.thumbnail} />
-      <div>
+      <div className="songcard-track-info">
         <h3>{track.name}</h3>
-        <p>{track.id}</p>
         {isActive && <p>{track.artist}</p>}
       </div>
       </StyledLink>

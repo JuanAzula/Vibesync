@@ -1,10 +1,12 @@
+import './SearchPage.css'
 import CategoryBtn from '../../styledComponents/categoryBtn'
 
 const SearchPage: React.FC = () => {
   return (
         <>
-        <h4>Top searches</h4>
+        <main className="search-main-container">
         <section>
+        <h2>Top searches</h2>
           <CategoryBtn>Adele</CategoryBtn>
           <CategoryBtn>Taylor Swift</CategoryBtn>
           <CategoryBtn>Ed Sheeran</CategoryBtn>
@@ -16,13 +18,11 @@ const SearchPage: React.FC = () => {
           <CategoryBtn>Harry Styles</CategoryBtn>
           <CategoryBtn>Imagine Dragons</CategoryBtn>
         </section>
-        <h4>Browse all</h4>
+        <h2>Browse all</h2>
         <section>
           <div><p>Top charts</p></div>
         </section>
-        <div>
-            Search Page
-        </div>
+        </main>
         </>
   )
 }
