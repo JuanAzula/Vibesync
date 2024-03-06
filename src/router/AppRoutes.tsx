@@ -8,15 +8,13 @@ import SearchPage from '../pages/SearchPage'
 import { useAudioContext } from '../hooks/useAudio'
 import { UserPage } from '../pages/UserPage'
 import LibraryPage from '../pages/LibraryPage'
-import { MiniPlayer } from '../components/MiniPlayer'
+import { MiniPlayer } from '../components/miniPlayer/MiniPlayer'
 import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
-  console.log('user', loggedUserJSON)
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON)
-    console.log('loggedUser', user)
     return user
   }
 }
@@ -29,13 +27,12 @@ export const AppRoutes = () => {
 
   const handleLoginSuccess = () => {
     void queryUserLogged.refetch()
-    console.log(queryUserLogged.data)
   }
-  console.log(queryUserLogged.data)
   return (
     <BrowserRouter>
         <audio ref={audioRef} src={audioUrl || {}} />
     <Navbar />
+    <MiniPlayer />
       <Routes>
         <Route
           path="/"
@@ -85,7 +82,6 @@ export const AppRoutes = () => {
           element={<UserPage user={queryUserLogged.data} />}
         />
       </Routes>
-      <MiniPlayer />
     </BrowserRouter>
   )
 }

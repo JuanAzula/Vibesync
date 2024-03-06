@@ -7,6 +7,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
 import { type User, type Album, type Playlist, type Track } from '../../types/data'
 import { Link } from 'react-router-dom'
+import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
 
 export const Home = ({ user }: { user: User }) => {
   const [isActive, setIsActive] = useState(true)
@@ -47,11 +48,11 @@ export const Home = ({ user }: { user: User }) => {
         <CategoryBtn>AudioBooks</CategoryBtn>
       </section>
       <section className="home-miniplaylist-display">
-        {/* <PlaylistMiniCard/>
         <PlaylistMiniCard/>
         <PlaylistMiniCard/>
         <PlaylistMiniCard/>
-        <PlaylistMiniCard/> */}
+        <PlaylistMiniCard/>
+        <PlaylistMiniCard/>
       </section>
       <section className="home-fav-songs">
         <h2>Your favorite songs</h2>

@@ -1,5 +1,6 @@
-import { useAudioContext } from '../hooks/useAudio'
-import { PlayButtons } from '../pages/SongPage/components/playButtons'
+import { useAudioContext } from '../../hooks/useAudio'
+import { PlayButtons } from '../../pages/SongPage/components/playButtons'
+import './MiniPlayer.css'
 
 export const MiniPlayer = () => {
   const {
@@ -16,7 +17,7 @@ export const MiniPlayer = () => {
     audioUrl
   } = useAudioContext()
   return (
-    <div>
+    <main className="mini-player-container">
         <audio src={audioUrl} ref={audioRef}></audio>
         <div className="progress-bar" onClick={handleProgressClick}>
           <div className="progress" style={{ width: progressWidth }}></div>
@@ -32,6 +33,6 @@ export const MiniPlayer = () => {
           isPlaying={isPlaying}
           isMuted={isMuted}
           />
-    </div>
+    </main>
   )
 }

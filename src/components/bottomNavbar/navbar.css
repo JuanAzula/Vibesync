@@ -6,10 +6,10 @@ body {
     display: flex;
     position: fixed;
     top: 93.5%;
-    width: 96%;
+    width: 430px;
+    height: 100px;
     justify-content: center;
-    padding: 10px;
-    background: linear-gradient(transparent, 0.025%, var(--color-bg-primary));
+    background: linear-gradient(transparent, 0.01%, var(--color-bg-primary));
     /* background-color: var(--color-bg-primary); */
     /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 1); */
   }
@@ -18,6 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 10px;
   }
   
   .navbar img {
@@ -27,10 +28,9 @@ body {
   
   .navbar-item {
     padding-inline-start: 30px;
-    color: var(--color-text-secondary);
-    text-decoration: none;
     color: inherit;
     text-decoration: none;
+    padding-bottom: 5px;
   }
 
   .navbar-item a {
@@ -50,10 +50,5 @@ body {
     border: none;
     background-color: transparent;
     cursor: pointer;
-  }
-  
-  .icon-container {
-    fill: var(--color-text);
-    margin-bottom: 5px;
   }
   

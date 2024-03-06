@@ -33,11 +33,12 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
         setInput2Disabled(true);
     }
   }
-
+  const navigate = useNavigate()
   const logout = () => {
     window.localStorage.removeItem("userLogged");
+    navigate("/")
     window.location.reload();
-    triggerRefetch();
+    // triggerRefetch();
   };
 
   const togglePasswordChange = () => {
