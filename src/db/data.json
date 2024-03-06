@@ -1,686 +1,687 @@
 {
-    "playlists": [
-        {
-            "id": 1,
-            "name": "Road trip! All the masters I need!",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Get your mic on with this beats. You are going to sing all the way down",
-            "publicAccessible": true,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 2,
-            "name": "Motorcycle Mama!",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Take it easy on the wheels with this hits",
-            "publicAccessible": true,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 3,
-            "name": "Chillout with the beats",
-            "isFollowed": false,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Stressed? Don´t worry the final project will soon be over. Relax in the meantime with this hits.",
-            "publicAccessible": true,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 4,
-            "name": "Boogie with the beats",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Take the dance floor and try to get your groove on with this beats",
-            "publicAccessible": false,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 5,
-            "name": "Smile. You are beautiful",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "For those times when you are feeling down.",
-            "publicAccessible": false,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 6,
-            "name": "Staying home",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Feeling homey. Let´s keep it warm.",
-            "publicAccessible": false,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 7,
-            "name": "Space hits!",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Have no money for a space trip but you can have a space hit!",
-            "publicAccessible": false,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 8,
-            "name": "Hits for the weekend",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Have no plans but will be happy to hear you are happy.",
-            "publicAccessible": false,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 9,
-            "name": "Party time",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Have you finished your master project? Let´s party!",
-            "publicAccessible": false,
-            "primaryColor": "#fbdc00"
-        },
-        {
-            "id": 10,
-            "name": "Glitter",
-            "isFollowed": true,
-            "thumbnail": "/src/assets/playlist-default-img.png",
-            "description": "Let´s get glittering.",
-            "publicAccessible": false,
-            "primaryColor": "#fbdc00"
-        }
-    ],
-    "tracks": [
-        {
-            "id": 1,
-            "name": "313",
-            "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
-            "url": "/src/assets/default-song/ye-yikes.mp3",
-            "thumbnail": "/src/assets/track-img/313.jpg",
-            "genre": "latin",
-            "liked": false
-        },
-        {
-            "id": 2,
-            "name": "Do I Wanna Know",
-            "artist": "Arctic Monkeys",
-            "url": "/src/assets/default-songs/arctic-monkeys.mp3",
-            "thumbnail": "/src/assets/track-img/arctic-monkeys.jpg",
-            "genre": "indie",
-            "liked": false
-        },
-        {
-            "id": 3,
-            "name": "Don't Let Me Be Misunderstood",
-            "artist": "Nina Simone",
-            "url": "/src/assets/default-song/nina-simone.mp3",
-            "thumbnail": "/src/assets/track-img/nina-simone.jpg",
-            "genre": "blues",
-            "liked": false
-        },
-        {
-            "id": 4,
-            "name": "Yikes",
-            "artist": "Kanye West",
-            "url": "/src/assets/default-songs/residente.mp3",
-            "thumbnail": "/src/assets/track-img/yikes.jpg",
-            "genre": "Rap",
-            "liked": false
-        },
-        {
-            "id": 5,
-            "name": "Los Tontos",
-            "artist": "C. Tangana - Kiko Veneno",
-            "url": "/src/assets/default-song/los-tontos.mp3",
-            "thumbnail": "/src/assets/track-img/c-tangana.jpg",
-            "genre": "flamenco-pop",
-            "liked": false
-        },
-        {
-            "id": 6,
-            "name": "Tantalizing Youth",
-            "artist": "Social Square",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "rock",
-            "liked": false
-        },
-        {
-            "id": 7,
-            "name": "Igor Pumphonia - Point Of Light",
-            "artist": "Igor Pumphonia",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "electronic",
-            "liked": false
-        },
-        {
-            "id": 8,
-            "name": "Marsupial",
-            "artist": "Laurence Danova",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "indie",
-            "liked": false
-        },
-        {
-            "id": 9,
-            "name": "Chasing Tomorrow (feat. Jade Gritty)",
-            "artist": "TAB",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "electronic",
-            "liked": false
-        },
-        {
-            "id": 10,
-            "name": "Healin My Blues",
-            "artist": "BJ Wilbanks",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "soul",
-            "liked": false
-        },
-        {
-            "id": 11,
-            "name": "Head Over Heels (Friend Group Remix)",
-            "artist": "The Devil Music Co.",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "poprock",
-            "liked": false
-        },
-        {
-            "id": 12,
-            "name": "Under Water",
-            "artist": "THE.MADPIX.PROJECT",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "electronic",
-            "liked": false
-        },
-        {
-            "id": 13,
-            "name": "Better",
-            "artist": "A8",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "pop",
-            "liked": false
-        },
-        {
-            "id": 14,
-            "name": "My Love",
-            "artist": "Modus",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "pop",
-            "liked": false
-        },
-        {
-            "id": 15,
-            "name": "Bebe go",
-            "artist": "P Steve Officiel",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "reggaeton",
-            "liked": false
-        },
-        {
-            "id": 16,
-            "name": "Reflections (feat. Mathias Hagen)",
-            "artist": "KEVIN S.",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "alternative",
-            "liked": false
-        },
-        {
-            "id": 17,
-            "name": "Un Ratito Nama (Prod: Duran The Coach)",
-            "artist": "Igor Pumphonia",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "reggaeton",
-            "liked": false
-        },
-        {
-            "id": 18,
-            "name": "Sax Is My Cardio",
-            "artist": "KUZINMUZIN",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "funk",
-            "liked": false
-        },
-        {
-            "id": 19,
-            "name": "Chill Lofi Hip Hop Type Beat",
-            "artist": "PERYCREEP",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "groovy",
-            "liked": false
-        },
-        {
-            "id": 20,
-            "name": "Monday 8am",
-            "artist": "KINEMATIC",
-            "url": "/src/assets/default-song/song.mp3",
-            "thumbnail": "/src/assets/track-img/default-track-img.png",
-            "genre": "folk",
-            "liked": false
-        }
-    ],
-    "user": [
-        {
-            "id": 1,
-            "first_name": "Assembler",
-            "last_name": "Institute",
-            "email": "music@assemblerschool.com",
-            "profilePicture": "/src/assets/profile_pic.png",
-            "isLoggedin": false,
-            "password": "123456K*"
-        }
-    ],
-    "albums": [
-        {
-            "id": 1,
-            "name": "Flyga",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Kim Cesarion"
-        },
-        {
-            "id": 2,
-            "name": "XXX (Bow Wow Wow)",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "C.Gambino"
-        },
-        {
-            "id": 3,
-            "name": "Stay A Little Longer",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Nicky Romero"
-        },
-        {
-            "id": 4,
-            "name": "WTF",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Denz"
-        },
-        {
-            "id": 5,
-            "name": "Vivaldi",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Jesper Swärd"
-        },
-        {
-            "id": 6,
-            "name": "Velvet Pony Trax 11 part 2",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Axel Boman"
-        },
-        {
-            "id": 7,
-            "name": "PARTYPINGLA",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Rasmus Hultgren"
-        },
-        {
-            "id": 8,
-            "name": "Someone To Love",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Dimitri Vangelis & Wyman"
-        },
-        {
-            "id": 9,
-            "name": "I samma bil",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Hemliga Klubben"
-        },
-        {
-            "id": 10,
-            "name": "Ofiltrerad",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Steph K"
-        },
-        {
-            "id": 11,
-            "name": "Closer",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Romeo"
-        },
-        {
-            "id": 12,
-            "name": "YOUNG",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "SINAN"
-        },
-        {
-            "id": 13,
-            "name": "THE REAL",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Chapee"
-        },
-        {
-            "id": 14,
-            "name": "Eternal Light Brigade",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Les Big Byrd"
-        },
-        {
-            "id": 15,
-            "name": "Tombolo (Réédition)",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Kalash"
-        },
-        {
-            "id": 16,
-            "name": "KARIMO II",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Karim Alger"
-        },
-        {
-            "id": 17,
-            "name": "Midnight FM",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Prof. Stranger"
-        },
-        {
-            "id": 18,
-            "name": "Jag såg en kvinna",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Ken Ring"
-        },
-        {
-            "id": 19,
-            "name": "Alltid varit här",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Rozh"
-        },
-        {
-            "id": 20,
-            "name": "38",
-            "imageUrl": "src/assets/album-img.png",
-            "artist": "Arre"
-        }
-    ],
-    "artists": [
-        {
-            "id": 1,
-            "name": "Kim Cesarion",
-            "genres": [
-                "swedish pop",
-                "swedish soul"
-            ],
-            "popularity": 38,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 2,
-            "name": "C.Gambino",
-            "genres": [
-                "swedish gangsta rap",
-                "swedish hip hop",
-                "swedish trap pop"
-            ],
-            "popularity": 56,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 3,
-            "name": "Nicky Romero",
-            "genres": [
-                "big room",
-                "dance pop",
-                "dutch edm",
-                "edm",
-                "electro house",
-                "pop dance",
-                "pop edm",
-                "progressive electro house",
-                "progressive house",
-                "tropical house"
-            ],
-            "popularity": 63,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 4,
-            "name": "Denz",
-            "genres": [
-                "swedish gangsta rap",
-                "swedish hip hop",
-                "swedish trap",
-                "swedish trap pop"
-            ],
-            "popularity": 51,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 5,
-            "name": "Jesper Swärd",
-            "genres": [],
-            "popularity": 19,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 6,
-            "name": "Axel Boman",
-            "genres": [
-                "deep house",
-                "electronica",
-                "float house",
-                "microhouse",
-                "minimal tech house",
-                "swedish electronic",
-                "swedish house"
-            ],
-            "popularity": 39,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 7,
-            "name": "Rasmus Hultgren",
-            "genres": [
-                "swedish pop rap"
-            ],
-            "popularity": 31,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 8,
-            "name": "Dimitri Vangelis & Wyman",
-            "genres": [
-                "edm",
-                "electro house",
-                "pop dance",
-                "pop edm",
-                "progressive electro house",
-                "progressive house"
-            ],
-            "popularity": 55,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 9,
-            "name": "Hemliga Klubben",
-            "genres": [
-                "swedish pop"
-            ],
-            "popularity": 34,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 10,
-            "name": "Steph K",
-            "genres": [
-                "swedish trap pop"
-            ],
-            "popularity": 37,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 11,
-            "name": "Romeo",
-            "genres": [
-                "swedish hip hop",
-                "swedish trap pop"
-            ],
-            "popularity": 44,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 12,
-            "name": "SINAN",
-            "genres": [
-                "swedish gangsta rap",
-                "swedish hip hop",
-                "swedish trap pop"
-            ],
-            "popularity": 44,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 13,
-            "name": "Chapee",
-            "genres": [],
-            "popularity": 22,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 14,
-            "name": "Les Big Byrd",
-            "genres": [
-                "neo-kraut",
-                "stockholm indie",
-                "swedish indie rock",
-                "swedish psychedelic rock"
-            ],
-            "popularity": 33,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 15,
-            "name": "Kalash",
-            "genres": [
-                "french hip hop",
-                "pop urbaine",
-                "rap antillais",
-                "trap antillais"
-            ],
-            "popularity": 62,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 16,
-            "name": "Karim Alger",
-            "genres": [
-                "swedish trap pop"
-            ],
-            "popularity": 24,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 17,
-            "name": "Prof. Stranger",
-            "genres": [],
-            "popularity": 19,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 18,
-            "name": "Ken Ring",
-            "genres": [
-                "swedish gangsta rap",
-                "swedish hip hop",
-                "swedish trap pop"
-            ],
-            "popularity": 41,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 19,
-            "name": "Arre",
-            "genres": [],
-            "popularity": 25,
-            "photoUrl": "src/assets/artist-img.png"
-        },
-        {
-            "id": 20,
-            "name": "Rozh",
-            "genres": [
-                "swedish drill",
-                "swedish gangsta rap",
-                "swedish hip hop",
-                "swedish trap",
-                "swedish trap pop"
-            ],
-            "popularity": 42,
-            "photoUrl": "src/assets/artist-img.png"
-        }
-    ],
-    "genres": [
-        {
-            "id": 1,
-            "name": "blues"
-        },
-        {
-            "id": 2,
-            "name": "rock"
-        },
-        {
-            "id": 3,
-            "name": "pop"
-        },
-        {
-            "id": 4,
-            "name": "soul"
-        },
-        {
-            "id": 5,
-            "name": "funk"
-        },
-        {
-            "id": 6,
-            "name": "folk"
-        },
-        {
-            "id": 7,
-            "name": "tango"
-        },
-        {
-            "id": 8,
-            "name": "indie"
-        },
-        {
-            "id": 9,
-            "name": "metal"
-        },
-        {
-            "id": 10,
-            "name": "classical"
-        },
-        {
-            "id": 11,
-            "name": "country"
-        },
-        {
-            "id": 12,
-            "name": "electronic"
-        },
-        {
-            "id": 13,
-            "name": "lounge"
-        },
-        {
-            "id": 14,
-            "name": "grunge"
-        },
-        {
-            "id": 15,
-            "name": "jazz"
-        }
-    ]
+  "playlists": [
+    {
+      "id": "1",
+      "name": "Road trip! All the masters I need!",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Get your mic on with this beats. You are going to sing all the way down",
+      "publicAccessible": true,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "2",
+      "name": "Motorcycle Mama!",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Take it easy on the wheels with this hits",
+      "publicAccessible": true,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "3",
+      "name": "Chillout with the beats",
+      "isFollowed": false,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Stressed? Don´t worry the final project will soon be over. Relax in the meantime with this hits.",
+      "publicAccessible": true,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "4",
+      "name": "Boogie with the beats",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Take the dance floor and try to get your groove on with this beats",
+      "publicAccessible": false,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "5",
+      "name": "Smile. You are beautiful",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "For those times when you are feeling down.",
+      "publicAccessible": false,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "6",
+      "name": "Staying home",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Feeling homey. Let´s keep it warm.",
+      "publicAccessible": false,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "7",
+      "name": "Space hits!",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Have no money for a space trip but you can have a space hit!",
+      "publicAccessible": false,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "8",
+      "name": "Hits for the weekend",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Have no plans but will be happy to hear you are happy.",
+      "publicAccessible": false,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "9",
+      "name": "Party time",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Have you finished your master project? Let´s party!",
+      "publicAccessible": false,
+      "primaryColor": "#fbdc00"
+    },
+    {
+      "id": "10",
+      "name": "Glitter",
+      "isFollowed": true,
+      "thumbnail": "/src/assets/playlist-default-img.png",
+      "description": "Let´s get glittering.",
+      "publicAccessible": false,
+      "primaryColor": "#fbdc00"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "1",
+      "name": "313",
+      "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
+      "url": "/src/assets/default-songs/residente.mp3",
+      "thumbnail": "/src/assets/track-img/313.jpg",
+      "genre": "latin",
+      "liked": false
+    },
+    {
+      "id": "2",
+      "name": "Do I Wanna Know",
+      "artist": "Arctic Monkeys",
+      "url": "/src/assets/default-songs/arctic-monkeys.mp3",
+      "thumbnail": "/src/assets/track-img/arctic-monkeys.jpg",
+      "genre": "indie",
+      "liked": false
+    },
+    {
+      "id": "3",
+      "name": "Don't Let Me Be Misunderstood",
+      "artist": "Nina Simone",
+      "url": "/src/assets/default-songs/nina-simone.mp3",
+      "thumbnail": "/src/assets/track-img/nina-simone.jpg",
+      "genre": "blues",
+      "liked": false
+    },
+    {
+      "id": "4",
+      "name": "Yikes",
+      "artist": "Kanye West",
+      "url": "/src/assets/default-songs/ye-yikes.mp3",
+      "thumbnail": "/src/assets/track-img/yikes.jpg",
+      "genre": "Rap",
+      "liked": false
+    },
+    {
+      "id": "5",
+      "name": "Los Tontos",
+      "artist": "C. Tangana - Kiko Veneno",
+      "url": "/src/assets/default-songs/los-tontos.mp3",
+      "thumbnail": "/src/assets/track-img/c-tangana.jpg",
+      "genre": "flamenco-pop",
+      "liked": false
+    },
+    {
+      "id": "6",
+      "name": "대취타",
+      "artist": "SUGA",
+      "url": "/src/assets/default-songs/대취타.mp3",
+      "thumbnail": "/src/assets/track-img/suga.jpg",
+      "genre": "rock",
+      "liked": false
+    },
+    {
+      "id": "7",
+      "name": "Igor Pumphonia - Point Of Light",
+      "artist": "Igor Pumphonia",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "electronic",
+      "liked": false
+    },
+    {
+      "id": "8",
+      "name": "Marsupial",
+      "artist": "Laurence Danova",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "indie",
+      "liked": false
+    },
+    {
+      "id": "9",
+      "name": "Chasing Tomorrow (feat. Jade Gritty)",
+      "artist": "TAB",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "electronic",
+      "liked": false
+    },
+    {
+      "id": "10",
+      "name": "Healin My Blues",
+      "artist": "BJ Wilbanks",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "soul",
+      "liked": false
+    },
+    {
+      "id": "11",
+      "name": "Head Over Heels (Friend Group Remix)",
+      "artist": "The Devil Music Co.",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "poprock",
+      "liked": false
+    },
+    {
+      "id": "12",
+      "name": "Under Water",
+      "artist": "THE.MADPIX.PROJECT",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "electronic",
+      "liked": false
+    },
+    {
+      "id": "13",
+      "name": "Better",
+      "artist": "A8",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "pop",
+      "liked": false
+    },
+    {
+      "id": "14",
+      "name": "My Love",
+      "artist": "Modus",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "pop",
+      "liked": false
+    },
+    {
+      "id": "15",
+      "name": "Bebe go",
+      "artist": "P Steve Officiel",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "reggaeton",
+      "liked": false
+    },
+    {
+      "id": "16",
+      "name": "Reflections (feat. Mathias Hagen)",
+      "artist": "KEVIN S.",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "alternative",
+      "liked": false
+    },
+    {
+      "id": "17",
+      "name": "Un Ratito Nama (Prod: Duran The Coach)",
+      "artist": "Igor Pumphonia",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "reggaeton",
+      "liked": false
+    },
+    {
+      "id": "18",
+      "name": "Sax Is My Cardio",
+      "artist": "KUZINMUZIN",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "funk",
+      "liked": false
+    },
+    {
+      "id": "19",
+      "name": "Chill Lofi Hip Hop Type Beat",
+      "artist": "PERYCREEP",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "groovy",
+      "liked": false
+    },
+    {
+      "id": "20",
+      "name": "Monday 8am",
+      "artist": "KINEMATIC",
+      "url": "/src/assets/default-song/song.mp3",
+      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "genre": "folk",
+      "liked": false
+    }
+  ],
+  "user": [
+    {
+      "name": "Assembler",
+      "password": "1234567K*",
+      "first_name": "Assembler",
+      "last_name": "Institute",
+      "email": "music@assemblerschool.com",
+      "profilePicture": "/src/assets/profile_pic.png",
+      "isLoggedin": false,
+      "id": "1"
+    }
+  ],
+  "albums": [
+    {
+      "id": "1",
+      "name": "Flyga",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Kim Cesarion"
+    },
+    {
+      "id": "2",
+      "name": "XXX (Bow Wow Wow)",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "C.Gambino"
+    },
+    {
+      "id": "3",
+      "name": "Stay A Little Longer",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Nicky Romero"
+    },
+    {
+      "id": "4",
+      "name": "WTF",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Denz"
+    },
+    {
+      "id": "5",
+      "name": "Vivaldi",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Jesper Swärd"
+    },
+    {
+      "id": "6",
+      "name": "Velvet Pony Trax 11 part 2",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Axel Boman"
+    },
+    {
+      "id": "7",
+      "name": "PARTYPINGLA",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Rasmus Hultgren"
+    },
+    {
+      "id": "8",
+      "name": "Someone To Love",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Dimitri Vangelis & Wyman"
+    },
+    {
+      "id": "9",
+      "name": "I samma bil",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Hemliga Klubben"
+    },
+    {
+      "id": "10",
+      "name": "Ofiltrerad",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Steph K"
+    },
+    {
+      "id": "11",
+      "name": "Closer",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Romeo"
+    },
+    {
+      "id": "12",
+      "name": "YOUNG",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "SINAN"
+    },
+    {
+      "id": "13",
+      "name": "THE REAL",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Chapee"
+    },
+    {
+      "id": "14",
+      "name": "Eternal Light Brigade",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Les Big Byrd"
+    },
+    {
+      "id": "15",
+      "name": "Tombolo (Réédition)",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Kalash"
+    },
+    {
+      "id": "16",
+      "name": "KARIMO II",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Karim Alger"
+    },
+    {
+      "id": "17",
+      "name": "Midnight FM",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Prof. Stranger"
+    },
+    {
+      "id": "18",
+      "name": "Jag såg en kvinna",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Ken Ring"
+    },
+    {
+      "id": "19",
+      "name": "Alltid varit här",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Rozh"
+    },
+    {
+      "id": "20",
+      "name": "38",
+      "imageUrl": "src/assets/album-img.png",
+      "artist": "Arre"
+    }
+  ],
+  "artists": [
+    {
+      "id": "1",
+      "name": "Kim Cesarion",
+      "genres": [
+        "swedish pop",
+        "swedish soul"
+      ],
+      "popularity": 38,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "2",
+      "name": "C.Gambino",
+      "genres": [
+        "swedish gangsta rap",
+        "swedish hip hop",
+        "swedish trap pop"
+      ],
+      "popularity": 56,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "3",
+      "name": "Nicky Romero",
+      "genres": [
+        "big room",
+        "dance pop",
+        "dutch edm",
+        "edm",
+        "electro house",
+        "pop dance",
+        "pop edm",
+        "progressive electro house",
+        "progressive house",
+        "tropical house"
+      ],
+      "popularity": 63,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "4",
+      "name": "Denz",
+      "genres": [
+        "swedish gangsta rap",
+        "swedish hip hop",
+        "swedish trap",
+        "swedish trap pop"
+      ],
+      "popularity": 51,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "5",
+      "name": "Jesper Swärd",
+      "genres": [],
+      "popularity": 19,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "6",
+      "name": "Axel Boman",
+      "genres": [
+        "deep house",
+        "electronica",
+        "float house",
+        "microhouse",
+        "minimal tech house",
+        "swedish electronic",
+        "swedish house"
+      ],
+      "popularity": 39,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "7",
+      "name": "Rasmus Hultgren",
+      "genres": [
+        "swedish pop rap"
+      ],
+      "popularity": 31,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "8",
+      "name": "Dimitri Vangelis & Wyman",
+      "genres": [
+        "edm",
+        "electro house",
+        "pop dance",
+        "pop edm",
+        "progressive electro house",
+        "progressive house"
+      ],
+      "popularity": 55,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "9",
+      "name": "Hemliga Klubben",
+      "genres": [
+        "swedish pop"
+      ],
+      "popularity": 34,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "10",
+      "name": "Steph K",
+      "genres": [
+        "swedish trap pop"
+      ],
+      "popularity": 37,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "11",
+      "name": "Romeo",
+      "genres": [
+        "swedish hip hop",
+        "swedish trap pop"
+      ],
+      "popularity": 44,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "12",
+      "name": "SINAN",
+      "genres": [
+        "swedish gangsta rap",
+        "swedish hip hop",
+        "swedish trap pop"
+      ],
+      "popularity": 44,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "13",
+      "name": "Chapee",
+      "genres": [],
+      "popularity": 22,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "14",
+      "name": "Les Big Byrd",
+      "genres": [
+        "neo-kraut",
+        "stockholm indie",
+        "swedish indie rock",
+        "swedish psychedelic rock"
+      ],
+      "popularity": 33,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "15",
+      "name": "Kalash",
+      "genres": [
+        "french hip hop",
+        "pop urbaine",
+        "rap antillais",
+        "trap antillais"
+      ],
+      "popularity": 62,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "16",
+      "name": "Karim Alger",
+      "genres": [
+        "swedish trap pop"
+      ],
+      "popularity": 24,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "17",
+      "name": "Prof. Stranger",
+      "genres": [],
+      "popularity": 19,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "18",
+      "name": "Ken Ring",
+      "genres": [
+        "swedish gangsta rap",
+        "swedish hip hop",
+        "swedish trap pop"
+      ],
+      "popularity": 41,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "19",
+      "name": "Arre",
+      "genres": [],
+      "popularity": 25,
+      "photoUrl": "src/assets/artist-img.png"
+    },
+    {
+      "id": "20",
+      "name": "Rozh",
+      "genres": [
+        "swedish drill",
+        "swedish gangsta rap",
+        "swedish hip hop",
+        "swedish trap",
+        "swedish trap pop"
+      ],
+      "popularity": 42,
+      "photoUrl": "src/assets/artist-img.png"
+    }
+  ],
+  "genres": [
+    {
+      "id": "1",
+      "name": "blues"
+    },
+    {
+      "id": "2",
+      "name": "rock"
+    },
+    {
+      "id": "3",
+      "name": "pop"
+    },
+    {
+      "id": "4",
+      "name": "soul"
+    },
+    {
+      "id": "5",
+      "name": "funk"
+    },
+    {
+      "id": "6",
+      "name": "folk"
+    },
+    {
+      "id": "7",
+      "name": "tango"
+    },
+    {
+      "id": "8",
+      "name": "indie"
+    },
+    {
+      "id": "9",
+      "name": "metal"
+    },
+    {
+      "id": "10",
+      "name": "classical"
+    },
+    {
+      "id": "11",
+      "name": "country"
+    },
+    {
+      "id": "12",
+      "name": "electronic"
+    },
+    {
+      "id": "13",
+      "name": "lounge"
+    },
+    {
+      "id": "14",
+      "name": "grunge"
+    },
+    {
+      "id": "15",
+      "name": "jazz"
+    }
+  ]
 }
