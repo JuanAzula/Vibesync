@@ -41,7 +41,9 @@ const SongCard = ({ track, isActive }: Props) => {
   return (
     <div className="songcard-container" onClick={() => {
       setTrackId(track.id)
-      void queryTrack.refetch()
+      setTimeout(() => {
+        void queryTrack.refetch()
+      })
     }}>
       <img className="songcard-img" src={track.thumbnail} />
       <div className="songcard-track-info">
