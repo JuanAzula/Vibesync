@@ -288,27 +288,27 @@
   "albums": [
     {
       "id": "1",
-      "name": "Flyga",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Kim Cesarion"
+      "name": "Hilo Negro",
+      "imageUrl": "src/assets/albums-img/derby_motoretas_burrito_kachimba_hilo_negro-portada.jpg",
+      "artist": "Derby Motoreta's Burrito Kachimba"
     },
     {
       "id": "2",
-      "name": "XXX (Bow Wow Wow)",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "C.Gambino"
+      "name": "OMEGA",
+      "imageUrl": "src/assets/albums-img/enrique_morente_omega_20_aniversario-portada.jpg",
+      "artist": "Enrique Morente"
     },
     {
       "id": "3",
-      "name": "Stay A Little Longer",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Nicky Romero"
+      "name": "Orquídeas",
+      "imageUrl": "src/assets/albums-img/kali-uchis-orquideas-album.jpg",
+      "artist": "Kali Uchis"
     },
     {
       "id": "4",
-      "name": "WTF",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Denz"
+      "name": "Graduation",
+      "imageUrl": "src/assets/albums-img/graduation-kanye-cover.jpg",
+      "artist": "Kanye West"
     },
     {
       "id": "5",
