@@ -19,7 +19,9 @@ export const MiniPlayer = () => {
     audioImg,
     trackId
   } = useAudioContext()
-  console.log('audioImg', localStorage.getItem('audioPlayerState'))
+  setTimeout(() => {
+    console.log('audioImg', localStorage.getItem('audioPlayerState'))
+  }, 1000)
   return (
     <main className="mini-player-container">
         <audio src={audioUrl} ref={audioRef}></audio>

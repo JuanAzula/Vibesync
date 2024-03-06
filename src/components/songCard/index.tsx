@@ -19,6 +19,9 @@ const SongCard = ({ track, isActive }: Props) => {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       localStorage.setItem('localTrack', JSON.stringify(track))
+      setTimeout(() => {
+        void queryTrack.refetch()
+      }, 100)
       return track
     } else {
       const track = JSON.parse(localStorage.getItem('localTrack') || '{}')
@@ -38,7 +41,7 @@ const SongCard = ({ track, isActive }: Props) => {
   return (
     <div className="songcard-container" onClick={() => {
       setTrackId(track.id)
-      void queryTrack.refetch()
+      // void queryTrack.refetch()
     }}>
       <img className="songcard-img" src={track.thumbnail} />
       <div className="songcard-track-info">
