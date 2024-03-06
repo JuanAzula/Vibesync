@@ -9,7 +9,7 @@ type Props = {
 export const PlaylistCard = ({playlist}: Props) => {
   return (
     <div className="playlist-container">
-      <img src={playlist.thumbnail}  />
+      <img className="playlist-img" src={playlist.thumbnail}  />
       <div>
         <h3>{playlist.name}</h3>
       </div>
