@@ -275,7 +275,6 @@
   ],
   "user": [
     {
-      "name": "Assembler",
       "password": "1234567K*",
       "first_name": "Assembler",
       "last_name": "Institute",
@@ -283,6 +282,33 @@
       "profilePicture": "/src/assets/profile_pic.png",
       "isLoggedin": false,
       "id": "1"
+    },
+    {
+      "id": "87mse0r18",
+      "first_name": "Alba",
+      "password": "12345678K*",
+      "last_name": "Martin",
+      "email": "albams@live.com",
+      "profilePicture": "/src/assets/profile_pic.png",
+      "isLoggedin": false
+    },
+    {
+      "id": "kgp4tmp0o",
+      "first_name": "",
+      "password": "12345678K*",
+      "last_name": "",
+      "email": "albams",
+      "profilePicture": "/src/assets/profile_pic.png",
+      "isLoggedin": false
+    },
+    {
+      "id": "ey7k1ajqp",
+      "first_name": "Alba",
+      "password": "123456*K",
+      "last_name": "martin",
+      "email": "albams@live.es",
+      "profilePicture": "/src/assets/profile_pic.png",
+      "isLoggedin": false
     }
   ],
   "albums": [

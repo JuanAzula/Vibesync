@@ -10,6 +10,7 @@ import { UserPage } from '../pages/UserPage'
 import LibraryPage from '../pages/LibraryPage'
 import { MiniPlayer } from '../components/miniPlayer/MiniPlayer'
 import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
+import { Signup } from '../pages/SignUp/Signup'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -81,6 +82,7 @@ export const AppRoutes = () => {
           path="/profile"
           element={<UserPage user={queryUserLogged.data} />}
         />
+        <Route path="/signup" element={<Signup triggerRefetch={handleLoginSuccess} />}/>
       </Routes>
     </BrowserRouter>
   )
