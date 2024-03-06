@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { getUsers as fetchUsers } from "../../services/dataService";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
     queryFn: async () => await fetchUsers(),
   });
 
-  const setNewUser = async (event) => {
+  const setNewUser = async (event: FormEvent) => {
     const id = Math.random().toString(36).substr(2, 9);
 
     const data = {
@@ -44,34 +44,32 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (username && password) {
-      console.log(username, password);
+    if(username.trim() === "" || password.trim() === "" || name.trim() === "" || lastName.trim() === ""){
+      toast.error("Please check if you gave us all the info!")
+    }
+
+    if (username) {
       const user = userQuery.data.find(
-        (user: { email: string; password: string }) => {
-          return user.email === username && user.password === password;
+        (user: { email: string }) => {
+          return user.email === username;
         }
       );
-      console.log(userQuery.data);
       if (user !== undefined) {
-        console.log(user);
-        alert("Este usuario ya existe")
-        // window.localStorage.setItem("userLogged", JSON.stringify(user));
-        // console.log("userLogged", window.localStorage.getItem("userLogged"));
+        toast.error("This user already exists!")
         triggerRefetch();
-      } else {
-        //función que guarda en json el nuevo usuario
+      } else if(nameError === "" && lastNameError ==="" && passwordError === "" && emailError === "" && password !== "") {
         setNewUser(event);
         toast.success('Successfully signed up!')
       }
     }
   };
 
-  const [nameError, setNameError] = useState('');
-  const [lastNameError, setLastNameError] = useState('');
+  const [nameError, setNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState ('');
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState ("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -179,7 +177,7 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
         />
         <input
           className="signup-input"
-          type="text"
+          type="email"
           value={username}
           id="email"
           placeholder="Email"
