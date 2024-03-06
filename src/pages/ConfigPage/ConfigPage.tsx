@@ -3,6 +3,7 @@ import { User } from "../../types/data";
 import "./ConfigPage.css";
 import { Link, useNavigate } from "react-router-dom";
 // import { validatePassword } from "../../utils/utils";
+import axios from "axios";
 
 type Props = {
   user: User;
@@ -28,9 +29,7 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
     } else {
         setPasswordError('');
         setVisible(!visible);
-        setInput1Value("");
-        setInput2Value("");
-        setInput2Disabled(true);
+        
     }
   }
   const navigate = useNavigate()
@@ -42,6 +41,9 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
   };
 
   const togglePasswordChange = () => {
+    setInput1Value("");
+    setInput2Value("");
+    setInput2Disabled(true);
     setVisible(!visible);
   };
 
@@ -59,7 +61,31 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
     event?.preventDefault();
     validatePassword(input2Value);
     //cambiar el json con la nueva contraseña que llega desde el input2value
+    changePassword();
   };
+
+  const changePassword = () => {
+    const url = `http://localhost:3000/user/${user.id}`;
+    const newPassword = input2Value;
+    const modifiedData = {
+      name: user.first_name,
+      password: newPassword,
+      first_name: "Assembler",
+      last_name: "Institute",
+      email: "music@assemblerschool.com",
+      profilePicture: "/src/assets/profile_pic.png",
+      isLoggedin: false
+    };
+
+    axios.put(url, modifiedData)
+      .then(response =>{
+        console.log("password cambiada con exito", response.data)
+      })
+      .catch(error => {
+        console.log("error al cambiar la contraseña", error)
+      })
+
+  }
 
   return (
     <>
