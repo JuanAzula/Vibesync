@@ -9,7 +9,18 @@ html{
 
 .home-main-container{
     margin: 2rem;
-
+    max-height: 65rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    &::-webkit-scrollbar {
+        width: 8px;
+     }
+     &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+     }
 }
 
 .home-settings-btn{
