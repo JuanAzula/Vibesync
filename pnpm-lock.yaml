@@ -20,6 +20,9 @@ dependencies:
   axios:
     specifier: ^1.6.7
     version: 1.6.7
+  js-server:
+    specifier: ^1.0.1
+    version: 1.0.1
   json-server:
     specifier: 1.0.0-alpha.23
     version: 1.0.0-alpha.23
@@ -2676,6 +2679,10 @@ packages:
       reflect.getprototypeof: 1.0.5
       set-function-name: 2.0.2
     dev: true
+
+  /js-server@1.0.1:
+    resolution: {integrity: sha512-58pMDnK86T2sNBL88IZ1WVzU3hOPZkzSQsCKHcD+AwYUecBL2n4Ss38CrZIdSJ/fck/buvEJpk1IyDlKwiFG3g==}
+    dev: false
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
