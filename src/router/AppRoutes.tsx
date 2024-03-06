@@ -32,8 +32,13 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter>
         <audio ref={audioRef} src={audioUrl || {}} />
-    <Navbar />
+    {queryUserLogged.data
+      ? <>
+      <Navbar />
     <MiniPlayer />
+      </>
+      : null
+    }
       <Routes>
         <Route
           path="/"
@@ -48,24 +53,28 @@ export const AppRoutes = () => {
           }
         />
         <Route path="/login" element={
-            queryUserLogged.data ? (
+            queryUserLogged.data
+              ? (
               <Home user={queryUserLogged.data} />
-            ) : (
+                )
+              : (
               <Login triggerRefetch={handleLoginSuccess} />
-            )
+                )
           }/>
         <Route path="/tracks/:trackId" element={<SongPage />} />
         <Route
           path="/config"
           element={
-            queryUserLogged.data ? (
+            queryUserLogged.data
+              ? (
               <ConfigPage
                 triggerRefetch={handleLoginSuccess}
                 user={queryUserLogged.data}
               />
-            ) : (
+                )
+              : (
               <Login triggerRefetch={handleLoginSuccess} />
-            )
+                )
           }
         />
         {/* <Route path="/login"
