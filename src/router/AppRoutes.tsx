@@ -8,7 +8,7 @@ import SearchPage from '../pages/SearchPage'
 import { useAudioContext } from '../hooks/useAudio'
 import { UserPage } from '../pages/UserPage'
 import LibraryPage from '../pages/LibraryPage'
-import { MiniPlayer } from '../components/MiniPlayer'
+import { MiniPlayer } from '../components/miniPlayer/MiniPlayer'
 import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 
 const getUsers = () => {
@@ -31,6 +31,8 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter>
         <audio ref={audioRef} src={audioUrl || {}} />
+    <Navbar />
+    <MiniPlayer />
       <Routes>
         <Route
           path="/"
@@ -80,8 +82,6 @@ export const AppRoutes = () => {
           element={<UserPage user={queryUserLogged.data} />}
         />
       </Routes>
-      <MiniPlayer />
-      <Navbar />
     </BrowserRouter>
   )
 }

@@ -32,11 +32,14 @@ export const UserPage = ({ user }: Props) => {
 
   return (
     <>
-      <div className="user_container">
+    <header className='user_header'>
+      <div className="profile_container">
         <img src={user.profilePicture} alt="" />
         <h2 className='user_name'>{user.first_name} {user.last_name}</h2>
       </div>
-      <Link to="/config"><FontAwesomeIcon className='back_button' icon={faArrowLeft} /></Link>
+      <FontAwesomeIcon className='back_button' icon={faArrowLeft} />
+    </header>
+    <main className='user_main_container'>
       <h2>Favorite Songs</h2>
       <section className="user-fav-songs">
         <Carrousel
@@ -55,6 +58,7 @@ export const UserPage = ({ user }: Props) => {
         dataAlbum={albumArray}
         />
       </section>
+    </main>
     </>
   )
 }

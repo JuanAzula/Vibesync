@@ -1,0 +1,7 @@
+.mini-player-container {
+    position: fixed;;
+    width: 100%;
+    bottom: 60px;
+    background: linear-gradient(transparent, 0.025%, var(--color-bg-primary));
+    
+}
