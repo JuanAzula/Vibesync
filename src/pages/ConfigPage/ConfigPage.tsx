@@ -140,7 +140,7 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
                 {" "}
                 New Password
                 <input
-                  type="text"
+                  type="password"
                   className="configpage-input"
                   value={input2Value}
                   onChange={handleInputChange2}
