@@ -38,5 +38,5 @@
     margin: 5rem;
 }
 .error-password, .error-name, .error-lastname, .error-email{
-    color: red;
+    color:var(--color-text);
 }
