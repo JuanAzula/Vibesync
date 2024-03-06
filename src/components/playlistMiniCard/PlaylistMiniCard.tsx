@@ -1,5 +1,5 @@
 import playlist from '../../assets/playlist-default-img.webp'
-import './PlaylistMiniCard.css'
+import './PlaylistMinicard.css'
 
 interface Props {}
 

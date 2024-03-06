@@ -20,6 +20,9 @@ dependencies:
   axios:
     specifier: ^1.6.7
     version: 1.6.7
+  js-server:
+    specifier: ^1.0.1
+    version: 1.0.1
   json-server:
     specifier: 1.0.0-alpha.23
     version: 1.0.0-alpha.23
@@ -37,6 +40,9 @@ dependencies:
     version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
+  '@types/node':
+    specifier: ^20.11.24
+    version: 20.11.24
   '@types/react':
     specifier: ^18.2.56
     version: 18.2.61
@@ -84,7 +90,7 @@ devDependencies:
     version: 5.3.3
   vite:
     specifier: ^5.1.4
-    version: 5.1.4
+    version: 5.1.4(@types/node@20.11.24)
 
 packages:
 
@@ -987,6 +993,12 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
+  /@types/node@20.11.24:
+    resolution: {integrity: sha512-Kza43ewS3xoLgCEpQrsT+xRo/EJej1y0kVYGiLFE1NEODXGzTfwiC6tXTLMQskn1X4/Rjlh0MQUvx9W+L9long==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
+
   /@types/prop-types@15.7.11:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
     dev: true
@@ -1228,7 +1240,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.24.0)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 5.1.4
+      vite: 5.1.4(@types/node@20.11.24)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2668,6 +2680,10 @@ packages:
       set-function-name: 2.0.2
     dev: true
 
+  /js-server@1.0.1:
+    resolution: {integrity: sha512-58pMDnK86T2sNBL88IZ1WVzU3hOPZkzSQsCKHcD+AwYUecBL2n4Ss38CrZIdSJ/fck/buvEJpk1IyDlKwiFG3g==}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -3602,6 +3618,10 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /update-browserslist-db@1.0.13(browserslist@4.23.0):
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
     hasBin: true
@@ -3619,7 +3639,7 @@ packages:
       punycode: 2.3.1
     dev: true
 
-  /vite@5.1.4:
+  /vite@5.1.4(@types/node@20.11.24):
     resolution: {integrity: sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3647,6 +3667,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.11.24
       esbuild: 0.19.12
       postcss: 8.4.35
       rollup: 4.12.0
