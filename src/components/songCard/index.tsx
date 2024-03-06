@@ -21,7 +21,7 @@ const SongCard = ({ track, isActive }: Props) => {
       localStorage.setItem('localTrack', JSON.stringify(track))
       setTimeout(() => {
         void queryTrack.refetch()
-      }, 100)
+      }, 50)
       return track
     } else {
       const track = JSON.parse(localStorage.getItem('localTrack') || '{}')
