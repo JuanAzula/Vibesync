@@ -2,7 +2,7 @@ import { useAudioContext } from '../../hooks/useAudio'
 import { PlayButtons } from '../../pages/SongPage/components/playButtons'
 import './MiniPlayer.css'
 
-export const MiniPlayer = () => {
+export const MiniPlayer = ({ songId }: { songId: string }) => {
   const {
     audioRef,
     isPlaying,
@@ -16,6 +16,7 @@ export const MiniPlayer = () => {
     handleProgressClick,
     audioUrl
   } = useAudioContext()
+
   return (
     <main className="mini-player-container">
         <audio src={audioUrl} ref={audioRef}></audio>
@@ -32,6 +33,7 @@ export const MiniPlayer = () => {
           togglePlay={togglePlay}
           isPlaying={isPlaying}
           isMuted={isMuted}
+          songId={songId}
           />
     </main>
   )

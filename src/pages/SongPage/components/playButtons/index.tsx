@@ -1,22 +1,24 @@
 import './playButtons.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBackwardStep, faBackward, faPlay, faForward, faForwardStep, faPause, faVolumeMute, faVolumeUp, faHeart } from '@fortawesome/free-solid-svg-icons'
-import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
-import { useState } from 'react'
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'
+import { useLikedSongs } from '../../../../context/LikedSongs'
 
 interface Props {
   togglePlay: () => void
   isPlaying: boolean
   toggleMute: () => void
   isMuted: boolean
+  songId: string
 }
 
-export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted }: Props) => {
-  const [heartIcon, setHeartIcon] = useState(faHeart)
+export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, songId }: Props) => {
+  const { likedSongs, toggleLiked } = useLikedSongs()
 
   const handleHeartClick = () => {
-    setHeartIcon(heartIcon === faHeart ? faHeartRegular : faHeart)
+    toggleLiked(songId)
   }
+  const isLiked = likedSongs.includes(songId)
 
   return (
 
@@ -28,7 +30,7 @@ export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted }: Prop
         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} onClick={togglePlay} />
         <FontAwesomeIcon icon={faForward} />
         <FontAwesomeIcon icon={faForwardStep} />
-        <FontAwesomeIcon icon={heartIcon} onClick={handleHeartClick} />
+        <FontAwesomeIcon icon={isLiked ? faHeart : faHeartRegular} onClick={handleHeartClick} />
       </div>
     </>
   )
