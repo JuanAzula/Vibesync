@@ -9,10 +9,13 @@ import { PlaylistCard } from "../../components/playlistCard/PlaylistCard";
 import { AlbumCard } from '../../components/albumCard';
 import { ArtistCard } from '../../components/artistCard';
 import SongCard from '../../components/songCard';
+import { useAudioContext } from '../../hooks/useAudio';
+
 
 
 const SearchPage: React.FC = () => {
   const { searchInput } = useSearchContext();
+  const { setTrackId } = useAudioContext()
  
   const queryTracks = useQuery({
     queryKey: ["tracks"],
@@ -40,7 +43,8 @@ const SearchPage: React.FC = () => {
 
   // Filter tracks based on the search input
   const filteredTracks = trackArray.filter((track) =>
-    track.name.toLowerCase().includes(searchInput)
+    track.name.toLowerCase().includes(searchInput) ||
+    track.artist.toLowerCase().includes(searchInput)
   );
 
   //filter artist based on the search input
@@ -55,7 +59,8 @@ const SearchPage: React.FC = () => {
 
   // Filter albums based on the search input
   const filteredAlbums = albumArray.filter((album) =>
-    album.name.toLowerCase().includes(searchInput)
+    album.name.toLowerCase().includes(searchInput)||
+    album.artist.toLowerCase().includes(searchInput)
   );
   
   return (
@@ -84,7 +89,7 @@ const SearchPage: React.FC = () => {
           {filteredTracks.length > 0 &&
             filteredTracks.map((track) => (
               // Render track components here
-              <SongCard key={track.id} track={track} />
+              <SongCard key={`${track.id}-${track.artist}`} track={track} />
             ))}
            {filteredArtists.length > 0 && 
            filteredArtists.map((artist) => (
@@ -98,7 +103,7 @@ const SearchPage: React.FC = () => {
           {filteredAlbums.length > 0 &&
             filteredAlbums.map((album) => (
               // Render album components here
-              <AlbumCard key={album.id} album={album} />
+              <AlbumCard key={`${album.id}-${album.artist}`} album={album} />
             ))}
         </section>
         </main>

@@ -3,3 +3,11 @@
 .search-main-container {
     margin: 2rem;
 }
+
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 250px;
+}
