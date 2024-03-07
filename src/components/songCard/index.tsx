@@ -20,6 +20,7 @@ const SongCard = ({ track, isActive }: Props) => {
       setAudioImg(track.thumbnail)
       localStorage.setItem('localTrack', JSON.stringify(track))
       setTimeout(() => {
+        setTrackId(0)
         void queryTrack.refetch()
       }, 50)
       return track

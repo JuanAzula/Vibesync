@@ -9,10 +9,13 @@ import { PlaylistCard } from "../../components/playlistCard/PlaylistCard";
 import { AlbumCard } from '../../components/albumCard';
 import { ArtistCard } from '../../components/artistCard';
 import SongCard from '../../components/songCard';
+import { useAudioContext } from '../../hooks/useAudio';
+
 
 
 const SearchPage: React.FC = () => {
   const { searchInput } = useSearchContext();
+  const { setTrackId } = useAudioContext()
  
   const queryTracks = useQuery({
     queryKey: ["tracks"],
