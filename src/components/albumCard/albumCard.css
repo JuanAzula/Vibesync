@@ -1,5 +1,7 @@
 .album-container{
   margin-right: 1rem;
+  cursor: pointer;
+
 }
 .album-img{
   max-width: 17rem;

@@ -9,18 +9,6 @@ html{
 
 .home-main-container{
     margin: 2rem;
-    max-height: 68rem;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-    &::-webkit-scrollbar {
-        width: 8px;
-     }
-     &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-     }
 }
 
 .home-settings-btn{
@@ -49,4 +37,8 @@ html{
     grid-template-columns: auto auto;
     gap: 1rem;
     margin-top: 2rem
+}
+
+.home-bottom-space{
+    height: 25rem;
 }

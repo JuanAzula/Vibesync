@@ -1,4 +1,5 @@
 import React from 'react'
+import './FavTracks.css'
 
 type Props = {}
 

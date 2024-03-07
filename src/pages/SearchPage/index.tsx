@@ -101,6 +101,7 @@ const SearchPage: React.FC = () => {
               <AlbumCard key={album.id} album={album} />
             ))}
         </section>
+        <div className="search-bottom-space"></div>
         </main>
         </>
   )
