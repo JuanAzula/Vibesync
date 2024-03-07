@@ -47,8 +47,11 @@ function useAudioReducer () {
 
   useEffect(()=> {
     getSongDuration(audioRef, setSongDuration)
-    // handleTimeUpdate()
   }, [audioRef?.current?.src])
+
+  setInterval(()=> {
+    handleTimeUpdate()
+  }, 100)
 
   /// esto junto con el audioRef pódeis meterlo en un custom Hook si queréis (usePlay), porque lo utilizaréis más veces. No lo hago por no liar
   const togglePlay = () => {
@@ -72,9 +75,6 @@ function useAudioReducer () {
 
   // /// lo mismo con esta función, metedla en una carpeta de utils/globals para limpiar el código. Lo dejo aquí para que os sea más fácil entederlo. Explicación-> Simplemente coges la duraciónm, que te la dan en segundos, y la separas en minutos y segundos.
   const getSongDuration = (audioRef: React.RefObject<HTMLAudioElement>, setSongDuration: React.Dispatch<React.SetStateAction<string>>) => {
-    // if (audioRef?.current?.src){
-    //   audioRef.current.src = audioUrl
-    // } 
     if (audioRef.current?.duration) {
       const duration = audioRef.current?.duration
       const minutes = Math.floor(duration / 60)
