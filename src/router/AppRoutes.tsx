@@ -90,6 +90,7 @@ export const AppRoutes = () => {
         />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
+        <Route path="/library/favtracks" element={<FavTracks/>} />
         <Route
           path="/user"
           element={<UserPage user={queryUserLogged.data} />}

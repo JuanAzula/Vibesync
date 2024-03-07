@@ -6,6 +6,7 @@ import myLifeIsAMovieImg from '../../assets/default-mylibrary/mylifeisamovie.png
 import topSongsImg from '../../assets/default-mylibrary/topsong2023.png'
 import acousticChillImg from '../../assets/default-mylibrary/acousticchill.png'
 import amourDeIyceeImg from '../../assets/default-mylibrary/amourdeiycee.png'
+import { Link } from 'react-router-dom'
 
 export default function LibraryPage () {
   return (
@@ -20,13 +21,15 @@ export default function LibraryPage () {
         </section>
         <main className='library-main-page'>
         <ul className='library-main-page__list'>
-          <li>
-            <img src={likedSongsImg} alt='Liked Songs' />
-            <div>
-              <h3>Liked Songs</h3>
-              <p>Subtitle text here</p>
-            </div>
-          </li>
+          <Link to="/library/favtracks">
+            <li>
+              <img src={likedSongsImg} alt='Liked Songs' />
+              <div>
+                <h3>Liked Songs</h3>
+                <p>Subtitle text here</p>
+              </div>
+            </li>
+          </Link>
           <li>
             <img src={newEpisodesImg} alt='New Episodes' />
             <div>
