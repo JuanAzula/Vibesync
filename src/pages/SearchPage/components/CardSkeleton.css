@@ -1,6 +1,7 @@
 .card-skeleton {
     display: flex;
     flex-direction: column;
+    z-index: 10;
 }
 
 .card-skeleton-img {

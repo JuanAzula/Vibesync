@@ -20,12 +20,13 @@ const SearchPage: React.FC = () => {
   const { searchInput } = useSearchContext();
   const { setTrackId } = useAudioContext()
 
+
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 500)
+    }, 3000)
   }, []);
  
   const queryTracks = useQuery({
