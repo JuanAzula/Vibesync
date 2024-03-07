@@ -7,6 +7,8 @@
 
 .button-container svg {
   font-size: 2.3rem;
+  cursor: pointer;
+
 }
 
 .duration-container {
@@ -19,4 +21,6 @@
   display: flex;
   margin: auto;
   font-size: 1.5rem;
+  cursor: pointer;
+
 }

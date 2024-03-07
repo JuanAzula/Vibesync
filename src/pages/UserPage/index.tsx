@@ -62,6 +62,7 @@ export const UserPage = ({ user }: Props) => {
         />
       </section>
     </main>
+    <div className="profile-bottom-space"></div>
     </>
   )
 }

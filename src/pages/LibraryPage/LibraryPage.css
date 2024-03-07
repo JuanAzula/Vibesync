@@ -29,8 +29,21 @@
     color: var(--color-text);
     cursor: pointer;
 }
+/* 
+.library-main-page__list li a{
+    text-decoration: none !important;
+} */
 
 .library-main-page__list li img {
     margin-right: 15px;
 }
 
+.library-bottom-space{
+    height: 25rem;
+}
+
+.fav-tracks-img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 1rem;
+}

@@ -44,3 +44,6 @@ body {
   overflow-x: auto;
 }
 
+.profile-bottom-space{
+  height: 25rem;
+}
