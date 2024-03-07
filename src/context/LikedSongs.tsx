@@ -1,33 +1,40 @@
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import React, { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useState } from 'react'
 
-interface LikedSongsContextType {
-  likedSongs: string[]
-  toggleLiked: (songId: string) => void
-}
+export const LikedTracksContext = createContext({} as any)
 
-const LikedSongsContext = createContext<LikedSongsContextType>({
-  likedSongs: [],
-  toggleLiked: () => {}
-})
+function useLikedTracksReducer () {
+  const initialLikedTracks = window.localStorage.getItem('likedTracks')
+  const likedTracksChecked = initialLikedTracks ? JSON.parse(initialLikedTracks) : []
+  const [likedTracks, setLikedTracks] = useState(likedTracksChecked)
 
-export const useLikedSongs = () => useContext(LikedSongsContext)
-
-export const LikedSongsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [likedSongs, setLikedSongs] = useState<string[]>([])
-
-  const toggleLiked = (songId: string) => {
-    if (likedSongs.includes(songId)) {
-      setLikedSongs(likedSongs.filter(id => id !== songId))
-    } else {
-      setLikedSongs([...likedSongs, songId])
+  const addToLikedTracks = (track: any) => {
+    if (likedTracks.find((item: any) => item.id === track.id)) {
+      return
     }
-    console.log('toggle==>', likedSongs, 'songId==>', songId)
+
+    window.localStorage.setItem('likedTracks', JSON.stringify([...likedTracks, track]))
+    setLikedTracks([...likedTracks, track])
   }
 
+  const removeFromLikedTracks = (track: any) => {
+    const newLikedTracks = likedTracks.filter((item: any) => item.id !== track.id)
+    window.localStorage.setItem('LikedTracks', JSON.stringify(newLikedTracks))
+    setLikedTracks(newLikedTracks)
+  }
+
+  return { likedTracks, setLikedTracks, addToLikedTracks, removeFromLikedTracks }
+}
+
+export function LikedTracksProvider ({ children }: { children: React.ReactNode }) {
+  const { likedTracks, addToLikedTracks, removeFromLikedTracks, setLikedTracks } = useLikedTracksReducer()
   return (
-    <LikedSongsContext.Provider value={{ likedSongs, toggleLiked }}>
-      {children}
-    </LikedSongsContext.Provider>
+                <LikedTracksContext.Provider value={{
+                  likedTracks,
+                  setLikedTracks,
+                  addToLikedTracks,
+                  removeFromLikedTracks
+                }}>
+                        {children}
+                </LikedTracksContext.Provider>
   )
 }

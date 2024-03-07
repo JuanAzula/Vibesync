@@ -2,24 +2,40 @@ import './playButtons.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBackwardStep, faBackward, faPlay, faForward, faForwardStep, faPause, faVolumeMute, faVolumeUp, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'
-import { useLikedSongs } from '../../../../context/LikedSongs'
+import { useLikedTracksContext } from '../../../../hooks/useLikedSongs'
 
 interface Props {
   togglePlay: () => void
   isPlaying: boolean
   toggleMute: () => void
   isMuted: boolean
-  songId: string
+  track: number
 }
 
-export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, songId }: Props) => {
-  const { likedSongs, toggleLiked } = useLikedSongs()
+export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, track }: Props) => {
+  const { likedTracks, addToLikedTracks, removeFromLikedTracks } = useLikedTracksContext()
+  console.log('savedState', track)
+  console.log('likedTracks', likedTracks)
+
+  const checkTracksinLikedTracks = (track: any) => {
+    if (likedTracks[0] === null) {
+      return false
+    }
+    if (likedTracks.find((item: any) => item.id === track.id)) {
+      return true
+    }
+    return false
+  }
 
   const handleHeartClick = () => {
-    toggleLiked(songId)
+    if (checkTracksinLikedTracks(track)) {
+      console.log('sista')
+      removeFromLikedTracks(track)
+    } else {
+      console.log('nosta')
+      addToLikedTracks(track)
+    }
   }
-  const isLiked = likedSongs.includes(songId)
-
   return (
 
     <>
@@ -30,7 +46,7 @@ export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, songId
         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} onClick={togglePlay} />
         <FontAwesomeIcon icon={faForward} />
         <FontAwesomeIcon icon={faForwardStep} />
-        <FontAwesomeIcon icon={isLiked ? faHeart : faHeartRegular} onClick={handleHeartClick} />
+        <FontAwesomeIcon icon={ checkTracksinLikedTracks(track) ? faHeart : faHeartRegular} onClick={handleHeartClick} />
       </div>
     </>
   )
