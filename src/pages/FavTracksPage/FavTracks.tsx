@@ -3,7 +3,7 @@ import SongCard from '../../components/songCard'
 import { Track } from '../../types/data'
 import { faHeart as heartIcon } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import "./favTracks.css"
+import "./FavTracks.css"
 
 type Props = {
   track: Track
