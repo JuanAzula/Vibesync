@@ -9,7 +9,7 @@ html{
 
 .home-main-container{
     margin: 2rem;
-    max-height: 65rem;
+    max-height: 68rem;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
