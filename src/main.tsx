@@ -11,11 +11,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <LikedTracksProvider>
       <AudioProvider>
-    <QueryClientProvider client={new QueryClient()}>
-      <SearchProvider>
-      <AppRoutes/>
-      </SearchProvider>
-    </QueryClientProvider>
+        <QueryClientProvider client={new QueryClient()}>
+           <SearchProvider>
+              <AppRoutes/>
+            </SearchProvider>
+       </QueryClientProvider>
       </AudioProvider>
     </LikedTracksProvider>
   </React.StrictMode>

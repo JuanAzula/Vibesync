@@ -10,12 +10,23 @@ import { AlbumCard } from '../../components/albumCard';
 import { ArtistCard } from '../../components/artistCard';
 import SongCard from '../../components/songCard';
 import { useAudioContext } from '../../hooks/useAudio';
+import 'react-loading-skeleton/dist/skeleton.css'
+import CardSkeleton from './components/CardSkeleton';
+import { useEffect, useState } from 'react';
 
 
 
 const SearchPage: React.FC = () => {
   const { searchInput } = useSearchContext();
   const { setTrackId } = useAudioContext()
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 500)
+  }, []);
  
   const queryTracks = useQuery({
     queryKey: ["tracks"],
@@ -85,6 +96,7 @@ const SearchPage: React.FC = () => {
           <div><p>Top charts</p></div>
         </section>
         <section className="search-results">
+          {isLoading && <CardSkeleton cards={6} />}
           {/* Render the filtered results */}
           {filteredTracks.length > 0 &&
             filteredTracks.map((track) => (

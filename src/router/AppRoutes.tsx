@@ -12,6 +12,7 @@ import { MiniPlayer } from '../components/miniPlayer/MiniPlayer'
 import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 import { Signup } from '../pages/SignUp/Signup'
 import { FavTracks } from '../pages/FavTracksPage/FavTracks'
+import { SkeletonTheme } from 'react-loading-skeleton'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -31,6 +32,7 @@ export const AppRoutes = () => {
     void queryUserLogged.refetch()
   }
   return (
+    <SkeletonTheme baseColor='#1C1C26' highlightColor='#222230'>
     <BrowserRouter>
       <audio ref={audioRef} src={audioUrl || {}} />
       {queryUserLogged.data
@@ -38,6 +40,7 @@ export const AppRoutes = () => {
         <>
           <Navbar />
           <MiniPlayer />
+          
         </>
           )
         : null}
@@ -106,5 +109,6 @@ export const AppRoutes = () => {
         />
       </Routes>
     </BrowserRouter>
+    </SkeletonTheme>
   )
 }
