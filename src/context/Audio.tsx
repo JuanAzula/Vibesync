@@ -45,6 +45,11 @@ function useAudioReducer () {
     if (isPlaying && audioRef.current) void audioRef.current.play()
   }, [isPlaying])
 
+  useEffect(()=> {
+    getSongDuration(audioRef, setSongDuration)
+    // handleTimeUpdate()
+  }, [audioRef?.current?.src])
+
   /// esto junto con el audioRef pódeis meterlo en un custom Hook si queréis (usePlay), porque lo utilizaréis más veces. No lo hago por no liar
   const togglePlay = () => {
     if (audioRef.current) {
@@ -67,11 +72,15 @@ function useAudioReducer () {
 
   // /// lo mismo con esta función, metedla en una carpeta de utils/globals para limpiar el código. Lo dejo aquí para que os sea más fácil entederlo. Explicación-> Simplemente coges la duraciónm, que te la dan en segundos, y la separas en minutos y segundos.
   const getSongDuration = (audioRef: React.RefObject<HTMLAudioElement>, setSongDuration: React.Dispatch<React.SetStateAction<string>>) => {
+    // if (audioRef?.current?.src){
+    //   audioRef.current.src = audioUrl
+    // } 
     if (audioRef.current?.duration) {
       const duration = audioRef.current?.duration
       const minutes = Math.floor(duration / 60)
       const seconds = Math.floor(duration % 60).toString().padStart(2, '0')
       setSongDuration(`${minutes}:${seconds}`)
+      console.log(`${minutes}:${seconds}`)
     }
   }
 
@@ -135,7 +144,11 @@ function useAudioReducer () {
     togglePlay,
     toggleMute,
     formatTime,
-    handleProgressClick
+    handleProgressClick,
+    setIsPlaying,
+    setSongDuration,
+    setCurrentTime,
+    getSongDuration
   }
 }
 
@@ -156,7 +169,11 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     audioImg,
     setAudioImg,
     trackId,
-    setTrackId
+    setTrackId,
+    setIsPlaying,
+    getSongDuration,
+    setCurrentTime,
+    setSongDuration
   } = useAudioReducer()
 
   return (
@@ -178,7 +195,11 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
               audioImg,
               setAudioImg,
               trackId,
-              setTrackId
+              setTrackId,
+              setIsPlaying,
+              getSongDuration,
+              setCurrentTime,
+              setSongDuration
             }
         }>
             {children}

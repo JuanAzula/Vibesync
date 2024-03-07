@@ -10,7 +10,7 @@ interface Props {
 }
 
 const SongCard = ({ track, isActive }: Props) => {
-  const { setAudioUrl, setAudioImg, trackId, setTrackId } = useAudioContext()
+  const { setAudioUrl, setAudioImg, trackId, setTrackId, setIsPlaying, getSongDuration, audioRef, setSongDuration, audioUrl } = useAudioContext()
   const getTrack = async (trackId: number | undefined) => {
     console.log(trackId)
     if (trackId) {
@@ -42,6 +42,7 @@ const SongCard = ({ track, isActive }: Props) => {
   return (
     <div className="songcard-container" onClick={() => {
       setTrackId(track.id)
+      setIsPlaying(false)
       setTimeout(() => {
         void queryTrack.refetch()
       }, 100)
