@@ -11,6 +11,7 @@ import LibraryPage from "../pages/LibraryPage";
 import { MiniPlayer } from "../components/miniPlayer/MiniPlayer";
 import { ConfigPage } from "../pages/ConfigPage/ConfigPage";
 import { Signup } from "../pages/SignUp/Signup";
+import { FavTracks } from "../pages/FavTracksPage/FavTracks";
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem("userLogged");
@@ -82,6 +83,7 @@ export const AppRoutes = () => {
         />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
+        <Route path="/library/favtracks" element={<FavTracks/>} />
         <Route
           path="/user"
           element={<UserPage user={queryUserLogged.data} />}

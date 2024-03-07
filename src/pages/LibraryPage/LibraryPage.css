@@ -26,6 +26,8 @@
     display: flex;
     align-items: center;
     margin-bottom:12px;
+    color: var(--color-text);
+    cursor: pointer;
 }
 
 .library-main-page__list li img {
