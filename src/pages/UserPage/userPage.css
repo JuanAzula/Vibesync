@@ -10,12 +10,14 @@ body {
   height: 200px;
   background-color: var(--color-bg-primary);
   padding-top: 2rem;
+  display: flex;
 }
 
 .profile_container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 10rem;
 }
 
 .user_container img {
@@ -25,7 +27,8 @@ body {
 
 .back_button {
   font-size: 1.6rem;
-  margin-left: 1rem;
+  margin-left: 3rem;
+  margin-top: 5rem;
   color: var(--color-text);
 }
 

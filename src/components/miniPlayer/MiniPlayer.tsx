@@ -1,5 +1,6 @@
 import { useAudioContext } from '../../hooks/useAudio'
 import { PlayButtons } from '../../pages/SongPage/components/playButtons'
+import { StyledLink } from '../../styledComponents/styledLink'
 import './MiniPlayer.css'
 
 export const MiniPlayer = () => {
@@ -14,8 +15,13 @@ export const MiniPlayer = () => {
     toggleMute,
     formatTime,
     handleProgressClick,
-    audioUrl
+    audioUrl,
+    audioImg,
+    trackId
   } = useAudioContext()
+  setTimeout(() => {
+    console.log('audioImg', localStorage.getItem('audioPlayerState'))
+  }, 1000)
   return (
     <main className="mini-player-container">
         <audio src={audioUrl} ref={audioRef}></audio>
@@ -27,6 +33,9 @@ export const MiniPlayer = () => {
           <span>{formatTime(currentTime)}</span>
           <span>{songDuration}</span>
         </div>
+        <StyledLink to={`tracks/${trackId}`}>
+        <img src={audioImg} className='mini-player-img' />
+        </StyledLink>
         <PlayButtons
           toggleMute={toggleMute}
           togglePlay={togglePlay}

@@ -70,10 +70,9 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
     const modifiedData = {
       name: user.first_name,
       password: newPassword,
-      first_name: "Assembler",
-      last_name: "Institute",
-      email: "music@assemblerschool.com",
-      profilePicture: "/src/assets/profile_pic.png",
+      last_name: user.last_name,
+      email: user.email,
+      profilePicture: user.profilePicture,
       isLoggedin: false
     };
 

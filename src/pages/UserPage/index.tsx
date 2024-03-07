@@ -1,10 +1,11 @@
 import './userPage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { type Album, type Artist, type Track, type User } from '../../types/data'
 import { getAlbums, getArtists, getTracks } from '../../services/dataService'
 import { useQuery } from '@tanstack/react-query'
 import Carrousel from '../../components/carrousel/Carrousel'
+import { Link } from 'react-router-dom'
 
 interface Props {
   user: User
@@ -33,11 +34,13 @@ export const UserPage = ({ user }: Props) => {
   return (
     <>
     <header className='user_header'>
+      <Link to="/config">
+      <FontAwesomeIcon className='back_button' icon={faChevronLeft} />
+      </Link>
       <div className="profile_container">
         <img src={user.profilePicture} alt="" />
         <h2 className='user_name'>{user.first_name} {user.last_name}</h2>
       </div>
-      <FontAwesomeIcon className='back_button' icon={faArrowLeft} />
     </header>
     <main className='user_main_container'>
       <h2>Favorite Songs</h2>

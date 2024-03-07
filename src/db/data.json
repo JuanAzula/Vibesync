@@ -2,55 +2,55 @@
   "playlists": [
     {
       "id": "1",
-      "name": "Road trip! All the masters I need!",
+      "name": "Time to Workout",
       "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Get your mic on with this beats. You are going to sing all the way down",
+      "thumbnail": "/src/assets/playlists-img/time-to-workout.png",
+      "description": "An energizing playlist tailored for your workout sessions at the gym.",
       "publicAccessible": true,
       "primaryColor": "#fbdc00"
     },
     {
       "id": "2",
-      "name": "Motorcycle Mama!",
+      "name": "LoFi Music",
       "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Take it easy on the wheels with this hits",
+      "thumbnail": "/src/assets/playlists-img/lofi-playlist.png",
+      "description": "A soothing LoFi playlist curated for moments of relaxation and focus.",
       "publicAccessible": true,
       "primaryColor": "#fbdc00"
     },
     {
       "id": "3",
-      "name": "Chillout with the beats",
+      "name": "Relaxing Cooking Mix",
       "isFollowed": false,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Stressed? Don´t worry the final project will soon be over. Relax in the meantime with this hits.",
+      "thumbnail": "/src/assets/playlists-img/relaxing-cooking-mix.png",
+      "description": "A culinary-inspired playlist designed to add flavor to your cooking experience.",
       "publicAccessible": true,
       "primaryColor": "#fbdc00"
     },
     {
       "id": "4",
-      "name": "Boogie with the beats",
+      "name": "Festival Vibes",
       "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Take the dance floor and try to get your groove on with this beats",
+      "thumbnail": "/src/assets/playlists-img/festival-vibes.png",
+      "description": "A high-energy festival playlist crafted to keep the party going all night long.",
       "publicAccessible": false,
       "primaryColor": "#fbdc00"
     },
     {
       "id": "5",
-      "name": "Smile. You are beautiful",
+      "name": "Reading Flow",
       "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "For those times when you are feeling down.",
+      "thumbnail": "/src/assets/playlists-img/reading-flow.png",
+      "description": "A tranquil reading playlist carefully curated to accompany your literary journey",
       "publicAccessible": false,
       "primaryColor": "#fbdc00"
     },
     {
       "id": "6",
-      "name": "Staying home",
+      "name": "Romanticizing Studying",
       "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Feeling homey. Let´s keep it warm.",
+      "thumbnail": "/src/assets/playlists-img/romanticizing-studying.png",
+      "description": "A focused study playlist meticulously selected to enhance concentration and productivity.",
       "publicAccessible": false,
       "primaryColor": "#fbdc00"
     },
@@ -148,10 +148,10 @@
     },
     {
       "id": "7",
-      "name": "Igor Pumphonia - Point Of Light",
-      "artist": "Igor Pumphonia",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "name": "Canserbero - Jeremias",
+      "artist": "Canserbero",
+      "url": "/src/assets/default-songs/canserbero-jeremias.mp3",
+      "thumbnail": "/src/assets/track-img/muerte-canserbero-album.webp",
       "genre": "electronic",
       "liked": false
     },
@@ -275,7 +275,6 @@
   ],
   "user": [
     {
-      "name": "Assembler",
       "password": "1234567K*",
       "first_name": "Assembler",
       "last_name": "Institute",
@@ -283,38 +282,47 @@
       "profilePicture": "/src/assets/profile_pic.png",
       "isLoggedin": false,
       "id": "1"
+    },
+    {
+      "id": "87mse0r18",
+      "first_name": "Alba",
+      "password": "12345678K*",
+      "last_name": "Martin",
+      "email": "albams@live.com",
+      "profilePicture": "/src/assets/profile_pic.png",
+      "isLoggedin": false
     }
   ],
   "albums": [
     {
       "id": "1",
-      "name": "Flyga",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Kim Cesarion"
+      "name": "Hilo Negro",
+      "imageUrl": "src/assets/albums-img/derby_motoretas_burrito_kachimba_hilo_negro-portada.jpg",
+      "artist": "Derby Motoreta's Burrito Kachimba"
     },
     {
       "id": "2",
-      "name": "XXX (Bow Wow Wow)",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "C.Gambino"
+      "name": "OMEGA",
+      "imageUrl": "src/assets/albums-img/enrique_morente_omega_20_aniversario-portada.jpg",
+      "artist": "Enrique Morente"
     },
     {
       "id": "3",
-      "name": "Stay A Little Longer",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Nicky Romero"
+      "name": "Orquídeas",
+      "imageUrl": "src/assets/albums-img/kali-uchis-orquideas-album.jpg",
+      "artist": "Kali Uchis"
     },
     {
       "id": "4",
-      "name": "WTF",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Denz"
+      "name": "Graduation",
+      "imageUrl": "src/assets/albums-img/graduation-kanye-cover.jpg",
+      "artist": "Kanye West"
     },
     {
       "id": "5",
-      "name": "Vivaldi",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Jesper Swärd"
+      "name": "Jeremias 17:5",
+      "imageUrl": "src/assets/albums-img/jeremias17-5.jpg",
+      "artist": "Canserbero"
     },
     {
       "id": "6",
