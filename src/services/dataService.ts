@@ -17,6 +17,11 @@ export const getUsers = async () => {
   return response.data
 }
 
+export const getUser = async (id: number) => {
+  const response = await axios.get(BASE_URL + 'user/' + id)
+  return response.data
+}
+
 export const getArtists = async () => {
   const response = await axios.get(BASE_URL + 'artists')
   return response.data

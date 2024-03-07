@@ -8,7 +8,7 @@ type Props = {
 export const AlbumCard = ({album}: Props) => {
   return (
     <div className="album-container">
-      <img src={album.imageUrl} />
+      <img className="album-img" src={album.imageUrl} />
       <div>
         <span>{album.artist}</span>
         <h3>{album.name}</h3>

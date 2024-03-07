@@ -10,6 +10,8 @@ function useAudioReducer () {
   const [currentTime, setCurrentTime] = useState(0)
   const [progressWidth, setProgressWidth] = useState('0%')
   const [audioUrl, setAudioUrl] = useState('')
+  const [audioImg, setAudioImg] = useState('')
+  const [trackId, setTrackId] = useState(0)
 
   useEffect(() => {
     localStorage.setItem('audioPlayerState', JSON.stringify({
@@ -18,9 +20,11 @@ function useAudioReducer () {
       currentTime,
       songDuration,
       progressWidth,
-      audioUrl
+      audioUrl,
+      audioImg,
+      trackId
     }))
-  }, [isPlaying, isMuted, currentTime, songDuration, progressWidth, audioUrl])
+  }, [isPlaying, isMuted, currentTime, songDuration, progressWidth, audioUrl, audioImg, trackId])
 
   useEffect(() => {
     const savedState = localStorage.getItem('audioPlayerState')
@@ -32,6 +36,8 @@ function useAudioReducer () {
       setSongDuration(initialState.songDuration)
       setProgressWidth(initialState.progressWidth)
       setAudioUrl(initialState.audioUrl)
+      setAudioImg(initialState.audioImg)
+      setTrackId(initialState.trackId)
     }
   }, [])
 
@@ -121,6 +127,10 @@ function useAudioReducer () {
     songDuration,
     progressWidth,
     audioUrl,
+    audioImg,
+    trackId,
+    setTrackId,
+    setAudioImg,
     setAudioUrl,
     togglePlay,
     toggleMute,
@@ -142,7 +152,11 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     formatTime,
     handleProgressClick,
     setAudioUrl,
-    audioUrl
+    audioUrl,
+    audioImg,
+    setAudioImg,
+    trackId,
+    setTrackId
   } = useAudioReducer()
 
   return (
@@ -160,7 +174,11 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
               formatTime,
               handleProgressClick,
               audioUrl,
-              setAudioUrl
+              setAudioUrl,
+              audioImg,
+              setAudioImg,
+              trackId,
+              setTrackId
             }
         }>
             {children}

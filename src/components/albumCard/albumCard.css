@@ -1,3 +1,8 @@
 .album-container{
   margin-right: 1rem;
 }
+.album-img{
+  max-width: 17rem;
+  max-height: 17rem;
+  border-radius: 1.5rem;
+}
