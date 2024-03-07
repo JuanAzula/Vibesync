@@ -84,7 +84,7 @@ const SearchPage: React.FC = () => {
           {filteredTracks.length > 0 &&
             filteredTracks.map((track) => (
               // Render track components here
-              <SongCard key={track.id} track={track} />
+              <SongCard key={track.id} track={track} isActive={true} />
             ))}
            {filteredArtists.length > 0 && 
            filteredArtists.map((artist) => (
