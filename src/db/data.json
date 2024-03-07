@@ -282,7 +282,8 @@
       "email": "music@assemblerschool.com",
       "profilePicture": "/src/assets/profile_pic.png",
       "isLoggedin": false,
-      "id": "1"
+      "id": "1",
+      "liked_tracks": []
     }
   ],
   "albums": [
