@@ -22,7 +22,8 @@ export const MiniPlayer = () => {
     handlePreviousTrack
   } = useAudioContext()
 
-    const track = JSON.parse(localStorage.getItem('localTrack'))
+  const localTrackString = localStorage.getItem('localTrack')
+  const track = localTrackString !== null ? JSON.parse(localTrackString) : null
 
   return (
     <main className="mini-player-container">

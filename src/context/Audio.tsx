@@ -1,11 +1,10 @@
 import { createContext, useEffect, useRef, useState } from 'react'
-import { Track } from '../types/data'
 
 export const AudioContext = createContext({} as any)
 
 function useAudioReducer () {
-  const initialState = localStorage.getItem('audioPlayerState');
-  const initialStateParsed = JSON.parse(initialState ? initialState : '{}')
+  const initialState = localStorage.getItem('audioPlayerState')
+  const initialStateParsed = JSON.parse(initialState || '{}')
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [songDuration, setSongDuration] = useState(initialStateParsed ? initialStateParsed.songDuration : '00:00')
@@ -58,7 +57,7 @@ function useAudioReducer () {
   }, 100)
 
   /// esto junto con el audioRef pódeis meterlo en un custom Hook si queréis (usePlay), porque lo utilizaréis más veces. No lo hago por no liar
-  
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -99,13 +98,13 @@ function useAudioReducer () {
   }
 
   const handleTrackEnded = () => {
-    if(audioRef.current?.ended){
+    if (audioRef.current?.ended) {
       localStorage.setItem('previousTrack', JSON.stringify(trackId))
       const storageTracks = localStorage.getItem('allTracks')
-      const tracks = JSON.parse(storageTracks ? storageTracks:'{}')
+      const tracks = JSON.parse(storageTracks || '{}')
       const tracksLength = tracks.length
-      let randomNumber = Math.floor(Math.random()*tracksLength)
-      if(randomNumber === 8 ){
+      let randomNumber = Math.floor(Math.random() * tracksLength)
+      if (randomNumber === 8) {
         randomNumber = 7
         const track = tracks[randomNumber]
         setAudioUrl(track.url)
@@ -115,50 +114,7 @@ function useAudioReducer () {
         //   getSongDuration()
         // }, 100)
         setIsPlaying(false)
-
-      } else if (randomNumber == trackId -1){
-        randomNumber = trackId - 2
-        const track = tracks[randomNumber]
-        setAudioUrl(track.url)
-        setAudioImg(track.thumbnail)
-        setTrackId(track.id)
-        
-        // setTimeout(()=>{
-        //   getSongDuration()
-        // }, 100)
-        setIsPlaying(false)
-
-      }
-      const track = tracks[randomNumber]
-        setAudioUrl(track.url)
-        setAudioImg(track.thumbnail)
-        setTrackId(track.id)
-        
-        // setTimeout(()=>{
-        //   getSongDuration()
-        // }, 100)
-        setIsPlaying(false)
-    }
-  }
-
-  const handleNextTrack = () => {
-      const storageTracks = localStorage.getItem('allTracks')
-      const tracks = JSON.parse(storageTracks ? storageTracks:'{}')
-      const tracksLength = tracks.length
-      localStorage.setItem('previousTrack', JSON.stringify(trackId))
-      let randomNumber = Math.floor(Math.random()*tracksLength)
-      if(randomNumber === 8 ){
-        randomNumber = 7
-        const track = tracks[randomNumber]
-        setAudioUrl(track.url)
-        setAudioImg(track.thumbnail)
-        setTrackId(track.id)
-        // setTimeout(()=>{
-        //   getSongDuration()
-        // }, 100)
-        setIsPlaying(false)
-
-      } else if (randomNumber == trackId -1){
+      } else if (randomNumber === trackId - 1) {
         randomNumber = trackId - 2
         const track = tracks[randomNumber]
         setAudioUrl(track.url)
@@ -169,39 +125,78 @@ function useAudioReducer () {
         //   getSongDuration()
         // }, 100)
         setIsPlaying(false)
-
       }
       const track = tracks[randomNumber]
-        setAudioUrl(track.url)
-        setAudioImg(track.thumbnail)
-        setTrackId(track.id)
-
-        // setTimeout(()=>{
-        //   getSongDuration()
-        // }, 100)
-        setIsPlaying(false)
-  }
-
-  const handlePreviousTrack = () => {
-    const storageTracks = localStorage.getItem('allTracks')
-    const tracks = JSON.parse(storageTracks ? storageTracks:'{}')
-    console.log("tracks in handlePreviousTrack", tracks)
-    const previousStorageTrack = localStorage.getItem('previousTrack');
-    const previousTrackIndex = previousStorageTrack ? JSON.parse(previousStorageTrack) : trackId
-    console.log("previousTrackIndex",previousTrackIndex)
-    const track = tracks[previousTrackIndex - 1]
-    console.log("track in handlePreviousTrack", track)
-    setTimeout(()=> {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
-    }, 200)
-      
+
       // setTimeout(()=>{
       //   getSongDuration()
       // }, 100)
       setIsPlaying(false)
-}
+    }
+  }
+
+  const handleNextTrack = () => {
+    const storageTracks = localStorage.getItem('allTracks')
+    const tracks = JSON.parse(storageTracks || '{}')
+    const tracksLength = tracks.length
+    localStorage.setItem('previousTrack', JSON.stringify(trackId))
+    let randomNumber = Math.floor(Math.random() * tracksLength)
+    if (randomNumber === 8) {
+      randomNumber = 7
+      const track = tracks[randomNumber]
+      setAudioUrl(track.url)
+      setAudioImg(track.thumbnail)
+      setTrackId(track.id)
+      // setTimeout(()=>{
+      //   getSongDuration()
+      // }, 100)
+      setIsPlaying(false)
+    } else if (randomNumber === trackId - 1) {
+      randomNumber = trackId - 2
+      const track = tracks[randomNumber]
+      setAudioUrl(track.url)
+      setAudioImg(track.thumbnail)
+      setTrackId(track.id)
+
+      // setTimeout(()=>{
+      //   getSongDuration()
+      // }, 100)
+      setIsPlaying(false)
+    }
+    const track = tracks[randomNumber]
+    setAudioUrl(track.url)
+    setAudioImg(track.thumbnail)
+    setTrackId(track.id)
+
+    // setTimeout(()=>{
+    //   getSongDuration()
+    // }, 100)
+    setIsPlaying(false)
+  }
+
+  const handlePreviousTrack = () => {
+    const storageTracks = localStorage.getItem('allTracks')
+    const tracks = JSON.parse(storageTracks || '{}')
+    console.log('tracks in handlePreviousTrack', tracks)
+    const previousStorageTrack = localStorage.getItem('previousTrack')
+    const previousTrackIndex = previousStorageTrack ? JSON.parse(previousStorageTrack) : trackId
+    console.log('previousTrackIndex', previousTrackIndex)
+    const track = tracks[previousTrackIndex - 1]
+    console.log('track in handlePreviousTrack', track)
+    setTimeout(() => {
+      setAudioUrl(track.url)
+      setAudioImg(track.thumbnail)
+      setTrackId(track.id)
+    }, 200)
+
+    // setTimeout(()=>{
+    //   getSongDuration()
+    // }, 100)
+    setIsPlaying(false)
+  }
 
   /// Esta función sirve para formatear el currentTime, recibe el currentTime por parametro y lo formatea en min y sec para enseñarlo en la pantalla. LO MISMO, esto, idealmente, en UTILS/GLOBALS, no aquí
   const formatTime = (timeInSeconds: number): string => {

@@ -2,8 +2,7 @@ import { type Track } from '../../types/data'
 import './SongCard.css'
 import { useAudioContext } from '../../hooks/useAudio'
 import { useQuery } from '@tanstack/react-query'
-import { getTrack as fetchTrack } from '../../services/dataService'
-import { getTracks as fetchTracks } from '../../services/dataService'
+import { getTrack as fetchTrack, getTracks as fetchTracks } from '../../services/dataService'
 
 interface Props {
   track: Track
@@ -11,11 +10,11 @@ interface Props {
 }
 
 const SongCard = ({ track, isActive }: Props) => {
-  const { setAudioUrl, setAudioImg, trackId, setTrackId, setIsPlaying, getSongDuration, audioRef, setSongDuration} = useAudioContext()
+  const { setAudioUrl, setAudioImg, trackId, setTrackId, setIsPlaying, getSongDuration, audioRef, setSongDuration } = useAudioContext()
 
   const getAllTracks = async () => {
     const tracks = await fetchTracks()
-    console.log("tracks length",tracks.length)
+    console.log('tracks length', tracks.length)
     localStorage.setItem('allTracks', JSON.stringify(tracks))
     return tracks
   }
@@ -49,7 +48,7 @@ const SongCard = ({ track, isActive }: Props) => {
 
   const queryAllTracks = useQuery({
     queryKey: ['tracks'],
-    queryFn: async() => await getAllTracks()
+    queryFn: async () => await getAllTracks()
   })
 
   console.log('queryAllTracks', queryAllTracks.data.length)
