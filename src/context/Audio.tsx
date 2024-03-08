@@ -110,9 +110,9 @@ function useAudioReducer () {
         setAudioUrl(track.url)
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
-        // setTimeout(()=>{
-        //   getSongDuration()
-        // }, 100)
+        setTimeout(() => {
+          getSongDuration(audioRef, setSongDuration)
+        }, 100)
         setIsPlaying(false)
       } else if (randomNumber === trackId - 1) {
         randomNumber = trackId - 2
@@ -121,9 +121,9 @@ function useAudioReducer () {
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
 
-        // setTimeout(()=>{
-        //   getSongDuration()
-        // }, 100)
+        setTimeout(() => {
+          getSongDuration(audioRef, setSongDuration)
+        }, 100)
         setIsPlaying(false)
       }
       const track = tracks[randomNumber]
@@ -131,9 +131,9 @@ function useAudioReducer () {
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
 
-      // setTimeout(()=>{
-      //   getSongDuration()
-      // }, 100)
+      setTimeout(() => {
+        getSongDuration(audioRef, setSongDuration)
+      }, 100)
       setIsPlaying(false)
     }
   }
@@ -150,9 +150,9 @@ function useAudioReducer () {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
-      // setTimeout(()=>{
-      //   getSongDuration()
-      // }, 100)
+      setTimeout(() => {
+        getSongDuration(audioRef, setSongDuration)
+      }, 100)
       setIsPlaying(false)
     } else if (randomNumber === trackId - 1) {
       randomNumber = trackId - 2
@@ -161,9 +161,9 @@ function useAudioReducer () {
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
 
-      // setTimeout(()=>{
-      //   getSongDuration()
-      // }, 100)
+      setTimeout(() => {
+        getSongDuration(audioRef, setSongDuration)
+      }, 100)
       setIsPlaying(false)
     }
     const track = tracks[randomNumber]
@@ -171,9 +171,9 @@ function useAudioReducer () {
     setAudioImg(track.thumbnail)
     setTrackId(track.id)
 
-    // setTimeout(()=>{
-    //   getSongDuration()
-    // }, 100)
+    setTimeout(() => {
+      getSongDuration(audioRef, setSongDuration)
+    }, 100)
     setIsPlaying(false)
   }
 
