@@ -45,11 +45,11 @@ function useAudioReducer () {
     if (isPlaying && audioRef.current) void audioRef.current.play()
   }, [isPlaying])
 
-  useEffect(()=> {
+  useEffect(() => {
     getSongDuration(audioRef, setSongDuration)
   }, [audioRef?.current?.src])
 
-  setInterval(()=> {
+  setInterval(() => {
     handleTimeUpdate()
   }, 100)
 
