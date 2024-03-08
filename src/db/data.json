@@ -157,10 +157,10 @@
     },
     {
       "id": "8",
-      "name": "Marsupial",
-      "artist": "Laurence Danova",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
+      "name": "Sueña Conmmigo",
+      "artist": "Napoleón Solo",
+      "url": "/src/assets/default-songs/suena-conmigo.mp3",
+      "thumbnail": "/src/assets/track-img/suena-conmigo.jpg",
       "genre": "indie",
       "liked": false
     },
@@ -326,9 +326,9 @@
     },
     {
       "id": "6",
-      "name": "Velvet Pony Trax 11 part 2",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Axel Boman"
+      "name": "Estopa",
+      "imageUrl": "src/assets/albums-img/estopa.jpg",
+      "artist": "Estopa"
     },
     {
       "id": "7",

@@ -16,6 +16,7 @@ const SongCard = ({ track, isActive }: Props) => {
     if (trackId) {
       const track = await fetchTrack(trackId)
       console.log('track', track.url)
+      getSongDuration(audioRef, setSongDuration)
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       localStorage.setItem('localTrack', JSON.stringify(track))
