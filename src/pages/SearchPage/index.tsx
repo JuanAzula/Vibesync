@@ -102,7 +102,7 @@ const SearchPage: React.FC = () => {
           {filteredTracks.length > 0 &&
             filteredTracks.map((track) => (
               // Render track components here
-              <SongCard key={`${track.id}-${track.artist}`} track={track} />
+              <SongCard key={`${track.id}-${track.artist}`} track={track} isActive={true} />
             ))}
            {filteredArtists.length > 0 && 
            filteredArtists.map((artist) => (
@@ -119,6 +119,7 @@ const SearchPage: React.FC = () => {
               <AlbumCard key={`${album.id}-${album.artist}`} album={album} />
             ))}
         </section>
+        <div className="search-bottom-space"></div>
         </main>
         </>
   )

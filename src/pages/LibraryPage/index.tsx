@@ -7,6 +7,7 @@ import topSongsImg from '../../assets/default-mylibrary/topsong2023.png'
 import acousticChillImg from '../../assets/default-mylibrary/acousticchill.png'
 import amourDeIyceeImg from '../../assets/default-mylibrary/amourdeiycee.png'
 import { Link } from 'react-router-dom'
+import fav from '/src/assets/playlists-img/fav-tracks.png'
 
 export default function LibraryPage () {
   return (
@@ -23,10 +24,10 @@ export default function LibraryPage () {
         <ul className='library-main-page__list'>
           <Link to="/library/favtracks">
             <li>
-              <img src={likedSongsImg} alt='Liked Songs' />
+              <img className="fav-tracks-img" src={fav} alt='Liked Songs' />
               <div>
                 <h3>Liked Songs</h3>
-                <p>Subtitle text here</p>
+                <p>Melodic Treasures: My Liked Songs Playlist</p>
               </div>
             </li>
           </Link>
@@ -151,6 +152,9 @@ export default function LibraryPage () {
             </div>
           </li>
         </ul>
+        <div className="library-bottom-space">
+
+        </div>
         </main>
         </>
   )

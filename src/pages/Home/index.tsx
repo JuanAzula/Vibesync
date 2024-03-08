@@ -8,6 +8,11 @@ import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
 import { type User, type Album, type Playlist, type Track } from '../../types/data'
 import { Link } from 'react-router-dom'
 import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
+import lofiPlaylist from '/src/assets/playlists-img/lofi-playlist.png'
+import kanyeAlbum from '/src/assets/albums-img/graduation-kanye-cover.jpg'
+import canserbero from '/src/assets/albums-img/jeremias17-5.jpg'
+import cookingPlaylist from '/src/assets/playlists-img/relaxing-cooking-mix.png'
+import readingFlow from '/src/assets/playlists-img/reading-flow.png'
 
 export const Home = ({ user }: { user: User }) => {
   const [isActive, setIsActive] = useState(true)
@@ -35,7 +40,7 @@ export const Home = ({ user }: { user: User }) => {
     <main className="home-main-container">
       <section className="home-welcome-section">
         <h3>
-          Good afternoon,
+          Welcome back,
           <span className="home-username"> {user.first_name} {user.last_name}</span>
         </h3>
         <button className="home-settings-btn">
@@ -48,11 +53,11 @@ export const Home = ({ user }: { user: User }) => {
         <CategoryBtn>AudioBooks</CategoryBtn>
       </section>
       <section className="home-miniplaylist-display">
-        <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
-        <PlaylistMiniCard/>
+        <PlaylistMiniCard img={lofiPlaylist} title="LoFi Music"/>
+        <PlaylistMiniCard img={kanyeAlbum} title="Graduation"/>
+        <PlaylistMiniCard img={canserbero} title="Jeremias 17:5"/>
+        <PlaylistMiniCard img={cookingPlaylist} title="Relaxing Cooking Mix"/>
+        <PlaylistMiniCard img={readingFlow} title="Reading Flow"/>
       </section>
       <section className="home-fav-songs">
         <h2>Your favorite songs</h2>
@@ -69,6 +74,7 @@ export const Home = ({ user }: { user: User }) => {
         <h2>Jump back in</h2>
         <Carrousel dataAlbum={albumArray} />
       </section>
+      <div className="home-bottom-space"></div>
     </main>
     </>
   )
