@@ -1,4 +1,5 @@
 import { createContext, useEffect, useRef, useState } from 'react'
+import { Track } from '../types/data'
 
 export const AudioContext = createContext({} as any)
 
@@ -46,14 +47,16 @@ function useAudioReducer () {
   }, [isPlaying])
 
   useEffect(()=> {
-    getSongDuration(audioRef, setSongDuration)
+    getSongDuration()
   }, [audioRef?.current?.src])
 
   setInterval(()=> {
     handleTimeUpdate()
+    handleTrackEnded()
   }, 100)
 
   /// esto junto con el audioRef pódeis meterlo en un custom Hook si queréis (usePlay), porque lo utilizaréis más veces. No lo hago por no liar
+  
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -74,7 +77,7 @@ function useAudioReducer () {
   }
 
   // /// lo mismo con esta función, metedla en una carpeta de utils/globals para limpiar el código. Lo dejo aquí para que os sea más fácil entederlo. Explicación-> Simplemente coges la duraciónm, que te la dan en segundos, y la separas en minutos y segundos.
-  const getSongDuration = (audioRef: React.RefObject<HTMLAudioElement>, setSongDuration: React.Dispatch<React.SetStateAction<string>>) => {
+  const getSongDuration = () => {
     if (audioRef.current?.duration) {
       const duration = audioRef.current?.duration
       const minutes = Math.floor(duration / 60)
@@ -90,6 +93,51 @@ function useAudioReducer () {
       setCurrentTime(audioRef.current.currentTime)
       const progress = (audioRef.current.currentTime / audioRef.current.duration) * 100
       setProgressWidth(`${progress}%`)
+    }
+  }
+
+  const handleTrackEnded = () => {
+    if(audioRef.current?.ended){
+      const storageTracks = localStorage.getItem('allTracks')
+      const tracks = JSON.parse(storageTracks ? storageTracks:'{}')
+      const tracksLength = tracks.length
+      let randomNumber = Math.floor(Math.random()*tracksLength)
+      if(randomNumber === 8 ){
+        randomNumber = 7
+        const track = tracks[randomNumber]
+        setAudioUrl(track.url)
+        setAudioImg(track.thumbnail)
+        setTrackId(track.id)
+        setTimeout(()=>{
+          getSongDuration()
+        }, 100)
+        setIsPlaying(false)
+        // togglePlay()
+
+      } else if (randomNumber == trackId -1){
+        randomNumber = trackId - 2
+        const track = tracks[randomNumber]
+        setAudioUrl(track.url)
+        setAudioImg(track.thumbnail)
+        setTrackId(track.id)
+        
+        setTimeout(()=>{
+          getSongDuration()
+        }, 100)
+        setIsPlaying(false)
+        // togglePlay()
+
+      }
+      const track = tracks[randomNumber]
+        setAudioUrl(track.url)
+        setAudioImg(track.thumbnail)
+        setTrackId(track.id)
+        
+        setTimeout(()=>{
+          getSongDuration()
+        }, 100)
+        setIsPlaying(false)
+        // togglePlay()
     }
   }
 
@@ -115,7 +163,7 @@ function useAudioReducer () {
   // sin este useEffect intenta coger la duración de la canción antes de que se carguen los metadatos de la canción, por lo que no coge la duración. Aquí simplemente pues escucha a que se carguen los metadatos pa ejecutar la funcion getSongDuration, capici? Ale pues
   useEffect(() => {
     const handleLoadedMetadata = () => {
-      getSongDuration(audioRef, setSongDuration)
+      getSongDuration()
     }
 
     if (audioRef.current) {
