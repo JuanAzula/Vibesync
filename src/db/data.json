@@ -53,47 +53,11 @@
       "description": "A focused study playlist meticulously selected to enhance concentration and productivity.",
       "publicAccessible": false,
       "primaryColor": "#fbdc00"
-    },
-    {
-      "id": "7",
-      "name": "Space hits!",
-      "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Have no money for a space trip but you can have a space hit!",
-      "publicAccessible": false,
-      "primaryColor": "#fbdc00"
-    },
-    {
-      "id": "8",
-      "name": "Hits for the weekend",
-      "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Have no plans but will be happy to hear you are happy.",
-      "publicAccessible": false,
-      "primaryColor": "#fbdc00"
-    },
-    {
-      "id": "9",
-      "name": "Party time",
-      "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Have you finished your master project? Let´s party!",
-      "publicAccessible": false,
-      "primaryColor": "#fbdc00"
-    },
-    {
-      "id": "10",
-      "name": "Glitter",
-      "isFollowed": true,
-      "thumbnail": "/src/assets/playlist-default-img.png",
-      "description": "Let´s get glittering.",
-      "publicAccessible": false,
-      "primaryColor": "#fbdc00"
     }
   ],
   "tracks": [
     {
-      "id": "1",
+      "id": 1,
       "name": "313",
       "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
       "url": "/src/assets/default-songs/residente.mp3",
@@ -102,7 +66,7 @@
       "liked": false
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Do I Wanna Know",
       "artist": "Arctic Monkeys",
       "url": "/src/assets/default-songs/arctic-monkeys.mp3",
@@ -111,7 +75,7 @@
       "liked": false
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Don't Let Me Be Misunderstood",
       "artist": "Nina Simone",
       "url": "/src/assets/default-songs/nina-simone.mp3",
@@ -120,7 +84,7 @@
       "liked": false
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Yikes",
       "artist": "Kanye West",
       "url": "/src/assets/default-songs/ye-yikes.mp3",
@@ -129,7 +93,7 @@
       "liked": false
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Los Tontos",
       "artist": "C. Tangana - Kiko Veneno",
       "url": "/src/assets/default-songs/los-tontos.mp3",
@@ -138,7 +102,7 @@
       "liked": false
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "대취타",
       "artist": "SUGA",
       "url": "/src/assets/default-songs/대취타.mp3",
@@ -147,7 +111,7 @@
       "liked": false
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Canserbero - Jeremias",
       "artist": "Canserbero",
       "url": "/src/assets/default-songs/canserbero-jeremias.mp3",
@@ -156,122 +120,15 @@
       "liked": false
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Sueña Conmmigo",
       "artist": "Napoleón Solo",
       "url": "/src/assets/default-songs/suena-conmigo.mp3",
       "thumbnail": "/src/assets/track-img/suena-conmigo.jpg",
       "genre": "indie",
       "liked": false
-    },
-    {
-      "id": "9",
-      "name": "Chasing Tomorrow (feat. Jade Gritty)",
-      "artist": "TAB",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "electronic",
-      "liked": false
-    },
-    {
-      "id": "10",
-      "name": "Healin My Blues",
-      "artist": "BJ Wilbanks",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "soul",
-      "liked": false
-    },
-    {
-      "id": "11",
-      "name": "Head Over Heels (Friend Group Remix)",
-      "artist": "The Devil Music Co.",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "poprock",
-      "liked": false
-    },
-    {
-      "id": "12",
-      "name": "Under Water",
-      "artist": "THE.MADPIX.PROJECT",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "electronic",
-      "liked": false
-    },
-    {
-      "id": "13",
-      "name": "Better",
-      "artist": "A8",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "pop",
-      "liked": false
-    },
-    {
-      "id": "14",
-      "name": "My Love",
-      "artist": "Modus",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "pop",
-      "liked": false
-    },
-    {
-      "id": "15",
-      "name": "Bebe go",
-      "artist": "P Steve Officiel",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "reggaeton",
-      "liked": false
-    },
-    {
-      "id": "16",
-      "name": "Reflections (feat. Mathias Hagen)",
-      "artist": "KEVIN S.",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "alternative",
-      "liked": false
-    },
-    {
-      "id": "17",
-      "name": "Un Ratito Nama (Prod: Duran The Coach)",
-      "artist": "Igor Pumphonia",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "reggaeton",
-      "liked": false
-    },
-    {
-      "id": "18",
-      "name": "Sax Is My Cardio",
-      "artist": "KUZINMUZIN",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "funk",
-      "liked": false
-    },
-    {
-      "id": "19",
-      "name": "Chill Lofi Hip Hop Type Beat",
-      "artist": "PERYCREEP",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "groovy",
-      "liked": false
-    },
-    {
-      "id": "20",
-      "name": "Monday 8am",
-      "artist": "KINEMATIC",
-      "url": "/src/assets/default-song/song.mp3",
-      "thumbnail": "/src/assets/track-img/default-track-img.png",
-      "genre": "folk",
-      "liked": false
     }
+    
   ],
   "user": [
     {
@@ -329,90 +186,6 @@
       "name": "Estopa",
       "imageUrl": "src/assets/albums-img/estopa.jpg",
       "artist": "Estopa"
-    },
-    {
-      "id": "7",
-      "name": "PARTYPINGLA",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Rasmus Hultgren"
-    },
-    {
-      "id": "8",
-      "name": "Someone To Love",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Dimitri Vangelis & Wyman"
-    },
-    {
-      "id": "9",
-      "name": "I samma bil",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Hemliga Klubben"
-    },
-    {
-      "id": "10",
-      "name": "Ofiltrerad",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Steph K"
-    },
-    {
-      "id": "11",
-      "name": "Closer",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Romeo"
-    },
-    {
-      "id": "12",
-      "name": "YOUNG",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "SINAN"
-    },
-    {
-      "id": "13",
-      "name": "THE REAL",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Chapee"
-    },
-    {
-      "id": "14",
-      "name": "Eternal Light Brigade",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Les Big Byrd"
-    },
-    {
-      "id": "15",
-      "name": "Tombolo (Réédition)",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Kalash"
-    },
-    {
-      "id": "16",
-      "name": "KARIMO II",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Karim Alger"
-    },
-    {
-      "id": "17",
-      "name": "Midnight FM",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Prof. Stranger"
-    },
-    {
-      "id": "18",
-      "name": "Jag såg en kvinna",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Ken Ring"
-    },
-    {
-      "id": "19",
-      "name": "Alltid varit här",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Rozh"
-    },
-    {
-      "id": "20",
-      "name": "38",
-      "imageUrl": "src/assets/album-img.png",
-      "artist": "Arre"
     }
   ],
   "artists": [
