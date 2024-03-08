@@ -4,9 +4,11 @@ import { Track } from '../types/data'
 export const AudioContext = createContext({} as any)
 
 function useAudioReducer () {
+  const initialState = localStorage.getItem('audioPlayerState');
+  const initialStateParsed = JSON.parse(initialState ? initialState : '{}')
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [songDuration, setSongDuration] = useState('00:00')
+  const [songDuration, setSongDuration] = useState(initialStateParsed ? initialStateParsed.songDuration : '00:00')
   const [isMuted, setIsMuted] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [progressWidth, setProgressWidth] = useState('0%')
@@ -47,7 +49,7 @@ function useAudioReducer () {
   }, [isPlaying])
 
   useEffect(()=> {
-    getSongDuration()
+    getSongDuration(audioRef, setSongDuration)
   }, [audioRef?.current?.src])
 
   setInterval(()=> {
@@ -77,7 +79,7 @@ function useAudioReducer () {
   }
 
   // /// lo mismo con esta función, metedla en una carpeta de utils/globals para limpiar el código. Lo dejo aquí para que os sea más fácil entederlo. Explicación-> Simplemente coges la duraciónm, que te la dan en segundos, y la separas en minutos y segundos.
-  const getSongDuration = () => {
+  const getSongDuration = (audioRef: React.RefObject<HTMLAudioElement>, setSongDuration: React.Dispatch<React.SetStateAction<string>>) => {
     if (audioRef.current?.duration) {
       const duration = audioRef.current?.duration
       const minutes = Math.floor(duration / 60)
@@ -98,6 +100,7 @@ function useAudioReducer () {
 
   const handleTrackEnded = () => {
     if(audioRef.current?.ended){
+      localStorage.setItem('previousTrack', JSON.stringify(trackId))
       const storageTracks = localStorage.getItem('allTracks')
       const tracks = JSON.parse(storageTracks ? storageTracks:'{}')
       const tracksLength = tracks.length
@@ -108,11 +111,10 @@ function useAudioReducer () {
         setAudioUrl(track.url)
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
-        setTimeout(()=>{
-          getSongDuration()
-        }, 100)
+        // setTimeout(()=>{
+        //   getSongDuration()
+        // }, 100)
         setIsPlaying(false)
-        // togglePlay()
 
       } else if (randomNumber == trackId -1){
         randomNumber = trackId - 2
@@ -121,11 +123,10 @@ function useAudioReducer () {
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
         
-        setTimeout(()=>{
-          getSongDuration()
-        }, 100)
+        // setTimeout(()=>{
+        //   getSongDuration()
+        // }, 100)
         setIsPlaying(false)
-        // togglePlay()
 
       }
       const track = tracks[randomNumber]
@@ -133,13 +134,74 @@ function useAudioReducer () {
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
         
-        setTimeout(()=>{
-          getSongDuration()
-        }, 100)
+        // setTimeout(()=>{
+        //   getSongDuration()
+        // }, 100)
         setIsPlaying(false)
-        // togglePlay()
     }
   }
+
+  const handleNextTrack = () => {
+      const storageTracks = localStorage.getItem('allTracks')
+      const tracks = JSON.parse(storageTracks ? storageTracks:'{}')
+      const tracksLength = tracks.length
+      localStorage.setItem('previousTrack', JSON.stringify(trackId))
+      let randomNumber = Math.floor(Math.random()*tracksLength)
+      if(randomNumber === 8 ){
+        randomNumber = 7
+        const track = tracks[randomNumber]
+        setAudioUrl(track.url)
+        setAudioImg(track.thumbnail)
+        setTrackId(track.id)
+        // setTimeout(()=>{
+        //   getSongDuration()
+        // }, 100)
+        setIsPlaying(false)
+
+      } else if (randomNumber == trackId -1){
+        randomNumber = trackId - 2
+        const track = tracks[randomNumber]
+        setAudioUrl(track.url)
+        setAudioImg(track.thumbnail)
+        setTrackId(track.id)
+
+        // setTimeout(()=>{
+        //   getSongDuration()
+        // }, 100)
+        setIsPlaying(false)
+
+      }
+      const track = tracks[randomNumber]
+        setAudioUrl(track.url)
+        setAudioImg(track.thumbnail)
+        setTrackId(track.id)
+
+        // setTimeout(()=>{
+        //   getSongDuration()
+        // }, 100)
+        setIsPlaying(false)
+  }
+
+  const handlePreviousTrack = () => {
+    const storageTracks = localStorage.getItem('allTracks')
+    const tracks = JSON.parse(storageTracks ? storageTracks:'{}')
+    console.log("tracks in handlePreviousTrack", tracks)
+    const previousStorageTrack = localStorage.getItem('previousTrack');
+    const previousTrackIndex = previousStorageTrack ? JSON.parse(previousStorageTrack) : trackId
+    console.log("previousTrackIndex",previousTrackIndex)
+    const track = tracks[previousTrackIndex - 1]
+    console.log("track in handlePreviousTrack", track)
+    setTimeout(()=> {
+      setAudioUrl(track.url)
+      setAudioImg(track.thumbnail)
+      setTrackId(track.id)
+    }, 200)
+      
+      // setTimeout(()=>{
+      //   getSongDuration()
+      // }, 100)
+      setIsPlaying(false)
+}
 
   /// Esta función sirve para formatear el currentTime, recibe el currentTime por parametro y lo formatea en min y sec para enseñarlo en la pantalla. LO MISMO, esto, idealmente, en UTILS/GLOBALS, no aquí
   const formatTime = (timeInSeconds: number): string => {
@@ -163,7 +225,7 @@ function useAudioReducer () {
   // sin este useEffect intenta coger la duración de la canción antes de que se carguen los metadatos de la canción, por lo que no coge la duración. Aquí simplemente pues escucha a que se carguen los metadatos pa ejecutar la funcion getSongDuration, capici? Ale pues
   useEffect(() => {
     const handleLoadedMetadata = () => {
-      getSongDuration()
+      getSongDuration(audioRef, setSongDuration)
     }
 
     if (audioRef.current) {
@@ -196,7 +258,9 @@ function useAudioReducer () {
     setIsPlaying,
     setSongDuration,
     setCurrentTime,
-    getSongDuration
+    getSongDuration,
+    handleNextTrack,
+    handlePreviousTrack
   }
 }
 
@@ -221,7 +285,9 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     setIsPlaying,
     getSongDuration,
     setCurrentTime,
-    setSongDuration
+    setSongDuration,
+    handleNextTrack,
+    handlePreviousTrack
   } = useAudioReducer()
 
   return (
@@ -247,7 +313,9 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
               setIsPlaying,
               getSongDuration,
               setCurrentTime,
-              setSongDuration
+              setSongDuration,
+              handleNextTrack,
+              handlePreviousTrack
             }
         }>
             {children}

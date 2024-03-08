@@ -11,7 +11,7 @@ interface Props {
 }
 
 const SongCard = ({ track, isActive }: Props) => {
-  const { setAudioUrl, setAudioImg, trackId, setTrackId, setIsPlaying, getSongDuration} = useAudioContext()
+  const { setAudioUrl, setAudioImg, trackId, setTrackId, setIsPlaying, getSongDuration, audioRef, setSongDuration} = useAudioContext()
 
   const getAllTracks = async () => {
     const tracks = await fetchTracks()
@@ -25,7 +25,7 @@ const SongCard = ({ track, isActive }: Props) => {
     if (trackId) {
       const track = await fetchTrack(trackId)
       console.log('track', track.url)
-      getSongDuration()
+      getSongDuration(audioRef, setSongDuration)
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       localStorage.setItem('localTrack', JSON.stringify(track))
