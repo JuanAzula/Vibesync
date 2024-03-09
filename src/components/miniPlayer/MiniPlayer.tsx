@@ -16,7 +16,6 @@ export const MiniPlayer = ({ songId }: { songId: string }) => {
     formatTime,
     handleProgressClick,
     audioUrl,
-    audioImg,
     trackId,
     handleNextTrack,
     handlePreviousTrack
@@ -36,18 +35,15 @@ export const MiniPlayer = ({ songId }: { songId: string }) => {
           <span>{formatTime(currentTime)}</span>
           <span>{songDuration}</span>
         </div>
-        <StyledLink to={`tracks/${trackId}`}>
-        <img src={audioImg} className='mini-player-img' />
-        </StyledLink>
-        <PlayButtons
-          toggleMute={toggleMute}
-          togglePlay={togglePlay}
-          isPlaying={isPlaying}
-          isMuted={isMuted}
-          track={track}
-          handleNextTrack={handleNextTrack}
-          handlePreviousTrack={handlePreviousTrack}
-          />
+          <PlayButtons
+            toggleMute={toggleMute}
+            togglePlay={togglePlay}
+            isPlaying={isPlaying}
+            isMuted={isMuted}
+            track={track}
+            handleNextTrack={handleNextTrack}
+            handlePreviousTrack={handlePreviousTrack}
+            />
     </main>
   )
 }

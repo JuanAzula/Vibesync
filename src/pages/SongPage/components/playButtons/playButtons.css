@@ -1,6 +1,12 @@
 .button-container {
-  margin: 1rem auto 3rem;
   display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.button-container__handle-player {
+  display: flex;
+  margin: 1rem auto 2rem;
   justify-content: center;
   gap: 3rem;
 }
