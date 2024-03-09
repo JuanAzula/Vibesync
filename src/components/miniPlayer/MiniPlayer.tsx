@@ -3,7 +3,7 @@ import { PlayButtons } from '../../pages/SongPage/components/playButtons'
 import { StyledLink } from '../../styledComponents/styledLink'
 import './MiniPlayer.css'
 
-export const MiniPlayer = () => {
+export const MiniPlayer = ({ songId }: { songId: string }) => {
   const {
     audioRef,
     isPlaying,

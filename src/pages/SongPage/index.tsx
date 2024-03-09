@@ -8,6 +8,7 @@ import { useAudioContext } from '../../hooks/useAudio'
 const getTrack = async (trackId: number, setAudioUrl: any) => {
   if (trackId) {
     const track = await fetchTrack(trackId)
+    console.log('track', track.url)
     setAudioUrl(track.url)
     return track
   }
