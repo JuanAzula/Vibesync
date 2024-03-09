@@ -89,3 +89,27 @@
     border: 0.2rem solid var(--color-secondary);
     cursor: pointer;
 }
+
+@media (min-width: 819px){
+    .configpage-title{
+        margin-left: 30rem;
+    }
+    .configpage-user-info{
+        font-size: 1.5rem
+    }
+    .configpage-profile-pic{
+        width: 9rem;
+        height: 9rem;
+    }
+    .configpage-menu{
+        font-size: 1.5rem;
+        margin-left: 10rem;
+    }
+    .configpage-password-form{
+        top: 35%;
+        margin-left: 17rem;
+    }
+    .configpage-logout{
+        margin-top: 35rem;
+    }
+}

@@ -39,7 +39,7 @@ export const Home = ({ user }: { user: User }) => {
     <>
     <main className="home-main-container">
       <section className="home-welcome-section">
-        <h3>
+        <h3 className="home-welcome-text">
           Welcome back,
           <span className="home-username"> {user.first_name} {user.last_name}</span>
         </h3>

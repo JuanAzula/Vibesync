@@ -31,7 +31,6 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
 
     try {
       const response = await axios.post('http://localhost:3000/user', data);
-      // console.log("Datos usuario", response.data)
       setName('');
       setLastName('');
       setUsername('');

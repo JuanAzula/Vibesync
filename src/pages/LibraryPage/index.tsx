@@ -26,129 +26,121 @@ export default function LibraryPage () {
             <li>
               <img className="fav-tracks-img" src={fav} alt='Liked Songs' />
               <div>
-                <h3>Liked Songs</h3>
-                <p>Melodic Treasures: My Liked Songs Playlist</p>
+                <h3 className="library-tittle">Liked Songs</h3>
+                <p className="library-description">Melodic Treasures: My Liked Songs Playlist</p>
               </div>
             </li>
           </Link>
           <li>
             <img src={newEpisodesImg} alt='New Episodes' />
             <div>
-              <h3>New Episodes</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">New Episodes</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={myLifeIsAMovieImg} alt='My Life is a Movie' />
             <div>
-              <h3>My Life is a Movie</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">My Life is a Movie</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={topSongsImg} alt='Your Top Songs 2023' />
             <div>
-              <h3>Your Top Songs 2023</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Your Top Songs 2023</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={acousticChillImg} alt='Acoustic Chill' />
             <div>
-              <h3>Acoustic Chill</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Acoustic Chill</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={amourDeIyceeImg} alt='Amour de Iycee' />
             <div>
-              <h3>Amour de Iycee</h3>
-              <p>Subtitle text here</p>
-            </div>
-          </li>
-          {/* Restarting hardcode list */}
-          <li>
-            <img src={likedSongsImg} alt='Liked Songs' />
-            <div>
-              <h3>Liked Songs</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Amour de Iycee</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={newEpisodesImg} alt='New Episodes' />
             <div>
-              <h3>New Episodes</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">New Episodes</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={myLifeIsAMovieImg} alt='My Life is a Movie' />
             <div>
-              <h3>My Life is a Movie</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">My Life is a Movie</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={topSongsImg} alt='Your Top Songs 2023' />
             <div>
-              <h3>Your Top Songs 2023</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Your Top Songs 2023</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={acousticChillImg} alt='Acoustic Chill' />
             <div>
-              <h3>Acoustic Chill</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Acoustic Chill</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={amourDeIyceeImg} alt='Amour de Iycee' />
             <div>
-              <h3>Amour de Iycee</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Amour de Iycee</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={likedSongsImg} alt='Liked Songs' />
             <div>
-              <h3>Liked Songs</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Liked Songs</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={newEpisodesImg} alt='New Episodes' />
             <div>
-              <h3>New Episodes</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">New Episodes</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={myLifeIsAMovieImg} alt='My Life is a Movie' />
             <div>
-              <h3>My Life is a Movie</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">My Life is a Movie</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={topSongsImg} alt='Your Top Songs 2023' />
             <div>
-              <h3>Your Top Songs 2023</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Your Top Songs 2023</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={acousticChillImg} alt='Acoustic Chill' />
             <div>
-              <h3>Acoustic Chill</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Acoustic Chill</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
           <li>
             <img src={amourDeIyceeImg} alt='Amour de Iycee' />
             <div>
-              <h3>Amour de Iycee</h3>
-              <p>Subtitle text here</p>
+              <h3 className="library-tittle">Amour de Iycee</h3>
+              <p className="library-description">Subtitle text here</p>
             </div>
           </li>
         </ul>

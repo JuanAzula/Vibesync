@@ -77,7 +77,6 @@ const SearchPage: React.FC = () => {
           <CategoryBtn>Harry Styles</CategoryBtn>
           <CategoryBtn>Bruno Mars</CategoryBtn>
           <CategoryBtn>Post Malone</CategoryBtn>
-          <CategoryBtn>Harry Styles</CategoryBtn>
           <CategoryBtn>Imagine Dragons</CategoryBtn>
         </section>
         <h2>Browse all</h2>

@@ -60,7 +60,9 @@ export const ConfigPage = ({ user }: Props) => {
     if(passwordError === ""){
       changePassword();
       toast.success('Password successfully changed! Please log out to try your new password.')
-      console.log(user.password)
+      setTimeout(()=> {
+        logout()
+      }, 3000)
     }
   };
 

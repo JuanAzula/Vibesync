@@ -5,9 +5,9 @@ body {
 .user_header {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
   position: fixed;
-  top: 0px;
-  width: 430px;
-  height: 200px;
+  top: 0rem;
+  width: 43rem;
+  height: 20rem;
   background-color: var(--color-bg-primary);
   padding-top: 2rem;
   display: flex;
@@ -35,8 +35,8 @@ body {
 /* Main container */
 
 .user_main_container {
-  margin-top: 220px;
-  width: 390px;
+  margin-top: 22rem;
+  width: 39rem;
   padding: 2rem;
 }
 
@@ -46,4 +46,20 @@ body {
 
 .profile-bottom-space{
   height: 25rem;
+}
+
+.user-fav-songs::-webkit-scrollbar, .user-related-artists::-webkit-scrollbar, .user-albums::-webkit-scrollbar{
+  display: none;
+}
+
+@media (min-width: 819px){
+  .user_header{
+    width: 82rem;
+  }
+  .profile_container {
+    margin-left: 29rem
+  }
+  .user_main_container {
+    width: 78rem;
+  }
 }

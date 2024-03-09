@@ -8,7 +8,6 @@ import './navbar.css'
 const Navbar: React.FC = () => {
   return (
     <>
-<div>
       <nav className="navbar">
         <div className="navbar-item">
           <Link to="/">
@@ -32,7 +31,6 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
       </nav>
-    </div>
     </>
   )
 }

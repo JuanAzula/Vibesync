@@ -32,6 +32,10 @@ html{
     margin-top: 2rem;
 }
 
+.home-fav-songs::-webkit-scrollbar, .home-jump-back-in::-webkit-scrollbar, .home-recently-played::-webkit-scrollbar{
+    display: none;
+}
+
 .home-miniplaylist-display{
     display: grid;
     grid-template-columns: auto auto;
@@ -41,4 +45,22 @@ html{
 
 .home-bottom-space{
     height: 25rem;
+}
+
+@media (min-width: 819px){
+    .home-welcome-text{
+        font-size: 1.7rem
+    }
+    .home-main-container{
+        margin: 4rem;
+    }
+    html::-webkit-scrollbar{
+        display: none
+    }
+    .home-miniplaylist-display{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 1rem;
+        margin-top: 2rem
+    }
 }

@@ -1,7 +1,7 @@
 .library-main-page__header {
     background-color: var(--color-bg-primary);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
-    width: 420px;
+    width: 42rem;
     padding: 2rem;
     position: fixed;
     top: 0px;
@@ -15,7 +15,7 @@
 .library-main-page {
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 15rem;
 }
 
 .library-main-page__list {
@@ -25,17 +25,13 @@
 .library-main-page__list li {
     display: flex;
     align-items: center;
-    margin-bottom:12px;
+    margin-bottom:1.2rem;
     color: var(--color-text);
     cursor: pointer;
 }
-/* 
-.library-main-page__list li a{
-    text-decoration: none !important;
-} */
 
 .library-main-page__list li img {
-    margin-right: 15px;
+    margin-right: 1.5rem;
 }
 
 .library-bottom-space{
@@ -46,4 +42,22 @@
     height: 6rem;
     width: 6rem;
     border-radius: 1rem;
+}
+
+@media (min-width: 819px){
+    .fav-tracks-img{
+        height: 10rem;
+        width: 10rem;
+        border-radius: 1rem;
+    }
+    .library-main-page__list li img {
+        height: 10rem;
+        width: 10rem;
+    }
+    .library-tittle{
+        font-size: 2rem
+    }
+    .library-description{
+        font-size: 1.5rem
+    }
 }

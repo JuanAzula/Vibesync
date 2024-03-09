@@ -59,7 +59,7 @@
     {
       "id": "1",
       "name": "313",
-      "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
+      "artist": "Residente, Silvia Pérez Cruz",
       "url": "/src/assets/default-songs/residente.mp3",
       "thumbnail": "/src/assets/track-img/313.jpg",
       "genre": "latin",
@@ -71,7 +71,7 @@
       "artist": "Arctic Monkeys",
       "url": "/src/assets/default-songs/arctic-monkeys.mp3",
       "thumbnail": "/src/assets/track-img/arctic-monkeys.jpg",
-      "genre": "indie",
+      "genre": "indie-rock",
       "liked": false
     },
     {
@@ -89,7 +89,7 @@
       "artist": "Kanye West",
       "url": "/src/assets/default-songs/ye-yikes.mp3",
       "thumbnail": "/src/assets/track-img/yikes.jpg",
-      "genre": "Rap",
+      "genre": "hip-hop",
       "liked": false
     },
     {
@@ -107,7 +107,7 @@
       "artist": "SUGA",
       "url": "/src/assets/default-songs/대취타.mp3",
       "thumbnail": "/src/assets/track-img/suga.jpg",
-      "genre": "rock",
+      "genre": "hip-hop",
       "liked": false
     },
     {
@@ -116,7 +116,7 @@
       "artist": "Canserbero",
       "url": "/src/assets/default-songs/canserbero-jeremias.mp3",
       "thumbnail": "/src/assets/track-img/muerte-canserbero-album.webp",
-      "genre": "electronic",
+      "genre": "hip-hop",
       "liked": false
     },
     {
@@ -126,6 +126,15 @@
       "url": "/src/assets/default-songs/suena-conmigo.mp3",
       "thumbnail": "/src/assets/track-img/suena-conmigo.jpg",
       "genre": "indie",
+      "liked": false
+    },
+    {
+      "id": "9",
+      "name": "Morriña",
+      "artist": "Baiuca",
+      "url": "/src/assets/default-songs/baiuca.mp3",
+      "thumbnail": "/src/assets/track-img/baiuca.jpg",
+      "genre": "electronic",
       "liked": false
     }
   ],
@@ -149,13 +158,13 @@
       "id": "87mse0r18"
     },
     {
-      "id": "k6jrom0b2",
       "first_name": "Pepito",
-      "password": "333333K*",
+      "password": "112233K*",
       "last_name": "Perez",
       "email": "pepito@hotmail.com",
       "profilePicture": "/src/assets/profile_pic.png",
-      "isLoggedin": false
+      "isLoggedin": false,
+      "id": "k6jrom0b2"
     }
   ],
   "albums": [
