@@ -6,10 +6,8 @@ import { getTrack as fetchTrack } from '../../services/dataService'
 import { useAudioContext } from '../../hooks/useAudio'
 
 const getTrack = async (trackId: number, setAudioUrl: any) => {
-  console.log(trackId)
   if (trackId) {
     const track = await fetchTrack(trackId)
-    console.log('track', track.url)
     setAudioUrl(track.url)
     return track
   }
@@ -26,7 +24,6 @@ export const SongPage = () => {
     queryKey: ['track'],
     queryFn: async () => await getTrack(trackId, setAudioUrl)
   })
-  console.log('queryTrack', queryTrack.data?.url)
 
   return (
       <>

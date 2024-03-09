@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 import './Login.css';
 import logo from '/src/assets/logo.png'
 
-interface LoginProps {
-  triggerRefetch: () => void;
-}
-export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
+
+export const Login = () => {
   const userQuery = useQuery({
     queryKey: ["user"],
     queryFn: async () => await fetchUsers(),
@@ -18,18 +16,13 @@ export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
     event.preventDefault();
 
     if (username && password) {
-      console.log(username, password);
       const user = userQuery.data.find(
         (user: { email: string; password: string }) => {
           return user.email === username && user.password === password;
         }
       );
-      console.log(userQuery.data);
       if (user !== undefined) {
-        console.log(user);
         window.localStorage.setItem("userLogged", JSON.stringify(user));
-        console.log("userLogged", window.localStorage.getItem("userLogged"));
-        // triggerRefetch();
         window.location.reload();
       } else {
         alert("Invalid username or password");
@@ -111,7 +104,7 @@ export const Login: React.FC<LoginProps> = ({ triggerRefetch }) => {
         <button className="login-button" style={{ height: "30px" }} type="submit">
           Login
         </button>
-        <Link to="/signup">Don`t have an account?Signup</Link>
+        <Link to="/signup">Don't have an account?Signup</Link>
       </form>
     </div>
   );

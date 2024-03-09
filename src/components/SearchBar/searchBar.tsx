@@ -10,7 +10,6 @@ export const SearchBar: React.FC = () => {
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const lowerCase = e.target.value.toLowerCase();
         handleSearch(lowerCase);
-        console.log("handleSearch called with input:", lowerCase)
 
     };
 

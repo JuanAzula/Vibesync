@@ -14,16 +14,13 @@ const SongCard = ({ track, isActive }: Props) => {
 
   const getAllTracks = async () => {
     const tracks = await fetchTracks()
-    console.log('tracks length', tracks.length)
     localStorage.setItem('allTracks', JSON.stringify(tracks))
     return tracks
   }
 
   const getTrack = async (trackId: number | undefined) => {
-    console.log(trackId)
     if (trackId) {
       const track = await fetchTrack(trackId)
-      console.log('track', track.url)
       getSongDuration(audioRef, setSongDuration)
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
@@ -35,7 +32,6 @@ const SongCard = ({ track, isActive }: Props) => {
       return track
     } else {
       const track = JSON.parse(localStorage.getItem('localTrack') || '{}')
-      console.log('track', track.url)
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       return track
@@ -51,8 +47,6 @@ const SongCard = ({ track, isActive }: Props) => {
     queryFn: async () => await getAllTracks()
   })
 
-  console.log('queryAllTracks', queryAllTracks.data.length)
-  console.log(trackId)
   return (
     <div className="songcard-container" onClick={() => {
       setTrackId(track.id)

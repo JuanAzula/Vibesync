@@ -57,7 +57,7 @@
   ],
   "tracks": [
     {
-      "id": 1,
+      "id": "1",
       "name": "313",
       "artist": "Residente, Silvia Pérez Cruz, Penélope Cruz",
       "url": "/src/assets/default-songs/residente.mp3",
@@ -66,7 +66,7 @@
       "liked": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Do I Wanna Know",
       "artist": "Arctic Monkeys",
       "url": "/src/assets/default-songs/arctic-monkeys.mp3",
@@ -75,7 +75,7 @@
       "liked": false
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Don't Let Me Be Misunderstood",
       "artist": "Nina Simone",
       "url": "/src/assets/default-songs/nina-simone.mp3",
@@ -84,7 +84,7 @@
       "liked": false
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Yikes",
       "artist": "Kanye West",
       "url": "/src/assets/default-songs/ye-yikes.mp3",
@@ -93,7 +93,7 @@
       "liked": false
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Los Tontos",
       "artist": "C. Tangana - Kiko Veneno",
       "url": "/src/assets/default-songs/los-tontos.mp3",
@@ -102,7 +102,7 @@
       "liked": false
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "대취타",
       "artist": "SUGA",
       "url": "/src/assets/default-songs/대취타.mp3",
@@ -111,7 +111,7 @@
       "liked": false
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Canserbero - Jeremias",
       "artist": "Canserbero",
       "url": "/src/assets/default-songs/canserbero-jeremias.mp3",
@@ -120,7 +120,7 @@
       "liked": false
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Sueña Conmmigo",
       "artist": "Napoleón Solo",
       "url": "/src/assets/default-songs/suena-conmigo.mp3",
@@ -128,7 +128,6 @@
       "genre": "indie",
       "liked": false
     }
-    
   ],
   "user": [
     {
@@ -141,11 +140,20 @@
       "id": "1"
     },
     {
-      "id": "87mse0r18",
       "first_name": "Alba",
-      "password": "12345678K*",
+      "password": "222222K*",
       "last_name": "Martin",
       "email": "albams@live.com",
+      "profilePicture": "/src/assets/profile_pic.png",
+      "isLoggedin": false,
+      "id": "87mse0r18"
+    },
+    {
+      "id": "k6jrom0b2",
+      "first_name": "Pepito",
+      "password": "333333K*",
+      "last_name": "Perez",
+      "email": "pepito@hotmail.com",
       "profilePicture": "/src/assets/profile_pic.png",
       "isLoggedin": false
     }

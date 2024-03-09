@@ -84,7 +84,6 @@ function useAudioReducer () {
       const minutes = Math.floor(duration / 60)
       const seconds = Math.floor(duration % 60).toString().padStart(2, '0')
       setSongDuration(`${minutes}:${seconds}`)
-      console.log(`${minutes}:${seconds}`)
     }
   }
 
@@ -180,21 +179,14 @@ function useAudioReducer () {
   const handlePreviousTrack = () => {
     const storageTracks = localStorage.getItem('allTracks')
     const tracks = JSON.parse(storageTracks || '{}')
-    console.log('tracks in handlePreviousTrack', tracks)
     const previousStorageTrack = localStorage.getItem('previousTrack')
     const previousTrackIndex = previousStorageTrack ? JSON.parse(previousStorageTrack) : trackId
-    console.log('previousTrackIndex', previousTrackIndex)
     const track = tracks[previousTrackIndex - 1]
-    console.log('track in handlePreviousTrack', track)
     setTimeout(() => {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
     }, 200)
-
-    // setTimeout(()=>{
-    //   getSongDuration()
-    // }, 100)
     setIsPlaying(false)
   }
 

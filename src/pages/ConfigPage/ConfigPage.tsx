@@ -2,15 +2,14 @@ import { useState } from "react";
 import { User } from "../../types/data";
 import "./ConfigPage.css";
 import { Link, useNavigate } from "react-router-dom";
-// import { validatePassword } from "../../utils/utils";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 type Props = {
   user: User;
-  triggerRefetch: Function;
 };
 
-export const ConfigPage = ({ user, triggerRefetch }: Props) => {
+export const ConfigPage = ({ user }: Props) => {
   const [visible, setVisible] = useState(false);
   const [passwordError, setPasswordError] = useState("");
   const [input1Value, setInput1Value] = useState("");
@@ -29,7 +28,6 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
     } else {
         setPasswordError('');
         setVisible(!visible);
-        
     }
   }
   const navigate = useNavigate()
@@ -37,7 +35,6 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
     window.localStorage.removeItem("userLogged");
     navigate("/")
     window.location.reload();
-    // triggerRefetch();
   };
 
   const togglePasswordChange = () => {
@@ -47,43 +44,42 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
     setVisible(!visible);
   };
 
-  const handleInputChange1 = (event) => {
+  const handleInputChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInput1Value(value);
     setInput2Disabled(value !== user.password);
   };
 
-  const handleInputChange2 = (event) => {
+  const handleInputChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput2Value(event.target.value);
   };
 
   const addNewPassword = (event: React.FormEvent) => {
     event?.preventDefault();
     validatePassword(input2Value);
-    //cambiar el json con la nueva contraseña que llega desde el input2value
-    changePassword();
+    if(passwordError === ""){
+      changePassword();
+      toast.success('Password successfully changed! Please log out to try your new password.')
+      console.log(user.password)
+    }
   };
 
   const changePassword = () => {
     const url = `http://localhost:3000/user/${user.id}`;
     const newPassword = input2Value;
     const modifiedData = {
-      name: user.first_name,
+      first_name: user.first_name,
       password: newPassword,
       last_name: user.last_name,
       email: user.email,
       profilePicture: user.profilePicture,
-      isLoggedin: false
+      isLoggedin: false,
+      id: user.id
     };
 
     axios.put(url, modifiedData)
-      .then(response =>{
-        console.log("password cambiada con exito", response.data)
-      })
-      .catch(error => {
-        console.log("error al cambiar la contraseña", error)
-      })
-
+      .then(response =>{response.data})
+      .catch(error => {error})
   }
 
   return (
@@ -123,6 +119,7 @@ export const ConfigPage = ({ user, triggerRefetch }: Props) => {
           >
             Change Password
           </p>
+          <Toaster/>
           {visible && (
             <form className="configpage-password-form">
               <label>

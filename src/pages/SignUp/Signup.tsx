@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import './Signup.css'
 import logo from '/src/assets/logo.png'
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast'; 
+import toast, { Toaster } from 'react-hot-toast';
 
 interface LoginProps {
   triggerRefetch: () => void;
@@ -16,7 +16,7 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
     queryFn: async () => await fetchUsers(),
   });
 
-  const setNewUser = async (event: FormEvent) => {
+  const setNewUser = async () => {
     const id = Math.random().toString(36).substr(2, 9);
 
     const data = {
@@ -31,7 +31,7 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
 
     try {
       const response = await axios.post('http://localhost:3000/user', data);
-      console.log("Datos usuario", response.data)
+      // console.log("Datos usuario", response.data)
       setName('');
       setLastName('');
       setUsername('');
@@ -58,7 +58,7 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
         toast.error("This user already exists!")
         triggerRefetch();
       } else if(nameError === "" && lastNameError ==="" && passwordError === "" && emailError === "" && password !== "") {
-        setNewUser(event);
+        setNewUser();
         toast.success('Successfully signed up!')
       }
     }

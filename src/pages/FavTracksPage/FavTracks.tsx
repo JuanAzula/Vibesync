@@ -11,7 +11,6 @@ interface Props {
 
 export const FavTracks = (props: Props) => {
   const { likedTracks } = useLikedTracksContext()
-  console.log('liked===>', likedTracks)
   return (
     <div className='likedtracks-container'>
       <section className='likedtracks-header'>

@@ -16,8 +16,6 @@ interface Props {
 
 export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, track, handleNextTrack, handlePreviousTrack }: Props) => {
   const { likedTracks, addToLikedTracks, removeFromLikedTracks } = useLikedTracksContext()
-  console.log('savedState', track)
-  console.log('likedTracks', likedTracks)
 
   const checkTracksinLikedTracks = (track: any) => {
     if (likedTracks[0] === null) {
@@ -31,10 +29,8 @@ export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, track,
 
   const handleHeartClick = () => {
     if (checkTracksinLikedTracks(track)) {
-      console.log('sista')
       removeFromLikedTracks(track)
     } else {
-      console.log('nosta')
       addToLikedTracks(track)
     }
   }
@@ -44,9 +40,7 @@ export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, track,
       <FontAwesomeIcon className='mute-btn' icon={isMuted ? faVolumeMute : faVolumeUp} onClick={toggleMute} />
       <div className="button-container">
         <FontAwesomeIcon icon={faBackwardStep} onClick={handlePreviousTrack} />
-        {/* <FontAwesomeIcon icon={faBackward} /> */}
         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} onClick={togglePlay} />
-        {/* <FontAwesomeIcon icon={faForward} /> */}
         <FontAwesomeIcon icon={faForwardStep} onClick={handleNextTrack} />
         <FontAwesomeIcon icon={ checkTracksinLikedTracks(track) ? faHeart : faHeartRegular} onClick={handleHeartClick} />
       </div>
