@@ -1,9 +1,8 @@
 import { useAudioContext } from '../../hooks/useAudio'
 import { PlayButtons } from '../../pages/SongPage/components/playButtons'
-import { StyledLink } from '../../styledComponents/styledLink'
 import './MiniPlayer.css'
 
-export const MiniPlayer = ({ songId }: { songId: string }) => {
+export const MiniPlayer = () => {
   const {
     audioRef,
     isPlaying,
@@ -16,7 +15,6 @@ export const MiniPlayer = ({ songId }: { songId: string }) => {
     formatTime,
     handleProgressClick,
     audioUrl,
-    trackId,
     handleNextTrack,
     handlePreviousTrack
   } = useAudioContext()
