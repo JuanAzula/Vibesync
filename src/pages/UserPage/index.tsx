@@ -1,6 +1,6 @@
 import './userPage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { type Album, type Artist, type Track, type User } from '../../types/data'
 import { getAlbums, getArtists, getTracks } from '../../services/dataService'
 import { useQuery } from '@tanstack/react-query'
@@ -38,7 +38,7 @@ export const UserPage = ({ user }: Props) => {
       <FontAwesomeIcon className='back_button' icon={faChevronLeft} />
       </Link>
       <div className="profile_container">
-        <img src={user.profilePicture} alt="" />
+        <img src={user.profilePicture} alt="Profile picture" />
         <h2 className='user_name'>{user.first_name} {user.last_name}</h2>
       </div>
     </header>
