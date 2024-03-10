@@ -14,6 +14,7 @@ import { Signup } from '../pages/SignUp/Signup'
 import { FavTracks } from '../pages/FavTracksPage/FavTracks'
 // import { SkeletonTheme } from 'react-loading-skeleton'
 import { SkeletonTheme } from 'react-loading-skeleton'
+import { getTracks as fetchTracks } from '../services/dataService'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -22,13 +23,24 @@ const getUsers = () => {
     return user
   }
 }
+
+const getAllTracks = async () => {
+  const tracks = await fetchTracks()
+  return tracks
+}
 export const AppRoutes = () => {
   const { audioRef, audioUrl } = useAudioContext()
+
   const queryUserLogged = useQuery({
     queryKey: ['userLogged'],
     queryFn: async () => getUsers()
   })
 
+  const queryAllTracks = useQuery({
+    queryKey: ['tracks'],
+    queryFn: async () => await getAllTracks()
+  })
+  localStorage.setItem('allTracks', JSON.stringify(queryAllTracks.data))
   const handleLoginSuccess = () => {
     void queryUserLogged.refetch()
   }
@@ -41,7 +53,7 @@ export const AppRoutes = () => {
         <>
           <Navbar />
           <MiniPlayer />
-          
+
         </>
           )
         : null}
