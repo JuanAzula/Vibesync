@@ -14,6 +14,7 @@ function useAudioReducer () {
   const [audioUrl, setAudioUrl] = useState('')
   const [audioImg, setAudioImg] = useState('')
   const [trackId, setTrackId] = useState(0)
+  const [count, setCount] = useState(-1)
 
   useEffect(() => {
     localStorage.setItem('audioPlayerState', JSON.stringify({
@@ -24,9 +25,10 @@ function useAudioReducer () {
       progressWidth,
       audioUrl,
       audioImg,
-      trackId
+      trackId,
+      count
     }))
-  }, [isPlaying, isMuted, currentTime, songDuration, progressWidth, audioUrl, audioImg, trackId])
+  }, [isPlaying, isMuted, currentTime, songDuration, progressWidth, audioUrl, audioImg, trackId, count])
 
   useEffect(() => {
     const savedState = localStorage.getItem('audioPlayerState')
@@ -40,6 +42,7 @@ function useAudioReducer () {
       setAudioUrl(initialState.audioUrl)
       setAudioImg(initialState.audioImg)
       setTrackId(initialState.trackId)
+      setCount(initialState.count)
     }
   }, [])
 
@@ -96,9 +99,21 @@ function useAudioReducer () {
     }
   }
 
+  const storePreviousTrack = (id: any) => {
+    const tracksList = []
+    const storageTracks = localStorage.getItem('previousTrack')
+    if (storageTracks) {
+      const previousTrack = JSON.parse(storageTracks)
+      tracksList.push(...previousTrack, id)
+      localStorage.setItem('previousTrack', JSON.stringify(tracksList))
+    } else {
+      localStorage.setItem('previousTrack', JSON.stringify([id]))
+    }
+  }
+
   const handleTrackEnded = () => {
     if (audioRef.current?.ended) {
-      localStorage.setItem('previousTrack', JSON.stringify(trackId))
+      storePreviousTrack(trackId)
       const storageTracks = localStorage.getItem('allTracks')
       const tracks = JSON.parse(storageTracks || '{}')
       const tracksLength = tracks.length
@@ -109,6 +124,7 @@ function useAudioReducer () {
         setAudioUrl(track.url)
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
+        setCount(-1)
         setTimeout(() => {
           getSongDuration(audioRef, setSongDuration)
         }, 100)
@@ -119,7 +135,7 @@ function useAudioReducer () {
         setAudioUrl(track.url)
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
-
+        setCount(-1)
         setTimeout(() => {
           getSongDuration(audioRef, setSongDuration)
         }, 100)
@@ -129,7 +145,7 @@ function useAudioReducer () {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
-
+      setCount(-1)
       setTimeout(() => {
         getSongDuration(audioRef, setSongDuration)
       }, 100)
@@ -141,7 +157,7 @@ function useAudioReducer () {
     const storageTracks = localStorage.getItem('allTracks')
     const tracks = JSON.parse(storageTracks || '{}')
     const tracksLength = tracks.length
-    localStorage.setItem('previousTrack', JSON.stringify(trackId))
+    storePreviousTrack(trackId)
     let randomNumber = Math.floor(Math.random() * tracksLength)
     if (randomNumber === 8) {
       randomNumber = 7
@@ -149,6 +165,7 @@ function useAudioReducer () {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
+      setCount(-1)
       setTimeout(() => {
         getSongDuration(audioRef, setSongDuration)
       }, 100)
@@ -159,7 +176,7 @@ function useAudioReducer () {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
-
+      setCount(-1)
       setTimeout(() => {
         getSongDuration(audioRef, setSongDuration)
       }, 100)
@@ -169,7 +186,7 @@ function useAudioReducer () {
     setAudioUrl(track.url)
     setAudioImg(track.thumbnail)
     setTrackId(track.id)
-
+    setCount(-1)
     setTimeout(() => {
       getSongDuration(audioRef, setSongDuration)
     }, 100)
@@ -180,12 +197,17 @@ function useAudioReducer () {
     const storageTracks = localStorage.getItem('allTracks')
     const tracks = JSON.parse(storageTracks || '{}')
     const previousStorageTrack = localStorage.getItem('previousTrack')
-    const previousTrackIndex = previousStorageTrack ? JSON.parse(previousStorageTrack) : trackId
+    const previousTrackObj = previousStorageTrack ? JSON.parse(previousStorageTrack) : trackId
+    console.log('previousTrackObj', previousTrackObj)
+    const previousTrackIndex = previousTrackObj[previousTrackObj.length + count]
     const track = tracks[previousTrackIndex - 1]
     setTimeout(() => {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
+      if (count > -previousTrackObj.length) {
+        setCount(count - 1)
+      }
     }, 200)
     setIsPlaying(false)
   }
