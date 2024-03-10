@@ -1,20 +1,17 @@
 .button-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 1rem;
+  justify-content: center;
 }
 
 .button-container__handle-player {
   display: flex;
-  margin: 1rem auto 2rem;
-  justify-content: center;
-  gap: 3rem;
+  align-items: center;
+  cursor: pointer;
 }
 
 .button-container svg {
-  font-size: 2.3rem;
   cursor: pointer;
-
 }
 
 .duration-container {
@@ -23,10 +20,29 @@
   margin: 1rem;
 }
 
-.mute-btn {
-  display: flex;
-  margin: auto;
-  font-size: 1.5rem;
-  cursor: pointer;
 
+@media (max-width: 819px) {
+  .button-container {
+    margin-top: 2rem; 
+  }
+  .button-container__handle-player {
+    gap: 2rem;
+  }
+  .button-container svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (min-width: 819px) {
+  .button-container {
+    margin-top: 3rem; 
+  }
+  .button-container__handle-player {
+    gap: 3rem;
+  }
+  .button-container svg {
+    width: 2rem;
+    height: 2rem;
+  }
 }

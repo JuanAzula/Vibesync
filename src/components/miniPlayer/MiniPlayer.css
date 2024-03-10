@@ -1,20 +1,47 @@
 .mini-player-container {
     position: fixed;
     width: 100%;
-    bottom: 6rem;
+    bottom: 5.95rem;
     background: linear-gradient(transparent, 0.025%, var(--color-bg-primary));
     box-shadow: 0px -2rem 3rem rgba(0, 0, 0, 1);
-    margin-top: 5rem;
     z-index: 100;
 }
 
 .mini-player-img {
-    width: 4rem;
-    height: 4rem;
     position: fixed;
     margin-left: 2rem;
     margin-top: 0.5rem;
     border-radius: 0.5rem;
     cursor: pointer;
 
+}
+
+@media (max-width: 819px) {
+    .mini-player-container {
+        height: 10rem;
+    }
+    .mini-player-img {
+        width: 4rem;
+        bottom: 8.25rem;
+    }
+}
+
+@media (min-width: 819px) and (max-width: 992px) {
+    .mini-player-container {
+        height: 12rem;
+    }
+    .mini-player-img {
+        width: 7rem;
+        bottom: 7.25rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .mini-player-container {
+        height: 12rem;
+    }
+    .mini-player-img {
+        width: 7rem;
+        bottom: 7rem;
+    }
 }
