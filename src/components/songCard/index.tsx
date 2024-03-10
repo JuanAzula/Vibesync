@@ -2,7 +2,8 @@ import { type Track } from '../../types/data'
 import './SongCard.css'
 import { useAudioContext } from '../../hooks/useAudio'
 import { useQuery } from '@tanstack/react-query'
-import { getTrack as fetchTrack, getTracks as fetchTracks } from '../../services/dataService'
+import { getTrack as fetchTrack } from '../../services/dataService'
+import { useEffect } from 'react'
 
 interface Props {
   track: Track
@@ -11,12 +12,6 @@ interface Props {
 
 const SongCard = ({ track, isActive }: Props) => {
   const { setAudioUrl, setAudioImg, trackId, setTrackId, setIsPlaying, getSongDuration, audioRef, setSongDuration } = useAudioContext()
-
-  const getAllTracks = async () => {
-    const tracks = await fetchTracks()
-    localStorage.setItem('allTracks', JSON.stringify(tracks))
-    return tracks
-  }
 
   const getTrack = async (trackId: number | undefined) => {
     if (trackId) {
@@ -42,10 +37,10 @@ const SongCard = ({ track, isActive }: Props) => {
     queryFn: async () => await getTrack(trackId)
   })
 
-  const queryAllTracks = useQuery({
-    queryKey: ['tracks'],
-    queryFn: async () => await getAllTracks()
-  })
+  useEffect(() => {
+    const track = JSON.parse(localStorage.getItem('localTrack') || '{}')
+    setTrackId(track.id)
+  }, [])
 
   return (
     <div className="songcard-container" onClick={() => {
