@@ -125,6 +125,7 @@ function useAudioReducer () {
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
         setCount(-1)
+        localStorage.setItem('localTrack', JSON.stringify(track))
         setTimeout(() => {
           getSongDuration(audioRef, setSongDuration)
         }, 100)
@@ -136,6 +137,7 @@ function useAudioReducer () {
         setAudioImg(track.thumbnail)
         setTrackId(track.id)
         setCount(-1)
+        localStorage.setItem('localTrack', JSON.stringify(track))
         setTimeout(() => {
           getSongDuration(audioRef, setSongDuration)
         }, 100)
@@ -146,6 +148,7 @@ function useAudioReducer () {
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
       setCount(-1)
+      localStorage.setItem('localTrack', JSON.stringify(track))
       setTimeout(() => {
         getSongDuration(audioRef, setSongDuration)
       }, 100)
@@ -166,6 +169,7 @@ function useAudioReducer () {
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
       setCount(-1)
+      localStorage.setItem('localTrack', JSON.stringify(track))
       setTimeout(() => {
         getSongDuration(audioRef, setSongDuration)
       }, 100)
@@ -177,6 +181,7 @@ function useAudioReducer () {
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
       setCount(-1)
+      localStorage.setItem('localTrack', JSON.stringify(track))
       setTimeout(() => {
         getSongDuration(audioRef, setSongDuration)
       }, 100)
@@ -187,6 +192,7 @@ function useAudioReducer () {
     setAudioImg(track.thumbnail)
     setTrackId(track.id)
     setCount(-1)
+    localStorage.setItem('localTrack', JSON.stringify(track))
     setTimeout(() => {
       getSongDuration(audioRef, setSongDuration)
     }, 100)
@@ -205,6 +211,7 @@ function useAudioReducer () {
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
       setTrackId(track.id)
+      localStorage.setItem('localTrack', JSON.stringify(track))
       if (count > -previousTrackObj.length) {
         setCount(count - 1)
       }
