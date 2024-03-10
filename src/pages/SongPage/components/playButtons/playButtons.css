@@ -40,6 +40,7 @@
   }
   .button-container__handle-player {
     gap: 3rem;
+    margin-left: -2rem;
   }
   .button-container svg {
     width: 2rem;
