@@ -44,7 +44,6 @@
 .configpage-logout{
     display: flex;
     justify-content: center;
-    margin-top: 25rem;
 }
 
 .configpage-logout-btn{
@@ -90,6 +89,10 @@
     cursor: pointer;
 }
 
+/* @media (max-width: 819px){
+} */
+
+
 @media (min-width: 819px){
     .configpage-title{
         margin-left: 30rem;
@@ -108,8 +111,5 @@
     .configpage-password-form{
         top: 35%;
         margin-left: 17rem;
-    }
-    .configpage-logout{
-        margin-top: 35rem;
     }
 }

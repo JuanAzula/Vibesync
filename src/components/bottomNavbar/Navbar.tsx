@@ -6,8 +6,9 @@ import SearchIcon from '../../assets/icons/search-sharp.svg'
 import LibraryIcon from '../../assets/icons/book-outline.svg'
 import ProfileIcon from '../../assets/icons/people-outline.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookOpen, faHouse, faSearch, faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faBookOpen, faHouse, faSearch, faUserGroup, faCirclePlay as faCirclePlaySolid } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
+import { faCirclePlay } from '@fortawesome/free-regular-svg-icons'
 
 const Navbar: React.FC = () => {
   const location = useLocation()
@@ -48,6 +49,21 @@ const Navbar: React.FC = () => {
                 )}
           </Link>
           </motion.div>
+        </div>
+        <div>
+          <div className='navbar-item'>
+            <motion.div whileTap={shouldAnimate('/tracks/track:Id')}>
+              <Link to="/tracks/track:Id">
+                {location.pathname === '/tracks/track:Id'
+                  ? (
+                    <FontAwesomeIcon icon={faCirclePlaySolid} className='icon active' />
+                    )
+                  : (
+                    <FontAwesomeIcon icon={faCirclePlay} className='icon' />
+                    )}
+              </Link>
+            </motion.div>
+          </div>
         </div>
         <div className="navbar-item">
           <motion.div whileTap={shouldAnimate('/library')} >
