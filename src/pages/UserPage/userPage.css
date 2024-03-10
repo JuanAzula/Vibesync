@@ -35,11 +35,15 @@ body {
 
 .user_main_container {
   width: 100%;
-  padding: 2rem;
+}
+
+.user_main_container h2 {
+  margin-left: 2rem;
 }
 
 .user-fav-songs, .user-related-artists, .user-albums{
   overflow-x: auto;
+  padding-inline: 2rem;
 }
 
 .user-fav-songs::-webkit-scrollbar, .user-related-artists::-webkit-scrollbar, .user-albums::-webkit-scrollbar{
@@ -48,7 +52,8 @@ body {
 
 @media (max-width: 819px) {
   .user_main_container {
-    margin-top: 10rem;
+    margin-top: 14rem;
+    align-items: center;
   }
   .user_header {
     padding-top: 2rem;
