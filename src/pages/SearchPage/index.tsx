@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 
 
 const SearchPage: React.FC = () => {
-  const { searchInput } = useSearchContext();
+  const { searchInput, handleSearch } = useSearchContext();
   const { setTrackId } = useAudioContext()
 
 
@@ -28,6 +28,10 @@ const SearchPage: React.FC = () => {
       setIsLoading(false)
     }, 3000)
   }, []);
+
+  const handleTopSearchClick = (value: string) => {
+    handleSearch(value); // Update the search input with the value of the clicked button
+  };
  
   const queryTracks = useQuery({
     queryKey: ["tracks"],
@@ -81,43 +85,44 @@ const SearchPage: React.FC = () => {
         <section>
         <SearchBar />
         <h2>Top searches</h2>
-          <CategoryBtn>Adele</CategoryBtn>
-          <CategoryBtn>Taylor Swift</CategoryBtn>
-          <CategoryBtn>Ed Sheeran</CategoryBtn>
-          <CategoryBtn>Michael Jackson</CategoryBtn>
-          <CategoryBtn>Drake</CategoryBtn>
-          <CategoryBtn>Harry Styles</CategoryBtn>
-          <CategoryBtn>Bruno Mars</CategoryBtn>
-          <CategoryBtn>Post Malone</CategoryBtn>
-          <CategoryBtn>Imagine Dragons</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Adele")}>Adele</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Taylor Swift")}>Taylor Swift</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Ed Sheeran")}>Ed Sheeran</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Michael Jackson")}>Michael Jackson</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Drake")}>Drake</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Harry Styles")}>Harry Styles</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Bruno Mars")}>Bruno Mars</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Post Malone")}>Post Malone</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick("Imagine Dragons")}>Imagine Dragons</CategoryBtn>
         </section>
         <h2>Browse all</h2>
         <section>
           <div><p>Top charts</p></div>
         </section>
         <section className="search-results">
-          {isLoading && <CardSkeleton cards={6} />}
-          {/* Render the filtered results */}
-          {filteredTracks.length > 0 &&
-            filteredTracks.map((track) => (
-              // Render track components here
+            {isLoading && <CardSkeleton cards={6} />}
+            {filteredTracks.length === 0 ? (
+              <p className='search-results-no-match'>No matches have been found</p>
+            ) : (
+            <>
+            {filteredTracks.map((track) => (
               <SongCard key={`${track.id}-${track.artist}`} track={track} isActive={true} />
-            ))}
-           {filteredArtists.length > 0 && 
-           filteredArtists.map((artist) => (
-            <ArtistCard key={artist.id} artist={artist}/>
-           ))} 
-          {filteredPlaylists.length > 0 &&
-            filteredPlaylists.map((playlist) => (
-              // Render playlist components here
+              ))}
+            {filteredArtists.length > 0 &&
+               filteredArtists.map((artist) => (
+                <ArtistCard key={artist.id} artist={artist} />
+                ))}
+            {filteredPlaylists.length > 0 &&
+              filteredPlaylists.map((playlist) => (
               <PlaylistCard key={playlist.id} playlist={playlist} />
-            ))}
-          {filteredAlbums.length > 0 &&
-            filteredAlbums.map((album) => (
-              // Render album components here
-              <AlbumCard key={`${album.id}-${album.artist}`} album={album} />
-            ))}
-        </section>
+                ))}
+            {filteredAlbums.length > 0 &&
+               filteredAlbums.map((album) => (
+                  <AlbumCard key={`${album.id}-${album.artist}`} album={album} />
+                ))}
+    </>
+  )}
+</section>
         <div className="search-bottom-space"></div>
         </main>
         </>
