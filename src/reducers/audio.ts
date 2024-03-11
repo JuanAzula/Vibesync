@@ -208,21 +208,6 @@ export function useAudioReducer () {
     }
   }
 
-  useEffect(() => {
-    const handleLoadedMetadata = () => {
-      getSongDuration(audioRef, setSongDuration)
-    }
-
-    if (audioRef.current) {
-      audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata)
-      audioRef.current.addEventListener('timeupdate', handleTimeUpdate)
-      return () => {
-        audioRef.current?.removeEventListener('loadedmetadata', handleLoadedMetadata)
-        audioRef.current?.removeEventListener('timeupdate', handleTimeUpdate)
-      }
-    }
-  }, [])
-
   return {
     audioRef,
     isPlaying,
