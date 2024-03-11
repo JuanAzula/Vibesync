@@ -11,7 +11,6 @@ interface Props {
   user: User
 }
 
-// aqui le llega por props, por context o lo que sea el usuario.
 export const UserPage = ({ user }: Props) => {
   const queryUser = useQuery({
     queryKey: ['tracks'],

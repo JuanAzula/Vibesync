@@ -1,156 +1,158 @@
-import { FormEvent, useState } from "react";
-import { getUsers as fetchUsers } from "../../services/dataService";
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
+import { useState } from 'react'
+import { getUsers as fetchUsers } from '../../services/dataService'
+import { useQuery } from '@tanstack/react-query'
+import { Link } from 'react-router-dom'
 import './Signup.css'
-import logo from '/src/assets/logo.png'
-import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import logo from '../../assets/logo.png'
+import axios from 'axios'
+import toast, { Toaster } from 'react-hot-toast'
 
 interface LoginProps {
-  triggerRefetch: () => void;
+  triggerRefetch: () => void
 }
 export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
   const userQuery = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => await fetchUsers(),
-  });
+    queryKey: ['user'],
+    queryFn: async () => await fetchUsers()
+  })
 
   const setNewUser = async () => {
-    const id = Math.random().toString(36).substr(2, 9);
+    const id = Math.random().toString(36).substr(2, 9)
 
     const data = {
       first_name: name,
-      password: password,
+      password,
       last_name: lastName,
       email: username,
-      profilePicture: "/src/assets/profile_pic.png",
+      profilePicture: '/src/assets/profile_pic.png',
       isLoggedin: false,
-      id: id
-    };
+      id
+    }
 
     try {
-      const response = await axios.post('http://localhost:3000/user', data);
-      setName('');
-      setLastName('');
-      setUsername('');
-      setPassword('');
-    } catch (error){
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const response = await axios.post('http://localhost:3000/user', data)
+      setName('')
+      setLastName('')
+      setUsername('')
+      setPassword('')
+    } catch (error) {
       console.error('Error al guardar datos', error)
+      toast.error('Error al guardar datos')
     }
   }
 
   const handleSignup = async (event: React.FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    if(username.trim() === "" || password.trim() === "" || name.trim() === "" || lastName.trim() === ""){
-      toast.error("Please check if you gave us all the info!")
+    if (username.trim() === '' || password.trim() === '' || name.trim() === '' || lastName.trim() === '') {
+      toast.error('Please check if you gave us all the info!')
     }
 
     if (username) {
       const user = userQuery.data.find(
         (user: { email: string }) => {
-          return user.email === username;
+          return user.email === username
         }
-      );
+      )
       if (user !== undefined) {
-        toast.error("This user already exists!")
-        triggerRefetch();
-      } else if(nameError === "" && lastNameError ==="" && passwordError === "" && emailError === "" && password !== "") {
-        setNewUser();
+        toast.error('This user already exists!')
+        triggerRefetch()
+      } else if (nameError === '' && lastNameError === '' && passwordError === '' && emailError === '' && password !== '') {
+        void setNewUser()
         toast.success('Successfully signed up!')
       }
     }
-  };
+  }
 
-  const [nameError, setNameError] = useState("");
-  const [lastNameError, setLastNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState ("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [nameError, setNameError] = useState('')
+  const [lastNameError, setLastNameError] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const [passwordError, setPasswordError] = useState('')
+  const [name, setName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const validateEmail = (input: string) => {
-    if (input.trim() === "") {
-      setEmailError("Email is required");
+    if (input.trim() === '') {
+      setEmailError('Email is required')
     } else {
-      setEmailError("");
+      setEmailError('')
     }
-  };
+  }
 
   const validateName = (input: string) => {
-    if (input.trim() === "") {
-      setNameError("Name is required");
+    if (input.trim() === '') {
+      setNameError('Name is required')
     } else {
-      setNameError("");
+      setNameError('')
     }
-  };
+  }
 
   const validateLastName = (input: string) => {
-    if (input.trim() === "") {
-      setLastNameError("Last name is required");
+    if (input.trim() === '') {
+      setLastNameError('Last name is required')
     } else {
-      setLastNameError("");
+      setLastNameError('')
     }
-  };
+  }
 
   const validatePassword = (input: string) => {
     if (input.length < 6) {
-      setPasswordError("Password must be at least 6 characters");
+      setPasswordError('Password must be at least 6 characters')
     } else if (!/[A-Z]/.test(input)) {
-      setPasswordError("Password must contain at least one uppercase letter");
+      setPasswordError('Password must contain at least one uppercase letter')
     } else if (!/[\W_]/.test(input)) {
-      setPasswordError("Password must contain at least one special character");
+      setPasswordError('Password must contain at least one special character')
     } else {
-      setPasswordError("");
+      setPasswordError('')
     }
-  };
+  }
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-  };
+    setName(event.target.value)
+  }
 
   const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLastName(event.target.value);
-  };
+    setLastName(event.target.value)
+  }
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value);
-  };
+    setUsername(event.target.value)
+  }
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+    setPassword(event.target.value)
+  }
 
   const handleNameInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    handleNameChange(event);
-    validateName(event.target.value);
-  };
+    handleNameChange(event)
+    validateName(event.target.value)
+  }
 
   const handleLastNameInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    handleLastNameChange(event);
-    validateLastName(event.target.value);
-  };
+    handleLastNameChange(event)
+    validateLastName(event.target.value)
+  }
 
   const handleUsernameInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    handleUsernameChange(event);
-    validateEmail(event.target.value);
-  };
+    handleUsernameChange(event)
+    validateEmail(event.target.value)
+  }
 
   const handlePasswordInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    handlePasswordChange(event);
-    validatePassword(event.target.value);
-  };
+    handlePasswordChange(event)
+    validatePassword(event.target.value)
+  }
 
   return (
     <div className="signup--container">
@@ -202,5 +204,5 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
       </form>
       <Link to="/login">Already have an account?Login</Link>
     </div>
-  );
-};
+  )
+}

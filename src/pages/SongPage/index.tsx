@@ -13,7 +13,6 @@ interface Props {
 const getTrack = async (trackId: Props['trackId'], setAudioUrl: Props['setAudioUrl']) => {
   if (trackId) {
     const track = await fetchTrack(trackId)
-    console.log('track', track.url)
     setAudioUrl(track.url)
     return track
   }

@@ -1,63 +1,70 @@
 @import url('../../styles/colors.css');
 
-html{
-    font-size: 62.5%; /* 1rem = 10px (10px / 16 * 100%) */
+html {
+    font-size: 62.5%;
     background-color: var(--color-primary);
     color: var(--color-text);
     font-family: 'Be Vietnam Pro', sans-serif;
 }
 
-.home-main-container{
+.home-main-container {
     margin: 2rem;
 }
 
-.home-settings-btn{
+.home-settings-btn {
     border: none;
     background-color: var(--color-primary);
     cursor: pointer;
 }
 
-.home-welcome-section{
+.home-welcome-section {
     display: flex;
     justify-content: space-between;
     margin: 0.5rem;
 }
 
-.home-username{
+.home-username {
     font-size: 2rem
 }
 
-.home-fav-songs, .home-jump-back-in, .home-recently-played{
+.home-fav-songs,
+.home-jump-back-in,
+.home-recently-played {
     overflow-x: auto;
     margin-top: 2rem;
 }
 
-.home-fav-songs::-webkit-scrollbar, .home-jump-back-in::-webkit-scrollbar, .home-recently-played::-webkit-scrollbar{
+.home-fav-songs::-webkit-scrollbar,
+.home-jump-back-in::-webkit-scrollbar,
+.home-recently-played::-webkit-scrollbar {
     display: none;
 }
 
-.home-miniplaylist-display{
+.home-miniplaylist-display {
     display: grid;
     grid-template-columns: auto auto;
     gap: 1rem;
     margin-top: 2rem
 }
 
-.home-bottom-space{
+.home-bottom-space {
     height: 25rem;
 }
 
-@media (min-width: 819px){
-    .home-welcome-text{
+@media (min-width: 819px) {
+    .home-welcome-text {
         font-size: 1.7rem
     }
-    .home-main-container{
+
+    .home-main-container {
         margin: 4rem;
     }
-    html::-webkit-scrollbar{
+
+    html::-webkit-scrollbar {
         display: none
     }
-    .home-miniplaylist-display{
+
+    .home-miniplaylist-display {
         display: grid;
         grid-template-columns: auto auto auto;
         gap: 1rem;

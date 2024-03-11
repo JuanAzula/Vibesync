@@ -1,6 +1,4 @@
-// @import url('../../styles/colors.css');
-import styled from 'styled-components';
-
+import styled from 'styled-components'
 
 const CategoryBtn = styled.button`
     background-color: var(--color-btn-primary);

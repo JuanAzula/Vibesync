@@ -47,7 +47,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
-    /* margin-left: 11.5rem; */
     margin-bottom: 5rem;
     font-size: 1.4rem;
 }
@@ -74,7 +73,6 @@
 }
 
 .configpage-password-form {
-    /* position: absolute; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,7 +80,6 @@
     top: 35%;
     align-self: center;
     left: 8rem;
-    /* margin-right: 10%; */
     margin-top: 2rem;
 
 }
@@ -145,7 +142,6 @@
 
     .configpage-password-form {
         margin-top: 17%;
-        /* margin-left: 17rem; */
     }
 
     .configpage-logout {

@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:80%;
+  width: 80%;
 }
 
 .profile_container img {
@@ -42,13 +42,17 @@ body {
   margin-left: 2rem;
 }
 
-.user-fav-songs, .user-related-artists, .user-albums{
+.user-fav-songs,
+.user-related-artists,
+.user-albums {
   overflow-x: auto;
   padding-inline: 2rem;
   margin-right: 2rem;
 }
 
-.user-fav-songs::-webkit-scrollbar, .user-related-artists::-webkit-scrollbar, .user-albums::-webkit-scrollbar{
+.user-fav-songs::-webkit-scrollbar,
+.user-related-artists::-webkit-scrollbar,
+.user-albums::-webkit-scrollbar {
   display: none;
 }
 
@@ -56,25 +60,7 @@ body {
   height: 20rem;
 }
 
-/* @media (max-width: 819px) {
-  .user_main_container {
-    margin-top: 14rem;
-    align-items: center;
-  }
-  .user_header {
-    padding-top: 2rem;
-    height: 10rem;
-  }
-  .profile_container img {
-    width: 6rem;
-  }
-
-  .profile-bottom-space {
-    height: 16rem;
-  }
-} */
-
-@media (min-width: 819px){
+@media (min-width: 819px) {
 
   .user_header {
     padding-top: 4rem;
@@ -84,37 +70,9 @@ body {
   .profile_container {
     margin-left: 3.5rem;
   }
-  
+
   .profile_container img {
     width: 24%;
     margin-top: 0rem
   }
-/* 
-  .profile-bottom-space{
-    height: 32.5rem;
-  } */
-} 
-
-/* @media (min-width: 992px){
-  .user_main_container {
-    margin-top: 22rem;
-  }
-
-  .user_header {
-    padding-top: 4rem;
-    height: 20rem;
-  }
-
-  .profile_container {
-    margin-left: -5rem;
-  }
-  
-  .profile_container img {
-    width: 12rem;
-  }
-
-  .profile-bottom-space{
-    height: 27rem;
-  }
-} */
-
+}

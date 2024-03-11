@@ -4,7 +4,7 @@ import { SearchBar } from '../../components/SearchBar/searchBar'
 import { useSearchContext } from '../../context/Search'
 import { useQuery } from '@tanstack/react-query'
 import { getAlbums, getArtists, getPlaylists, getTracks } from '../../services/dataService'
-import { Album, Playlist, Track, Artist } from '../../types/data'
+import { type Album, type Playlist, type Track, type Artist } from '../../types/data'
 import { PlaylistCard } from '../../components/playlistCard/PlaylistCard'
 import { AlbumCard } from '../../components/albumCard'
 import { ArtistCard } from '../../components/artistCard'
@@ -14,8 +14,7 @@ import CardSkeleton from './components/CardSkeleton'
 import { useEffect, useState } from 'react'
 
 const SearchPage: React.FC = () => {
-  const { searchInput, handleSearch } = useSearchContext();
-
+  const { searchInput, handleSearch } = useSearchContext()
 
   const [isLoading, setIsLoading] = useState(true)
 
@@ -26,7 +25,7 @@ const SearchPage: React.FC = () => {
   }, [])
 
   const handleTopSearchClick = (value: string) => {
-    handleSearch(value) // Update the search input with the value of the clicked button
+    handleSearch(value)
   }
 
   const queryTracks = useQuery({
@@ -53,14 +52,12 @@ const SearchPage: React.FC = () => {
   })
   const artistArray: Artist[] = queryArtist.data || []
 
-  // Filter tracks based on the search input
   const filteredTracks = trackArray.filter((track) =>
     track.name.toLowerCase().includes(searchInput) ||
     track.artist.toLowerCase().includes(searchInput) ||
     track.genre.toLowerCase().includes(searchInput)
   )
 
-  // filter artist based on the search input
   const filteredArtists = artistArray.filter((artist) =>
     artist.name.toLowerCase().includes(searchInput) ||
     (artist.genres && artist.genres.some(genre =>
@@ -68,12 +65,10 @@ const SearchPage: React.FC = () => {
     ))
   )
 
-  // Filter playlists based on the search input
   const filteredPlaylists = playlistArray.filter((playlist) =>
     playlist.name.toLowerCase().includes(searchInput)
   )
 
-  // Filter albums based on the search input
   const filteredAlbums = albumArray.filter((album) =>
     album.name.toLowerCase().includes(searchInput) ||
     album.artist.toLowerCase().includes(searchInput)
@@ -85,15 +80,15 @@ const SearchPage: React.FC = () => {
         <section>
         <SearchBar value={searchInput}/>
         <h2>Top searches</h2>
-          <CategoryBtn onClick={() => handleTopSearchClick('canserbero')}>Canserbero</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('residente')}>Residente</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('electro')}>Electro</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('trap')}>Trap</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('blues')}>Blues</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('rock')}>Rock</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('nina simone')}>Nina Simone</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('kanye west')}>Kanye West</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick('estopa')}>Estopa</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('canserbero') }}>Canserbero</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('residente') }}>Residente</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('electro') }}>Electro</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('trap') }}>Trap</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('blues') }}>Blues</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('rock') }}>Rock</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('nina simone') }}>Nina Simone</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('kanye west') }}>Kanye West</CategoryBtn>
+          <CategoryBtn onClick={() => { handleTopSearchClick('estopa') }}>Estopa</CategoryBtn>
         </section>
         <h2>Browse all</h2>
         <section>
