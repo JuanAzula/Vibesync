@@ -29,26 +29,6 @@ export function useAudioReducer () {
   }, [isPlaying, isMuted, currentTime, songDuration, progressWidth, audioUrl, audioImg, trackId, count])
 
   useEffect(() => {
-    const savedState = localStorage.getItem('audioPlayerState')
-    if (savedState) {
-      const initialState = JSON.parse(savedState)
-      setIsPlaying(initialState.isPlaying)
-      setIsMuted(initialState.isMuted)
-      setCurrentTime(initialState.currentTime)
-      setSongDuration(initialState.songDuration)
-      setProgressWidth(initialState.progressWidth)
-      setAudioUrl(initialState.audioUrl)
-      setAudioImg(initialState.audioImg)
-      setTrackId(initialState.trackId)
-      setCount(initialState.count)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (isPlaying && audioRef.current) void audioRef.current.play()
-  }, [isPlaying])
-
-  useEffect(() => {
     getSongDuration(audioRef, setSongDuration)
   }, [audioRef?.current?.src])
 

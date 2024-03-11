@@ -17,7 +17,7 @@ export function useLikedTracksReducer () {
 
   const removeFromLikedTracks = (track: Track) => {
     const newLikedTracks = likedTracks.filter((item: Track) => item.id !== track.id)
-    window.localStorage.setItem('LikedTracks', JSON.stringify(newLikedTracks))
+    window.localStorage.setItem('likedTracks', JSON.stringify(newLikedTracks))
     setLikedTracks(newLikedTracks)
   }
 
