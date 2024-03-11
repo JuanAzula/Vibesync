@@ -44,7 +44,6 @@ const SearchPage: React.FC = () => {
     queryFn: async () => await getPlaylists(),
   });
   const playlistArray: Playlist[] = queryPlaylist.data || [];
-  console.log(playlistArray);
 
   const queryAlbum = useQuery({
     queryKey: ["album"],
