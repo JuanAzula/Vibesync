@@ -12,6 +12,14 @@
     margin-bottom: 250px;
 }
 
+.search-results-no-match{
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .search-bottom-space{
     height: 25rem;
 }

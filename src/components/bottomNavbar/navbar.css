@@ -19,8 +19,9 @@ body {
       flex-direction: column;
     }
     
-    .navbar img {
+    .icon {
       width: 2.6rem;
+      font-size: 2.4rem;
       fill: var(--color-text);
     }
     

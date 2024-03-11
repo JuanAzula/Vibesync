@@ -31,14 +31,29 @@
     height: 7rem;
 }
 
+.configpage-user-pic-and-name {
+    display: flex;
+}
+
+.configpage-user-text {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    font-size: 1.4rem;
+}
+
+
+
 .configpage-menu{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-top: 5rem;
-    margin-left: 4rem;
+    margin-top: 2rem;
+    margin-left: 11.5rem;
     margin-bottom: 5rem;
-    font-size: 1.10rem;
+    font-size: 1.4rem;
+}
+
+.configpage-menu p {
+    margin-bottom: 1rem;
 }
 
 .configpage-logout{
@@ -51,10 +66,12 @@
     border: none;
     color: var(--color-text);
     background-color: var(--color-secondary);
-    padding: 1.5rem;
+    padding: 1rem;
     width: 15rem;
     border-radius: 2rem;
     cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 .configpage-password-form{
@@ -90,18 +107,18 @@
     cursor: pointer;
 }
 
-@media (min-width: 819px){
-    .configpage-title{
+@media (min-width: 819px) {
+    .configpage-title {
         margin-left: 30rem;
     }
-    .configpage-user-info{
-        font-size: 1.5rem
+    .configpage-user-info {
+        font-size: 1.6rem;
     }
-    .configpage-profile-pic{
+    .configpage-profile-pic {
         width: 9rem;
         height: 9rem;
     }
-    .configpage-menu{
+    .configpage-menu {
         font-size: 1.5rem;
         margin-left: 10rem;
     }
@@ -109,7 +126,7 @@
         top: 35%;
         margin-left: 17rem;
     }
-    .configpage-logout{
-        margin-top: 35rem;
+    .configpage-logout {
+        margin-top: 0;
     }
 }

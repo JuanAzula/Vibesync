@@ -3,13 +3,11 @@ body {
 }
 
 .user_header {
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
+  width: 100%;
+  box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 1);
   position: fixed;
   top: 0rem;
-  width: 43rem;
-  height: 20rem;
   background-color: var(--color-bg-primary);
-  padding-top: 2rem;
   display: flex;
 }
 
@@ -17,7 +15,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 10rem;
+  width: 100%;
+  margin-left: -4rem;
 }
 
 .user_container img {
@@ -35,31 +34,83 @@ body {
 /* Main container */
 
 .user_main_container {
-  margin-top: 22rem;
-  width: 39rem;
-  padding: 2rem;
+  width: 100%;
+}
+
+.user_main_container h2 {
+  margin-left: 2rem;
 }
 
 .user-fav-songs, .user-related-artists, .user-albums{
   overflow-x: auto;
-}
-
-.profile-bottom-space{
-  height: 25rem;
+  padding-inline: 2rem;
 }
 
 .user-fav-songs::-webkit-scrollbar, .user-related-artists::-webkit-scrollbar, .user-albums::-webkit-scrollbar{
   display: none;
 }
 
-@media (min-width: 819px){
-  .user_header{
-    width: 82rem;
-  }
-  .profile_container {
-    margin-left: 29rem
-  }
+@media (max-width: 819px) {
   .user_main_container {
-    width: 78rem;
+    margin-top: 14rem;
+    align-items: center;
+  }
+  .user_header {
+    padding-top: 2rem;
+    height: 10rem;
+  }
+  .profile_container img {
+    width: 6rem;
+  }
+
+  .profile-bottom-space {
+    height: 16rem;
   }
 }
+
+@media (min-width: 819px) and (max-width: 992px){
+  .user_main_container {
+    margin-top: 22rem;
+  }
+
+  .user_header {
+    padding-top: 4rem;
+    height: 20rem;
+  }
+
+  .profile_container {
+    margin-left: -5rem;
+  }
+  
+  .profile_container img {
+    width: 12rem;
+  }
+
+  .profile-bottom-space{
+    height: 32.5rem;
+  }
+}
+
+@media (min-width: 992px){
+  .user_main_container {
+    margin-top: 22rem;
+  }
+
+  .user_header {
+    padding-top: 4rem;
+    height: 20rem;
+  }
+
+  .profile_container {
+    margin-left: -5rem;
+  }
+  
+  .profile_container img {
+    width: 12rem;
+  }
+
+  .profile-bottom-space{
+    height: 27rem;
+  }
+}
+
