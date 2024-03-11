@@ -44,6 +44,7 @@ const SearchPage: React.FC = () => {
     queryFn: async () => await getPlaylists(),
   });
   const playlistArray: Playlist[] = queryPlaylist.data || [];
+  console.log(playlistArray);
 
   const queryAlbum = useQuery({
     queryKey: ["album"],
@@ -101,7 +102,10 @@ const SearchPage: React.FC = () => {
         </section>
         <section className="search-results">
             {isLoading && <CardSkeleton cards={6} />}
-            {filteredTracks.length === 0 ? (
+            {filteredTracks.length === 0 && 
+             filteredAlbums.length === 0 &&
+             filteredArtists.length === 0 &&
+             filteredPlaylists.length === 0 ?(
               <p className='search-results-no-match'>No matches have been found</p>
             ) : (
             <>
