@@ -1,5 +1,4 @@
-import React from 'react'
-import { Playlist } from '../../types/data'
+import { type Playlist } from '../../types/data'
 import './PlaylistCard.css'
 
 type Props = {
@@ -17,4 +16,3 @@ export const PlaylistCard = ({playlist, onClick}: Props) => {
     </div>
   )
 }
-

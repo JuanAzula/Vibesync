@@ -5,23 +5,23 @@ body {
 .user_header {
   width: 100%;
   box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 1);
-  position: fixed;
   top: 0rem;
   background-color: var(--color-bg-primary);
   display: flex;
+  align-content: center
 }
 
 .profile_container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  margin-left: -4rem;
+  width:80%;
 }
 
-.user_container img {
+.profile_container img {
   width: 30%;
   object-fit: cover;
+  margin-top: 1rem;
 }
 
 .back_button {
@@ -29,6 +29,7 @@ body {
   margin-left: 3rem;
   margin-top: 5rem;
   color: var(--color-text);
+  cursor: pointer;
 }
 
 /* Main container */
@@ -44,13 +45,18 @@ body {
 .user-fav-songs, .user-related-artists, .user-albums{
   overflow-x: auto;
   padding-inline: 2rem;
+  margin-right: 2rem;
 }
 
 .user-fav-songs::-webkit-scrollbar, .user-related-artists::-webkit-scrollbar, .user-albums::-webkit-scrollbar{
   display: none;
 }
 
-@media (max-width: 819px) {
+.profile-bottom-space {
+  height: 20rem;
+}
+
+/* @media (max-width: 819px) {
   .user_main_container {
     margin-top: 14rem;
     align-items: center;
@@ -66,12 +72,9 @@ body {
   .profile-bottom-space {
     height: 16rem;
   }
-}
+} */
 
-@media (min-width: 819px) and (max-width: 992px){
-  .user_main_container {
-    margin-top: 22rem;
-  }
+@media (min-width: 819px){
 
   .user_header {
     padding-top: 4rem;
@@ -79,19 +82,20 @@ body {
   }
 
   .profile_container {
-    margin-left: -5rem;
+    margin-left: 3.5rem;
   }
   
   .profile_container img {
-    width: 12rem;
+    width: 24%;
+    margin-top: 0rem
   }
-
+/* 
   .profile-bottom-space{
     height: 32.5rem;
-  }
-}
+  } */
+} 
 
-@media (min-width: 992px){
+/* @media (min-width: 992px){
   .user_main_container {
     margin-top: 22rem;
   }
@@ -112,5 +116,5 @@ body {
   .profile-bottom-space{
     height: 27rem;
   }
-}
+} */
 

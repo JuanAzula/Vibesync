@@ -1,11 +1,11 @@
-import { Album } from '../../types/data';
+import { type Album } from '../../types/data'
 import './albumCard.css'
 
-type Props = {
-  album: Album;
-};
+interface Props {
+  album: Album
+}
 
-export const AlbumCard = ({album}: Props) => {
+export const AlbumCard = ({ album }: Props) => {
   return (
     <div className="album-container">
       <img className="album-img" src={album.imageUrl} />
@@ -14,5 +14,5 @@ export const AlbumCard = ({album}: Props) => {
         <h3>{album.name}</h3>
       </div>
     </div>
-  );
-};
+  )
+}

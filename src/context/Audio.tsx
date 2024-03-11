@@ -99,7 +99,7 @@ function useAudioReducer () {
     }
   }
 
-  const storePreviousTrack = (id: any) => {
+  const storePreviousTrack = (id: number) => {
     const tracksList = []
     const storageTracks = localStorage.getItem('previousTrack')
     if (storageTracks) {

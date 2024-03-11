@@ -8,14 +8,14 @@ import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
 import { type User, type Album, type Playlist, type Track } from '../../types/data'
 import { Link } from 'react-router-dom'
 import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
-import lofiPlaylist from '/src/assets/playlists-img/lofi-playlist.png'
-import kanyeAlbum from '/src/assets/albums-img/graduation-kanye-cover.jpg'
-import canserbero from '/src/assets/albums-img/jeremias17-5.jpg'
-import cookingPlaylist from '/src/assets/playlists-img/relaxing-cooking-mix.png'
-import readingFlow from '/src/assets/playlists-img/reading-flow.png'
+import lofiPlaylist from '../../assets/playlists-img/lofi-playlist.png'
+import kanyeAlbum from '../../assets/albums-img/graduation-kanye-cover.jpg'
+import canserbero from '../../assets/albums-img/jeremias17-5.jpg'
+import cookingPlaylist from '../../assets/playlists-img/relaxing-cooking-mix.png'
+import readingFlow from '../../assets/playlists-img/reading-flow.png'
 
 export const Home = ({ user }: { user: User }) => {
-  const [isActive, setIsActive] = useState(true)
+  const [isActive] = useState(true)
 
   const queryTracks = useQuery({
     queryKey: ['tracks'],

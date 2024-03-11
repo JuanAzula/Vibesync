@@ -59,7 +59,6 @@
 .configpage-logout{
     display: flex;
     justify-content: center;
-    margin-top: 25rem;
 }
 
 .configpage-logout-btn{
@@ -133,6 +132,6 @@
         margin-left: 17rem;
     }
     .configpage-logout {
-        margin-top: 0;
+        margin-top: 40rem;
     }
 }

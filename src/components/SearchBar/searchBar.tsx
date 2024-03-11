@@ -8,13 +8,13 @@ interface SearchBarProps {
 export const SearchBar: React.FC<SearchBarProps> = ({value}) => {
     const {handleSearch} = useSearchContext();
     
+
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const lowerCase = e.target.value.toLowerCase();
-        handleSearch(lowerCase);
+      const lowerCase = e.target.value.toLowerCase()
+      handleSearch(lowerCase)
+  }
 
-    };
-
-    return (
+  return (
         <input
           className="searchbar-input"
           type="search"
@@ -22,8 +22,5 @@ export const SearchBar: React.FC<SearchBarProps> = ({value}) => {
           value={value}
           onChange={inputHandler}
         />
-      );
-};
-
-  
-  
+  )
+}

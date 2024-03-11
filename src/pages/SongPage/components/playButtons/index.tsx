@@ -5,13 +5,14 @@ import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'
 import { useLikedTracksContext } from '../../../../hooks/useLikedSongs'
 import { StyledLink } from '../../../../styledComponents/styledLink'
 import { useAudioContext } from '../../../../hooks/useAudio'
+import { type Track } from '../../../../types/data'
 
 interface Props {
   togglePlay: () => void
   isPlaying: boolean
   toggleMute: () => void
   isMuted: boolean
-  track: number
+  track: Track
   handleNextTrack: () => void
   handlePreviousTrack: () => void
 }
@@ -23,11 +24,11 @@ export const PlayButtons = ({ togglePlay, isPlaying, toggleMute, isMuted, track,
     trackId
   } = useAudioContext()
 
-  const checkTracksinLikedTracks = (track: any) => {
+  const checkTracksinLikedTracks = (track: Track) => {
     if (likedTracks[0] === null) {
       return false
     }
-    if (likedTracks.find((item: any) => item.id === track.id)) {
+    if (likedTracks.find((item: Track) => item.id === track.id)) {
       return true
     }
     return false
