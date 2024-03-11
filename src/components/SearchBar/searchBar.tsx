@@ -2,9 +2,10 @@ import {  ChangeEvent } from "react";
 import { useSearchContext } from "../../context/Search";
 import "./searchBar.css"
 
-
-
-export const SearchBar: React.FC = () => {
+interface SearchBarProps {
+  value: string;
+}
+export const SearchBar: React.FC<SearchBarProps> = ({value}) => {
     const {handleSearch} = useSearchContext();
     
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -18,6 +19,7 @@ export const SearchBar: React.FC = () => {
           className="searchbar-input"
           type="search"
           placeholder="Songs, albums, artists, playlists"
+          value={value}
           onChange={inputHandler}
         />
       );

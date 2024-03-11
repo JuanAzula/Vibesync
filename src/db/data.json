@@ -7,7 +7,35 @@
       "thumbnail": "/src/assets/playlists-img/time-to-workout.png",
       "description": "An energizing playlist tailored for your workout sessions at the gym.",
       "publicAccessible": true,
-      "primaryColor": "#fbdc00"
+      "primaryColor": "#fbdc00",
+      "tracks":[
+        {
+          "id": "1",
+          "name": "313",
+          "artist": "Residente, Silvia Pérez Cruz",
+          "url": "/src/assets/default-songs/residente.mp3",
+          "thumbnail": "/src/assets/track-img/313.jpg",
+          "genre": "latin",
+          "liked": false
+        },
+        {
+          "id": "2",
+          "name": "Do I Wanna Know",
+          "artist": "Arctic Monkeys",
+          "url": "/src/assets/default-songs/arctic-monkeys.mp3",
+          "thumbnail": "/src/assets/track-img/arctic-monkeys.jpg",
+          "genre": "indie-rock",
+          "liked": false
+        },
+        {
+          "id": "3",
+          "name": "Don't Let Me Be Misunderstood",
+          "artist": "Nina Simone",
+          "url": "/src/assets/default-songs/nina-simone.mp3",
+          "thumbnail": "/src/assets/track-img/nina-simone.jpg",
+          "genre": "blues",
+          "liked": false
+        }]
     },
     {
       "id": "2",
@@ -16,7 +44,8 @@
       "thumbnail": "/src/assets/playlists-img/lofi-playlist.png",
       "description": "A soothing LoFi playlist curated for moments of relaxation and focus.",
       "publicAccessible": true,
-      "primaryColor": "#fbdc00"
+      "primaryColor": "#fbdc00",
+      "tracks":[]
     },
     {
       "id": "3",
@@ -25,7 +54,8 @@
       "thumbnail": "/src/assets/playlists-img/relaxing-cooking-mix.png",
       "description": "A culinary-inspired playlist designed to add flavor to your cooking experience.",
       "publicAccessible": true,
-      "primaryColor": "#fbdc00"
+      "primaryColor": "#fbdc00",
+      "tracks":[]
     },
     {
       "id": "4",
@@ -34,7 +64,8 @@
       "thumbnail": "/src/assets/playlists-img/festival-vibes.png",
       "description": "A high-energy festival playlist crafted to keep the party going all night long.",
       "publicAccessible": false,
-      "primaryColor": "#fbdc00"
+      "primaryColor": "#fbdc00",
+      "tracks":[]
     },
     {
       "id": "5",
@@ -43,7 +74,8 @@
       "thumbnail": "/src/assets/playlists-img/reading-flow.png",
       "description": "A tranquil reading playlist carefully curated to accompany your literary journey",
       "publicAccessible": false,
-      "primaryColor": "#fbdc00"
+      "primaryColor": "#fbdc00",
+      "tracks":[]
     },
     {
       "id": "6",
@@ -52,7 +84,8 @@
       "thumbnail": "/src/assets/playlists-img/romanticizing-studying.png",
       "description": "A focused study playlist meticulously selected to enhance concentration and productivity.",
       "publicAccessible": false,
-      "primaryColor": "#fbdc00"
+      "primaryColor": "#fbdc00",
+      "tracks":[]
     }
   ],
   "tracks": [

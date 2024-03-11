@@ -80,8 +80,14 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    top: 45%;
-    margin-left: 5rem;
+    top: 35%;
+    left: 8rem;
+    margin-right: 10%;
+    margin-top: 2rem;
+  
+}
+.configpage-password-form label {
+    margin-bottom: 1rem;
 }
 
 .configpage-password-change-title{

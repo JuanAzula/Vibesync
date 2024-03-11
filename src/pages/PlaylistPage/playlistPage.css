@@ -1,0 +1,12 @@
+.playlist-tracks {
+   list-style: none;
+   display: flex;
+} 
+
+.playlist-tracks li {
+    width: 12rem;
+}
+
+.playlist-tracks li img {
+    width: 10rem;
+}
