@@ -8,11 +8,31 @@ body {
 .song-container {
   display: flex;
   flex-direction: column;
-  margin: 3rem auto 1rem;
+  margin: 3rem auto 2rem;
   align-items: center;
 }
 
 .song-img {
-  width: 75%;
   margin: 2rem;
+  border-radius: 2rem;
+  box-shadow: 2rem 3rem 5rem rgba(0, 0, 0, 1);
+
+}
+
+@media (max-width: 819px) {
+  .song-container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 819px) and (max-width: 992px){
+  .song-container {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 992px){
+  .song-container {
+  width: 40%;
+  }
 }

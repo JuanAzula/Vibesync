@@ -103,7 +103,7 @@ export const Login = () => {
         <button className="login-button" style={{ height: '30px' }} type="submit">
           Login
         </button>
-        <Link to="/signup">Don`t have an account?Signup</Link>
+        <Link to="/signup">Don't have an account? Sign up!</Link>
       </form>
     </div>
   )
