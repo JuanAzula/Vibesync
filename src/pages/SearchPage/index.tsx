@@ -21,7 +21,7 @@ const SearchPage: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 3000)
+    }, 600)
   }, [])
 
   const handleTopSearchClick = (value: string) => {
@@ -95,7 +95,7 @@ const SearchPage: React.FC = () => {
           <div><p>Top charts</p></div>
         </section>
         <section className='search-results'>
-            {isLoading && <CardSkeleton cards={6} />}
+            {isLoading && <CardSkeleton cards={18} />}
             {filteredTracks.length === 0 &&
              filteredAlbums.length === 0 &&
              filteredArtists.length === 0 &&
