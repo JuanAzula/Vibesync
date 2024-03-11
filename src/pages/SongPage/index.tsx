@@ -5,7 +5,12 @@ import { useQuery } from '@tanstack/react-query'
 import { getTrack as fetchTrack } from '../../services/dataService'
 import { useAudioContext } from '../../hooks/useAudio'
 
-const getTrack = async (trackId: number, setAudioUrl: any) => {
+interface Props {
+  trackId: string
+  setAudioUrl: (arg0: string) => void
+}
+
+const getTrack = async (trackId: Props['trackId'], setAudioUrl: Props['setAudioUrl']) => {
   if (trackId) {
     const track = await fetchTrack(trackId)
     console.log('track', track.url)
