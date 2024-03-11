@@ -16,6 +16,7 @@ export const PlaylistPage = () => {
         setIsLoading(false)
         }, 3000)
     }, []);
+    
     const queryPlaylist = useQuery({
         queryKey: ["playlist"],
         queryFn: async () => await getPlaylists(),

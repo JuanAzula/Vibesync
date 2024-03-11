@@ -60,12 +60,16 @@ const SearchPage: React.FC = () => {
   // Filter tracks based on the search input
   const filteredTracks = trackArray.filter((track) =>
     track.name.toLowerCase().includes(searchInput) ||
-    track.artist.toLowerCase().includes(searchInput)
+    track.artist.toLowerCase().includes(searchInput) ||
+    track.genre.toLowerCase().includes(searchInput)
   );
 
   //filter artist based on the search input
   const filteredArtists = artistArray.filter((artist) =>
-    artist.name.toLowerCase().includes(searchInput)
+    artist.name.toLowerCase().includes(searchInput) ||
+    (artist.genres && artist.genres.some(genre =>
+      genre.toLowerCase().includes(searchInput)
+    ))
   );
 
   // Filter playlists based on the search input
@@ -109,11 +113,11 @@ const SearchPage: React.FC = () => {
             ) : (
             <>
             {filteredTracks.map((track) => (
-              <SongCard key={`${track.id}-${track.artist}`} track={track} isActive={true} />
+              <SongCard key={`${track.id}-${track.artist}-${track.genre}`} track={track} isActive={true} />
               ))}
             {filteredArtists.length > 0 &&
                filteredArtists.map((artist) => (
-                <ArtistCard key={artist.id} artist={artist} />
+                <ArtistCard key={`${artist.id}-${artist.genres.join('-')}`} artist={artist} />
                 ))}
             {filteredPlaylists.length > 0 &&
               filteredPlaylists.map((playlist) => (
