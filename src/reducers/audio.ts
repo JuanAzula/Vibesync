@@ -95,6 +95,7 @@ export function useAudioReducer () {
   const storePreviousTrack = (id: number) => {
     const tracksList = []
     const storageTracks = localStorage.getItem('previousTrack')
+    if (id === 0) return
     if (storageTracks) {
       const previousTrack = JSON.parse(storageTracks)
       tracksList.push(...previousTrack, id)
