@@ -154,33 +154,11 @@ export function useAudioReducer () {
     const storageTracks = localStorage.getItem('allTracks')
     const tracks = JSON.parse(storageTracks || '{}')
     const tracksLength = tracks.length
-    storePreviousTrack(trackId)
-    let randomNumber = Math.floor(Math.random() * tracksLength)
-    if (randomNumber === tracksLength) {
-      randomNumber = tracksLength - 1
-      const track = tracks[randomNumber]
-      setAudioUrl(track.url)
-      setAudioImg(track.thumbnail)
-      setTrackId(track.id)
-      setCount(-1)
-      localStorage.setItem('localTrack', JSON.stringify(track))
-      setTimeout(() => {
-        getSongDuration(audioRef, setSongDuration)
-      }, 100)
-      setIsPlaying(false)
-    } else if (randomNumber === trackId - 1) {
-      randomNumber = trackId - 2
-      const track = tracks[randomNumber]
-      setAudioUrl(track.url)
-      setAudioImg(track.thumbnail)
-      setTrackId(track.id)
-      setCount(-1)
-      localStorage.setItem('localTrack', JSON.stringify(track))
-      setTimeout(() => {
-        getSongDuration(audioRef, setSongDuration)
-      }, 100)
-      setIsPlaying(false)
+    const randomNumber = Math.floor(Math.random() * tracksLength)
+    if (randomNumber === tracksLength || randomNumber === trackId - 1) {
+      handleNextTrack()
     }
+    storePreviousTrack(trackId)
     const track = tracks[randomNumber]
     setAudioUrl(track.url)
     setAudioImg(track.thumbnail)
