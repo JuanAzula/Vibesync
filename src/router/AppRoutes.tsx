@@ -97,9 +97,6 @@ export const AppRoutes = () => {
                 )
           }
         />
-        <Route
-          path="/register"
-        />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/playlists" element={<PlaylistPage />} />
