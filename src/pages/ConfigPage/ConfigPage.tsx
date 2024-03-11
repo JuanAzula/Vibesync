@@ -1,74 +1,75 @@
-import { useState } from "react";
-import { User } from "../../types/data";
-import "./ConfigPage.css";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+import { useState } from 'react'
+import { type User } from '../../types/data'
+import './ConfigPage.css'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import toast, { Toaster } from 'react-hot-toast'
 
-type Props = {
-  user: User;
-};
+interface Props {
+  user: User
+}
 
 export const ConfigPage = ({ user }: Props) => {
-  const [visible, setVisible] = useState(false);
-  const [passwordError, setPasswordError] = useState("");
-  const [input1Value, setInput1Value] = useState("");
-  const [input2Value, setInput2Value] = useState("");
-  const [input2Disabled, setInput2Disabled] = useState(true);
+  const [visible, setVisible] = useState(false)
+  const [passwordError, setPasswordError] = useState('')
+  const [input1Value, setInput1Value] = useState('')
+  const [input2Value, setInput2Value] = useState('')
+  const [input2Disabled, setInput2Disabled] = useState(true)
 
   const validatePassword = (input: string) => {
     if (input.length < 6) {
-        setPasswordError('Password must be at least 6 characters')
+      setPasswordError('Password must be at least 6 characters')
     } else if (!/[A-Z]/.test(input)) {
-        setPasswordError('Password must contain at least one uppercase letter')
+      setPasswordError('Password must contain at least one uppercase letter')
     } else if (!/[\W_]/.test(input)) {
-        setPasswordError('Password must contain at least one special character')
-    } else if (input === user.password){
-        setPasswordError('Password must different from your last password')
+      setPasswordError('Password must contain at least one special character')
+    } else if (input === user.password) {
+      setPasswordError('Password must different from your last password')
     } else {
-        setPasswordError('');
-        setVisible(!visible);
+      setPasswordError('')
+      setVisible(!visible)
     }
   }
   const navigate = useNavigate()
   const logout = () => {
-    window.localStorage.removeItem("userLogged");
-    navigate("/")
-    window.location.reload();
-  };
+    window.localStorage.removeItem('userLogged')
+    navigate('/')
+    window.location.reload()
+  }
 
   const togglePasswordChange = () => {
-    setInput1Value("");
-    setInput2Value("");
-    setInput2Disabled(true);
-    setVisible(!visible);
-  };
+    setInput1Value('')
+    setInput2Value('')
+    setInput2Disabled(true)
+    setVisible(!visible)
+  }
 
   const handleInputChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setInput1Value(value);
-    setInput2Disabled(value !== user.password);
-  };
+    const value = event.target.value
+    setInput1Value(value)
+    setInput2Disabled(value !== user.password)
+  }
 
   const handleInputChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput2Value(event.target.value);
-  };
+    setInput2Value(event.target.value)
+  }
 
   const addNewPassword = (event: React.FormEvent) => {
-    event?.preventDefault();
-    validatePassword(input2Value);
-    if(passwordError === ""){
-      changePassword();
+    event?.preventDefault()
+    validatePassword(input2Value)
+    if (passwordError === '') {
+      changePassword()
       toast.success('Password successfully changed! Please log out to try your new password.')
-      setTimeout(()=> {
+      setTimeout(() => {
         logout()
       }, 3000)
     }
-  };
+  }
 
   const changePassword = () => {
-    const url = `http://localhost:3000/user/${user.id}`;
-    const newPassword = input2Value;
+    const url = `http://localhost:3000/user/${user.id}`
+    const newPassword = input2Value
     const modifiedData = {
       first_name: user.first_name,
       password: newPassword,
@@ -77,11 +78,11 @@ export const ConfigPage = ({ user }: Props) => {
       profilePicture: user.profilePicture,
       isLoggedin: false,
       id: user.id
-    };
+    }
 
     axios.put(url, modifiedData)
-      .then(response =>{response.data})
-      .catch(error => {error})
+      .then(response => { response.data })
+      .catch(error => { error })
   }
 
   return (
@@ -99,17 +100,17 @@ export const ConfigPage = ({ user }: Props) => {
           <div className="configpage-user-pic-and-name">
             <img
               className="configpage-profile-pic"
-              src={user && user.profilePicture}
+              src={user?.profilePicture}
               alt="profile-pic"
             />
             <div className="configpage-user-text">
               <h3>
-                 {user && user.first_name} {user && user.last_name}
+                 {user?.first_name} {user?.last_name}
               </h3>
-              <p>{user && user.email}</p>
+              <p>{user?.email}</p>
             </div>
           </div>
-          
+
           <Link to="/profile">
             <button className="configpage-btn">
               <i className="fa-solid fa-chevron-right"></i>
@@ -120,7 +121,7 @@ export const ConfigPage = ({ user }: Props) => {
           <p>View Profile</p>
           <p
             className="configpage-password-change-title"
-            onClick={() => togglePasswordChange()}
+            onClick={() => { togglePasswordChange() }}
           >
             Change Password
           </p>
@@ -128,7 +129,7 @@ export const ConfigPage = ({ user }: Props) => {
           {visible && (
             <form className="configpage-password-form">
               <label>
-                {" "}
+                {' '}
                 Old Password
                 <input
                   className="configpage-input"
@@ -138,7 +139,7 @@ export const ConfigPage = ({ user }: Props) => {
                 />
               </label>
               <label>
-                {" "}
+                {' '}
                 New Password
                 <input
                   type="password"
@@ -153,7 +154,7 @@ export const ConfigPage = ({ user }: Props) => {
               </label>
               <button
                 className="configpage-save-btn"
-                onClick={(event) => addNewPassword(event)}
+                onClick={(event) => { addNewPassword(event) }}
               >
                 Save
               </button>
@@ -162,10 +163,10 @@ export const ConfigPage = ({ user }: Props) => {
         </div>
       </section>
       <section className="configpage-logout">
-        <button onClick={() => logout()} className="configpage-logout-btn">
+        <button onClick={() => { logout() }} className="configpage-logout-btn">
           Logout
         </button>
       </section>
     </>
-  );
-};
+  )
+}

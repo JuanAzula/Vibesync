@@ -66,7 +66,7 @@ export const AppRoutes = () => {
               <Home user={queryUserLogged.data} />
                 )
               : (
-              <Login triggerRefetch={handleLoginSuccess} />
+              <Login />
                 )
           }
         />
@@ -78,7 +78,7 @@ export const AppRoutes = () => {
               <Home user={queryUserLogged.data} />
                 )
               : (
-              <Login triggerRefetch={handleLoginSuccess} />
+              <Login />
                 )
           }
         />
@@ -89,12 +89,11 @@ export const AppRoutes = () => {
             queryUserLogged.data
               ? (
               <ConfigPage
-                triggerRefetch={handleLoginSuccess}
                 user={queryUserLogged.data}
               />
                 )
               : (
-              <Login triggerRefetch={handleLoginSuccess} />
+              <Login />
                 )
           }
         />

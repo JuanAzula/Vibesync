@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react'
+import { type Track } from '../types/data'
 
 export const LikedTracksContext = createContext({} as any)
 
@@ -7,8 +8,8 @@ function useLikedTracksReducer () {
   const likedTracksChecked = initialLikedTracks ? JSON.parse(initialLikedTracks) : []
   const [likedTracks, setLikedTracks] = useState(likedTracksChecked)
 
-  const addToLikedTracks = (track: any) => {
-    if (likedTracks.find((item: any) => item.id === track.id)) {
+  const addToLikedTracks = (track: Track) => {
+    if (likedTracks.find((item: Track) => item.id === track.id)) {
       return
     }
 
@@ -16,8 +17,8 @@ function useLikedTracksReducer () {
     setLikedTracks([...likedTracks, track])
   }
 
-  const removeFromLikedTracks = (track: any) => {
-    const newLikedTracks = likedTracks.filter((item: any) => item.id !== track.id)
+  const removeFromLikedTracks = (track: Track) => {
+    const newLikedTracks = likedTracks.filter((item: Track) => item.id !== track.id)
     window.localStorage.setItem('LikedTracks', JSON.stringify(newLikedTracks))
     setLikedTracks(newLikedTracks)
   }
