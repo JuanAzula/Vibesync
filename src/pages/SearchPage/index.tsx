@@ -1,25 +1,22 @@
 import './SearchPage.css'
 import CategoryBtn from '../../styledComponents/categoryBtn'
 import { SearchBar } from '../../components/SearchBar/searchBar'
-import { useSearchContext } from "../../context/Search";
-import { useQuery } from "@tanstack/react-query";
-import { getAlbums, getArtists, getPlaylists, getTracks } from "../../services/dataService";
-import { Album, Playlist, Track, Artist } from "../../types/data";
-import { PlaylistCard } from "../../components/playlistCard/PlaylistCard";
-import { AlbumCard } from '../../components/albumCard';
-import { ArtistCard } from '../../components/artistCard';
-import SongCard from '../../components/songCard';
-import { useAudioContext } from '../../hooks/useAudio';
+import { useSearchContext } from '../../context/Search'
+import { useQuery } from '@tanstack/react-query'
+import { getAlbums, getArtists, getPlaylists, getTracks } from '../../services/dataService'
+import { type Album, type Playlist, type Track, type Artist } from '../../types/data'
+import { PlaylistCard } from '../../components/playlistCard/PlaylistCard'
+import { AlbumCard } from '../../components/albumCard'
+import { ArtistCard } from '../../components/artistCard'
+import SongCard from '../../components/songCard'
+// import { useAudioContext } from '../../hooks/useAudio'
 import 'react-loading-skeleton/dist/skeleton.css'
-import CardSkeleton from './components/CardSkeleton';
-import { useEffect, useState } from 'react';
-
-
+import CardSkeleton from './components/CardSkeleton'
+import { useEffect, useState } from 'react'
 
 const SearchPage: React.FC = () => {
-  const { searchInput } = useSearchContext();
-  const { setTrackId } = useAudioContext()
-
+  const { searchInput, handleSearch } = useSearchContext()
+  // const { setTrackId } = useAudioContext()
 
   const [isLoading, setIsLoading] = useState(true)
 
@@ -27,54 +24,54 @@ const SearchPage: React.FC = () => {
     setTimeout(() => {
       setIsLoading(false)
     }, 3000)
-  }, []);
- 
+  }, [])
+
   const queryTracks = useQuery({
-    queryKey: ["tracks"],
-    queryFn: async () => await getTracks(),
-  });
-  const trackArray: Track[] = queryTracks.data || [];
+    queryKey: ['tracks'],
+    queryFn: async () => await getTracks()
+  })
+  const trackArray: Track[] = queryTracks.data || []
 
   const queryPlaylist = useQuery({
-    queryKey: ["playlist"],
-    queryFn: async () => await getPlaylists(),
-  });
-  const playlistArray: Playlist[] = queryPlaylist.data || [];
+    queryKey: ['playlist'],
+    queryFn: async () => await getPlaylists()
+  })
+  const playlistArray: Playlist[] = queryPlaylist.data || []
 
   const queryAlbum = useQuery({
-    queryKey: ["album"],
-    queryFn: async () => await getAlbums(),
-  });
-  const albumArray: Album[] = queryAlbum.data || [];
+    queryKey: ['album'],
+    queryFn: async () => await getAlbums()
+  })
+  const albumArray: Album[] = queryAlbum.data || []
 
   const queryArtist = useQuery({
-    queryKey: ["artist"],
-    queryFn: async () => await getArtists(),
-  });
-  const artistArray: Artist[] = queryArtist.data || [];
+    queryKey: ['artist'],
+    queryFn: async () => await getArtists()
+  })
+  const artistArray: Artist[] = queryArtist.data || []
 
   // Filter tracks based on the search input
   const filteredTracks = trackArray.filter((track) =>
     track.name.toLowerCase().includes(searchInput) ||
     track.artist.toLowerCase().includes(searchInput)
-  );
+  )
 
-  //filter artist based on the search input
+  // filter artist based on the search input
   const filteredArtists = artistArray.filter((artist) =>
     artist.name.toLowerCase().includes(searchInput)
-  );
+  )
 
   // Filter playlists based on the search input
   const filteredPlaylists = playlistArray.filter((playlist) =>
     playlist.name.toLowerCase().includes(searchInput)
-  );
+  )
 
   // Filter albums based on the search input
   const filteredAlbums = albumArray.filter((album) =>
-    album.name.toLowerCase().includes(searchInput)||
+    album.name.toLowerCase().includes(searchInput) ||
     album.artist.toLowerCase().includes(searchInput)
-  );
-  
+  )
+
   return (
         <>
         <main className="search-main-container">
@@ -103,10 +100,10 @@ const SearchPage: React.FC = () => {
               // Render track components here
               <SongCard key={`${track.id}-${track.artist}`} track={track} isActive={true} />
             ))}
-           {filteredArtists.length > 0 && 
+           {filteredArtists.length > 0 &&
            filteredArtists.map((artist) => (
             <ArtistCard key={artist.id} artist={artist}/>
-           ))} 
+           ))}
           {filteredPlaylists.length > 0 &&
             filteredPlaylists.map((playlist) => (
               // Render playlist components here

@@ -1,10 +1,10 @@
-import Skeleton from "react-loading-skeleton"
-import "./CardSkeleton.css"
+import Skeleton from 'react-loading-skeleton'
+import './CardSkeleton.css'
 
-const CardSkeleton = ({cards}: { cards: any }) => {
+const CardSkeleton = ({ cards }: { cards: any }) => {
   return Array(cards)
-  .fill(0)
-  .map((i) =>
+    .fill(0)
+    .map((i) =>
     <div className="card-skeleton" key={i}>
         <div>
             <Skeleton className="card-skeleton-img"/>
@@ -12,7 +12,7 @@ const CardSkeleton = ({cards}: { cards: any }) => {
         <div>
             <Skeleton className="card-skeleton-title" />
         </div>
-    </div> 
+    </div>
     )
 }
 
