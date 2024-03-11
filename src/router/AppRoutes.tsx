@@ -15,6 +15,7 @@ import { FavTracks } from '../pages/FavTracksPage/FavTracks'
 // import { SkeletonTheme } from 'react-loading-skeleton'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { getTracks as fetchTracks } from '../services/dataService'
+import { PlaylistPage } from '../pages/PlaylistPage'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -107,6 +108,7 @@ export const AppRoutes = () => {
         />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
+        <Route path="/library/playlists" element={<PlaylistPage />} />
         <Route path="/library/favtracks" element={<FavTracks/>} />
         <Route
           path="/user"

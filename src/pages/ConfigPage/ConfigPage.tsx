@@ -96,17 +96,20 @@ export const ConfigPage = ({ user }: Props) => {
       </header>
       <section>
         <div className="configpage-user-info">
-          <img
-            className="configpage-profile-pic"
-            src={user && user.profilePicture}
-            alt="profile-pic"
-          />
-          <div className="configpage-user-text">
-            <h3>
-              {user && user.first_name} {user && user.last_name}
-            </h3>
-            <p>{user && user.email}</p>
+          <div className="configpage-user-pic-and-name">
+            <img
+              className="configpage-profile-pic"
+              src={user && user.profilePicture}
+              alt="profile-pic"
+            />
+            <div className="configpage-user-text">
+              <h3>
+                 {user && user.first_name} {user && user.last_name}
+              </h3>
+              <p>{user && user.email}</p>
+            </div>
           </div>
+          
           <Link to="/profile">
             <button className="configpage-btn">
               <i className="fa-solid fa-chevron-right"></i>
