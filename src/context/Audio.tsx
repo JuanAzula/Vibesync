@@ -3,7 +3,7 @@ import { useAudioReducer } from '../reducers/audio'
 
 export const AudioContext = createContext({} as any)
 
-export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
+export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ children }: { children: React.ReactNode }) => {
   const {
     audioRef,
     isPlaying,
