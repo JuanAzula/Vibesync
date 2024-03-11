@@ -1,14 +1,14 @@
 import './SearchPage.css'
 import CategoryBtn from '../../styledComponents/categoryBtn'
 import { SearchBar } from '../../components/SearchBar/searchBar'
-import { useSearchContext } from "../../context/Search";
-import { useQuery } from "@tanstack/react-query";
-import { getAlbums, getArtists, getPlaylists, getTracks } from "../../services/dataService";
-import { Album, Playlist, Track, Artist } from "../../types/data";
-import { PlaylistCard } from "../../components/playlistCard/PlaylistCard";
-import { AlbumCard } from '../../components/albumCard';
-import { ArtistCard } from '../../components/artistCard';
-import SongCard from '../../components/songCard';
+import { useSearchContext } from '../../context/Search'
+import { useQuery } from '@tanstack/react-query'
+import { getAlbums, getArtists, getPlaylists, getTracks } from '../../services/dataService'
+import { Album, Playlist, Track, Artist } from '../../types/data'
+import { PlaylistCard } from '../../components/playlistCard/PlaylistCard'
+import { AlbumCard } from '../../components/albumCard'
+import { ArtistCard } from '../../components/artistCard'
+import SongCard from '../../components/songCard'
 import 'react-loading-skeleton/dist/skeleton.css'
 import CardSkeleton from './components/CardSkeleton'
 import { useEffect, useState } from 'react'
@@ -81,25 +81,25 @@ const SearchPage: React.FC = () => {
 
   return (
         <>
-        <main className="search-main-container">
+        <main className='search-main-container'>
         <section>
         <SearchBar value={searchInput}/>
         <h2>Top searches</h2>
-          <CategoryBtn onClick={() => handleTopSearchClick("canserbero")}>Canserbero</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("residente")}>Residente</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("electro")}>Electro</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("trap")}>Trap</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("blues")}>Blues</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("rock")}>Rock</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("nina simone")}>Nina Simone</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("kanye west")}>Kanye West</CategoryBtn>
-          <CategoryBtn onClick={() => handleTopSearchClick("estopa")}>Estopa</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('canserbero')}>Canserbero</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('residente')}>Residente</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('electro')}>Electro</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('trap')}>Trap</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('blues')}>Blues</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('rock')}>Rock</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('nina simone')}>Nina Simone</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('kanye west')}>Kanye West</CategoryBtn>
+          <CategoryBtn onClick={() => handleTopSearchClick('estopa')}>Estopa</CategoryBtn>
         </section>
         <h2>Browse all</h2>
         <section>
           <div><p>Top charts</p></div>
         </section>
-        <section className="search-results">
+        <section className='search-results'>
             {isLoading && <CardSkeleton cards={6} />}
             {filteredTracks.length === 0 &&
              filteredAlbums.length === 0 &&
@@ -128,7 +128,7 @@ const SearchPage: React.FC = () => {
     </>
                 )}
 </section>
-        <div className="search-bottom-space"></div>
+        <div className='search-bottom-space'></div>
         </main>
         </>
   )

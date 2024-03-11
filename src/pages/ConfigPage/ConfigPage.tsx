@@ -87,23 +87,23 @@ export const ConfigPage = ({ user }: Props) => {
 
   return (
     <>
-      <header className="configpage-header">
-        <Link to="/">
-          <button className="configpage-btn configpage-back">
-            <i className="fa-solid fa-chevron-left"></i>
+      <header className='configpage-header'>
+        <Link to='/'>
+          <button className='configpage-btn configpage-back'>
+            <i className='fa-solid fa-chevron-left'></i>
           </button>
         </Link>
-        <h2 className="configpage-title">Profile</h2>
+        <h2 className='configpage-title'>Profile</h2>
       </header>
       <section>
-        <div className="configpage-user-info">
-          <div className="configpage-user-pic-and-name">
+        <div className='configpage-user-info'>
+          <div className='configpage-user-pic-and-name'>
             <img
-              className="configpage-profile-pic"
+              className='configpage-profile-pic'
               src={user?.profilePicture}
               alt="profile-pic"
             />
-            <div className="configpage-user-text">
+            <div className='configpage-user-text'>
               <h3>
                  {user?.first_name} {user?.last_name}
               </h3>
@@ -111,29 +111,29 @@ export const ConfigPage = ({ user }: Props) => {
             </div>
           </div>
 
-          <Link to="/profile">
-            <button className="configpage-btn">
-              <i className="fa-solid fa-chevron-right"></i>
+          <Link to='/profile'>
+            <button className='configpage-btn'>
+              <i className='fa-solid fa-chevron-right'></i>
             </button>
           </Link>
         </div>
-        <div className="configpage-menu">
+        <div className='configpage-menu'>
           <p>View Profile</p>
           <p
-            className="configpage-password-change-title"
+            className='configpage-password-change-title'
             onClick={() => { togglePasswordChange() }}
           >
             Change Password
           </p>
           <Toaster/>
           {visible && (
-            <form className="configpage-password-form">
+            <form className='configpage-password-form'>
               <label>
                 {' '}
                 Old Password
                 <input
-                  className="configpage-input"
-                  type="password"
+                  className='configpage-input'
+                  type='password'
                   value={input1Value}
                   onChange={handleInputChange1}
                 />
@@ -142,18 +142,18 @@ export const ConfigPage = ({ user }: Props) => {
                 {' '}
                 New Password
                 <input
-                  type="password"
-                  className="configpage-input"
+                  type='password'
+                  className='configpage-input'
                   value={input2Value}
                   onChange={handleInputChange2}
                   disabled={input2Disabled}
                 />
                 {passwordError && (
-                  <div className="error-password">{passwordError}</div>
+                  <div className='error-password'>{passwordError}</div>
                 )}
               </label>
               <button
-                className="configpage-save-btn"
+                className='configpage-save-btn'
                 onClick={(event) => { addNewPassword(event) }}
               >
                 Save
@@ -162,8 +162,8 @@ export const ConfigPage = ({ user }: Props) => {
           )}
         </div>
       </section>
-      <section className="configpage-logout">
-        <button onClick={() => { logout() }} className="configpage-logout-btn">
+      <section className='configpage-logout'>
+        <button onClick={() => { logout() }} className='configpage-logout-btn'>
           Logout
         </button>
       </section>
