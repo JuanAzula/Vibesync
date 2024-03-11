@@ -35,6 +35,7 @@ export interface Playlist {
   description: string
   publicAccessible: boolean
   primaryColor: PrimaryColor
+  tracks: []
 }
 
 export enum PrimaryColor {
