@@ -1,12 +1,11 @@
-import playlist from '../../assets/playlist-default-img.webp'
 import './PlaylistMiniCard.css'
 
 interface Props {
-  img: string,
+  img: string
   title: string
 }
 
-export const PlaylistMiniCard = ({img, title}: Props) => {
+export const PlaylistMiniCard = ({ img, title }: Props) => {
   return (
     <div className="playlist-minicard-container">
         <img className="playlist-minicard-img" src={img} />

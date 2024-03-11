@@ -5,11 +5,7 @@ import { faHeart as heartIcon } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './FavTracks.css'
 
-interface Props {
-  track: Track
-}
-
-export const FavTracks = (props: Props) => {
+export const FavTracks = () => {
   const { likedTracks } = useLikedTracksContext()
   return (
     <div className='likedtracks-container'>
@@ -20,7 +16,6 @@ export const FavTracks = (props: Props) => {
       <section className="likedtracks-content">
           {likedTracks.length > 0 &&
               likedTracks.map((track: Track) => (
-              // Render track components here
               <SongCard key={track.id} track={track} />
               ))}
 

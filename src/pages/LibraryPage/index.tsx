@@ -7,7 +7,7 @@ import topSongsImg from '../../assets/default-mylibrary/topsong2023.png'
 import acousticChillImg from '../../assets/default-mylibrary/acousticchill.png'
 import amourDeIyceeImg from '../../assets/default-mylibrary/amourdeiycee.png'
 import { Link } from 'react-router-dom'
-import fav from '/src/assets/playlists-img/fav-tracks.png'
+import fav from '../../assets/playlists-img/fav-tracks.png'
 import playlistDefault from '../../assets/playlist-default-img.png'
 
 export default function LibraryPage () {

@@ -4,8 +4,8 @@ import './CardSkeleton.css'
 const CardSkeleton = ({ cards }: { cards: any }) => {
   return Array(cards)
     .fill(0)
-    .map((_, index) =>
-    <div className="card-skeleton" key={index}>
+    .map((i) =>
+    <div className="card-skeleton" key={i}>
         <div>
             <Skeleton className="card-skeleton-img"/>
         </div>

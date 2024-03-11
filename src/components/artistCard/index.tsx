@@ -1,11 +1,11 @@
-import { Artist } from "../../types/data";
+import { type Artist } from '../../types/data'
 import './artistCard.css'
 
-type Props = {
-  artist: Artist;
-};
+interface Props {
+  artist: Artist
+}
 
-export const ArtistCard = ({ artist}: Props) => {
+export const ArtistCard = ({ artist }: Props) => {
   return (
     <div className="artist-container">
       <img src={artist.photoUrl} />
@@ -13,5 +13,5 @@ export const ArtistCard = ({ artist}: Props) => {
         <h3>{artist.name}</h3>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,14 +1,8 @@
 .products_scroll {
-    display: flex;
-    width: fit-content;
-    /* transition: transform 0.3s ease;   */
+  display: flex;
+  width: fit-content;
 }
 
 .products_scroll img {
-  height: auto; /* Mantiene la relación de aspecto original */
+  height: auto;
 }
-
-/* .products_scroll > * {   
-    flex: 0 0 100%;  
-} */
-
