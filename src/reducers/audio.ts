@@ -4,14 +4,14 @@ export function useAudioReducer () {
   const initialState = localStorage.getItem('audioPlayerState')
   const initialStateParsed = JSON.parse(initialState || '{}')
   const audioRef = useRef<HTMLAudioElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(initialStateParsed ? initialStateParsed.isPlaying : false)
   const [songDuration, setSongDuration] = useState(initialStateParsed ? initialStateParsed.songDuration : '00:00')
-  const [isMuted, setIsMuted] = useState(false)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [progressWidth, setProgressWidth] = useState('0%')
-  const [audioUrl, setAudioUrl] = useState('')
-  const [audioImg, setAudioImg] = useState('')
-  const [trackId, setTrackId] = useState(0)
+  const [isMuted, setIsMuted] = useState(initialStateParsed ? initialStateParsed.isMuted : false)
+  const [currentTime, setCurrentTime] = useState(initialStateParsed ? initialStateParsed.currentTime : 0)
+  const [progressWidth, setProgressWidth] = useState(initialStateParsed ? initialStateParsed.progressWidth : '0%')
+  const [audioUrl, setAudioUrl] = useState(initialStateParsed ? initialStateParsed.audioUrl : '')
+  const [audioImg, setAudioImg] = useState(initialStateParsed ? initialStateParsed.audioImg : '')
+  const [trackId, setTrackId] = useState(initialStateParsed ? initialStateParsed.trackId : 0)
   const [count, setCount] = useState(-1)
 
   useEffect(() => {
@@ -57,8 +57,6 @@ export function useAudioReducer () {
     handleTrackEnded()
   }, 100)
 
-  /// esto junto con el audioRef pódeis meterlo en un custom Hook si queréis (usePlay), porque lo utilizaréis más veces. No lo hago por no liar
-
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -70,7 +68,6 @@ export function useAudioReducer () {
     }
   }
 
-  // lo mismo con esto, useMute por ejemplo
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !isMuted
@@ -78,7 +75,6 @@ export function useAudioReducer () {
     }
   }
 
-  // /// lo mismo con esta función, metedla en una carpeta de utils/globals para limpiar el código. Lo dejo aquí para que os sea más fácil entederlo. Explicación-> Simplemente coges la duraciónm, que te la dan en segundos, y la separas en minutos y segundos.
   const getSongDuration = (audioRef: React.RefObject<HTMLAudioElement>, setSongDuration: React.Dispatch<React.SetStateAction<string>>) => {
     if (audioRef.current?.duration) {
       const duration = audioRef.current?.duration
@@ -88,7 +84,6 @@ export function useAudioReducer () {
     }
   }
 
-  /// Coges la duración de la canción, que son segundos, y analizas en que segundo estás, y coges el porcentaje. Aquí también coges el currentTime que se renderiza a medida que avanza la canción.
   const handleTimeUpdate = () => {
     if (audioRef.current) {
       setCurrentTime(audioRef.current.currentTime)
@@ -116,8 +111,8 @@ export function useAudioReducer () {
       const tracks = JSON.parse(storageTracks || '{}')
       const tracksLength = tracks.length
       let randomNumber = Math.floor(Math.random() * tracksLength)
-      if (randomNumber === 8) {
-        randomNumber = 7
+      if (randomNumber === tracksLength) {
+        randomNumber = tracksLength - 1
         const track = tracks[randomNumber]
         setAudioUrl(track.url)
         setAudioImg(track.thumbnail)
@@ -160,8 +155,8 @@ export function useAudioReducer () {
     const tracksLength = tracks.length
     storePreviousTrack(trackId)
     let randomNumber = Math.floor(Math.random() * tracksLength)
-    if (randomNumber === 8) {
-      randomNumber = 7
+    if (randomNumber === tracksLength) {
+      randomNumber = tracksLength - 1
       const track = tracks[randomNumber]
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)
@@ -217,14 +212,12 @@ export function useAudioReducer () {
     setIsPlaying(false)
   }
 
-  /// Esta función sirve para formatear el currentTime, recibe el currentTime por parametro y lo formatea en min y sec para enseñarlo en la pantalla. LO MISMO, esto, idealmente, en UTILS/GLOBALS, no aquí
   const formatTime = (timeInSeconds: number): string => {
     const minutes = Math.floor(timeInSeconds / 60)
     const seconds = Math.floor(timeInSeconds % 60).toString().padStart(2, '0')
     return `${minutes}:${seconds}`
   }
 
-  /// esto es para poder ir a la parte de la canción que queráis clickando. Si no entendeis la linea 76 es normal. YO TAMPOCO JEJEJE YUHUUUUU
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (audioRef.current) {
       const progressBar = e.currentTarget
@@ -236,7 +229,6 @@ export function useAudioReducer () {
     }
   }
 
-  // sin este useEffect intenta coger la duración de la canción antes de que se carguen los metadatos de la canción, por lo que no coge la duración. Aquí simplemente pues escucha a que se carguen los metadatos pa ejecutar la funcion getSongDuration, capici? Ale pues
   useEffect(() => {
     const handleLoadedMetadata = () => {
       getSongDuration(audioRef, setSongDuration)
