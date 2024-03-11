@@ -1,7 +1,7 @@
 import Skeleton from 'react-loading-skeleton'
 import './CardSkeleton.css'
 
-const CardSkeleton = ({ cards }: { cards: any }) => {
+const CardSkeleton = ({ cards }: { cards: number }) => {
   return Array(cards)
     .fill(0)
     .map((i) =>
