@@ -208,216 +208,143 @@
   "artists": [
     {
       "id": "1",
-      "name": "Kim Cesarion",
+      "name": "Kanye West",
       "genres": [
-        "swedish pop",
-        "swedish soul"
+        "hip hop",
+        "rap"
       ],
       "popularity": 38,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/kanye-west.webp"
     },
     {
       "id": "2",
-      "name": "C.Gambino",
+      "name": "Baiuca",
       "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
+        "electronic",
+        "folklore electronic"
       ],
       "popularity": 56,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/baiuca.webp"
     },
     {
       "id": "3",
-      "name": "Nicky Romero",
+      "name": "Kali Uchis",
       "genres": [
-        "big room",
-        "dance pop",
-        "dutch edm",
-        "edm",
-        "electro house",
-        "pop dance",
-        "pop edm",
-        "progressive electro house",
-        "progressive house",
-        "tropical house"
+        "r&b",
+        "soul",
+        "reggaeton",
+        "pop",
+        "latin pop",
+        "latin music"
       ],
       "popularity": 63,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/kali-uchis.webp"
     },
     {
       "id": "4",
-      "name": "Denz",
+      "name": "Canserbero",
       "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap",
-        "swedish trap pop"
+        "rap"
       ],
       "popularity": 51,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/canserbero.webp"
     },
     {
       "id": "5",
-      "name": "Jesper Swärd",
-      "genres": [],
+      "name": "Derby Motoreta's Burrito Kachimba",
+      "genres": [
+        "rock andaluz"
+      ],
       "popularity": 19,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/derby-motoreta.webp"
     },
     {
       "id": "6",
-      "name": "Axel Boman",
+      "name": "Nina Simone",
       "genres": [
-        "deep house",
-        "electronica",
-        "float house",
-        "microhouse",
-        "minimal tech house",
-        "swedish electronic",
-        "swedish house"
+        "jazz",
+        "blues",
+        "soul"
       ],
       "popularity": 39,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/nina-simone.webp"
     },
     {
       "id": "7",
-      "name": "Rasmus Hultgren",
+      "name": "Residente",
       "genres": [
-        "swedish pop rap"
+        "rap",
+        "hip hop",
+        "reggaeton",
+        "alternative rap",
+        "urban music"
       ],
       "popularity": 31,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/residente.webp"
     },
     {
       "id": "8",
-      "name": "Dimitri Vangelis & Wyman",
+      "name": "SUGA",
       "genres": [
-        "edm",
-        "electro house",
-        "pop dance",
-        "pop edm",
-        "progressive electro house",
-        "progressive house"
+        "hip hop",
+        "k-pop",
+        "r&b"
       ],
       "popularity": 55,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/suga.webp"
     },
     {
       "id": "9",
-      "name": "Hemliga Klubben",
+      "name": "Morente",
       "genres": [
-        "swedish pop"
+        "flamenco"
       ],
       "popularity": 34,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/morente.webp"
     },
     {
       "id": "10",
-      "name": "Steph K",
+      "name": "Estopa",
       "genres": [
-        "swedish trap pop"
+        "flamenco pop"
       ],
       "popularity": 37,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/estopa.webp"
     },
     {
       "id": "11",
-      "name": "Romeo",
+      "name": "Napoleón Solo",
       "genres": [
-        "swedish hip hop",
-        "swedish trap pop"
+        "pop",
+        "indie pop"
       ],
       "popularity": 44,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/napoleon-solo.webp"
     },
     {
       "id": "12",
-      "name": "SINAN",
+      "name": "Arctic Monkeys",
       "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
+        "indie rock",
+        "rock"
       ],
       "popularity": 44,
-      "photoUrl": "src/assets/artist-img.png"
+      "photoUrl": "src/assets/artists-profile-pics/arctic-monkeys.webp"
     },
     {
       "id": "13",
-      "name": "Chapee",
-      "genres": [],
-      "popularity": 22,
-      "photoUrl": "src/assets/artist-img.png"
-    },
-    {
-      "id": "14",
-      "name": "Les Big Byrd",
+      "name": "C. Tangana",
       "genres": [
-        "neo-kraut",
-        "stockholm indie",
-        "swedish indie rock",
-        "swedish psychedelic rock"
+        "rap",
+        "latin trap",
+        "reggaeton",
+        "pop rap",
+        "latin pop",
+        "latin music",
+        "afrobeat"
       ],
-      "popularity": 33,
-      "photoUrl": "src/assets/artist-img.png"
-    },
-    {
-      "id": "15",
-      "name": "Kalash",
-      "genres": [
-        "french hip hop",
-        "pop urbaine",
-        "rap antillais",
-        "trap antillais"
-      ],
-      "popularity": 62,
-      "photoUrl": "src/assets/artist-img.png"
-    },
-    {
-      "id": "16",
-      "name": "Karim Alger",
-      "genres": [
-        "swedish trap pop"
-      ],
-      "popularity": 24,
-      "photoUrl": "src/assets/artist-img.png"
-    },
-    {
-      "id": "17",
-      "name": "Prof. Stranger",
-      "genres": [],
-      "popularity": 19,
-      "photoUrl": "src/assets/artist-img.png"
-    },
-    {
-      "id": "18",
-      "name": "Ken Ring",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
-      "popularity": 41,
-      "photoUrl": "src/assets/artist-img.png"
-    },
-    {
-      "id": "19",
-      "name": "Arre",
-      "genres": [],
-      "popularity": 25,
-      "photoUrl": "src/assets/artist-img.png"
-    },
-    {
-      "id": "20",
-      "name": "Rozh",
-      "genres": [
-        "swedish drill",
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap",
-        "swedish trap pop"
-      ],
-      "popularity": 42,
-      "photoUrl": "src/assets/artist-img.png"
+      "popularity": 63,
+      "photoUrl": "src/assets/artists-profile-pics/c-tangana.webp"
     }
   ],
   "genres": [

@@ -12,7 +12,6 @@ import { MiniPlayer } from '../components/miniPlayer/MiniPlayer'
 import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 import { Signup } from '../pages/SignUp/Signup'
 import { FavTracks } from '../pages/FavTracksPage/FavTracks'
-// import { SkeletonTheme } from 'react-loading-skeleton'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { getTracks as fetchTracks } from '../services/dataService'
 import { PlaylistPage } from '../pages/PlaylistPage'
@@ -98,13 +97,6 @@ export const AppRoutes = () => {
               <Login triggerRefetch={handleLoginSuccess} />
                 )
           }
-        />
-        {/* <Route path="/login"
-                 element={<Login />}
-                 /> */}
-        <Route
-          path="/register"
-          //  element={<Register />}
         />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
