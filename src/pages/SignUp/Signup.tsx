@@ -157,7 +157,7 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
   return (
     <div className="signup--container">
       <img className="logo" src={logo} />
-      <h2 className="signup--header">Signup to start listening to content</h2>
+      <h2 className="signup--header">Sign up to start listening to content</h2>
       <Toaster/>
       <form onSubmit={handleSignup} className="signup-form">
         <input
