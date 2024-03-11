@@ -39,8 +39,3 @@ VibeSync is an application that allows you to discover and enjoy music while int
 
 <img src="src/assets/vibesync-display.png" />
 <img src="src/assets/vibesync-displa-2.png" />
-
-## Daily Log
-
-    
-## Struggles
