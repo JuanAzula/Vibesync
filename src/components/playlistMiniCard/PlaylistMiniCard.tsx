@@ -1,4 +1,4 @@
-import './PlaylistMiniCard.css'
+import './PlaylistMinicard.css'
 
 interface Props {
   img: string

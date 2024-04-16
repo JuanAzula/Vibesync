@@ -5,6 +5,7 @@ import './ConfigPage.css'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
+import { Modal } from '../../components/modal'
 
 interface Props {
   user: User
@@ -12,6 +13,7 @@ interface Props {
 
 export const ConfigPage = ({ user }: Props) => {
   const [visible, setVisible] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
   const [passwordError, setPasswordError] = useState('')
   const [input1Value, setInput1Value] = useState('')
   const [input2Value, setInput2Value] = useState('')
@@ -43,6 +45,10 @@ export const ConfigPage = ({ user }: Props) => {
     setInput2Value('')
     setInput2Disabled(true)
     setVisible(!visible)
+  }
+
+  const toggleProfileChange = () => {
+    setOpenModal(true)
   }
 
   const handleInputChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -160,6 +166,17 @@ export const ConfigPage = ({ user }: Props) => {
               </button>
             </form>
           )}
+          <p
+            className='configpage-profile-change'
+            onClick={toggleProfileChange}
+          >
+            Change Profile Info
+          </p>
+          {openModal && <Modal onOpen={setOpenModal}>
+            <form action="
+            "></form>
+    
+          </Modal>}
         </div>
       </section>
       <section className='configpage-logout'>

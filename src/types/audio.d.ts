@@ -1,3 +1,5 @@
+import { MutableRefObject } from 'react';
+
 interface AudioContextType {
   audioRef: MutableRefObject<HTMLAudioElement | null>
   isPlaying: boolean

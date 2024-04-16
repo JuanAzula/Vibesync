@@ -1,0 +1,24 @@
+.modal-container {
+  position: relative;
+  background-color: #eee;
+  width: 80%;
+  border-radius: 10px;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.modal-img {
+  width: 80%;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: black;
+}
