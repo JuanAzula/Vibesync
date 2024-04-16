@@ -4,30 +4,32 @@ import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import logo from '../../assets/logo.png'
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const Login = () => {
-  const userQuery = useQuery({
-    queryKey: ['user'],
-    queryFn: async () => await fetchUsers()
-  })
+  const { loginWithRedirect } = useAuth0();
+  // const userQuery = useQuery({
+  //   queryKey: ['user'],
+  //   queryFn: async () => await fetchUsers()
+  // })
 
-  const handleLogin = async (event: React.FormEvent) => {
-    event.preventDefault()
+  // const handleLogin = async (event: React.FormEvent) => {
+  //   event.preventDefault()
 
-    if (username && password) {
-      const user = userQuery.data.find(
-        (user: { email: string, password: string }) => {
-          return user.email === username && user.password === password
-        }
-      )
-      if (user !== undefined) {
-        window.localStorage.setItem('userLogged', JSON.stringify(user))
-        window.location.reload()
-      } else {
-        alert('Invalid username or password')
-      }
-    }
-  }
+  //   if (username && password) {
+  //     const user = userQuery.data.find(
+  //       (user: { email: string, password: string }) => {
+  //         return user.email === username && user.password === password
+  //       }
+  //     )
+  //     if (user !== undefined) {
+  //       window.localStorage.setItem('userLogged', JSON.stringify(user))
+  //       window.location.reload()
+  //     } else {
+  //       alert('Invalid username or password')
+  //     }
+  //   }
+  // }
 
   const [passwordError, setPasswordError] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -81,7 +83,7 @@ export const Login = () => {
       <img className="logo" src={logo} />
       <h2 className="login--header">Login</h2>
 
-      <form onSubmit={handleLogin} className="login-form">
+      {/* <form onSubmit={handleLogin} className="login-form">
         <input
           className="login-input"
           type="text"
@@ -104,7 +106,10 @@ export const Login = () => {
           Login
         </button>
         <Link to="/signup">Don't have an account? Sign up!</Link>
-      </form>
+      </form> */}
+      <button className="login-button" style={{ height: '30px' }} onClick={() => {loginWithRedirect()}}>
+          Login
+        </button>
     </div>
   )
 }
