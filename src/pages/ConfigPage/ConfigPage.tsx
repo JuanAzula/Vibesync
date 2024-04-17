@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import { Modal } from '../../components/modal'
+import { ChangeProfileForm } from './components/changeProfileForm'
 
 interface Props {
   user: User
@@ -173,9 +174,7 @@ export const ConfigPage = ({ user }: Props) => {
             Change Profile Info
           </p>
           {openModal && <Modal onOpen={setOpenModal}>
-            <form action="
-            "></form>
-    
+            <ChangeProfileForm />
           </Modal>}
         </div>
       </section>

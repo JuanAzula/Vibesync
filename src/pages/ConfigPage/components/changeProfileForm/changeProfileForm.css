@@ -1,0 +1,66 @@
+.changeProfileForm {
+  color: black;
+  padding: 1rem;
+}
+
+.changeProfileForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.genderInput, .countryInput {
+  padding: 15px;
+  align-content:center;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+
+.date-select input, .monthInput {
+  padding: 15px;
+  width: 25%;
+  align-content:center;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+/* .changeProfileForm form input, .changeProfileForm form select {
+  width: 85%;
+} */
+
+.signBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.9rem;
+  padding-left: 1rem;
+}
