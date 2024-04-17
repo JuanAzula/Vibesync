@@ -15,6 +15,7 @@ import { FavTracks } from '../pages/FavTracksPage/FavTracks'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { getTracks as fetchTracks } from '../services/dataService'
 import { PlaylistPage } from '../pages/PlaylistPage'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -29,7 +30,9 @@ const getAllTracks = async () => {
   return tracks
 }
 export const AppRoutes = () => {
+  const { user } = useAuth0();
   const { audioRef, audioUrl } = useAudioContext()
+  console.log(user)
 
   const queryUserLogged = useQuery({
     queryKey: ['userLogged'],
@@ -48,7 +51,7 @@ export const AppRoutes = () => {
     <SkeletonTheme baseColor='#1C1C26' highlightColor='#222230'>
     <BrowserRouter>
       <audio ref={audioRef} src={audioUrl || {}} />
-      {queryUserLogged.data
+      {user
         ? (
         <>
           <Navbar />
@@ -60,14 +63,12 @@ export const AppRoutes = () => {
       <Routes>
         <Route
             path="/"
-            element={
-            queryUserLogged.data
-              ? (
-              <Home user={queryUserLogged.data} />
-                )
-              : (
-              <Login />
-                )
+            element={<Login />
+          }
+        />
+        <Route
+            path="/home"
+            element={<Home />
           }
         />
         <Route path="/tracks/:trackId" element={<SongPage />} />

@@ -12,7 +12,7 @@ const {
   VITE_AUTH0_CLIENT_ID: clientId,
   // VITE_AUTH0_AUDIENCE: audience
 } = import.meta.env;
-const redirectUri: string = window.location.origin
+const redirectUri: string = window.location.origin + '/home'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

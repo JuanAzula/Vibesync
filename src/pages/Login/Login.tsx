@@ -7,7 +7,7 @@ import logo from '../../assets/logo.png'
 import { useAuth0 } from '@auth0/auth0-react';
 
 export const Login = () => {
-  const { loginWithRedirect, user } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
   // const userQuery = useQuery({
   //   queryKey: ['user'],
   //   queryFn: async () => await fetchUsers()

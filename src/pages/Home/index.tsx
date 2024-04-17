@@ -13,8 +13,10 @@ import kanyeAlbum from '../../assets/albums-img/graduation-kanye-cover.jpg'
 import canserbero from '../../assets/albums-img/jeremias17-5.jpg'
 import cookingPlaylist from '../../assets/playlists-img/relaxing-cooking-mix.png'
 import readingFlow from '../../assets/playlists-img/reading-flow.png'
+import { useAuth0 } from '@auth0/auth0-react'
 
-export const Home = ({ user }: { user: User }) => {
+export const Home = () => {
+  const { user } = useAuth0();
   const [isActive] = useState(true)
 
   const queryTracks = useQuery({
@@ -41,7 +43,7 @@ export const Home = ({ user }: { user: User }) => {
       <section className="home-welcome-section">
         <h3 className="home-welcome-text">
           Welcome back,
-          <span className="home-username"> {user.first_name} {user.last_name}</span>
+          <span className="home-username"> {user?.family_name}</span>
         </h3>
         <button className="home-settings-btn">
           <Link to="/config"><img src={settings} /></Link>
