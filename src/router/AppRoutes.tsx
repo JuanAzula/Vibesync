@@ -59,20 +59,8 @@ export const AppRoutes = () => {
         : null}
       <Routes>
         <Route
-          path="/"
-          element={
-            queryUserLogged.data
-              ? (
-              <Home user={queryUserLogged.data} />
-                )
-              : (
-              <Login />
-                )
-          }
-        />
-        <Route
-          path="/login"
-          element={
+            path="/"
+            element={
             queryUserLogged.data
               ? (
               <Home user={queryUserLogged.data} />

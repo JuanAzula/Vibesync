@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { getUsers as fetchUsers } from '../../services/dataService'
-import { useQuery } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
+// import { useState } from 'react'
+// import { getUsers as fetchUsers } from '../../services/dataService'
+// import { useQuery } from '@tanstack/react-query'
+// import { Link } from 'react-router-dom'
 import './Login.css'
 import logo from '../../assets/logo.png'
 import { useAuth0 } from '@auth0/auth0-react';
 
 export const Login = () => {
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, user } = useAuth0();
   // const userQuery = useQuery({
   //   queryKey: ['user'],
   //   queryFn: async () => await fetchUsers()
@@ -31,52 +31,52 @@ export const Login = () => {
   //   }
   // }
 
-  const [passwordError, setPasswordError] = useState('')
-  const [emailError, setEmailError] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  // const [passwordError, setPasswordError] = useState('')
+  // const [emailError, setEmailError] = useState('')
+  // const [username, setUsername] = useState('')
+  // const [password, setPassword] = useState('')
 
-  const validateEmail = (input: string) => {
-    if (input.trim() === '') {
-      setEmailError('Email or username is required')
-    } else {
-      setEmailError('')
-    }
-  }
+  // const validateEmail = (input: string) => {
+  //   if (input.trim() === '') {
+  //     setEmailError('Email or username is required')
+  //   } else {
+  //     setEmailError('')
+  //   }
+  // }
 
-  const validatePassword = (input: string) => {
-    if (input.length < 6) {
-      setPasswordError('Password must be at least 6 characters')
-    } else if (!/[A-Z]/.test(input)) {
-      setPasswordError('Password must contain at least one uppercase letter')
-    } else if (!/[\W_]/.test(input)) {
-      setPasswordError('Password must contain at least one special character')
-    } else {
-      setPasswordError('')
-    }
-  }
+  // const validatePassword = (input: string) => {
+  //   if (input.length < 6) {
+  //     setPasswordError('Password must be at least 6 characters')
+  //   } else if (!/[A-Z]/.test(input)) {
+  //     setPasswordError('Password must contain at least one uppercase letter')
+  //   } else if (!/[\W_]/.test(input)) {
+  //     setPasswordError('Password must contain at least one special character')
+  //   } else {
+  //     setPasswordError('')
+  //   }
+  // }
 
-  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value)
-  }
+  // const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setUsername(event.target.value)
+  // }
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value)
-  }
+  // const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setPassword(event.target.value)
+  // }
 
-  const handleUsernameInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    handleUsernameChange(event)
-    validateEmail(event.target.value)
-  }
+  // const handleUsernameInputChange = (
+  //   event: React.ChangeEvent<HTMLInputElement>
+  // ) => {
+  //   handleUsernameChange(event)
+  //   validateEmail(event.target.value)
+  // }
 
-  const handlePasswordInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    handlePasswordChange(event)
-    validatePassword(event.target.value)
-  }
+  // const handlePasswordInputChange = (
+  //   event: React.ChangeEvent<HTMLInputElement>
+  // ) => {
+  //   handlePasswordChange(event)
+  //   validatePassword(event.target.value)
+  // }
 
   return (
     <div className="login--container">
