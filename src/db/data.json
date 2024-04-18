@@ -8,7 +8,7 @@
       "description": "An energizing playlist tailored for your workout sessions at the gym.",
       "publicAccessible": true,
       "primaryColor": "#fbdc00",
-      "tracks":[
+      "tracks": [
         {
           "id": "1",
           "name": "313",
@@ -35,7 +35,8 @@
           "thumbnail": "/src/assets/track-img/nina-simone.jpg",
           "genre": "blues",
           "liked": false
-        }]
+        }
+      ]
     },
     {
       "id": "2",
@@ -45,7 +46,7 @@
       "description": "A soothing LoFi playlist curated for moments of relaxation and focus.",
       "publicAccessible": true,
       "primaryColor": "#fbdc00",
-      "tracks":[]
+      "tracks": []
     },
     {
       "id": "3",
@@ -55,7 +56,7 @@
       "description": "A culinary-inspired playlist designed to add flavor to your cooking experience.",
       "publicAccessible": true,
       "primaryColor": "#fbdc00",
-      "tracks":[]
+      "tracks": []
     },
     {
       "id": "4",
@@ -65,7 +66,7 @@
       "description": "A high-energy festival playlist crafted to keep the party going all night long.",
       "publicAccessible": false,
       "primaryColor": "#fbdc00",
-      "tracks":[]
+      "tracks": []
     },
     {
       "id": "5",
@@ -75,7 +76,7 @@
       "description": "A tranquil reading playlist carefully curated to accompany your literary journey",
       "publicAccessible": false,
       "primaryColor": "#fbdc00",
-      "tracks":[]
+      "tracks": []
     },
     {
       "id": "6",
@@ -85,7 +86,7 @@
       "description": "A focused study playlist meticulously selected to enhance concentration and productivity.",
       "publicAccessible": false,
       "primaryColor": "#fbdc00",
-      "tracks":[]
+      "tracks": []
     }
   ],
   "tracks": [
@@ -198,6 +199,15 @@
       "profilePicture": "/src/assets/profile_pic.png",
       "isLoggedin": false,
       "id": "k6jrom0b2"
+    },
+    {
+      "id": "vee0t4imh",
+      "first_name": "aoteronunez",
+      "password": "ASSEMBLER$",
+      "last_name": "Otero",
+      "email": "aoteronunez@gmail.com",
+      "profilePicture": "/src/assets/profile_pic.png",
+      "isLoggedin": false
     }
   ],
   "albums": [

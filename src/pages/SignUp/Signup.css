@@ -5,7 +5,7 @@
 }
 
 .signup--header{
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -37,8 +37,8 @@
 }
 
 .logo{
-    width: 40rem;
-    height: 40rem;
+    width: 30rem;
+    height: 30rem;
     margin: 1rem;
 }
 .error-password, .error-name, .error-lastname, .error-email{
