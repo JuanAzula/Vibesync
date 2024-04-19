@@ -53,11 +53,14 @@ export interface Track {
 }
 
 export interface User {
-  id: number
-  first_name: string
-  last_name: string
-  email: string
-  profilePicture: string
-  isLoggedin: boolean
-  password: string
+  given_name?: string
+  family_name?: string
+  name?: string
+  nickname?: string
+  email?: string
+  email_verified?: boolean
+  locale?: string
+  picture?: string
+  sub?: string
+  updated_at?: string
 }

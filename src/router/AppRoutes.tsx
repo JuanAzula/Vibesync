@@ -75,10 +75,10 @@ export const AppRoutes = () => {
         <Route
           path="/config"
           element={
-            queryUserLogged.data
+            user
               ? (
               <ConfigPage
-                user={queryUserLogged.data}
+                user={user}
               />
                 )
               : (

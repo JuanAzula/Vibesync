@@ -2,7 +2,7 @@ import './Home.css'
 import settings from '../../assets/icons/settings-icon.svg'
 import CategoryBtn from '../../styledComponents/categoryBtn'
 import Carrousel from '../../components/carrousel/Carrousel'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
 import { type User, type Album, type Playlist, type Track } from '../../types/data'
@@ -18,6 +18,28 @@ import { useAuth0 } from '@auth0/auth0-react'
 export const Home = () => {
   const { user } = useAuth0();
   const [isActive] = useState(true)
+
+
+const fetchAllUsers = async() => {
+  const {VITE_API_URL: url} = import.meta.env
+  const response = await fetch(`${url}/api/user`)
+  const data = await response.json()
+  console.log(data)
+}
+
+useEffect(() => {
+    const getAllUsers = async () => {
+        try {
+            const data = await fetchAllUsers()
+            console.log("data", data)
+        } catch (error) {
+            console.error('Error:', error)
+        }
+    }
+    getAllUsers()
+}, [])
+
+///checkear que el usuario coincida con uno del back
 
   const queryTracks = useQuery({
     queryKey: ['tracks'],
