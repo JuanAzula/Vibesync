@@ -15,11 +15,13 @@ import { FavTracks } from '../pages/FavTracksPage/FavTracks'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { getTracks as fetchTracks } from '../services/dataService'
 import { PlaylistPage } from '../pages/PlaylistPage'
+import { Toaster, toast } from 'sonner'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON)
+    toast('Welcome back!')
     return user
   }
 }
@@ -35,7 +37,6 @@ export const AppRoutes = () => {
     queryKey: ['userLogged'],
     queryFn: async () => getUsers()
   })
-
   const queryAllTracks = useQuery({
     queryKey: ['tracks'],
     queryFn: async () => await getAllTracks()
@@ -46,75 +47,76 @@ export const AppRoutes = () => {
   }
   return (
     <SkeletonTheme baseColor='#1C1C26' highlightColor='#222230'>
-    <BrowserRouter>
-      <audio ref={audioRef} src={audioUrl || {}} />
-      {queryUserLogged.data
-        ? (
-        <>
-          <Navbar />
-          <MiniPlayer />
+      <BrowserRouter>
+        <Toaster position='top-right' closeButton={true} richColors />
+        <audio ref={audioRef} src={audioUrl || {}} />
+        {queryUserLogged.data
+          ? (
+            <>
+              <Navbar />
+              <MiniPlayer />
 
-        </>
+            </>
           )
-        : null}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            queryUserLogged.data
-              ? (
-              <Home user={queryUserLogged.data} />
+          : null}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              queryUserLogged.data
+                ? (
+                  <Home user={queryUserLogged.data} />
                 )
-              : (
-              <Login />
+                : (
+                  <Login />
                 )
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            queryUserLogged.data
-              ? (
-              <Home user={queryUserLogged.data} />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              queryUserLogged.data
+                ? (
+                  <Home user={queryUserLogged.data} />
                 )
-              : (
-              <Login />
+                : (
+                  <Login />
                 )
-          }
-        />
-        <Route path="/tracks/:trackId" element={<SongPage />} />
-        <Route
-          path="/config"
-          element={
-            queryUserLogged.data
-              ? (
-              <ConfigPage
-                user={queryUserLogged.data}
-              />
+            }
+          />
+          <Route path="/tracks/:trackId" element={<SongPage />} />
+          <Route
+            path="/config"
+            element={
+              queryUserLogged.data
+                ? (
+                  <ConfigPage
+                    user={queryUserLogged.data}
+                  />
                 )
-              : (
-              <Login />
+                : (
+                  <Login />
                 )
-          }
-        />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/library" element={<LibraryPage />} />
-        <Route path="/library/playlists" element={<PlaylistPage />} />
-        <Route path="/library/favtracks" element={<FavTracks/>} />
-        <Route
-          path="/user"
-          element={<UserPage user={queryUserLogged.data} />}
-        />
-        <Route
-          path="/profile"
-          element={<UserPage user={queryUserLogged.data} />}
-        />
-        <Route
-          path="/signup"
-          element={<Signup triggerRefetch={handleLoginSuccess} />}
-        />
-      </Routes>
-    </BrowserRouter>
+            }
+          />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/library" element={<LibraryPage />} />
+          <Route path="/library/playlists" element={<PlaylistPage />} />
+          <Route path="/library/favtracks" element={<FavTracks />} />
+          <Route
+            path="/user"
+            element={<UserPage user={queryUserLogged.data} />}
+          />
+          <Route
+            path="/profile"
+            element={<UserPage user={queryUserLogged.data} />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup triggerRefetch={handleLoginSuccess} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </SkeletonTheme>
   )
 }
