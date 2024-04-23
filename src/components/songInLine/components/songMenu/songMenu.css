@@ -1,0 +1,32 @@
+.menu-container {
+  background-color: #333;
+  border-radius: 10px;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-container span {
+  padding: 1rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.submenu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.submenu-icon {
+  padding-right: 1rem;
+  font-size: 1.1rem;
+} 
+
+.menu-option:hover, .submenu-container:hover {
+  background-color: #666;
+}

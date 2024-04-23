@@ -1,24 +1,28 @@
 import { useLikedTracksContext } from '../../hooks/useLikedSongs'
-import SongCard from '../../components/songCard'
 import { type Track } from '../../types/data'
-import { faHeart as heartIcon } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './FavTracks.css'
+import { SongInLine } from '../../components/songInLine'
+import { useState } from 'react'
 
 export const FavTracks = () => {
   const { likedTracks } = useLikedTracksContext()
+  const [menuSwitch, setMenuSwitch] = useState(false)
   return (
     <div className='likedtracks-container'>
       <section className='likedtracks-header'>
         <h2>Liked songs</h2>
-        <FontAwesomeIcon icon={heartIcon}/>
       </section>
       <section className="likedtracks-content">
           {likedTracks.length > 0 &&
               likedTracks.map((track: Track) => (
-              <SongCard key={track.id} track={track} />
+              <SongInLine 
+              menuSwitchTrigger={setMenuSwitch}
+              menuSwitch={menuSwitch}
+              key={track.id} 
+              track={track}
+               />
               ))}
-
+  ////mousedown event para ver QUE songInLine se clika para abrir el modal y A LA VEZ cerrar el resto 
       </section>
 
     </div>

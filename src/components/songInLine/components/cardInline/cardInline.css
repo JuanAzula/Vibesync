@@ -1,0 +1,35 @@
+.song-pic {
+  width: 5rem;
+}
+
+.song-in-line-container {
+  width: 100%;
+  margin: 0 1rem;
+  display: grid;
+  grid-template-columns: auto 33% 25% auto auto 1fr 3rem;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.song-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.song-detail span:first-child {
+  font-weight: 800;
+}
+
+.song-in-line-container span {
+  font-size: 1.2rem;
+}
+
+.icon-of-song {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.songMenuIcon {
+  margin: auto;
+}
