@@ -1,4 +1,4 @@
-import './PlaylistMinicard.css'
+import './PlaylistMiniCard.css'
 
 interface Props {
   img: string
@@ -8,8 +8,8 @@ interface Props {
 export const PlaylistMiniCard = ({ img, title }: Props) => {
   return (
     <div className="playlist-minicard-container">
-        <img className="playlist-minicard-img" src={img} />
-        <p>{title}</p>
+      <img className="playlist-minicard-img" src={img} />
+      <p>{title}</p>
     </div>
   )
 }
