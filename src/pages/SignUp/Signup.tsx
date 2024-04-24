@@ -1,77 +1,102 @@
-import { FormEvent, useState } from "react";
-import { getUsers as fetchUsers } from "../../services/dataService";
-import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Signup.css'
 import logo from '/src/assets/logo.png'
-import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+import { UserService } from "../../services/UserService";
 
-interface LoginProps {
-  triggerRefetch: () => void;
-}
-export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
-  const userQuery = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => await fetchUsers(),
-  });
+export const Signup: any = () => {
+  // const userQuery = useQuery({
+  //   queryKey: ["user"],
+  //   queryFn: async () => await fetchUsers(),
+  // });
 
-  const setNewUser = async () => {
-    const id = Math.random().toString(36).substr(2, 9);
+  // const setNewUser = async () => {
+  //   const id = Math.random().toString(36).substr(2, 9);
 
-    const data = {
-      first_name: name,
-      password: password,
-      last_name: lastName,
-      email: username,
-      profilePicture: "/src/assets/profile_pic.png",
-      isLoggedin: false,
-      id: id
-    };
+  //   const data = {
+  //     first_name: name,
+  //     password: password,
+  //     last_name: lastName,
+  //     email: username,
+  //     profilePicture: "/src/assets/profile_pic.png",
+  //     isLoggedin: false,
+  //     id: id
+  //   };
 
-    try {
-      const response = await axios.post('http://localhost:3000/user', data);
-      setName('');
-      setLastName('');
-      setUsername('');
-      setPassword('');
-    } catch (error){
-      console.error('Error al guardar datos', error)
-    }
-  }
+  //   try {
+  //     const response = await axios.post('http://localhost:3000/user', data);
+  //     setName('');
+  //     setLastName('');
+  //     setUsername('');
+  //     setPassword('');
+  //   } catch (error) {
+  //     console.error('Error al guardar datos', error)
+  //   }
+  // }
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    if(username.trim() === "" || password.trim() === "" || name.trim() === "" || lastName.trim() === ""){
-      toast.error("Please check if you gave us all the info!")
-    }
+    const user = {
+      email: username,
+      name,
+      password: password,
+      gender,
+      image,
+      birthdate,
+      country
+    };
+    const response = artist ?
+      await UserService.postUser(user)
+      : await UserService.postUser(user)
 
-    if (username) {
-      const user = userQuery.data.find(
-        (user: { email: string }) => {
-          return user.email === username;
-        }
-      );
-      if (user !== undefined) {
-        toast.error("This user already exists!")
-        triggerRefetch();
-      } else if(nameError === "" && lastNameError ==="" && passwordError === "" && emailError === "" && password !== "") {
-        setNewUser();
-        toast.success('Successfully signed up!')
-      }
+    console.log('response', response)
+    if (response) {
+      window.localStorage.setItem('userLogged', JSON.stringify(response.user))
+      window.localStorage.setItem('token', JSON.stringify(response.token))
+      setTimeout(() => {
+
+        window.location.reload()
+      }, 200)
+      // toast.success('Successfully signed up!')
     }
-  };
+  }
+
+
+  // if (username.trim() === "" || password.trim() === "" || name.trim() === "" || lastName.trim() === "") {
+  //   toast.error("Please check if you gave us all the info!")
+  // }
+
+  // if (username) {
+  //   const user = userQuery.data.find(
+  //     (user: { email: string }) => {
+  //       return user.email === username;
+  //     }
+  //   );
+  //   if (user !== undefined) {
+  //     toast.error("This user already exists!")
+  //     triggerRefetch();
+  //   } else if (nameError === "" && lastNameError === "" && passwordError === "" && emailError === "" && password !== "") {
+  //     toast.success('Successfully signed up!')
+  //   }
+  // }
 
   const [nameError, setNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState ("");
+  const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [artist, setArtist] = useState(false);
+  const [image, setImage] = useState(null);
+  const [gender, setGender] = useState("");
+  const [country, setCountry] = useState("");
+  const [birthdate, setBirthdate] = useState("");
 
+  console.log('birthdate', birthdate)
   const validateEmail = (input: string) => {
     if (input.trim() === "") {
       setEmailError("Email is required");
@@ -124,6 +149,48 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
     setPassword(event.target.value);
   };
 
+  const handleArtistChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setArtist(event.target.checked);
+  }
+
+  const handleImageChange = (event: any) => {
+    setImage(event.target.value);
+  }
+
+  const handleGenderChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setGender(event.target.value);
+  }
+
+  const handleCountryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCountry(event.target.value);
+  }
+
+  const handleBirthdateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setBirthdate(event.target.value);
+  }
+
+  const handleArtistInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleArtistChange(event);
+  }
+
+  const handleImageInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleImageChange(event);
+  }
+
+  const handleGenderInputChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    handleGenderChange(event);
+  }
+
+  const handleCountryInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleCountryChange(event);
+  }
+
+  const handleBirthdateInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleBirthdateChange(event);
+  }
+
+
+
   const handleNameInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -152,11 +219,13 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
     validatePassword(event.target.value);
   };
 
+
+
   return (
     <div className="signup--container">
       <img className="logo" src={logo} />
       <h2 className="signup--header">Signup to start listening to content</h2>
-      <Toaster/>
+      <Toaster />
       <form onSubmit={handleSignup} className="signup-form">
         <input
           className="signup-input"
@@ -190,6 +259,21 @@ export const Signup: React.FC<LoginProps> = ({ triggerRefetch }) => {
           placeholder="Password"
           onChange={handlePasswordInputChange}
         />
+        <label htmlFor="image">Image</label>
+        <input type="file" onChange={handleImageInputChange} />
+        <label htmlFor="gender">Gender</label>
+        <select name="gender" id="gender" onChange={handleGenderInputChange}>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <label htmlFor="country">Country</label>
+        <input type="text" onChange={handleCountryInputChange} />
+        <label htmlFor="birthdate">Birthdate</label>
+        <input type="date" onChange={handleBirthdateInputChange} />
+        <label htmlFor="artist">Artist</label>
+        <input type="checkbox" onChange={handleArtistInputChange} id="artist" />
+
 
         {passwordError && <div className="error-password">{passwordError}</div>}
         {emailError && <div className="error-email">{emailError}</div>}

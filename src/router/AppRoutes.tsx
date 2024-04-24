@@ -113,7 +113,15 @@ export const AppRoutes = () => {
           />
           <Route
             path="/signup"
-            element={<Signup triggerRefetch={handleLoginSuccess} />}
+            element={
+              queryUserLogged.data
+                ? (
+                  <Home user={queryUserLogged.data} />
+                )
+                : (
+                  <Signup />
+                )
+            }
           />
         </Routes>
       </BrowserRouter>

@@ -100,12 +100,12 @@ export const ConfigPage = ({ user }: Props) => {
           <div className='configpage-user-pic-and-name'>
             <img
               className='configpage-profile-pic'
-              src={user?.profilePicture}
+              src={user?.image}
               alt="profile-pic"
             />
             <div className='configpage-user-text'>
               <h3>
-                 {user?.first_name} {user?.last_name}
+                {user?.first_name} {user?.last_name}
               </h3>
               <p>{user?.email}</p>
             </div>
@@ -125,7 +125,7 @@ export const ConfigPage = ({ user }: Props) => {
           >
             Change Password
           </p>
-          <Toaster/>
+          <Toaster />
           {visible && (
             <form className='configpage-password-form'>
               <label>
