@@ -6,34 +6,6 @@ import { Toaster } from 'react-hot-toast';
 import { UserService } from "../../services/UserService";
 
 export const Signup: any = () => {
-  // const userQuery = useQuery({
-  //   queryKey: ["user"],
-  //   queryFn: async () => await fetchUsers(),
-  // });
-
-  // const setNewUser = async () => {
-  //   const id = Math.random().toString(36).substr(2, 9);
-
-  //   const data = {
-  //     first_name: name,
-  //     password: password,
-  //     last_name: lastName,
-  //     email: username,
-  //     profilePicture: "/src/assets/profile_pic.png",
-  //     isLoggedin: false,
-  //     id: id
-  //   };
-
-  //   try {
-  //     const response = await axios.post('http://localhost:3000/user', data);
-  //     setName('');
-  //     setLastName('');
-  //     setUsername('');
-  //     setPassword('');
-  //   } catch (error) {
-  //     console.error('Error al guardar datos', error)
-  //   }
-  // }
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -47,6 +19,16 @@ export const Signup: any = () => {
       birthdate,
       country
     };
+
+    const artist = {
+      name,
+      email: username,
+      password: password,
+      image,
+      genre: genreName,
+      description
+    }
+
     const response = artist ?
       await UserService.postUser(user)
       : await UserService.postUser(user)
@@ -64,23 +46,6 @@ export const Signup: any = () => {
   }
 
 
-  // if (username.trim() === "" || password.trim() === "" || name.trim() === "" || lastName.trim() === "") {
-  //   toast.error("Please check if you gave us all the info!")
-  // }
-
-  // if (username) {
-  //   const user = userQuery.data.find(
-  //     (user: { email: string }) => {
-  //       return user.email === username;
-  //     }
-  //   );
-  //   if (user !== undefined) {
-  //     toast.error("This user already exists!")
-  //     triggerRefetch();
-  //   } else if (nameError === "" && lastNameError === "" && passwordError === "" && emailError === "" && password !== "") {
-  //     toast.success('Successfully signed up!')
-  //   }
-  // }
 
   const [nameError, setNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
@@ -95,6 +60,8 @@ export const Signup: any = () => {
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
   const [birthdate, setBirthdate] = useState("");
+  const [description, setDescription] = useState("");
+  const [genreName, setGenreName] = useState("");
 
   console.log('birthdate', birthdate)
   const validateEmail = (input: string) => {
@@ -150,11 +117,15 @@ export const Signup: any = () => {
   };
 
   const handleArtistChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setArtist(event.target.checked);
+    setArtist(!artist);
   }
 
   const handleImageChange = (event: any) => {
     setImage(event.target.value);
+  }
+
+  const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setDescription(event.target.value);
   }
 
   const handleGenderChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -167,6 +138,10 @@ export const Signup: any = () => {
 
   const handleBirthdateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBirthdate(event.target.value);
+  }
+
+  const handleGenreNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setGenreName(event.target.value);
   }
 
   const handleArtistInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -272,7 +247,13 @@ export const Signup: any = () => {
         <label htmlFor="birthdate">Birthdate</label>
         <input type="date" onChange={handleBirthdateInputChange} />
         <label htmlFor="artist">Artist</label>
-        <input type="checkbox" onChange={handleArtistInputChange} id="artist" />
+        <input type="checkbox" onChange={handleArtistInputChange} />
+        {artist && (
+          <>
+            <input type="text" onChange={handleDescriptionChange} placeholder='Description' />
+            <input type="text" onChange={handleGenreNameChange} placeholder='Genre' />
+          </>
+        )}
 
 
         {passwordError && <div className="error-password">{passwordError}</div>}
