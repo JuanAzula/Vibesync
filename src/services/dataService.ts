@@ -3,12 +3,12 @@ import axios from 'axios'
 const BASE_URL = 'http://localhost:3000/'
 
 export const getTracks = async () => {
-  const response = await axios.get(BASE_URL + 'tracks')
+  const response = await axios.get('http://localhost:3333/api/tracks')
   return response.data
 }
 
 export const getTrack = async (id: string) => {
-  const response = await axios.get(BASE_URL + 'tracks/' + id)
+  const response = await axios.get('http://localhost:3333/api/tracks/' + id)
   return response.data
 }
 

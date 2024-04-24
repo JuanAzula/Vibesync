@@ -97,26 +97,34 @@ export const AppRoutes = () => {
                 : (
                   <Login />
                 )
-          }
-        />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/library" element={<LibraryPage />} />
-        <Route path="/library/playlists" element={<PlaylistPage />} />
-        <Route path="/library/tracks" element={<TracksPage/>} />
-        <Route
-          path="/user"
-          element={<UserPage user={queryUserLogged.data} />}
-        />
-        <Route
-          path="/profile"
-          element={<UserPage user={queryUserLogged.data} />}
-        />
-        <Route
-          path="/signup"
-          element={<Signup triggerRefetch={handleLoginSuccess} />}
-        />
-      </Routes>
-    </BrowserRouter>
+            }
+          />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/library" element={<LibraryPage />} />
+          <Route path="/library/playlists" element={<PlaylistPage />} />
+          <Route path="/library/favtracks" element={<FavTracks />} />
+          <Route
+            path="/user"
+            element={<UserPage user={queryUserLogged.data} />}
+          />
+          <Route
+            path="/profile"
+            element={<UserPage user={queryUserLogged.data} />}
+          />
+          <Route
+            path="/signup"
+            element={
+              queryUserLogged.data
+                ? (
+                  <Home user={queryUserLogged.data} />
+                )
+                : (
+                  <Signup />
+                )
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </SkeletonTheme>
   )
 }
