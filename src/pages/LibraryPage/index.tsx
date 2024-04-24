@@ -23,7 +23,7 @@ export default function LibraryPage () {
         </section>
         <main className='library-main-page'>
         <ul className='library-main-page__list'>
-          <Link to="/library/tracks">
+          <Link to="/library/tracks" state={{ accessedFrom: "liked-songs" }}>
             <li>
               <img className="fav-tracks-img" src={fav} alt='Liked Songs' />
               <div>

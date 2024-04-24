@@ -10,3 +10,16 @@
 .playlist-tracks li img {
     width: 10rem;
 }
+
+.playlist-content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+    margin: 0 1.5rem;
+    justify-content: center;
+}
+
+.playlist-page-header h2 {
+    font-size: 2rem;
+    margin: 2.2rem;
+}
