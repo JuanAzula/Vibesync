@@ -7,7 +7,6 @@ import CardSkeleton from '../SearchPage/components/CardSkeleton'
 import SongCard from '../../components/songCard'
 import { Track as track} from '../../types/data'
 import '../SearchPage/components/CardSkeleton.css'
-import '../FavTracksPage/FavTracks.css'
 import './playlistPage.css'
 
 

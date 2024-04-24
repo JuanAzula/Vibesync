@@ -23,7 +23,7 @@ export default function LibraryPage () {
         </section>
         <main className='library-main-page'>
         <ul className='library-main-page__list'>
-          <Link to="/library/favtracks">
+          <Link to="/library/tracks">
             <li>
               <img className="fav-tracks-img" src={fav} alt='Liked Songs' />
               <div>

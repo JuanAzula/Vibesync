@@ -1,12 +1,13 @@
 import { useLikedTracksContext } from '../../hooks/useLikedSongs'
 import { type Track } from '../../types/data'
-import './FavTracks.css'
+import './tracksPage.css'
 import { SongInLine } from '../../components/songInLine'
 import { useState } from 'react'
 
-export const FavTracks = () => {
+///LE TIENE QUE VENIR LA PLAYLIST /FAVSONGS POR PROPS, LA PLAYLIST POR LO MENOS
+export const TracksPage = () => {
   const { likedTracks } = useLikedTracksContext()
-  const [menuSwitch, setMenuSwitch] = useState(false)
+  const [menuSwitch, setMenuSwitch] = useState(0)
   return (
     <div className='likedtracks-container'>
       <section className='likedtracks-header'>
@@ -22,10 +23,8 @@ export const FavTracks = () => {
               track={track}
                />
               ))}
-  ////mousedown event para ver QUE songInLine se clika para abrir el modal y A LA VEZ cerrar el resto 
       </section>
 
     </div>
-
-  )
+)
 }

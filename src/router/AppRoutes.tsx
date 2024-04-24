@@ -11,7 +11,7 @@ import LibraryPage from '../pages/LibraryPage'
 import { MiniPlayer } from '../components/miniPlayer/MiniPlayer'
 import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 import { Signup } from '../pages/SignUp/Signup'
-import { FavTracks } from '../pages/FavTracksPage/FavTracks'
+import { TracksPage } from '../pages/TracksPage'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { getTracks as fetchTracks } from '../services/dataService'
 import { PlaylistPage } from '../pages/PlaylistPage'
@@ -100,7 +100,7 @@ export const AppRoutes = () => {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/playlists" element={<PlaylistPage />} />
-        <Route path="/library/favtracks" element={<FavTracks/>} />
+        <Route path="/library/tracks" element={<TracksPage/>} />
         <Route
           path="/user"
           element={<UserPage user={queryUserLogged.data} />}
