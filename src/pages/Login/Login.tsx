@@ -1,31 +1,23 @@
 import { useState } from 'react'
-import { getUsers as fetchUsers } from '../../services/dataService'
-import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import logo from '../../assets/logo.png'
+import LoginService from '../../services/LoginService'
 
 export const Login = () => {
-  const userQuery = useQuery({
-    queryKey: ['user'],
-    queryFn: async () => await fetchUsers()
-  })
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    if (username && password) {
-      const user = userQuery.data.find(
-        (user: { email: string, password: string }) => {
-          return user.email === username && user.password === password
-        }
-      )
-      if (user !== undefined) {
-        window.localStorage.setItem('userLogged', JSON.stringify(user))
-        window.location.reload()
-      } else {
-        alert('Invalid username or password')
-      }
+    const response = await LoginService.LoginUser({ username, password, artist })
+
+    console.log('response', response)
+    console.log('response', response.user, response.token)
+
+    if (response) {
+      window.localStorage.setItem('userLogged', JSON.stringify(response.user))
+      window.localStorage.setItem('token', JSON.stringify(response.token))
+      window.location.reload()
     }
   }
 
@@ -33,6 +25,7 @@ export const Login = () => {
   const [emailError, setEmailError] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [artist, setArtist] = useState(false)
 
   const validateEmail = (input: string) => {
     if (input.trim() === '') {
@@ -98,6 +91,7 @@ export const Login = () => {
           placeholder="password"
           onChange={handlePasswordInputChange}
         />
+        <input type="checkbox" onChange={() => setArtist(!artist)} id="artist" /> Artist
         {passwordError && <div className="error-password">{passwordError}</div>}
         {emailError && <div className="error-email">{emailError}</div>}
         <button className="login-button" style={{ height: '30px' }} type="submit">
