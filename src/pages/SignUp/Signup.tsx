@@ -48,11 +48,9 @@ export const Signup: any = () => {
 
 
   const [nameError, setNameError] = useState("");
-  const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [artist, setArtist] = useState(false);
@@ -80,14 +78,6 @@ export const Signup: any = () => {
     }
   }
 
-  const validateLastName = (input: string) => {
-    if (input.trim() === '') {
-      setLastNameError('Last name is required')
-    } else {
-      setLastNameError('')
-    }
-  }
-
   const validatePassword = (input: string) => {
     if (input.length < 6) {
       setPasswordError('Password must be at least 6 characters')
@@ -104,10 +94,6 @@ export const Signup: any = () => {
     setName(event.target.value)
   }
 
-  const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLastName(event.target.value)
-  }
-
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value)
   }
@@ -116,7 +102,7 @@ export const Signup: any = () => {
     setPassword(event.target.value);
   };
 
-  const handleArtistChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleArtistChange = () => {
     setArtist(!artist);
   }
 
@@ -144,10 +130,6 @@ export const Signup: any = () => {
     setGenreName(event.target.value);
   }
 
-  const handleArtistInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    handleArtistChange(event);
-  }
-
   const handleImageInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     handleImageChange(event);
   }
@@ -171,13 +153,6 @@ export const Signup: any = () => {
   ) => {
     handleNameChange(event)
     validateName(event.target.value)
-  }
-
-  const handleLastNameInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    handleLastNameChange(event)
-    validateLastName(event.target.value)
   }
 
   const handleUsernameInputChange = (
@@ -212,14 +187,6 @@ export const Signup: any = () => {
         />
         <input
           className="signup-input"
-          type="text"
-          value={lastName}
-          id="lastname"
-          placeholder="Last name"
-          onChange={handleLastNameInputChange}
-        />
-        <input
-          className="signup-input"
           type="email"
           value={username}
           id="email"
@@ -247,7 +214,7 @@ export const Signup: any = () => {
         <label htmlFor="birthdate">Birthdate</label>
         <input type="date" onChange={handleBirthdateInputChange} />
         <label htmlFor="artist">Artist</label>
-        <input type="checkbox" onChange={handleArtistInputChange} />
+        <input type="checkbox" onChange={handleArtistChange} />
         {artist && (
           <>
             <input type="text" onChange={handleDescriptionChange} placeholder='Description' />
@@ -259,7 +226,6 @@ export const Signup: any = () => {
         {passwordError && <div className="error-password">{passwordError}</div>}
         {emailError && <div className="error-email">{emailError}</div>}
         {nameError && <div className="error-name">{nameError}</div>}
-        {lastNameError && <div className="error-lastname">{lastNameError}</div>}
 
         <button className="signup-button" type="submit">
           Sign Up
