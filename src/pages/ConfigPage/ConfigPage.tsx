@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { useState } from 'react'
 import { type User } from '../../types/data'
 import './ConfigPage.css'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { Modal } from '../../components/modal'
 import { ChangeProfileForm } from './components/changeProfileForm'
+import { ChangePasswordForm } from './components/changePasswordForm'
 
 interface Props {
   user: User
@@ -15,25 +14,7 @@ interface Props {
 export const ConfigPage = ({ user }: Props) => {
   const [visible, setVisible] = useState(false)
   const [openModal, setOpenModal] = useState(false);
-  const [passwordError, setPasswordError] = useState('')
-  const [input1Value, setInput1Value] = useState('')
-  const [input2Value, setInput2Value] = useState('')
-  const [input2Disabled, setInput2Disabled] = useState(true)
 
-  const validatePassword = (input: string) => {
-    if (input.length < 6) {
-      setPasswordError('Password must be at least 6 characters')
-    } else if (!/[A-Z]/.test(input)) {
-      setPasswordError('Password must contain at least one uppercase letter')
-    } else if (!/[\W_]/.test(input)) {
-      setPasswordError('Password must contain at least one special character')
-    } else if (input === user.password) {
-      setPasswordError('Password must different from your last password')
-    } else {
-      setPasswordError('')
-      setVisible(!visible)
-    }
-  }
   const navigate = useNavigate()
   const logout = () => {
     window.localStorage.removeItem('userLogged')
@@ -42,54 +23,11 @@ export const ConfigPage = ({ user }: Props) => {
   }
 
   const togglePasswordChange = () => {
-    setInput1Value('')
-    setInput2Value('')
-    setInput2Disabled(true)
     setVisible(!visible)
   }
 
   const toggleProfileChange = () => {
     setOpenModal(true)
-  }
-
-  const handleInputChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value
-    setInput1Value(value)
-    setInput2Disabled(value !== user.password)
-  }
-
-  const handleInputChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput2Value(event.target.value)
-  }
-
-  const addNewPassword = (event: React.FormEvent) => {
-    event?.preventDefault()
-    validatePassword(input2Value)
-    if (passwordError === '') {
-      changePassword()
-      toast.success('Password successfully changed! Please log out to try your new password.')
-      setTimeout(() => {
-        logout()
-      }, 3000)
-    }
-  }
-
-  const changePassword = () => {
-    const url = `http://localhost:3000/user/${user.id}`
-    const newPassword = input2Value
-    const modifiedData = {
-      first_name: user.first_name,
-      password: newPassword,
-      last_name: user.last_name,
-      email: user.email,
-      profilePicture: user.profilePicture,
-      isLoggedin: false,
-      id: user.id
-    }
-
-    axios.put(url, modifiedData)
-      .then(response => { response.data })
-      .catch(error => { error })
   }
 
   return (
@@ -125,7 +63,9 @@ export const ConfigPage = ({ user }: Props) => {
           </Link>
         </div>
         <div className='configpage-menu'>
-          <p>View Profile</p>
+          <Link to='/profile'>
+            <p>View Profile</p>
+          </Link>
           <p
             className='configpage-password-change-title'
             onClick={() => { togglePasswordChange() }}
@@ -134,38 +74,7 @@ export const ConfigPage = ({ user }: Props) => {
           </p>
           <Toaster />
           {visible && (
-            <form className='configpage-password-form'>
-              <label>
-                {' '}
-                Old Password
-                <input
-                  className='configpage-input'
-                  type='password'
-                  value={input1Value}
-                  onChange={handleInputChange1}
-                />
-              </label>
-              <label>
-                {' '}
-                New Password
-                <input
-                  type='password'
-                  className='configpage-input'
-                  value={input2Value}
-                  onChange={handleInputChange2}
-                  disabled={input2Disabled}
-                />
-                {passwordError && (
-                  <div className='error-password'>{passwordError}</div>
-                )}
-              </label>
-              <button
-                className='configpage-save-btn'
-                onClick={(event) => { addNewPassword(event) }}
-              >
-                Save
-              </button>
-            </form>
+            <ChangePasswordForm user={user} />
           )}
           <p
             className='configpage-profile-change'
@@ -174,7 +83,7 @@ export const ConfigPage = ({ user }: Props) => {
             Change Profile Info
           </p>
           {openModal && <Modal onOpen={setOpenModal}>
-            <ChangeProfileForm />
+            <ChangeProfileForm user={user} />
           </Modal>}
         </div>
       </section>

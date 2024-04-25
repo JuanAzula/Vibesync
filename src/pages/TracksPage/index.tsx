@@ -13,6 +13,7 @@ export const TracksPage = () => {
   ///Si accessedFrom === liked-songs --> getAllFavSongs del user
   ///Si accessedFrom ===playlistId ---> fetch de la playlist
   if (accessedFrom === 'liked-songs') {
+    
     ///fetch del array de favsongs del usuario (se llamarán songs)
   } else {
     ///fetch de la playlist con id === accessedFrom (se llamarán songs)

@@ -29,6 +29,9 @@ dependencies:
   axios:
     specifier: ^1.6.7
     version: 1.6.7
+  dotenv:
+    specifier: ^16.4.5
+    version: 16.4.5
   framer-motion:
     specifier: ^11.0.8
     version: 11.0.8(react-dom@18.2.0)(react@18.2.0)
@@ -1762,6 +1765,11 @@ packages:
     engines: {node: '>=16'}
     dependencies:
       type-fest: 3.13.1
+    dev: false
+
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
     dev: false
 
   /electron-to-chromium@1.4.687:

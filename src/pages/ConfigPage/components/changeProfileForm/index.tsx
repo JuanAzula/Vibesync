@@ -1,14 +1,25 @@
 import { useForm } from 'react-hook-form';
 import { InputField } from '../../../../styledComponents/inputField';
 import './changeProfileForm.css'
+import { User } from '../../../../types/data';
+import { UserService } from '../../../../services/UserService';
 
-export const ChangeProfileForm = () => {
+type Props =  {
+  user: User
+}
+
+export const ChangeProfileForm = ({user}: Props) => {
 
   const {register, handleSubmit, formState: {errors}, reset} = useForm();
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     if (Object.keys(errors).length === 0) {
-      console.log(data)
+      const id = user.id;
+      const userId = 'userId';
+      data[userId] = id;
+      const response = await UserService.patchUser(user)
+      console.log({response})
+      console.log({data})
       reset()
     }})
     

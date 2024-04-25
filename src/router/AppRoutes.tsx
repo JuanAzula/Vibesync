@@ -102,7 +102,7 @@ export const AppRoutes = () => {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/library/playlists" element={<PlaylistPage />} />
-          <Route path="/library/favtracks" element={<TracksPage />} />
+          <Route path="/library/tracks" element={<TracksPage />} />
           <Route
             path="/user"
             element={<UserPage user={queryUserLogged.data} />}

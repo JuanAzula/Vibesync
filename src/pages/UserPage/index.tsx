@@ -37,7 +37,7 @@ export const UserPage = ({ user }: Props) => {
       <FontAwesomeIcon className='back_button' icon={faChevronLeft} />
       </Link>
       <div className="profile_container">
-        <img src={user?.profilePicture} alt="Profile picture" />
+        <img src={user?.image} alt="Profile picture" />
         <h2 className='user_name'>{user?.first_name} {user?.last_name}</h2>
       </div>
     </header>
