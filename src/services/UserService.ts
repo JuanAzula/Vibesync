@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const {VITE_BASE_URL} = import.meta.env
+const { VITE_BASE_URL } = import.meta.env
 
 export class UserService {
     static async getUsers() {
@@ -21,7 +21,7 @@ export class UserService {
     }
     static async patchUser(user: any) {
         try {
-            const response = await axios.patch(VITE_BASE_URL + 'users/', user)
+            const response = await axios.patch(VITE_BASE_URL + 'users', user)
             return response.data
         } catch (error) {
             console.log(error)
