@@ -1,4 +1,7 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
+import { TokenService } from './TokenService'
+import { UserService } from './UserService'
+import { toast } from 'sonner'
 const { VITE_BASE_URL } = import.meta.env
 
 
@@ -15,18 +18,15 @@ export default class LoginService {
     }
 
     static async refreshToken() {
-        // const refreshTokenRow = document.cookie.split('; ')
-        //     .find(row => row.startsWith('refres'));
-
-        // const refreshToken = refreshTokenRow ? refreshTokenRow.split('=')[1] : '';
-        // const headers = {
-        //     Cookies: `refreshToken=${refreshToken}`
-        // };
-        // console.log('REFRESH TOKEN: ' + refreshToken)
-        const headers = {
-            Cookie: 'qpasa'
+        try {
+            const response = await axios.get(VITE_BASE_URL + 'refresh', { withCredentials: true })
+            TokenService.setToken(response.data.accessToken)
+            return response.data
+        } catch (error: AxiosError | any) {
+            if (error.request.status === 401) {
+                toast.error('Session expired, please login again')
+                UserService.logoutUser()
+            }
         }
-        const response = await axios.post(VITE_BASE_URL + 'refresh', { withCredentials: true })
-        return response.data
     }
 }

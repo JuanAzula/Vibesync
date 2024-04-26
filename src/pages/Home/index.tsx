@@ -43,7 +43,6 @@ export const Home = ({ user }: { user: User }) => {
           <h3 className="home-welcome-text">
             Welcome back,
             <span className="home-username"> {user.name}</span>
-            <button onClick={() => LoginService.refreshToken()}>refreshToken</button>
           </h3>
           <button className="home-settings-btn">
             <Link to="/config"><img src={settings} /></Link>

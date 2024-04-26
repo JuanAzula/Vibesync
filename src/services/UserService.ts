@@ -28,9 +28,14 @@ export class UserService {
         }
     }
 
-    static async patchPassword(data: any) {
+    static async patchPassword(data: any, token: string | null) {
         try {
-            const response = await axios.patch(VITE_BASE_URL + 'changepassword', data)
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+            const response = await axios.patch(VITE_BASE_URL + 'changepassword', data, config)
             return response.data
         } catch (error) {
             console.log(error)
@@ -50,6 +55,17 @@ export class UserService {
         try {
             const response = await axios.delete(VITE_BASE_URL + id)
             return response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    static async logoutUser() {
+        try {
+            window.localStorage.removeItem('userLogged')
+            setTimeout(() => {
+                window.location.reload()
+            }, 1500)
         } catch (error) {
             console.log(error)
         }
