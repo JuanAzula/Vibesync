@@ -27,6 +27,17 @@ export class UserService {
             console.log(error)
         }
     }
+
+    static async patchPassword(data: any) {
+        try {
+            const response = await axios.patch(VITE_BASE_URL + 'changepassword', data)
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
     static async postUser(user: any) {
         try {
             const response = await axios.post(VITE_BASE_URL, user)

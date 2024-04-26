@@ -37,3 +37,8 @@ export const getPlaylists = async () => {
   const response = await axios.get(VITE_BASE_URL + 'playlists')
   return response.data
 }
+
+export const getPlaylist = async (userId: string, playlistId: string) => {
+  const response = await axios.get(VITE_BASE_URL + 'user/:' + userId + '/playlists/:' + playlistId)
+  return response.data
+}
