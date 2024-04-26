@@ -10,14 +10,23 @@ export interface Data {
 export interface Album {
   id: number
   name: string
-  imageUrl: string
-  artist: string
+  artist: Artists 
+  thumbnail: string
+  tracks: TracksOnAlbums[]
+  genre: Genre
+  likedByUsers: UserLikedAlbums[]
 }
 
 export interface Artist {
   id: number
   name: string
-  genres: string[]
+  email: string
+  description: string
+  password: string
+  thumbnail: string
+  albums: Albums[]
+  genre: Genre
+  followers: UserFollowsArtists[]
   popularity: number
   photoUrl: string
 }

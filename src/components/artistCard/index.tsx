@@ -8,7 +8,7 @@ interface Props {
 export const ArtistCard = ({ artist }: Props) => {
   return (
     <div className="artist-container">
-      <img className="artist-pic" src={artist.photoUrl} />
+      <img className="artist-pic" src={artist.thumbnail} />
       <div>
         <h3>{artist.name}</h3>
       </div>

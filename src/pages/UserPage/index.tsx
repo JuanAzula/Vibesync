@@ -38,7 +38,7 @@ export const UserPage = ({ user }: Props) => {
       </Link>
       <div className="profile_container">
         <img src={user?.image} alt="Profile picture" />
-        <h2 className='user_name'>{user?.first_name} {user?.last_name}</h2>
+        <h2 className='user_name'>{user?.name}</h2>
       </div>
     </header>
     <main className='user_main_container'>
