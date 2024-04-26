@@ -3,12 +3,14 @@ import { InputField } from '../../../../styledComponents/inputField';
 import './changeProfileForm.css'
 import { User } from '../../../../types/data';
 import { UserService } from '../../../../services/UserService';
+import { Dispatch, SetStateAction } from 'react';
 
 type Props = {
   user: User
+  setEmail: Dispatch<SetStateAction<string>>;
 }
 
-export const ChangeProfileForm = ({ user }: Props) => {
+export const ChangeProfileForm = ({ user, setEmail }: Props) => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -17,9 +19,8 @@ export const ChangeProfileForm = ({ user }: Props) => {
       const id = user.id;
       const userId = 'userId';
       data[userId] = id;
-      const response = await UserService.patchUser(data)
-      console.log({ response })
-      console.log({ data })
+      const response = await UserService.patchUser(data);
+      setEmail(data.email)
       reset()
     }
   })

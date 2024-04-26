@@ -1,4 +1,4 @@
-
+import {useForm} from 'react-hook-form'
 import './changePasswordForm.css'
 import { User } from '../../../../types/data';
 
@@ -7,20 +7,16 @@ type Props = {
 }
 
 export const ChangePasswordForm = ({user}: Props) => {
-
+  const {register} = useForm();
   
   return (
     <form className='configpage-password-form'>
-      <label>
-        {' '}
-        Old Password
+      <label id='old-password'>Old Password</label>
         <input
           className='configpage-input'
           type='password'
         />
-      </label>
       <label>
-        {' '}
         New Password
         <input
           type='password'

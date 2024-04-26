@@ -14,6 +14,7 @@ interface Props {
 export const ConfigPage = ({ user }: Props) => {
   const [visible, setVisible] = useState(false)
   const [openModal, setOpenModal] = useState(false);
+  const [email, setEmail] = useState(user?.email || '');
 
   const navigate = useNavigate()
   const logout = () => {
@@ -49,10 +50,8 @@ export const ConfigPage = ({ user }: Props) => {
               alt="profile-pic"
             />
             <div className='configpage-user-text'>
-              <h3>
-                {user?.first_name} {user?.last_name}
-              </h3>
-              <p>{user?.email}</p>
+              <p>{email}</p>
+              <h3>{user.name}</h3>
             </div>
           </div>
 
@@ -83,7 +82,7 @@ export const ConfigPage = ({ user }: Props) => {
             Change Profile Info
           </p>
           {openModal && <Modal onOpen={setOpenModal}>
-            <ChangeProfileForm user={user} />
+            <ChangeProfileForm setEmail={setEmail} user={user} />
           </Modal>}
         </div>
       </section>
