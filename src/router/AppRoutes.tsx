@@ -13,7 +13,7 @@ import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 import { Signup } from '../pages/SignUp/Signup'
 import { TracksPage } from '../pages/TracksPage'
 import { SkeletonTheme } from 'react-loading-skeleton'
-import { getTracks as fetchTracks } from '../services/dataService'
+import { TracksService } from '../services/TracksService'
 import { PlaylistPage } from '../pages/PlaylistPage'
 import { Toaster, toast } from 'sonner'
 import { TokenService } from '../services/TokenService'
@@ -44,7 +44,7 @@ const validateSession = async () => {
 }
 
 const getAllTracks = async () => {
-  const tracks = await fetchTracks()
+  const tracks = await TracksService.getTracks()
   return tracks
 }
 export const AppRoutes = () => {

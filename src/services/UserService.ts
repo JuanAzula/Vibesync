@@ -1,10 +1,16 @@
 import axios from "axios"
+import { token } from "../services/TokenService"
 
 const { VITE_BASE_URL } = import.meta.env
 export class UserService {
     static async getUsers() {
         try {
-            const response = await axios.get(VITE_BASE_URL)
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+            const response = await axios.get(VITE_BASE_URL, config)
             return response.data
         } catch (error) {
             console.log(error)
@@ -12,15 +18,25 @@ export class UserService {
     }
     static async getUser(id: string) {
         try {
-            const response = await axios.get(VITE_BASE_URL + id)
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+            const response = await axios.get(VITE_BASE_URL + id, config)
             return response.data
         } catch (error) {
             console.log(error)
         }
     }
-    static async patchUser(user: any) {
+    static async patchUser(user: any, token: string | null) {
         try {
-            const response = await axios.patch(VITE_BASE_URL + 'users', user)
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+            const response = await axios.patch(VITE_BASE_URL + 'users', user, config)
             return response.data
         } catch (error) {
             console.log(error)
@@ -50,9 +66,14 @@ export class UserService {
             console.log(error)
         }
     }
-    static async deleteUser(id: string) {
+    static async deleteUser(id: string, token: string | null) {
         try {
-            const response = await axios.delete(VITE_BASE_URL + id)
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+            const response = await axios.delete(VITE_BASE_URL + id, config)
             return response.data
         } catch (error) {
             console.log(error)
@@ -62,9 +83,6 @@ export class UserService {
     static async logoutUser() {
         try {
             window.localStorage.removeItem('userLogged')
-            // setTimeout(() => {
-            //     window.location.reload()
-            // }, 1500)
         } catch (error) {
             console.log(error)
         }
