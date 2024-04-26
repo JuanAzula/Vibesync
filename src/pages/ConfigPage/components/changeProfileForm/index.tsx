@@ -17,7 +17,7 @@ export const ChangeProfileForm = ({user}: Props) => {
       const id = user.id;
       const userId = 'userId';
       data[userId] = id;
-      const response = await UserService.patchUser(user)
+      const response = await UserService.patchUser(data)
       console.log({response})
       console.log({data})
       reset()
