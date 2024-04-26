@@ -61,7 +61,7 @@ export const Home = ({ user }: { user: User }) => {
           <PlaylistMiniCard img={readingFlow} title="Reading Flow" />
         </section>
         <section className="home-fav-songs">
-          <h2>Your favorite songs</h2>
+          <h2>Latest songs uploaded</h2>
           <Carrousel
             dataTrack={trackArray}
             isActive={isActive}

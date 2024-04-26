@@ -42,7 +42,7 @@ export const UserPage = ({ user }: Props) => {
       </div>
     </header>
     <main className='user_main_container'>
-      <h2>Favorite Songs</h2>
+      <h2>Latest songs uploaded</h2>
       <section className="user-fav-songs">
         <Carrousel
         dataTrack={trackArray}
