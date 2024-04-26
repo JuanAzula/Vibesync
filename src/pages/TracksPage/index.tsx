@@ -16,7 +16,7 @@ export const TracksPage = () => {
   const { likedTracks } = useLikedTracksContext();
 
   useEffect(() => {
-    const selectSongsToDisplay =  async () => {
+    const selectSongsToDisplay = async () => {
       if (accessedFrom === 'liked-songs') {
         console.log(accessedFrom)
         ///fetch del array de favsongs del usuario (se llamarán songs)
@@ -33,23 +33,23 @@ export const TracksPage = () => {
     }
     selectSongsToDisplay();
   }, [accessedFrom])
- 
+
   return (
     <div className='likedtracks-container'>
       <section className='likedtracks-header'>
         {accessedFrom === 'liked-songs' ? <h2>Favorite Songs</h2> : <h2>'playlist.name'</h2>}
       </section>
       <section className="likedtracks-content">
-          {likedTracks.length > 0 &&
-              likedTracks.map((track: Track) => (
-              <SongInLine 
+        {likedTracks.length > 0 &&
+          likedTracks?.map((track: Track) => (
+            <SongInLine
               menuSwitchTrigger={setMenuSwitch}
               menuSwitch={menuSwitch}
-              key={track.id} 
+              key={track.id}
               track={track}
-               />
-              ))}
+            />
+          ))}
       </section>
     </div>
-)
+  )
 }
