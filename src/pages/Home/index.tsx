@@ -13,6 +13,7 @@ import kanyeAlbum from '../../assets/albums-img/graduation-kanye-cover.jpg'
 import canserbero from '../../assets/albums-img/jeremias17-5.jpg'
 import cookingPlaylist from '../../assets/playlists-img/relaxing-cooking-mix.png'
 import readingFlow from '../../assets/playlists-img/reading-flow.png'
+import LoginService from '../../services/LoginService'
 
 export const Home = ({ user }: { user: User }) => {
   const [isActive] = useState(true)
