@@ -95,7 +95,6 @@ const SearchPage: React.FC = () => {
           <div><p>Top charts</p></div>
         </section>
         <section className='search-results'>
-          {isLoading && <CardSkeleton cards={18} />}
           {filteredTracks?.length === 0 &&
             filteredAlbums?.length === 0 &&
             filteredArtists?.length === 0 &&
