@@ -1,7 +1,6 @@
 import axios from "axios"
 
 const { VITE_BASE_URL } = import.meta.env
-
 export class UserService {
     static async getUsers() {
         try {
@@ -63,9 +62,9 @@ export class UserService {
     static async logoutUser() {
         try {
             window.localStorage.removeItem('userLogged')
-            setTimeout(() => {
-                window.location.reload()
-            }, 1500)
+            // setTimeout(() => {
+            //     window.location.reload()
+            // }, 1500)
         } catch (error) {
             console.log(error)
         }

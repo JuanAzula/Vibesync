@@ -17,32 +17,30 @@ import { getTracks as fetchTracks } from '../services/dataService'
 import { PlaylistPage } from '../pages/PlaylistPage'
 import { Toaster, toast } from 'sonner'
 import { TokenService } from '../services/TokenService'
+import { token } from '../services/TokenService'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON)
+    // TokenService.setToken(user.token)
     toast('Welcome back!')
     return user
   }
 }
 
 const validateSession = async () => {
-  const loggedUserJSON = window.localStorage.getItem('userLogged')
-  if (loggedUserJSON) {
-    const user = JSON.parse(loggedUserJSON)
-    const token = await TokenService.setToken(user?.token)
-    const response = await TokenService.validateToken(token)
-    console.log('response', response)
-    if (response === true) console.log('true')
-    if (response === false) {
-      console.log('false')
-      setTimeout(() => {
-        validateSession()
-      }, 10500)
-    }
-    return response
+  const response = await TokenService.validateToken(token)
+  console.log('response', response)
+  if (response === true) console.log('true')
+  if (response === false) {
+    console.log('false')
+    setTimeout(() => {
+      validateSession()
+    }, 1500)
   }
+  return response
+
 }
 
 const getAllTracks = async () => {

@@ -4,7 +4,7 @@ import { UserService } from './UserService'
 import { toast } from 'sonner'
 const { VITE_BASE_URL } = import.meta.env
 
-
+let count = 0
 
 const baseUrl = VITE_BASE_URL + 'login'
 
@@ -23,9 +23,10 @@ export default class LoginService {
             TokenService.setToken(response.data.accessToken)
             return response.data
         } catch (error: AxiosError | any) {
-            if (error.request.status === 401) {
+            if (error.request.status === 401 && count < 1) {
                 toast.error('Session expired, please login again')
                 UserService.logoutUser()
+                count++
             }
         }
     }

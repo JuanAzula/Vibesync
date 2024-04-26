@@ -10,7 +10,7 @@ class TokenService {
         token = `Bearer ${newToken}`
         return token
     }
-    static async validateToken(token: string) {
+    static async validateToken(token: string | null) {
         try {
             const response = await axios.post(BASE_URL, { token });
             console.log('response', response)
