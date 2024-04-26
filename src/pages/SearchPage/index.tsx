@@ -110,7 +110,7 @@ const SearchPage: React.FC = () => {
             ))}
             {filteredArtists.length > 0 &&
                filteredArtists.map((artist) => (
-                <ArtistCard key={`${artist.id}-${artist.genres.join('-')}`} artist={artist} />
+                <ArtistCard key={`${artist?.id}-${artist?.genres?.join('-')}`} artist={artist} />
                ))}
             {filteredPlaylists.length > 0 &&
               filteredPlaylists.map((playlist) => (
