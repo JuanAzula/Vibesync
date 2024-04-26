@@ -41,7 +41,7 @@ export const Home = ({ user }: { user: User }) => {
       <section className="home-welcome-section">
         <h3 className="home-welcome-text">
           Welcome back,
-          <span className="home-username"> {user.first_name} {user.last_name}</span>
+          <span className="home-username"> {user.name}</span>
         </h3>
         <button className="home-settings-btn">
           <Link to="/config"><img src={settings} /></Link>
@@ -60,7 +60,7 @@ export const Home = ({ user }: { user: User }) => {
         <PlaylistMiniCard img={readingFlow} title="Reading Flow"/>
       </section>
       <section className="home-fav-songs">
-        <h2>Your favorite songs</h2>
+        <h2>Latest songs uploaded</h2>
         <Carrousel
         dataTrack={trackArray}
         isActive={isActive}
