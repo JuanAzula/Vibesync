@@ -26,7 +26,7 @@ const Carrousel = ({ dataTrack, dataArtist, dataAlbum, isActive, dataPlaylist }:
       {dataArtist && (
         <div className="products_scroll">
           {dataArtist.map(artist => (
-            <ArtistCard key={artist.id} artist={artist} />
+            <ArtistCard artist={artist} />
           ))}
         </div>
       )}

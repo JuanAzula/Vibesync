@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { InputField } from '../../../../styledComponents/inputField';
 import './changeProfileForm.css'
+import {toast} from 'sonner'
 import { User } from '../../../../types/data';
 import { UserService } from '../../../../services/UserService';
 import { Dispatch, SetStateAction } from 'react';
@@ -8,9 +9,10 @@ import { Dispatch, SetStateAction } from 'react';
 type Props = {
   user: User
   setEmail: Dispatch<SetStateAction<string>>;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
-export const ChangeProfileForm = ({ user, setEmail }: Props) => {
+export const ChangeProfileForm = ({ user, setEmail, setOpenModal }: Props) => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -21,7 +23,9 @@ export const ChangeProfileForm = ({ user, setEmail }: Props) => {
       data[userId] = id;
       const response = await UserService.patchUser(data);
       setEmail(data.email)
+      if (response) setOpenModal(false)
       reset()
+      toast.success('Your profile information has been updated')
     }
   })
 
