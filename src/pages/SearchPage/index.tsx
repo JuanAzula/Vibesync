@@ -75,11 +75,11 @@ const SearchPage: React.FC = () => {
   )
 
   return (
-        <>
-        <main className='search-main-container'>
+    <>
+      <main className='search-main-container'>
         <section>
-        <SearchBar value={searchInput}/>
-        <h2>Top searches</h2>
+          <SearchBar value={searchInput} />
+          <h2>Top searches</h2>
           <CategoryBtn onClick={() => { handleTopSearchClick('canserbero') }}>Canserbero</CategoryBtn>
           <CategoryBtn onClick={() => { handleTopSearchClick('residente') }}>Residente</CategoryBtn>
           <CategoryBtn onClick={() => { handleTopSearchClick('electro') }}>Electro</CategoryBtn>
@@ -95,37 +95,37 @@ const SearchPage: React.FC = () => {
           <div><p>Top charts</p></div>
         </section>
         <section className='search-results'>
-            {isLoading && <CardSkeleton cards={18} />}
-            {filteredTracks.length === 0 &&
-             filteredAlbums.length === 0 &&
-             filteredArtists.length === 0 &&
-             filteredPlaylists.length === 0
-              ? (
+          {isLoading && <CardSkeleton cards={18} />}
+          {filteredTracks?.length === 0 &&
+            filteredAlbums?.length === 0 &&
+            filteredArtists?.length === 0 &&
+            filteredPlaylists?.length === 0
+            ? (
               <p className='search-results-no-match'>No matches have been found</p>
-                )
-              : (
-            <>
-            {filteredTracks.map((track) => (
-              <SongCard key={`${track.id}-${track.artist}-${track.genre}`} track={track} isActive={true} />
-            ))}
-            {filteredArtists.length > 0 &&
-               filteredArtists.map((artist) => (
-                <ArtistCard key={`${artist.id}-${artist.genres.join('-')}`} artist={artist} />
-               ))}
-            {filteredPlaylists.length > 0 &&
-              filteredPlaylists.map((playlist) => (
-              <PlaylistCard key={playlist.id} playlist={playlist} />
-              ))}
-            {filteredAlbums.length > 0 &&
-               filteredAlbums.map((album) => (
-                  <AlbumCard key={`${album.id}-${album.artist}`} album={album} />
-               ))}
-    </>
-                )}
-</section>
+            )
+            : (
+              <>
+                {filteredTracks?.map((track) => (
+                  <SongCard key={`${track.id}-${track.artist}-${track.genre}`} track={track} isActive={true} />
+                ))}
+                {filteredArtists?.length > 0 &&
+                  filteredArtists?.map((artist) => (
+                    <ArtistCard key={`${artist?.id}-${artist?.genres?.join('-')}`} artist={artist} />
+                  ))}
+                {filteredPlaylists?.length > 0 &&
+                  filteredPlaylists?.map((playlist) => (
+                    <PlaylistCard key={playlist.id} playlist={playlist} />
+                  ))}
+                {filteredAlbums?.length > 0 &&
+                  filteredAlbums?.map((album) => (
+                    <AlbumCard key={`${album.id}-${album.artist}`} album={album} />
+                  ))}
+              </>
+            )}
+        </section>
         <div className='search-bottom-space'></div>
-        </main>
-        </>
+      </main>
+    </>
   )
 }
 
