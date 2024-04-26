@@ -2,12 +2,17 @@ import {useForm} from 'react-hook-form'
 import './changePasswordForm.css'
 import { User } from '../../../../types/data';
 import { UserService } from '../../../../services/UserService';
+import { Dispatch, SetStateAction, useState } from 'react';
+import {toast} from 'sonner'
 
 type Props = {
   user: User
+  visible: boolean
+  setVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-export const ChangePasswordForm = ({user}: Props) => {
+export const ChangePasswordForm = ({user, visible, setVisible}: Props) => {
+  const [wrongPasswordMessage, setwrongPasswordMessage] = useState(false)
   const {register, handleSubmit, formState: {errors}, reset} = useForm();
 
   const onSubmit = handleSubmit(async (data) => {
@@ -16,7 +21,11 @@ export const ChangePasswordForm = ({user}: Props) => {
       const id = 'userId';
       data[id] = userId;
       const response = await UserService.patchPassword(data);
-      console.log(response)
+      if (!response) setwrongPasswordMessage(true)
+      else {
+        setVisible(!visible)
+        toast.success('Your profile information has been updated')
+      }
       reset()
     }
   })
@@ -45,6 +54,7 @@ export const ChangePasswordForm = ({user}: Props) => {
             }
           })}
         />
+        {wrongPasswordMessage && <span>Wrong password</span>}
       <button className='configpage-save-btn'>Save</button>
     </form>
   )

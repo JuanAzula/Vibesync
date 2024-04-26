@@ -73,7 +73,7 @@ export const ConfigPage = ({ user }: Props) => {
           </p>
           <Toaster />
           {visible && (
-            <ChangePasswordForm user={user} />
+            <ChangePasswordForm visible={visible} setVisible={setVisible} user={user} />
           )}
           <p
             className='configpage-profile-change'
@@ -82,7 +82,7 @@ export const ConfigPage = ({ user }: Props) => {
             Change Profile Info
           </p>
           {openModal && <Modal onOpen={setOpenModal}>
-            <ChangeProfileForm setEmail={setEmail} user={user} />
+            <ChangeProfileForm setOpenModal={setOpenModal} setEmail={setEmail} user={user} />
           </Modal>}
         </div>
       </section>
