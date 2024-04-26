@@ -2,8 +2,8 @@ import { type Track } from '../../types/data'
 import './SongCard.css'
 import { useAudioContext } from '../../hooks/useAudio'
 import { useQuery } from '@tanstack/react-query'
-import { getTrack as fetchTrack } from '../../services/dataService'
 import { useEffect } from 'react'
+import { TracksService } from '../../services/TracksService'
 
 interface Props {
   track: Track
@@ -15,7 +15,7 @@ const SongCard = ({ track, isActive }: Props) => {
 
   const getTrack = async (trackId: string | undefined) => {
     if (trackId) {
-      const track = await fetchTrack(trackId)
+      const track = await TracksService.getTrack(trackId)
       getSongDuration(audioRef, setSongDuration)
       setAudioUrl(track.url)
       setAudioImg(track.thumbnail)

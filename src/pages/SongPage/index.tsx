@@ -2,8 +2,8 @@ import { SongDetails } from './components/songDetails'
 import './songPage.css'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { getTrack as fetchTrack } from '../../services/dataService'
 import { useAudioContext } from '../../hooks/useAudio'
+import { TracksService } from '../../services/TracksService'
 
 interface Props {
   trackId: string
@@ -12,7 +12,7 @@ interface Props {
 
 const getTrack = async (trackId: Props['trackId'], setAudioUrl: Props['setAudioUrl']) => {
   if (trackId) {
-    const track = await fetchTrack(trackId)
+    const track = await TracksService.getTrack(trackId)
     setAudioUrl(track.url)
     return track
   }
@@ -31,8 +31,8 @@ export const SongPage = () => {
   })
 
   return (
-      <>
-        <SongDetails song={queryTrack.data ? queryTrack.data : {}} />
-      </>
+    <>
+      <SongDetails song={queryTrack.data ? queryTrack.data : {}} />
+    </>
   )
 }

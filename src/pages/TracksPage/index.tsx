@@ -4,7 +4,7 @@ import './tracksPage.css'
 import { SongInLine } from '../../components/songInLine'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getPlaylist } from '../../services/dataService'
+import { PlaylistService } from '../../services/PlaylistService'
 
 ///LE TIENE QUE VENIR LA PLAYLIST /FAVSONGS POR PROPS, LA PLAYLIST POR LO MENOS
 export const TracksPage = () => {
@@ -25,7 +25,7 @@ export const TracksPage = () => {
         console.log('VIENE DE PLAYLISTS')
         console.log('USERID' + user.id)
         console.log(accessedFrom)
-        const response = await getPlaylist(user?.id, accessedFrom)
+        const response = await PlaylistService.getPlaylist(user?.id, accessedFrom)
         console.log(response)
       }
     }

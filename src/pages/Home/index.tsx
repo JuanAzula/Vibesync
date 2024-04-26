@@ -4,7 +4,6 @@ import CategoryBtn from '../../styledComponents/categoryBtn'
 import Carrousel from '../../components/carrousel/Carrousel'
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { getAlbums, getPlaylists, getTracks } from '../../services/dataService'
 import { type User, type Album, type Playlist, type Track } from '../../types/data'
 import { Link } from 'react-router-dom'
 import { PlaylistMiniCard } from '../../components/playlistMiniCard/PlaylistMiniCard'
@@ -13,26 +12,28 @@ import kanyeAlbum from '../../assets/albums-img/graduation-kanye-cover.jpg'
 import canserbero from '../../assets/albums-img/jeremias17-5.jpg'
 import cookingPlaylist from '../../assets/playlists-img/relaxing-cooking-mix.png'
 import readingFlow from '../../assets/playlists-img/reading-flow.png'
-import LoginService from '../../services/LoginService'
+import { TracksService } from '../../services/TracksService'
+import { PlaylistService } from '../../services/PlaylistService'
+import { AlbumService } from '../../services/AlbumService'
 
 export const Home = ({ user }: { user: User }) => {
   const [isActive] = useState(true)
 
   const queryTracks = useQuery({
     queryKey: ['tracks'],
-    queryFn: async () => await getTracks()
+    queryFn: async () => await TracksService.getTracks()
   })
   const trackArray: Track[] = queryTracks.data
 
   const queryPlaylist = useQuery({
     queryKey: ['playlist'],
-    queryFn: async () => await getPlaylists()
+    queryFn: async () => await PlaylistService.getPlaylists()
   })
   const playlistArray: Playlist[] = queryPlaylist.data
 
   const queryAlbum = useQuery({
     queryKey: ['album'],
-    queryFn: async () => await getAlbums()
+    queryFn: async () => await AlbumService.getAlbums()
   })
   const albumArray: Album[] = queryAlbum.data
 

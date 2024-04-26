@@ -3,7 +3,6 @@ import CategoryBtn from '../../styledComponents/categoryBtn'
 import { SearchBar } from '../../components/SearchBar/searchBar'
 import { useSearchContext } from '../../context/Search'
 import { useQuery } from '@tanstack/react-query'
-import { getAlbums, getArtists, getPlaylists, getTracks } from '../../services/dataService'
 import { type Album, type Playlist, type Track, type Artist } from '../../types/data'
 import { PlaylistCard } from '../../components/playlistCard/PlaylistCard'
 import { AlbumCard } from '../../components/albumCard'
@@ -12,6 +11,10 @@ import SongCard from '../../components/songCard'
 import 'react-loading-skeleton/dist/skeleton.css'
 import CardSkeleton from './components/CardSkeleton'
 import { useEffect, useState } from 'react'
+import { TracksService } from '../../services/TracksService'
+import { PlaylistService } from '../../services/PlaylistService'
+import { AlbumService } from '../../services/AlbumService'
+import { ArtistService } from '../../services/ArtistService'
 
 const SearchPage: React.FC = () => {
   const { searchInput, handleSearch } = useSearchContext()
@@ -30,25 +33,25 @@ const SearchPage: React.FC = () => {
 
   const queryTracks = useQuery({
     queryKey: ['tracks'],
-    queryFn: async () => await getTracks()
+    queryFn: async () => await TracksService.getTracks()
   })
   const trackArray: Track[] = queryTracks.data || []
 
   const queryPlaylist = useQuery({
     queryKey: ['playlist'],
-    queryFn: async () => await getPlaylists()
+    queryFn: async () => await PlaylistService.getPlaylists()
   })
   const playlistArray: Playlist[] = queryPlaylist.data || []
 
   const queryAlbum = useQuery({
     queryKey: ['album'],
-    queryFn: async () => await getAlbums()
+    queryFn: async () => await AlbumService.getAlbums()
   })
   const albumArray: Album[] = queryAlbum.data || []
 
   const queryArtist = useQuery({
     queryKey: ['artist'],
-    queryFn: async () => await getArtists()
+    queryFn: async () => await ArtistService.getArtists()
   })
   const artistArray: Artist[] = queryArtist.data || []
 
@@ -60,7 +63,7 @@ const SearchPage: React.FC = () => {
 
   const filteredArtists = artistArray.filter((artist) =>
     artist.name.toLowerCase().includes(searchInput) ||
-    (artist.genres && artist.genres.some(genre =>
+    (artist.genre && artist.genre.some(genre =>
       genre.toLowerCase().includes(searchInput)
     ))
   )
@@ -109,7 +112,7 @@ const SearchPage: React.FC = () => {
                 ))}
                 {filteredArtists?.length > 0 &&
                   filteredArtists?.map((artist) => (
-                    <ArtistCard key={`${artist?.id}-${artist?.genres?.join('-')}`} artist={artist} />
+                    <ArtistCard key={`${artist?.id}-${artist?.genre?.join('-')}`} artist={artist} />
                   ))}
                 {filteredPlaylists?.length > 0 &&
                   filteredPlaylists?.map((playlist) => (
