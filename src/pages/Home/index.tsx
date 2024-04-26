@@ -13,6 +13,7 @@ import kanyeAlbum from '../../assets/albums-img/graduation-kanye-cover.jpg'
 import canserbero from '../../assets/albums-img/jeremias17-5.jpg'
 import cookingPlaylist from '../../assets/playlists-img/relaxing-cooking-mix.png'
 import readingFlow from '../../assets/playlists-img/reading-flow.png'
+import LoginService from '../../services/LoginService'
 
 export const Home = ({ user }: { user: User }) => {
   const [isActive] = useState(true)
@@ -37,45 +38,46 @@ export const Home = ({ user }: { user: User }) => {
 
   return (
     <>
-    <main className="home-main-container">
-      <section className="home-welcome-section">
-        <h3 className="home-welcome-text">
-          Welcome back,
-          <span className="home-username"> {user.first_name} {user.last_name}</span>
-        </h3>
-        <button className="home-settings-btn">
-          <Link to="/config"><img src={settings} /></Link>
-        </button>
-      </section>
-      <section>
-        <CategoryBtn>Music</CategoryBtn>
-        <CategoryBtn>Podcasts</CategoryBtn>
-        <CategoryBtn>AudioBooks</CategoryBtn>
-      </section>
-      <section className="home-miniplaylist-display">
-        <PlaylistMiniCard img={lofiPlaylist} title="LoFi Music"/>
-        <PlaylistMiniCard img={kanyeAlbum} title="Graduation"/>
-        <PlaylistMiniCard img={canserbero} title="Jeremias 17:5"/>
-        <PlaylistMiniCard img={cookingPlaylist} title="Relaxing Cooking Mix"/>
-        <PlaylistMiniCard img={readingFlow} title="Reading Flow"/>
-      </section>
-      <section className="home-fav-songs">
-        <h2>Your favorite songs</h2>
-        <Carrousel
-        dataTrack={trackArray}
-        isActive={isActive}
-        />
-      </section>
-      <section className="home-recently-played">
-        <h2>Recently played</h2>
-        <Carrousel dataPlaylist={playlistArray} />
-      </section>
-      <section className="home-jump-back-in">
-        <h2>Jump back in</h2>
-        <Carrousel dataAlbum={albumArray} />
-      </section>
-      <div className="home-bottom-space"></div>
-    </main>
+      <main className="home-main-container">
+        <section className="home-welcome-section">
+          <h3 className="home-welcome-text">
+            Welcome back,
+            <span className="home-username"> {user.name}</span>
+            <button onClick={() => LoginService.refreshToken()}>refreshToken</button>
+          </h3>
+          <button className="home-settings-btn">
+            <Link to="/config"><img src={settings} /></Link>
+          </button>
+        </section>
+        <section>
+          <CategoryBtn>Music</CategoryBtn>
+          <CategoryBtn>Podcasts</CategoryBtn>
+          <CategoryBtn>AudioBooks</CategoryBtn>
+        </section>
+        <section className="home-miniplaylist-display">
+          <PlaylistMiniCard img={lofiPlaylist} title="LoFi Music" />
+          <PlaylistMiniCard img={kanyeAlbum} title="Graduation" />
+          <PlaylistMiniCard img={canserbero} title="Jeremias 17:5" />
+          <PlaylistMiniCard img={cookingPlaylist} title="Relaxing Cooking Mix" />
+          <PlaylistMiniCard img={readingFlow} title="Reading Flow" />
+        </section>
+        <section className="home-fav-songs">
+          <h2>Your favorite songs</h2>
+          <Carrousel
+            dataTrack={trackArray}
+            isActive={isActive}
+          />
+        </section>
+        <section className="home-recently-played">
+          <h2>Recently played</h2>
+          <Carrousel dataPlaylist={playlistArray} />
+        </section>
+        <section className="home-jump-back-in">
+          <h2>Jump back in</h2>
+          <Carrousel dataAlbum={albumArray} />
+        </section>
+        <div className="home-bottom-space"></div>
+      </main>
     </>
   )
 }
