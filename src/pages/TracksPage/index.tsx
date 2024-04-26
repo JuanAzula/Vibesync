@@ -18,6 +18,7 @@ export const TracksPage = () => {
   useEffect(() => {
     const selectSongsToDisplay = async () => {
       if (accessedFrom === 'liked-songs') {
+        console.log('VIENE DE LIKED SONGS')
         console.log(accessedFrom)
         ///fetch del array de favsongs del usuario (se llamarán songs)
       } else if (accessedFrom.includes('playlist')) {
