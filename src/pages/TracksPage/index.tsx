@@ -18,15 +18,18 @@ export const TracksPage = () => {
   useEffect(() => {
     const selectSongsToDisplay =  async () => {
       if (accessedFrom === 'liked-songs') {
+        console.log('VIENE DE LIKED SONGS')
         console.log(accessedFrom)
         ///fetch del array de favsongs del usuario (se llamarán songs)
-      } else {
+      } else if (accessedFrom.includes('playlist')) {
         ///fetch de la playlist con id === accessedFrom (se llamarán songs)
         console.log('VIENE DE PLAYLISTS')
-        console.log('USERID' + user.id)
         console.log(accessedFrom)
-        const response = await getPlaylist(user?.id, accessedFrom)
-        console.log(response)
+        // const response = await getPlaylist(user?.id, accessedFrom)
+        // console.log(response)
+      } else if (accessedFrom.includes('album')) {
+        console.log('VIENE DE ALBUMS')
+        console.log(accessedFrom)
       }
     }
     selectSongsToDisplay();
