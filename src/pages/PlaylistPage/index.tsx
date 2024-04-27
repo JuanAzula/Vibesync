@@ -25,7 +25,7 @@ export const PlaylistPage = () => {
       <section className='playlist-content'>
         {playlistArray.length > 0 &&
           playlistArray.map((playlist: Playlist) => (
-            <Link to="/library/tracks" state={{ accessedFrom: `${playlist.id}` }}>
+            <Link to="/library/tracks" state={{ accessedFrom: `playlist ${playlist.id}` }}>
               <div key={playlist.id} className='playlist-container'>
                 <PlaylistCard
                   playlist={playlist}
