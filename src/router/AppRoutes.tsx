@@ -21,7 +21,6 @@ import { token } from '../services/TokenService'
 import { PlaylistService } from '../services/PlaylistService'
 import { AlbumService } from '../services/AlbumService'
 import { ArtistService } from '../services/ArtistService'
-import { useEffect } from 'react'
 
 const localToken = window.localStorage.getItem('token')
 TokenService.setToken(localToken)

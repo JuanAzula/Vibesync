@@ -11,6 +11,7 @@ class TokenService {
         return token
     }
     static async validateToken(token: string | null) {
+        if (!window.localStorage.getItem('userLogged')) return
         try {
             const response = await axios.post(BASE_URL, { token });
             console.log('response', response)

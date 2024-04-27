@@ -9,7 +9,10 @@ let count = 0
 const baseUrl = VITE_BASE_URL + 'login'
 
 setInterval(() => {
-    LoginService.refreshToken()
+    if (window.localStorage.getItem('userLogged')) {
+        console.log('still')
+        LoginService.refreshToken()
+    }
 }, 1000 * 20)
 
 export default class LoginService {
@@ -22,6 +25,7 @@ export default class LoginService {
     }
 
     static async refreshToken() {
+        if (!window.localStorage.getItem('userLogged')) return
         try {
             const response = await axios.get(VITE_BASE_URL + 'refresh', { withCredentials: true })
             window.localStorage.setItem('token', response.data.accessToken)
@@ -32,6 +36,9 @@ export default class LoginService {
                 toast.error('Session expired, please login again')
                 UserService.logoutUser()
                 count++
+                setTimeout(() => {
+                    window.location.reload()
+                }, 3000)
             }
         }
     }

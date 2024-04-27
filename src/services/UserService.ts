@@ -83,6 +83,7 @@ export class UserService {
     static async logoutUser() {
         try {
             window.localStorage.removeItem('userLogged')
+            window.localStorage.removeItem('token')
         } catch (error) {
             console.log(error)
         }

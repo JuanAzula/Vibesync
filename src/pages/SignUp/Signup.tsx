@@ -5,6 +5,8 @@ import logo from '/src/assets/logo.png'
 import { toast, Toaster } from 'react-hot-toast';
 import { UserService } from "../../services/UserService";
 import { UploadService } from "../../services/UploadService";
+import { ArtistService } from "../../services/ArtistService";
+import { TokenService } from "../../services/TokenService";
 
 export const Signup: any = () => {
 
@@ -29,20 +31,21 @@ export const Signup: any = () => {
       genre: genreName,
       description
     }
-
-    const response = artist ?
-      await UserService.postUser(user)
-      : await UserService.postUser(user)
+    console.log('user', user?.image)
+    const response =
+      artist
+        ?
+        await UserService.postUser(user)
+        :
+        await ArtistService.postArtist(artist)
 
     console.log('response', response)
+    console.log('response', response.user, response.token)
     if (response) {
       window.localStorage.setItem('userLogged', JSON.stringify(response.user))
       window.localStorage.setItem('token', JSON.stringify(response.token))
-      setTimeout(() => {
-
-        window.location.reload()
-      }, 200)
-      // toast.success('Successfully signed up!')
+      TokenService.setToken(response.token)
+      window.location.reload()
     }
   }
 
@@ -54,7 +57,8 @@ export const Signup: any = () => {
       }
       const result = await UploadService.upload(file);
       setImage(result.url)
-      alert('File uploaded successfully');
+      console.log('image', image)
+      // alert('File uploaded successfully');
       return result
     } catch (error) {
       console.error('Error uploading file:', error);
