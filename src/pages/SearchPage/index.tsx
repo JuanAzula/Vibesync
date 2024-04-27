@@ -2,58 +2,28 @@ import './SearchPage.css'
 import CategoryBtn from '../../styledComponents/categoryBtn'
 import { SearchBar } from '../../components/SearchBar/searchBar'
 import { useSearchContext } from '../../context/Search'
-import { useQuery } from '@tanstack/react-query'
+import { useQueryClient } from '@tanstack/react-query'
 import { type Album, type Playlist, type Track, type Artist } from '../../types/data'
 import { PlaylistCard } from '../../components/playlistCard/PlaylistCard'
 import { AlbumCard } from '../../components/albumCard'
 import { ArtistCard } from '../../components/artistCard'
 import SongCard from '../../components/songCard'
 import 'react-loading-skeleton/dist/skeleton.css'
-import CardSkeleton from './components/CardSkeleton'
-import { useEffect, useState } from 'react'
-import { TracksService } from '../../services/TracksService'
-import { PlaylistService } from '../../services/PlaylistService'
-import { AlbumService } from '../../services/AlbumService'
-import { ArtistService } from '../../services/ArtistService'
 
 const SearchPage: React.FC = () => {
   const { searchInput, handleSearch } = useSearchContext()
 
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 600)
-  }, [])
 
   const handleTopSearchClick = (value: string) => {
     handleSearch(value)
   }
 
-  const queryTracks = useQuery({
-    queryKey: ['tracks'],
-    queryFn: async () => await TracksService.getTracks()
-  })
-  const trackArray: Track[] = queryTracks.data || []
+  const queryClient = useQueryClient()
 
-  const queryPlaylist = useQuery({
-    queryKey: ['playlist'],
-    queryFn: async () => await PlaylistService.getPlaylists()
-  })
-  const playlistArray: Playlist[] = queryPlaylist.data || []
-
-  const queryAlbum = useQuery({
-    queryKey: ['album'],
-    queryFn: async () => await AlbumService.getAlbums()
-  })
-  const albumArray: Album[] = queryAlbum.data || []
-
-  const queryArtist = useQuery({
-    queryKey: ['artist'],
-    queryFn: async () => await ArtistService.getArtists()
-  })
-  const artistArray: Artist[] = queryArtist.data || []
+  const trackArray: Track[] = queryClient.getQueryData(['tracks']) || []
+  const playlistArray: Playlist[] = queryClient.getQueryData(['playlists']) || []
+  const albumArray: Album[] = queryClient.getQueryData(['albums']) || []
+  const artistArray: Artist[] = queryClient.getQueryData(['artists']) || []
 
   const filteredTracks = trackArray.filter((track) =>
     track.name.toLowerCase().includes(searchInput) ||
@@ -112,7 +82,7 @@ const SearchPage: React.FC = () => {
                 ))}
                 {filteredArtists?.length > 0 &&
                   filteredArtists?.map((artist) => (
-                    <ArtistCard key={`${artist?.id}-${artist?.genre?.join('-')}`} artist={artist} />
+                    <ArtistCard key={`${artist?.id}-${artist?.genres?.join('-')}`} artist={artist} />
                   ))}
                 {filteredPlaylists?.length > 0 &&
                   filteredPlaylists?.map((playlist) => (

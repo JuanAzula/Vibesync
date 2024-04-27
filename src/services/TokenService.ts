@@ -6,7 +6,7 @@ let token: string | null = null
 const BASE_URL = 'http://localhost:3333/api/login/valid'
 
 class TokenService {
-    static async setToken(newToken: string) {
+    static async setToken(newToken: string | null) {
         token = `Bearer ${newToken}`
         return token
     }
@@ -21,6 +21,7 @@ class TokenService {
                 console.log('false')
                 const refreshResponse = await LoginService.refreshToken()
                 TokenService.setToken(refreshResponse.accessToken)
+                window.localStorage.setItem('token', refreshResponse.accessToken)
                 return false
             }
         }

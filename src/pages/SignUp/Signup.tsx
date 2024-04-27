@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Signup.css'
 import logo from '/src/assets/logo.png'
-import { Toaster } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 import { UserService } from "../../services/UserService";
+import { UploadService } from "../../services/UploadService";
 
 export const Signup: any = () => {
 
@@ -45,6 +46,21 @@ export const Signup: any = () => {
     }
   }
 
+  const handleUpload: any = async () => {
+    try {
+      if (!file) {
+        console.error('No file selected');
+        return;
+      }
+      const result = await UploadService.upload(file);
+      setImage(result.url)
+      alert('File uploaded successfully');
+      return result
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
+
 
 
   const [nameError, setNameError] = useState("");
@@ -60,6 +76,7 @@ export const Signup: any = () => {
   const [birthdate, setBirthdate] = useState("");
   const [description, setDescription] = useState("");
   const [genreName, setGenreName] = useState("");
+  const [file, setFile] = useState<File | null>(null);
 
   console.log('birthdate', birthdate)
   const validateEmail = (input: string) => {
@@ -106,10 +123,6 @@ export const Signup: any = () => {
     setArtist(!artist);
   }
 
-  const handleImageChange = (event: any) => {
-    setImage(event.target.value);
-  }
-
   const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(event.target.value);
   }
@@ -130,9 +143,11 @@ export const Signup: any = () => {
     setGenreName(event.target.value);
   }
 
-  const handleImageInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    handleImageChange(event);
-  }
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setFile(event.target.files[0]);
+    }
+  };
 
   const handleGenderInputChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     handleGenderChange(event);
@@ -202,7 +217,22 @@ export const Signup: any = () => {
           onChange={handlePasswordInputChange}
         />
         <label htmlFor="image">Image</label>
-        <input type="file" onChange={handleImageInputChange} />
+        <div>
+          <input type="file" onChange={handleFileChange} />
+          <span onClick={() => {
+            toast.promise(
+              new Promise<any>((resolve, reject) => {
+                handleUpload()
+                  .then(setTimeout(() => resolve({}), 3000))
+                  .catch(reject);
+              }), {
+              loading: 'Adding image...',
+              success: 'Image added!',
+              error: 'Could not add Image'
+            }
+            )
+          }}>Upload</span>
+        </div>
         <label htmlFor="gender">Gender</label>
         <select name="gender" id="gender" onChange={handleGenderInputChange}>
           <option value="male">Male</option>

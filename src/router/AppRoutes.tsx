@@ -18,7 +18,13 @@ import { PlaylistPage } from '../pages/PlaylistPage'
 import { Toaster, toast } from 'sonner'
 import { TokenService } from '../services/TokenService'
 import { token } from '../services/TokenService'
+import { PlaylistService } from '../services/PlaylistService'
+import { AlbumService } from '../services/AlbumService'
+import { ArtistService } from '../services/ArtistService'
+import { useEffect } from 'react'
 
+const localToken = window.localStorage.getItem('token')
+TokenService.setToken(localToken)
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
   if (loggedUserJSON) {
@@ -43,10 +49,64 @@ const validateSession = async () => {
 
 }
 
+let countTracks = 0
 const getAllTracks = async () => {
   const tracks = await TracksService.getTracks()
+  if (!tracks && countTracks < 1) {
+    // setTimeout(() => {
+
+    getAllTracks()
+    // }, 1500)
+    countTracks++
+  }
+  if (!tracks) return null
+  console.log('yepa', tracks)
   return tracks
 }
+
+
+let countPlaylist = 0
+const getAllPlaylists = async () => {
+  const playlists = await PlaylistService.getPlaylists()
+  if (!playlists && countPlaylist < 1) {
+    // setTimeout(() => {
+    getAllPlaylists()
+
+    // }, 1500)
+    countPlaylist++
+  }
+  if (!playlists) return null
+  return playlists
+}
+
+let countAlbum = 0
+const getAllAlbums = async () => {
+  const albums = await AlbumService.getAlbums()
+  if (!albums && countAlbum < 1) {
+    // setTimeout(() => {
+
+    getAllAlbums()
+    // }, 1500)
+    countAlbum++
+  }
+  if (!albums) return null
+  return albums
+}
+
+let countArtist = 0
+const getAllArtists = async () => {
+  const artists = await ArtistService.getArtists()
+  if (!artists && countArtist < 1) {
+    // setTimeout(() => {
+
+    getAllArtists()
+    // }, 1500)
+    countArtist++
+  }
+  if (!artists) return null
+  return artists
+}
+
 export const AppRoutes = () => {
   const { audioRef, audioUrl } = useAudioContext()
 
@@ -54,17 +114,33 @@ export const AppRoutes = () => {
     queryKey: ['userLogged'],
     queryFn: async () => getUsers()
   })
+  console.log('user', queryUserLogged?.data)
   const queryValidateSession = useQuery({
     queryKey: ['validateSession'],
     queryFn: async () => await validateSession()
   })
   console.log('validate', queryValidateSession?.data)
+
   const queryAllTracks = useQuery({
     queryKey: ['tracks'],
     queryFn: async () => await getAllTracks()
   })
   localStorage.setItem('allTracks', JSON.stringify(queryAllTracks.data))
 
+  const queryPlaylists = useQuery({
+    queryKey: ['playlists'],
+    queryFn: async () => await getAllPlaylists()
+  })
+
+  const queryAlbums = useQuery({
+    queryKey: ['albums'],
+    queryFn: async () => await getAllAlbums()
+  })
+
+  const queryArtists = useQuery({
+    queryKey: ['artists'],
+    queryFn: async () => await getAllArtists()
+  })
   return (
     <SkeletonTheme baseColor='#1C1C26' highlightColor='#222230'>
       <BrowserRouter>
@@ -119,17 +195,42 @@ export const AppRoutes = () => {
                 )
             }
           />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/library" element={<LibraryPage />} />
-          <Route path="/library/playlists" element={<PlaylistPage />} />
-          <Route path="/library/tracks" element={<TracksPage />} />
+          <Route path="/search" element={
+            queryUserLogged.data
+              ? (
+                <SearchPage />
+              )
+              : (
+                <Login />
+              )
+          } />
+          <Route path="/library" element={
+            queryUserLogged.data
+              ? (
+                <LibraryPage />
+              )
+              : (
+                <Login />
+              )
+          } />
+          <Route path="/library/playlists" element={
+            queryUserLogged.data
+              ? (
+                <PlaylistPage />
+              )
+              : (
+                <Login />
+              )
+          } />
+          <Route path="/library/tracks" element={
+            queryUserLogged.data ? <TracksPage /> : <Login />} />
           <Route
             path="/user"
-            element={<UserPage user={queryUserLogged.data} />}
+            element={queryUserLogged.data ? <UserPage user={queryUserLogged.data} /> : <Login />}
           />
           <Route
             path="/profile"
-            element={<UserPage user={queryUserLogged.data} />}
+            element={queryUserLogged.data ? <UserPage user={queryUserLogged.data} /> : <Login />}
           />
           <Route
             path="/signup"

@@ -8,6 +8,10 @@ let count = 0
 
 const baseUrl = VITE_BASE_URL + 'login'
 
+setInterval(() => {
+    LoginService.refreshToken()
+}, 1000 * 20)
+
 export default class LoginService {
     static async LoginUser(logindata: any) {
         const response = await axios.post(baseUrl, logindata, {
@@ -20,6 +24,7 @@ export default class LoginService {
     static async refreshToken() {
         try {
             const response = await axios.get(VITE_BASE_URL + 'refresh', { withCredentials: true })
+            window.localStorage.setItem('token', response.data.accessToken)
             TokenService.setToken(response.data.accessToken)
             return response.data
         } catch (error: AxiosError | any) {

@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Login.css'
 import logo from '../../assets/logo.png'
 import LoginService from '../../services/LoginService'
+import { TokenService } from '../../services/TokenService'
 
 export const Login = () => {
 
@@ -17,7 +18,9 @@ export const Login = () => {
     if (response) {
       window.localStorage.setItem('userLogged', JSON.stringify(response.user))
       window.localStorage.setItem('token', JSON.stringify(response.token))
-      window.location.reload()
+      TokenService.setToken(response.token)
+      const navigate = useNavigate()
+      navigate('/')
     }
   }
 
