@@ -1,9 +1,11 @@
 import axios from 'axios'
+import { token } from './TokenService'
+const { VITE_BASE_URL } = import.meta.env
 
-const baseUrl = 'http://localhost:3333/api/upload'
+const baseUrl = VITE_BASE_URL + 'upload'
 
 class UploadService {
-    static async upload(file: any, { token }: any) {
+    static async upload(file: any) {
         const formData = new FormData();
         formData.append('file', file);
         const config = {

@@ -13,21 +13,38 @@ import { ConfigPage } from '../pages/ConfigPage/ConfigPage'
 import { Signup } from '../pages/SignUp/Signup'
 import { TracksPage } from '../pages/TracksPage'
 import { SkeletonTheme } from 'react-loading-skeleton'
-import { getTracks as fetchTracks } from '../services/dataService'
+import { TracksService } from '../services/TracksService'
 import { PlaylistPage } from '../pages/PlaylistPage'
 import { Toaster, toast } from 'sonner'
+import { TokenService } from '../services/TokenService'
+import { token } from '../services/TokenService'
 
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON)
+    // TokenService.setToken(user.token)
     toast('Welcome back!')
     return user
   }
 }
 
+const validateSession = async () => {
+  const response = await TokenService.validateToken(token)
+  console.log('response', response)
+  if (response === true) console.log('true')
+  if (response === false) {
+    console.log('false')
+    setTimeout(() => {
+      validateSession()
+    }, 1500)
+  }
+  return response
+
+}
+
 const getAllTracks = async () => {
-  const tracks = await fetchTracks()
+  const tracks = await TracksService.getTracks()
   return tracks
 }
 export const AppRoutes = () => {
@@ -37,14 +54,17 @@ export const AppRoutes = () => {
     queryKey: ['userLogged'],
     queryFn: async () => getUsers()
   })
+  const queryValidateSession = useQuery({
+    queryKey: ['validateSession'],
+    queryFn: async () => await validateSession()
+  })
+  console.log('validate', queryValidateSession?.data)
   const queryAllTracks = useQuery({
     queryKey: ['tracks'],
     queryFn: async () => await getAllTracks()
   })
   localStorage.setItem('allTracks', JSON.stringify(queryAllTracks.data))
-  const handleLoginSuccess = () => {
-    void queryUserLogged.refetch()
-  }
+
   return (
     <SkeletonTheme baseColor='#1C1C26' highlightColor='#222230'>
       <BrowserRouter>

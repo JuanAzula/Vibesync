@@ -1,10 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { InputField } from '../../../../styledComponents/inputField';
 import './changeProfileForm.css'
-import {toast} from 'sonner'
+import { toast } from 'sonner'
 import { User } from '../../../../types/data';
 import { UserService } from '../../../../services/UserService';
 import { Dispatch, SetStateAction } from 'react';
+import { token } from '../../../../services/TokenService';
 
 type Props = {
   user: User
@@ -21,7 +22,7 @@ export const ChangeProfileForm = ({ user, setEmail, setOpenModal }: Props) => {
       const id = user.id;
       const userId = 'userId';
       data[userId] = id;
-      const response = await UserService.patchUser(data);
+      const response = await UserService.patchUser(data, token);
       setEmail(data.email)
       if (response) setOpenModal(false)
       reset()
