@@ -60,7 +60,7 @@ export class UserService {
 
     static async postUser(user: any) {
         try {
-            const response = await axios.post(VITE_BASE_URL, user)
+            const response = await axios.post(VITE_BASE_URL + 'users', user)
             return response.data
         } catch (error) {
             console.log(error)
