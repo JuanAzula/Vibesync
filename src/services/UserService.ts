@@ -84,6 +84,7 @@ export class UserService {
         try {
             window.localStorage.removeItem('userLogged')
             window.localStorage.removeItem('token')
+            window.localStorage.removeItem('countInterval')
         } catch (error) {
             console.log(error)
         }

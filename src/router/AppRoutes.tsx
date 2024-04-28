@@ -15,23 +15,25 @@ import { TracksPage } from '../pages/TracksPage'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { TracksService } from '../services/TracksService'
 import { PlaylistPage } from '../pages/PlaylistPage'
-import { Toaster, toast } from 'sonner'
+import { Toaster } from 'sonner'
 import { TokenService } from '../services/TokenService'
 import { token } from '../services/TokenService'
 import { PlaylistService } from '../services/PlaylistService'
 import { AlbumService } from '../services/AlbumService'
 import { ArtistService } from '../services/ArtistService'
+import { useEffect, useState } from 'react'
 
-const localToken = window.localStorage.getItem('token')
-TokenService.setToken(localToken)
+const localToken = await window.localStorage.getItem('token')
+if (localToken) {
+  await TokenService.setToken(localToken)
+}
 const getUsers = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON)
-    // TokenService.setToken(user.token)
-    toast('Welcome back!')
     return user
   }
+  return false
 }
 
 const validateSession = async () => {
@@ -43,6 +45,7 @@ const validateSession = async () => {
     setTimeout(() => {
       validateSession()
     }, 1500)
+    return false
   }
   return response
 
@@ -52,11 +55,9 @@ let countTracks = 0
 const getAllTracks = async () => {
   const tracks = await TracksService.getTracks()
   if (!tracks && countTracks < 1) {
-    // setTimeout(() => {
-
     getAllTracks()
-    // }, 1500)
     countTracks++
+    return false
   }
   if (!tracks) return null
   console.log('yepa', tracks)
@@ -68,11 +69,9 @@ let countPlaylist = 0
 const getAllPlaylists = async () => {
   const playlists = await PlaylistService.getPlaylists()
   if (!playlists && countPlaylist < 1) {
-    // setTimeout(() => {
     getAllPlaylists()
-
-    // }, 1500)
     countPlaylist++
+    return false
   }
   if (!playlists) return null
   return playlists
@@ -82,11 +81,9 @@ let countAlbum = 0
 const getAllAlbums = async () => {
   const albums = await AlbumService.getAlbums()
   if (!albums && countAlbum < 1) {
-    // setTimeout(() => {
-
     getAllAlbums()
-    // }, 1500)
     countAlbum++
+    return false
   }
   if (!albums) return null
   return albums
@@ -96,11 +93,9 @@ let countArtist = 0
 const getAllArtists = async () => {
   const artists = await ArtistService.getArtists()
   if (!artists && countArtist < 1) {
-    // setTimeout(() => {
-
     getAllArtists()
-    // }, 1500)
     countArtist++
+    return false
   }
   if (!artists) return null
   return artists
@@ -108,6 +103,21 @@ const getAllArtists = async () => {
 
 export const AppRoutes = () => {
   const { audioRef, audioUrl } = useAudioContext()
+  const [timer, setTimer] = useState(0)
+
+  const handleTimer = () => {
+    setTimeout(() => {
+      queryUserLogged.refetch()
+      setTimer(timer + 1)
+    }, 1000)
+  }
+
+  useEffect(() => {
+    if (!window.localStorage.getItem('userLogged')) {
+      console.log('counting')
+      handleTimer()
+    }
+  }, [timer])
 
   const queryUserLogged = useQuery({
     queryKey: ['userLogged'],
@@ -126,17 +136,17 @@ export const AppRoutes = () => {
   })
   localStorage.setItem('allTracks', JSON.stringify(queryAllTracks.data))
 
-  const queryPlaylists = useQuery({
+  useQuery({
     queryKey: ['playlists'],
     queryFn: async () => await getAllPlaylists()
   })
 
-  const queryAlbums = useQuery({
+  useQuery({
     queryKey: ['albums'],
     queryFn: async () => await getAllAlbums()
   })
 
-  const queryArtists = useQuery({
+  useQuery({
     queryKey: ['artists'],
     queryFn: async () => await getAllArtists()
   })

@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Login.css'
 import logo from '../../assets/logo.png'
 import LoginService from '../../services/LoginService'
 import { TokenService } from '../../services/TokenService'
+// import { handleToken } from '../../router/AppRoutes'
 
 export const Login = () => {
-
+  const navigate = useNavigate()
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault()
 
@@ -16,10 +17,10 @@ export const Login = () => {
     console.log('response', response.user, response.token)
 
     if (response) {
-      window.localStorage.setItem('userLogged', JSON.stringify(response.user))
-      window.localStorage.setItem('token', JSON.stringify(response.token))
-      TokenService.setToken(response.token)
-      window.location.reload()
+      await window.localStorage.setItem('userLogged', JSON.stringify(response.user))
+      await window.localStorage.setItem('token', JSON.stringify(response.token))
+      await TokenService.setToken(response.token)
+      navigate('/')
     }
   }
 

@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Signup.css'
 import logo from '/src/assets/logo.png'
 import { toast, Toaster } from 'react-hot-toast';
 import { UserService } from "../../services/UserService";
 import { UploadService } from "../../services/UploadService";
-import { ArtistService } from "../../services/ArtistService";
 import { TokenService } from "../../services/TokenService";
 
 export const Signup: any = () => {
-
+  const navigate = useNavigate()
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault()
 
@@ -37,15 +36,15 @@ export const Signup: any = () => {
         ?
         await UserService.postUser(user)
         :
-        await ArtistService.postArtist(artist)
+        await UserService.postUser(user)
 
     console.log('response', response)
     console.log('response', response.user, response.token)
     if (response) {
-      window.localStorage.setItem('userLogged', JSON.stringify(response.user))
-      window.localStorage.setItem('token', JSON.stringify(response.token))
-      TokenService.setToken(response.token)
-      window.location.reload()
+      await window.localStorage.setItem('userLogged', JSON.stringify(response.user))
+      await window.localStorage.setItem('token', JSON.stringify(response.token))
+      await TokenService.setToken(response.token)
+      navigate('/')
     }
   }
 
@@ -58,7 +57,6 @@ export const Signup: any = () => {
       const result = await UploadService.upload(file);
       setImage(result.url)
       console.log('image', image)
-      // alert('File uploaded successfully');
       return result
     } catch (error) {
       console.error('Error uploading file:', error);
