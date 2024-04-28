@@ -10,10 +10,11 @@ import { token } from '../../../../services/TokenService';
 type Props = {
   user: User
   setEmail: Dispatch<SetStateAction<string>>;
+  setName: Dispatch<SetStateAction<string>>;
   setOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
-export const ChangeProfileForm = ({ user, setEmail, setOpenModal }: Props) => {
+export const ChangeProfileForm = ({ user, setEmail, setName, setOpenModal }: Props) => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -22,8 +23,12 @@ export const ChangeProfileForm = ({ user, setEmail, setOpenModal }: Props) => {
       const id = user.id;
       const userId = 'userId';
       data[userId] = id;
+      console.log(data)
       const response = await UserService.patchUser(data, token);
+      console.log(response)
+      window.localStorage.setItem('userLogged', JSON.stringify(response.data))
       setEmail(data.email)
+      setName(data.name)
       if (response) setOpenModal(false)
       reset()
       toast.success('Your profile information has been updated')
@@ -35,6 +40,8 @@ export const ChangeProfileForm = ({ user, setEmail, setOpenModal }: Props) => {
     <div className='changeProfileForm'>
       <h2>Edit Profile</h2>
       <form action="" onSubmit={onSubmit}>
+        <InputField type='text' placeholder='name' {...register('name', { required: { value: true, message: "Name is required" } })} id='name'>
+        </InputField>
         <InputField
           type='email'
           placeholder="name@hotmail.com"

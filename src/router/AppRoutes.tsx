@@ -108,6 +108,10 @@ export const AppRoutes = () => {
   const handleTimer = () => {
     setTimeout(() => {
       queryUserLogged.refetch()
+      queryAllTracks.refetch()
+      queryAllAlbums.refetch()
+      queryAllArtists.refetch()
+      queryAllPlaylists.refetch()
       setTimer(timer + 1)
     }, 1000)
   }
@@ -136,17 +140,17 @@ export const AppRoutes = () => {
   })
   localStorage.setItem('allTracks', JSON.stringify(queryAllTracks.data))
 
-  useQuery({
+  const queryAllPlaylists = useQuery({
     queryKey: ['playlists'],
     queryFn: async () => await getAllPlaylists()
   })
 
-  useQuery({
+  const queryAllAlbums = useQuery({
     queryKey: ['albums'],
     queryFn: async () => await getAllAlbums()
   })
 
-  useQuery({
+  const queryAllArtists = useQuery({
     queryKey: ['artists'],
     queryFn: async () => await getAllArtists()
   })
