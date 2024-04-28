@@ -53,7 +53,7 @@ const SongCard = ({ track, isActive }: Props) => {
       <img className="songcard-img" src={track.thumbnail} />
       <div className="songcard-track-info">
         <h3>{track.name}</h3>
-        {isActive && <p>{track.artist}</p>}
+        <p>{track.artist}</p>
       </div>
     </div>
   )
