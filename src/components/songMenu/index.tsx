@@ -13,29 +13,26 @@ type ClickPosition = {
   y: number;
 };
 
-export const SongMenu = ({track, clickPosition} : Props) => {
+export const SongMenu = ({ track, clickPosition }: Props) => {
 
   const menuStyle: React.CSSProperties = {
     position: 'fixed',
-    top: clickPosition.y + 'px', 
-    right: '0', 
+    top: clickPosition.y + 'px',
+    right: '0',
     transform: 'translateX(-50%)',
   };
 
   const deleteSongFromPlaylist = () => {
 
-  } 
+  }
 
   const playSong = () => {
-      //se puede hacer ya
   }
 
   const goToArtist = () => {
-      //se puede hacer ya
   }
 
   const goToAlbum = () => {
-      //se puede hacer ya
   }
 
   const addToPlaylist = () => {

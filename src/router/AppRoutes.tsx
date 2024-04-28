@@ -38,10 +38,7 @@ const getUsers = () => {
 
 const validateSession = async () => {
   const response = await TokenService.validateToken(token)
-  console.log('response', response)
-  if (response === true) console.log('true')
   if (response === false) {
-    console.log('false')
     setTimeout(() => {
       validateSession()
     }, 1500)
@@ -60,7 +57,6 @@ const getAllTracks = async () => {
     return false
   }
   if (!tracks) return null
-  console.log('yepa', tracks)
   return tracks
 }
 
@@ -109,16 +105,15 @@ export const AppRoutes = () => {
     setTimeout(() => {
       queryUserLogged.refetch()
       queryAllTracks.refetch()
+      queryAllPlaylists.refetch()
       queryAllAlbums.refetch()
       queryAllArtists.refetch()
-      queryAllPlaylists.refetch()
       setTimer(timer + 1)
     }, 1000)
   }
 
   useEffect(() => {
     if (!window.localStorage.getItem('userLogged')) {
-      console.log('counting')
       handleTimer()
     }
   }, [timer])
@@ -127,12 +122,10 @@ export const AppRoutes = () => {
     queryKey: ['userLogged'],
     queryFn: async () => getUsers()
   })
-  console.log('user', queryUserLogged?.data)
-  const queryValidateSession = useQuery({
+  useQuery({
     queryKey: ['validateSession'],
     queryFn: async () => await validateSession()
   })
-  console.log('validate', queryValidateSession?.data)
 
   const queryAllTracks = useQuery({
     queryKey: ['tracks'],

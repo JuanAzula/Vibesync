@@ -4,37 +4,71 @@ import './changeProfileForm.css'
 import { toast } from 'sonner'
 import { User } from '../../../../types/data';
 import { UserService } from '../../../../services/UserService';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { token } from '../../../../services/TokenService';
+import { UploadService } from '../../../../services/UploadService';
 
 type Props = {
   user: User
   setEmail: Dispatch<SetStateAction<string>>;
   setName: Dispatch<SetStateAction<string>>;
+  setProfile: Dispatch<SetStateAction<string>>;
   setOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
-export const ChangeProfileForm = ({ user, setEmail, setName, setOpenModal }: Props) => {
+export const ChangeProfileForm = ({ user, setEmail, setName, setProfile, setOpenModal }: Props) => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  const [file, setFile] = useState<File | null>(null);
+  const [image, setImage] = useState<string>(user?.image || '');
 
   const onSubmit = handleSubmit(async (data) => {
     if (Object.keys(errors).length === 0) {
       const id = user.id;
       const userId = 'userId';
       data[userId] = id;
-      console.log(data)
-      const response = await UserService.patchUser(data, token);
+      const updatedUser = {
+        ...data,
+        image
+      }
+      console.log('data', updatedUser)
+      const response = await UserService.patchUser(updatedUser, token);
       console.log(response)
       window.localStorage.setItem('userLogged', JSON.stringify(response.data))
+      console.log('response', response.data)
       setEmail(data.email)
       setName(data.name)
+      const userLogged = JSON.parse(window.localStorage.getItem('userLogged') || '{}')
+      if (userLogged) {
+        setProfile(userLogged.image)
+      }
       if (response) setOpenModal(false)
       reset()
       toast.success('Your profile information has been updated')
     }
   })
 
+
+  const handleUpload: any = async () => {
+    try {
+      if (!file) {
+        console.error('No file selected');
+        return;
+      }
+      const result = await UploadService.upload(file);
+      setImage(result.url)
+      console.log('image', image)
+      return result
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setFile(event.target.files[0]);
+    }
+  };
 
   return (
     <div className='changeProfileForm'>
@@ -57,7 +91,22 @@ export const ChangeProfileForm = ({ user, setEmail, setName, setOpenModal }: Pro
         ></InputField>
 
         {errors.email && typeof errors.email.message === 'string' && <span className='error-msg'>{errors.email.message}</span>}
-
+        <div>
+          <input type="file" onChange={handleFileChange} />
+          <span style={{ cursor: 'pointer', border: '0.4px solid black', padding: '0.2', borderRadius: '0.5rem' }} onClick={() => {
+            toast.promise(
+              new Promise<any>((resolve, reject) => {
+                handleUpload()
+                  .then(setTimeout(() => resolve({}), 3000))
+                  .catch(reject);
+              }), {
+              loading: 'Adding image...',
+              success: 'Image added!',
+              error: 'Could not add Image'
+            }
+            )
+          }}>Upload</span>
+        </div>
         <select
           className='genderInput'
           id="gender"

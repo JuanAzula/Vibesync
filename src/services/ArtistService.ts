@@ -1,7 +1,9 @@
 import axios from "axios"
 import { token } from "./TokenService"
 
-const baseUrl = 'http://localhost:3333/api/artists'
+const { VITE_BASE_URL } = import.meta.env
+
+const baseUrl = VITE_BASE_URL + 'artists'
 export class ArtistService {
     static async getArtists() {
         try {

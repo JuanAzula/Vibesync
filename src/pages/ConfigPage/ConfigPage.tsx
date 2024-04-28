@@ -16,6 +16,7 @@ export const ConfigPage = ({ user }: Props) => {
   const [openModal, setOpenModal] = useState(false);
   const [name, setName] = useState(user?.name || '');
   const [email, setEmail] = useState(user?.email || '');
+  const [profile, setProfile] = useState(user?.image || '');
 
   const navigate = useNavigate()
   const logout = () => {
@@ -47,7 +48,7 @@ export const ConfigPage = ({ user }: Props) => {
           <div className='configpage-user-pic-and-name'>
             <img
               className='configpage-profile-pic'
-              src={user?.image}
+              src={profile}
               alt="profile-pic"
             />
             <div className='configpage-user-text'>
@@ -83,7 +84,7 @@ export const ConfigPage = ({ user }: Props) => {
             Change Profile Info
           </p>
           {openModal && <Modal onOpen={setOpenModal}>
-            <ChangeProfileForm setOpenModal={setOpenModal} setName={setName} setEmail={setEmail} user={user} />
+            <ChangeProfileForm setOpenModal={setOpenModal} setName={setName} setEmail={setEmail} setProfile={setProfile} user={user} />
           </Modal>}
         </div>
       </section>

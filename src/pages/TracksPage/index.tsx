@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { PlaylistService } from '../../services/PlaylistService'
 
-///LE TIENE QUE VENIR LA PLAYLIST /FAVSONGS POR PROPS, LA PLAYLIST POR LO MENOS
 export const TracksPage = () => {
   const [menuSwitch, setMenuSwitch] = useState(0)
   const location = useLocation();
@@ -18,16 +17,8 @@ export const TracksPage = () => {
   useEffect(() => {
     const selectSongsToDisplay = async () => {
       if (accessedFrom === 'liked-songs') {
-        console.log('VIENE DE LIKED SONGS')
-        console.log(accessedFrom)
-        ///fetch del array de favsongs del usuario (se llamarán songs)
       } else if (accessedFrom.includes('playlist')) {
-        ///fetch de la playlist con id === accessedFrom (se llamarán songs)
-        console.log('VIENE DE PLAYLISTS')
-        console.log('USERID' + user.id)
-        console.log(accessedFrom)
-        const response = await PlaylistService.getPlaylist(user?.id, accessedFrom)
-        console.log(response)
+        await PlaylistService.getPlaylist(user?.id, accessedFrom)
       }
     }
     selectSongsToDisplay();

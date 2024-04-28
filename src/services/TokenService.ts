@@ -2,8 +2,9 @@ import axios, { AxiosError } from "axios";
 import LoginService from "./LoginService";
 
 let token: string | null = null
+const { VITE_BASE_URL } = import.meta.env
 
-const BASE_URL = 'http://localhost:3333/api/login/valid'
+const BASE_URL = VITE_BASE_URL + 'login/valid'
 
 class TokenService {
     static async setToken(newToken: string | null) {

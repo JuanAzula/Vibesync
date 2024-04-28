@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useAudioReducer () {
+export function useAudioReducer() {
   const initialState = localStorage.getItem('audioPlayerState')
   const initialStateParsed = JSON.parse(initialState || '{}')
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -102,7 +102,7 @@ export function useAudioReducer () {
         localStorage.setItem('localTrack', JSON.stringify(track))
         setTimeout(() => {
           getSongDuration(audioRef, setSongDuration)
-        }, 100)
+        }, 170)
         setIsPlaying(false)
       } else if (randomNumber === trackId - 1) {
         randomNumber = trackId - 2
@@ -156,7 +156,6 @@ export function useAudioReducer () {
     const tracks = JSON.parse(storageTracks || '{}')
     const previousStorageTrack = localStorage.getItem('previousTrack')
     const previousTrackObj = previousStorageTrack ? JSON.parse(previousStorageTrack) : trackId
-    console.log('previousTrackObj', previousTrackObj)
     const previousTrackIndex = previousTrackObj[previousTrackObj.length + count]
     const track = tracks[previousTrackIndex - 1]
     setTimeout(() => {

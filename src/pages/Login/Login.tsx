@@ -4,7 +4,6 @@ import './Login.css'
 import logo from '../../assets/logo.png'
 import LoginService from '../../services/LoginService'
 import { TokenService } from '../../services/TokenService'
-// import { handleToken } from '../../router/AppRoutes'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -13,8 +12,6 @@ export const Login = () => {
 
     const response = await LoginService.LoginUser({ username, password, artist })
 
-    console.log('response', response)
-    console.log('response', response.user, response.token)
 
     if (response) {
       await window.localStorage.setItem('userLogged', JSON.stringify(response.user))

@@ -48,7 +48,7 @@ export const SongInLine = ({ track, menuSwitch, menuSwitchTrigger }: Props) => {
   }, [])
 
   const request = () => {
-    //AQUÍ SE HACE LA PETICIÓN PARA AÑADIR LA CANCIÓN AL ARRAY DE USUARIO DE FAVSONGS
+    //HERE THE REQUEST FOR THE FAVORITES
   }
 
   const handleClick = (event: MouseEvent) => {
