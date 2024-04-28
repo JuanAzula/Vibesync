@@ -13,7 +13,7 @@ type ClickPosition = {
   y: number;
 };
 
-export const SongMenu = ({ track, clickPosition }: Props) => {
+export const SongMenu = ({ clickPosition }: Props) => {
 
   const menuStyle: React.CSSProperties = {
     position: 'fixed',

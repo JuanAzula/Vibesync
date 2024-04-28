@@ -1,9 +1,9 @@
 export const openModal = (
-  onOpen: React.Dispatch<React.SetStateAction<boolean>>, 
-  event,
+  onOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  event: any,
   onLoginClicked: React.Dispatch<React.SetStateAction<boolean>>,
   onSignUpClicked: React.Dispatch<React.SetStateAction<boolean>>
-  ) => {
+) => {
   onOpen(true);
 
   const loginBtn = document.querySelector('.loginBtn');
@@ -12,7 +12,7 @@ export const openModal = (
     onLoginClicked(true);
     onSignUpClicked(false)
   }
-  else if (event && event.target === signUpBtn ) {
+  else if (event && event.target === signUpBtn) {
     onLoginClicked(false);
     onSignUpClicked(true)
   }
